@@ -2,7 +2,7 @@
 
 ---
 
-## 🖼️ ![Logo del proyecto](assets/logo.png)
+## ![Logo del proyecto](assets/logo.png)
 
 ---
 
