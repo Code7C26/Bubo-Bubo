@@ -1,13 +1,14 @@
-# 🧠 Bubo²
+# Bubo²
 
 ---
 Logo del proyecto
+holasholahola
 ## ![Logo del proyecto](assets/logo.png)
 
 
 ---
 
-## 📌 Descripción del Problema
+## Descripción del Problema
 
 Este proyecto surge a partir de las siguientes problemáticas:
 
@@ -22,7 +23,7 @@ Este proyecto surge a partir de las siguientes problemáticas:
 
 ---
 
-## 💡 Propuesta de Solución
+## Propuesta de Solución
 
 La solución propuesta consiste en desarrollar una plataforma digital que combine:
 
@@ -42,7 +43,7 @@ La solución propuesta consiste en desarrollar una plataforma digital que combin
 
 ---
 
-## 🎯 Público Objetivo
+## Público Objetivo
 
 Este proyecto está dirigido a:
 
@@ -57,7 +58,7 @@ Este proyecto está dirigido a:
 
 ---
 
-### 💻 Software
+### Software
 
 - Lenguajes de programación:
   - JavaScript
