@@ -1,8 +1,10 @@
 # Bubo²
 
 ---
+Logo del proyecto
 holasholahola
 ## ![Logo del proyecto](assets/logo.png)
+
 
 ---
 
