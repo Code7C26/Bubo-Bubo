@@ -1,8 +1,17 @@
 //VARIABLES
+//TablaIngresos
 const BTAI = document.getElementById("BTAI");
 const POPUPI = document.getElementById("POPUPI");
 const BTAgI= document.getElementById("BTAgI");
+const POPUPIE=document.getElementById("POPUPIE");
+//TablaGastos
+const BTAG=document.getElementById("BTAG");
+const POPUPG=document.getElementById("POPUPG");
+const BTAgG=document.getElementById("BTAgG");
+const POPUPGE=document.getElementById("POPUPGE");
 
+
+//TABLAS
 const TI = document.getElementById("TI");
 const TG = document.getElementById("TG");
 const TO = document.getElementById("TO");
@@ -10,18 +19,26 @@ const TO = document.getElementById("TO");
 //BOTON ACEPTAR PARA EDITAR
 const BAcI = document.getElementById("BAcI");
 BAcI.addEventListener("click", AceptarEditar);
+const BAcG = document.getElementById("BAcG");
+BAcG.addEventListener("click", AceptarEditar);
 
 let FilaEditar;
 
-//APRETA MAS Y MUESTRA EL POPUP
-BTAI.addEventListener("click",MostrarPopup);
-//APRETA AGREGAR Y AGREGA EL ELEMENTO
+//APRETA MAS Y MUESTRA EL POPUP GASTO
+BTAG.addEventListener("click",MostrarPopupG);
+//APRETA AGREGAR Y AGREGA EL ELEMENTO EN GASTO
+BTAgG.addEventListener("click",AgregarGasto);
+//APRETA MAS Y MUESTRA EL POPUP INGRESO
+BTAI.addEventListener("click",MostrarPopupI);
+//APRETA AGREGAR Y AGREGA EL ELEMENTO EN INGRESO
 BTAgI.addEventListener("click",AgregarIngreso);
-
 //FUNCIONES
 
-function MostrarPopup(){
+function MostrarPopupI(){
     POPUPI.style.display="block";
+}
+function MostrarPopupG(){
+    POPUPG.style.display="block";
 }
 
 function AgregarIngreso(){
@@ -63,6 +80,47 @@ function AgregarIngreso(){
     }
     
 }
+
+function AgregarGasto(){
+    
+    const EG = document.getElementById("EG").value;
+    const MG = Number(document.getElementById("MG").value);
+    const FVG = document.getElementById("FVG").value;
+    
+    if (FVG=="" || EG=="" || MG<=0 || FVG=="Seleccionar"){
+        alert("LLene todos los campos para continuar");
+    }
+    else{
+       
+        const Datos=[EG,MG,FVG]
+        const Fila= document.createElement("tr");
+        const FGB=document.getElementById("FGB");
+        POPUPG.style.display="none";
+        for (let i=0; i<Datos.length;i++){
+            const Celda=document.createElement("td");
+            Celda.textContent=(Datos[i]);
+            Fila.appendChild(Celda);
+        }
+        const BEG=document.createElement("button");
+        BEG.textContent="Editar";
+        BEG.addEventListener("click", BotonEditar);
+        const CBT=document.createElement("td");
+        CBT.appendChild(BEG);
+        const BBG=document.createElement("button");
+        BBG.textContent="Borrar";
+        BBG.addEventListener("click", BotonBorrar);
+        CBT.appendChild(BBG);
+        Fila.appendChild(CBT);
+        TG.appendChild(Fila);
+        TG.appendChild(FGB);
+        document.getElementById("EG").value = "";
+        document.getElementById("MG").value = "";
+        document.getElementById("FVG").value = "Seleccionar";
+
+    }
+    
+}
+
 function BotonEditar(event){
     const Tabla=event.target.parentElement.parentElement.parentElement;
     if (Tabla==TI){
@@ -80,7 +138,16 @@ function BotonEditar(event){
         
     }
     else if (Tabla==TG){
-        alert("estoy en tabla gasto");
+        const Fila = event.target.parentElement.parentElement;
+        const DatosFila = [];
+        FilaEditar=Fila;
+        for (let i = 0; i < 3; i++) {
+         DatosFila[i] = Fila.children[i].textContent;
+        }
+        document.getElementById("EGE").value = DatosFila[0]
+        document.getElementById("MGE").value = DatosFila[1]
+        document.getElementById("FGE").value = DatosFila[2]
+        POPUPGE.style.display="block";
 
     }
     else{
@@ -89,6 +156,7 @@ function BotonEditar(event){
     }
 
 }
+
 function AceptarEditar(){
     const Tabla=FilaEditar.parentElement;
       if (Tabla==TI){
@@ -107,7 +175,18 @@ function AceptarEditar(){
         
     }
     else if (Tabla==TG){
-        alert("estoy en tabla gasto");
+        const EGE = document.getElementById("EGE").value;
+        const MGE = Number(document.getElementById("MGE").value);
+        const FVE = document.getElementById("FVE").value;
+        if (EGE == "" || MGE <= 0 || FVE=="Seleccionar"){
+            alert("Llene todos los campos para continuar");  
+        }
+        else {
+        FilaEditar.children[0].textContent=EGE;
+        FilaEditar.children[1].textContent=MGE;
+        FilaEditar.children[2].textContent=FVE;
+        POPUPGE.style.display="none";
+        }
 
     }
     else{
@@ -115,6 +194,21 @@ function AceptarEditar(){
 
     }
 }
-function BotonBorrar(){
 
+function BotonBorrar(event){
+     const Tabla = event.target.parentElement.parentElement.parentElement;
+      if (Tabla==TI){
+        const Fila = event.target.parentElement.parentElement;
+        Fila.remove();
+    }
+    else if (Tabla==TG){
+        const Fila = event.target.parentElement.parentElement;
+        Fila.remove();
+
+    }
+    else{
+        const Fila = event.target.parentElement.parentElement;
+        Fila.remove();
+
+    }
 }
