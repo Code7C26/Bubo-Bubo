@@ -41,8 +41,7 @@
             <td>
                 Total:
             </td>
-            <td>
-                400000
+            <td id="ToI">
             </td>
         </tr>
     </table>
@@ -57,8 +56,8 @@
             <input type="text" id="EI">
 
             <label>Monto</label>
-            <input type="number" id="MI">
-
+            <input type="number" id="MI" onkeydown="return event.key != 'e' && event.key != 'E' 
+            && event.key != ',' && event.key != '.' && event.key != '+'">
             <label>Frecuencia</label>
             <select id="FI">
                 <option value="Seleccionar">Seleccionar</option>
@@ -85,7 +84,8 @@
             <input type="text" id="EIE">
 
             <label>Monto</label>
-            <input type="number" id="MIE">
+            <input type="number" id="MIE" onkeydown="return event.key != 'e' && event.key != 'E'
+            && event.key != ',' && event.key != '.' && event.key != '+'">
 
             <label>Frecuencia</label>
             <select id="FIE">
@@ -118,8 +118,7 @@
             <td>
                 Total:
             </td>
-            <td>
-                40000
+            <td id="ToG">
             </td>
         </tr>
     </table> 
@@ -134,7 +133,8 @@
             <input type="text" id="EG">
 
             <label>Monto</label>
-            <input type="number" id="MG">
+            <input type="number" id="MG" onkeydown="return event.key != 'e' && event.key != 'E'
+            && event.key != ',' && event.key != '.' && event.key != '+'">
 
             <label>Fijo/Variable</label>
             <select id="FVG">
@@ -159,7 +159,8 @@
             <input type="text" id="EGE">
 
             <label>Monto</label>
-            <input type="number" id="MGE">
+            <input type="number" id="MGE" onkeydown="return event.key != 'e' && event.key != 'E'
+            && event.key != ',' && event.key != '.' && event.key != '+'">
 
             <label>Fijo/Variable</label>
             <select id="FVE">
@@ -171,6 +172,18 @@
         </div>
     </div>
 
+    <table>
+        <tr>
+            <td>
+                Restante:
+            </td>
+            <td id="TGI">
+                0
+            </td>
+        </tr>
+    </table>
+    <h3>TODAS LOS RESULTADOS DE NUESTRA PAGINA SON APROXIMADOS</h3>
+
    
     <h2>Objetivos</h2>
     <table id="TO">
@@ -181,20 +194,83 @@
             <td>Tiempo limite</td>
             <td>Prioridad</td>
         </tr>
-
         <tr>
-            <td>Auto</td>
-            <td>1000000</td>
-            <td>200000</td>
-            <td>1 año</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>
-                <button>+</button>
+            <td id="FBO">
+                <button id="BTAO">+</button>
             </td>
         </tr> 
     </table>
+    <div id="POPUPO" style="display: none;">
+
+        <div class="popup-contenido">
+
+            <h2>Agregar un Objetivo</h2>
+
+            <label>Etiqueta</label>
+            <input type="text" id="EO">
+
+            <label>Valor</label>
+            <input type="number" id="MO" onkeydown="return event.key != 'e' && event.key != 'E'
+            && event.key != ',' && event.key != '.' && event.key != '+'">
+
+            <label>Ahorrado</label>
+            <input type="number" id="AO" onkeydown="return event.key != 'e' && event.key != 'E'
+            && event.key != ',' && event.key != '.' && event.key != '+'">
+
+            <label>Fecha límite</label>
+            <input type="date" id="FLO">
+
+            <label>Prioridad</label>
+            <select id="PO">
+                <option value="Seleccionar">Seleccionar</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <button id="BTAgO">Agregar</button>
+
+        </div>
+
+    </div>
+       <div id="POPUPOE" style="display: none;">
+
+        <div class="popup-contenido">
+
+            <h2>Editar un Objetivo</h2>
+
+            <label>Etiqueta</label>
+            <input type="text" id="EOE">
+
+            <label>Valor</label>
+            <input type="number" id="MOE" onkeydown="return event.key != 'e' && event.key != 'E'
+            && event.key != ',' && event.key != '.' && event.key != '+'">
+
+            <label>Ahorrado</label>
+            <input type="number" id="AOE" onkeydown="return event.key != 'e' && event.key != 'E'
+            && event.key != ',' && event.key != '.' && event.key != '+'">
+
+            <label>Fecha límite</label>
+            <input type="date" id="FLOE">
+
+            <label>Prioridad</label>
+            <select id="POE">
+                <option value="Seleccionar">Seleccionar</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <button id="BAcO">Aceptar</button>
+
+        </div>
+
+    </div>
+
     <script src="../JS/BasAdmin.js"></script>
 </body>
 </html>
