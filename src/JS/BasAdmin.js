@@ -46,11 +46,13 @@ BTAO.addEventListener("click", MostrarPopupO);
 //APRETA AGREGAR Y AGREGA EL ELEMENTO EN OBJETIVOS
 BTAgO.addEventListener("click",AgregarObjetivo);
 
+const BAcAD = document.getElementById("BAcAD");
+BAcAD.addEventListener("click", DistriAhorro);
+
 //TOTALES
 const ToI=document.getElementById("ToI");
 const ToG=document.getElementById("ToG");
 const TGI=document.getElementById("TGI");
-
 
 //FUNCIONES
 //Mostrarpopups
@@ -146,46 +148,55 @@ function AgregarGasto(){
 }
 function AgregarObjetivo(){
     
+    // Contamos las filas actuales (descontando encabezado y fila del botón +)
+    if (TO.rows.length - 2 >= 5) {
+        alert("Solo puedes agregar un máximo de 5 objetivos.");
+        POPUPO.style.display = "none";
+        return; // Detiene la función para que no agregue nada más
+    }
+
     const EO = document.getElementById("EO").value;
     const MO = Number(document.getElementById("MO").value);
     const AO = Number(document.getElementById("AO").value);
-    const FLO = document.getElementById("FLO").value;
-    const PO = document.getElementById("PO").value;
+    const PO = document.getElementById("PO").value; // Prioridad (Alta, Media, Baja)
     
-    if (AO<0 || EO=="" || MO<=0 || FLO=="" || PO=="Seleccionar"){
-        alert("LLene todos los campos para continuar");
+    if (AO < 0 || EO == "" || MO <= 0 || PO == "Seleccionar"){
+        alert("Llene todos los campos para continuar");
     }
     else{
-       
-        const Datos=[EO,MO,AO,FLO,PO]
-        const Fila= document.createElement("tr");
-        const FBO=document.getElementById("FBO");
-        POPUPO.style.display="none";
-        for (let i=0; i<Datos.length;i++){
-            const Celda=document.createElement("td");
-            Celda.textContent=(Datos[i]);
+        const Datos = [EO, MO, AO, PO];
+        const Fila = document.createElement("tr");
+        const filaBoton = document.getElementById("FBO").parentElement;
+        
+        POPUPO.style.display = "none";
+        
+        for (let i = 0; i < Datos.length; i++){
+            const Celda = document.createElement("td");
+            Celda.textContent = Datos[i];
             Fila.appendChild(Celda);
         }
-        const BEO=document.createElement("button");
-        BEO.textContent="Editar";
+        
+        const BEO = document.createElement("button");
+        BEO.textContent = "Editar";
         BEO.addEventListener("click", BotonEditar);
-        const CBT=document.createElement("td");
+        
+        const CBT = document.createElement("td");
         CBT.appendChild(BEO);
-        const BBO=document.createElement("button");
-        BBO.textContent="Borrar";
+        
+        const BBO = document.createElement("button");
+        BBO.textContent = "Borrar";
         BBO.addEventListener("click", BotonBorrar);
+        
         CBT.appendChild(BBO);
         Fila.appendChild(CBT);
-        TO.appendChild(Fila);
-        TO.appendChild(FBO);
+        
+        TO.insertBefore(Fila, filaBoton);
+        
         document.getElementById("EO").value = "";
         document.getElementById("MO").value = "";
-        document.getElementById("PO").value = "Seleccionar";
-        document.getElementById("FLO").value = "";
         document.getElementById("AO").value = "";
-
+        document.getElementById("PO").value = "Seleccionar";
     }
-    
 }
 
 //Editar
@@ -222,14 +233,13 @@ function BotonEditar(event){
         const Fila = event.target.parentElement.parentElement;
         const DatosFila = [];
         FilaEditar=Fila;
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 4; i++) {
          DatosFila[i] = Fila.children[i].textContent;
         }
         document.getElementById("EOE").value = DatosFila[0];
         document.getElementById("MOE").value = DatosFila[1];
         document.getElementById("AOE").value = DatosFila[2];
-        document.getElementById("FLOE").value = DatosFila[3];
-        document.getElementById("POE").value = DatosFila[4];
+        document.getElementById("POE").value = DatosFila[3];
         POPUPOE.style.display="block";
 
     }
@@ -274,17 +284,15 @@ function AceptarEditar(){
         const EOE = document.getElementById("EOE").value;
         const MOE = Number(document.getElementById("MOE").value);
         const AOE = Number(document.getElementById("AOE").value);
-        const FLOE = document.getElementById("FLOE").value;
         const POE = document.getElementById("POE").value;
-        if (EOE == "" || MOE <= 0 || AOE<0 || FLOE=="" || POE=="Seleccionar"){
+        if (EOE == "" || MOE <= 0 || AOE<0 || POE=="Seleccionar"){
             alert("Llene todos los campos para continuar");  
         }
         else {
         FilaEditar.children[0].textContent=EOE;
         FilaEditar.children[1].textContent=MOE;
         FilaEditar.children[2].textContent=AOE;
-        FilaEditar.children[3].textContent=FLOE;
-        FilaEditar.children[4].textContent=POE;
+        FilaEditar.children[3].textContent=POE;
         POPUPOE.style.display="none";
         }
 
@@ -313,6 +321,7 @@ function BotonBorrar(event){
 
 //Calculos
 function MontoFinal(){
+    document.getElementById("DA").value = 0;
     let cont = 0;
     let cont1 = 0;
     if (TI.rows.length==2){
@@ -364,5 +373,7 @@ function CalcularMensual(monto, frecuencia){
         return monto / 12;
     }
 
+}
+function DistriAhorro(){
 }
 MontoFinal();
