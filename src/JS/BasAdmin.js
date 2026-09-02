@@ -15,6 +15,7 @@ const POPUPO=document.getElementById("POPUPO");
 const BTAgO=document.getElementById("BTAgO");
 const POPUPOE=document.getElementById("POPUPOE");
 
+let MF=0
 
 //TABLAS
 const TI = document.getElementById("TI");
@@ -350,7 +351,7 @@ function MontoFinal(){
         }
         ToG.textContent=cont1;
     }
-    let MF=cont-cont1
+    MF=cont-cont1;
     if (MF<=0){
         TGI.textContent = MF;
     }
@@ -375,5 +376,77 @@ function CalcularMensual(monto, frecuencia){
 
 }
 function DistriAhorro(){
+    const DA = Number(document.getElementById("DA").value);
+    if (DA <= 0 || DA > MF){
+        alert("Ingrese un monto valido para continuar");
+    }
+    else{
+        if (TO.rows.length == 2) {
+            alert("Ingrese un objetivo para continuar")
+        }
+        else{
+            let VF=[];
+            let EF=[];
+            let T="";
+            let Pe=[];
+            for (let x=1; x<=TO.rows.length-1;x++){
+                let E=TO.rows[x].children[0].textContent;
+                let M=Number(TO.rows[x].children[1].textContent);
+                let A=Number(TO.rows[x].children[2].textContent);
+                let P=Number(TO.rows[x].children[3].textContent);
+                let vf=M-A;
+                if (vf<=0){
+                    T+=E+" cumplido.<br>";   
+                }
+                else{
+                    EF.push(E);
+                    VF.push(vf);
+                    if (P==1){
+                        Pe.push(5);
+                    }
+                    else if (P==2){
+                        Pe.push(4);
+                    }
+                    else if (P==3){
+                        Pe.push(3);
+                    }
+                    else if (P==4){
+                        Pe.push(2);
+                    }
+                    else{
+                        Pe.push(1);
+                    }
+
+                }
+            }
+            let vp=0;
+            let PeT=0;
+            let VP=[];
+            for(let i=0;i<VF.length;i++){
+                PeT+=Pe[i]; 
+            }
+            for(let t=0;t<VF.length;t++){
+                vp=P[t]/PeT;
+                VP.push(vp);
+            }
+            while (DA > 0) {
+                if (VF.length > 0) {
+                }
+                else {
+                    break;
+                }
+            }
+            T+="ya no queda dinero disponible"
+            //verifica si aun hay objetivos por cumplir
+            if(VF.length > 0){
+                for(let i = 0; i < VF.length; i++){
+                    // acá mostrar el objetivo pendiente
+                }
+            }
+            else{
+                T += "Todos los objetivos fueron cumplidos";
+            }
+        }
+    }
 }
 MontoFinal();
