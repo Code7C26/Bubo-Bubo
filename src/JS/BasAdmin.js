@@ -148,18 +148,17 @@ function AgregarGasto(){
     
 }
 function AgregarObjetivo(){
-    
     // Contamos las filas actuales (descontando encabezado y fila del botón +)
     if (TO.rows.length - 2 >= 5) {
         alert("Solo puedes agregar un máximo de 5 objetivos.");
         POPUPO.style.display = "none";
-        return; // Detiene la función para que no agregue nada más
+        return;
     }
 
     const EO = document.getElementById("EO").value;
     const MO = Number(document.getElementById("MO").value);
     const AO = Number(document.getElementById("AO").value);
-    const PO = document.getElementById("PO").value; // Prioridad (Alta, Media, Baja)
+    const PO = document.getElementById("PO").value;
     
     if (AO < 0 || EO == "" || MO <= 0 || PO == "Seleccionar"){
         alert("Llene todos los campos para continuar");
@@ -191,8 +190,10 @@ function AgregarObjetivo(){
         CBT.appendChild(BBO);
         Fila.appendChild(CBT);
         
-        TO.insertBefore(Fila, filaBoton);
+        // CORRECCIÓN AQUÍ:
+        filaBoton.parentNode.insertBefore(Fila, filaBoton);
         
+        // Limpiar formulario
         document.getElementById("EO").value = "";
         document.getElementById("MO").value = "";
         document.getElementById("AO").value = "";
@@ -377,76 +378,92 @@ function CalcularMensual(monto, frecuencia){
 }
 function DistriAhorro(){
     const DA = Number(document.getElementById("DA").value);
+
+    // 1. Validaciones básicas
     if (DA <= 0 || DA > MF){
         alert("Ingrese un monto valido para continuar");
+        return; // Salimos de la función si el monto no es válido
     }
-    else{
-        if (TO.rows.length == 2) {
-            alert("Ingrese un objetivo para continuar")
+
+    if (TO.rows.length == 2) {
+        alert("Ingrese un objetivo para continuar");
+        return;
+    }
+
+    let VF = []; // Valores Faltantes (Monto - Ahorrado)
+    let EF = []; // Etiquetas / Nombres de los Objetivos
+    let Pe = []; // Pesos de Prioridad (5 para P1, 4 para P2, etc.)
+    let T = "";  // Texto que mostraremos en pantalla
+
+    // 2. Extraer los datos de la tabla TO
+    for (let x = 1; x < TO.rows.length - 1; x++){
+        let E = TO.rows[x].children[0].textContent;
+        let M = Number(TO.rows[x].children[1].textContent);
+        let A = Number(TO.rows[x].children[2].textContent);
+        let P = Number(TO.rows[x].children[3].textContent);
+        let vf = M - A;
+
+        if (vf <= 0){
+            T += "El objetivo " + E + " ya está cumplido.<br>";   
         }
         else{
-            let VF=[];
-            let EF=[];
-            let T="";
-            let Pe=[];
-            for (let x=1; x<=TO.rows.length-1;x++){
-                let E=TO.rows[x].children[0].textContent;
-                let M=Number(TO.rows[x].children[1].textContent);
-                let A=Number(TO.rows[x].children[2].textContent);
-                let P=Number(TO.rows[x].children[3].textContent);
-                let vf=M-A;
-                if (vf<=0){
-                    T+=E+" cumplido.<br>";   
-                }
-                else{
-                    EF.push(E);
-                    VF.push(vf);
-                    if (P==1){
-                        Pe.push(5);
-                    }
-                    else if (P==2){
-                        Pe.push(4);
-                    }
-                    else if (P==3){
-                        Pe.push(3);
-                    }
-                    else if (P==4){
-                        Pe.push(2);
-                    }
-                    else{
-                        Pe.push(1);
-                    }
+            EF.push(E);
+            VF.push(vf);
 
-                }
-            }
-            let vp=0;
-            let PeT=0;
-            let VP=[];
-            for(let i=0;i<VF.length;i++){
-                PeT+=Pe[i]; 
-            }
-            for(let t=0;t<VF.length;t++){
-                vp=P[t]/PeT;
-                VP.push(vp);
-            }
-            while (DA > 0) {
-                if (VF.length > 0) {
-                }
-                else {
-                    break;
-                }
-            }
-            T+="ya no queda dinero disponible"
-            //verifica si aun hay objetivos por cumplir
-            if(VF.length > 0){
-                for(let i = 0; i < VF.length; i++){
-                    // acá mostrar el objetivo pendiente
-                }
-            }
-            else{
-                T += "Todos los objetivos fueron cumplidos";
-            }
+            // Asignación de peso: a menor número de prioridad, mayor peso
+            if (P == 1)      { Pe.push(5); }
+            else if (P == 2) { Pe.push(4); }
+            else if (P == 3) { Pe.push(3); }
+            else if (P == 4) { Pe.push(2); }
+            else             { Pe.push(1); }
         }
     }
+
+    // Si todos los objetivos ya estaban completados de antes, mostramos mensaje y salimos
+    if (VF.length === 0) {
+        document.getElementById("resultado").innerHTML = T + "<br>No hay objetivos pendientes para asignar dinero.";
+        return;
+    }
+
+    // 3. Calcular la suma total de los pesos
+    let PeT = 0;
+    for (let i = 0; i < Pe.length; i++){
+        PeT += Pe[i]; 
+    }
+
+    // 4. Distribuir el dinero proporcionalmente (Sin bucle while)
+    let disponible = DA; // Variable para rastrear el dinero sobrante
+
+    for (let t = 0; t < VF.length; t++){
+        // Porcentaje que le corresponde según su prioridad
+        let proporcion = Pe[t] / PeT;
+        
+        // Dinero teórico a asignar
+        let asignacionTeorica = DA * proporcion;
+
+        // No le asignamos más dinero del que realmente le falta para completarse
+        let asignacionReal = Math.min(asignacionTeorica, VF[t]);
+
+        // Restamos lo asignado del dinero disponible general
+        disponible -= asignacionReal;
+
+        // Comprobamos si el dinero asignado alcanzó para completar el objetivo
+        if (asignacionReal >= VF[t]) {
+            T += "El objetivo <b>" + EF[t] + "</b> se completó con: $" + asignacionReal.toFixed(2) + "<br>";
+        } else {
+            T += "Al objetivo <b>" + EF[t] + "</b> se le asignó: $" + asignacionReal.toFixed(2) + 
+                 " (Faltan: $" + (VF[t] - asignacionReal).toFixed(2) + ")<br>";
+        }
+    }
+
+    // 5. Informe final del sobrante o completado
+    if (disponible > 0) {
+        T += "<br>Quedaron <b>$" + disponible.toFixed(2) + "</b> sin asignar.";
+    } else {
+        T += "<br>Se distribuyó todo el dinero disponible entre los objetivos.";
+    }
+
+    // 6. Escribir el resultado directamente en el HTML
+    document.getElementById("resultado").innerHTML = T;
 }
 MontoFinal();
