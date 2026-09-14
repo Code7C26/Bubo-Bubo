@@ -3,7 +3,7 @@
 ---
 Logo del proyecto
 holasholahola
-## ![Logo del proyecto](assets/logo.png)
+## ![Logo del proyecto](assets/Logo.png)
 
 
 ---
@@ -68,5 +68,7 @@ Este proyecto está dirigido a:
   - (React, Node.js)
 - Base de datos:
   - (MongoDB, MySQL)
+- Herramientas de desarrollo:
+  -GDevolp
 
 ---
