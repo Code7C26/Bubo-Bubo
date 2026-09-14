@@ -2,7 +2,7 @@
 
 ---
 Logo del proyecto
-## ![Logo del proyecto](assets/Logo.png)
+![Logo del proyecto](assets/Logo.png)
 
 
 ---
