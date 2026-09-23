@@ -1,0 +1,54 @@
+/*ESTILO DE LOS POPUP*/
+.popup {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+}
+/*evita que se toque lo de atras(capa)*/
+.overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+/*centrar el popupcontenido*/
+.popup-contenido {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid black;
+    z-index: 2;
+}
+
+/*BARRA DE NAVEGACION*/
+.BarraNav{
+    position: sticky;
+    top: 0;
+    background-color: aquamarine;
+    width: 100%;
+    height: 60px;
+    padding-top: 25px;
+    padding-bottom: 1px;
+    display: flex;
+}
+/*boton avanzado*/
+.btAv{
+    margin-left: 1050px;
+}
+
+.btBR{
+    margin-left: 10px;
+}
+
+/*saco margenes del html*/
+body {
+    margin: 0;
+}
+
+/*ESTILO DE TODOS LO BOTONES*/
+button{
+    background-color: aquamarine;
+    border: 1px solid black;
+}
