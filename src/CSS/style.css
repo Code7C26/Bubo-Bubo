@@ -51,4 +51,42 @@ body {
 button{
     background-color: aquamarine;
     border: 1px solid black;
+    font-family:"Oswald";
+}
+
+/*FUENTES*/
+/*titulos*/
+@font-face {
+    font-family: "Verve";
+    src: url("../../assets/fuentes/titulos/Verve.ttf");
+}
+h1 {
+    font-family: "Verve";
+    font-size: 50px;
+}
+/*subtitulos*/
+@font-face {
+    font-family: "OswaldR";
+    src: url("../../assets/fuentes/subtitulos/static/Oswald-Regular.ttf");
+}
+h2{
+    font-family: "OswaldR";
+    font-size: 35px;
+}
+@font-face {
+    font-family: "OswaldL";
+    src: url("../../assets/fuentes/texto/static/Oswald-Light.ttf");
+}
+h3{
+    font-family: "OswaldL";
+    font-size: 30px;
+}
+/*texto*/
+@font-face {
+    font-family: "OswaldEL";
+    src: url("../../assets/fuentes/texto/static/Oswald-ExtraLight.ttf");
+}
+p{
+    font-family:"OswaldEL";
+    font-size: 30px;
 }
