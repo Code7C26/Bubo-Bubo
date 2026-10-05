@@ -1,3 +1,4 @@
+//GUARDA USUARIO ESCRITO
 function ValUsua() 
 {
     const usuario= document.getElementById("usuario").value

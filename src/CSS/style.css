@@ -84,7 +84,7 @@ h3{
 /*texto*/
 @font-face {
     font-family: "OswaldEL";
-    src: url("../../assets/fuentes/texto/static/Oswald-ExtraLight.ttf");
+    src: url("../../assets/fuentes/texto/Poppins-Light.ttf");
 }
 p{
     font-family:"OswaldEL";

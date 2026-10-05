@@ -75,7 +75,7 @@ function AgregarIngreso(){
     const FI = document.getElementById("FI").value;
     
     if (FI=="" || EI=="" || MI<=0 || FI=="Seleccionar"){
-        alert("LLene todos los campos para continuar");
+        alert("Llene todos los campos para continuar");
     }
     else{
        
@@ -115,7 +115,7 @@ function AgregarGasto(){
     const FVG = document.getElementById("FVG").value;
     
     if (FVG=="" || EG=="" || MG<=0 || FVG=="Seleccionar"){
-        alert("LLene todos los campos para continuar");
+        alert("Llene todos los campos para continuar");
     }
     else{
        
@@ -302,22 +302,65 @@ function AceptarEditar(){
 }
 //Borrar fila
 function BotonBorrar(event){
-     const Tabla = event.target.parentElement.parentElement.parentElement;
-      if (Tabla==TI){
-        const Fila = event.target.parentElement.parentElement;
-        Fila.remove();
-        MontoFinal();
+    if (confirm("¿Desea borrar este elemento?")){
+        const Tabla = event.target.parentElement.parentElement.parentElement;
+        if (Tabla==TI){
+            const Fila = event.target.parentElement.parentElement;
+            Fila.remove();
+            MontoFinal();
+        }
+        else if (Tabla==TG){
+            const Fila = event.target.parentElement.parentElement;
+            Fila.remove();
+            MontoFinal();
+        }
+        else{
+            const Fila = event.target.parentElement.parentElement;
+            Fila.remove();
+        }
     }
-    else if (Tabla==TG){
-        const Fila = event.target.parentElement.parentElement;
-        Fila.remove();
-        MontoFinal();
+}
+//cierra los popup al apretar "x" y borra el contenido
+function CerrarPopup(Popup) {
 
+    document.getElementById(Popup).style.display = "none";
+
+    if (Popup == "POPUPI") {
+        document.getElementById("EI").value = "";
+        document.getElementById("MI").value = "";
+        document.getElementById("FI").value = "Seleccionar";
     }
-    else{
-        const Fila = event.target.parentElement.parentElement;
-        Fila.remove();
 
+    else if (Popup == "POPUPIE") {
+        document.getElementById("EIE").value = "";
+        document.getElementById("MIE").value = "";
+        document.getElementById("FIE").value = "Seleccionar";
+    }
+
+    else if (Popup == "POPUPG") {
+        document.getElementById("EG").value = "";
+        document.getElementById("MG").value = "";
+        document.getElementById("FVG").value = "Seleccionar";
+    }
+
+    else if (Popup == "POPUPGE") {
+        document.getElementById("EGE").value = "";
+        document.getElementById("MGE").value = "";
+        document.getElementById("FVE").value = "Seleccionar";
+    }
+
+    else if (Popup == "POPUPO") {
+        document.getElementById("EO").value = "";
+        document.getElementById("MO").value = "";
+        document.getElementById("AO").value = "";
+        document.getElementById("PO").value = "Seleccionar";
+    }
+
+    else if (Popup == "POPUPOE") {
+        document.getElementById("EOE").value = "";
+        document.getElementById("MOE").value = "";
+        document.getElementById("AOE").value = "";
+        document.getElementById("POE").value = "Seleccionar";
     }
 }
 
