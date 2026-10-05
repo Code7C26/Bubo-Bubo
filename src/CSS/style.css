@@ -28,16 +28,21 @@
     top: 0;
     background-color: aquamarine;
     width: 100%;
-    height: 60px;
+    height: 65px;
     padding-top: 25px;
     padding-bottom: 1px;
     display: flex;
+}
+/*textos*/
+h1, h2, h3, p {
+    margin-left: 20px;
+    margin-right: 20px;
 }
 /*boton avanzado*/
 .btAv{
     margin-left: 1050px;
 }
-
+/*boton de*/
 .btBR{
     margin-left: 10px;
 }
@@ -47,46 +52,62 @@ body {
     margin: 0;
 }
 
+/*configuracion foto de perfil*/
+#ImgP{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+#ImgPEActual{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 /*ESTILO DE TODOS LO BOTONES*/
 button{
     background-color: aquamarine;
     border: 1px solid black;
-    font-family:"Oswald";
+    font-family:"PoppinsL";
+    border-radius: 20px;
+    padding: 8px 15px;
 }
 
 /*FUENTES*/
 /*titulos*/
 @font-face {
-    font-family: "Verve";
-    src: url("../../assets/fuentes/titulos/Verve.ttf");
+    font-family: "Bebas";
+    src: url("../../assets/fuentes/titulos/BebasNeue-Regular.ttf");
 }
 h1 {
-    font-family: "Verve";
-    font-size: 50px;
+    font-family: "Bebas";
+    font-size: 40px;
 }
 /*subtitulos*/
 @font-face {
-    font-family: "OswaldR";
-    src: url("../../assets/fuentes/subtitulos/static/Oswald-Regular.ttf");
+    font-family: "PoppinsB";
+    src: url("../../assets/fuentes/subtitulos/Poppins-Black.ttf");
 }
 h2{
-    font-family: "OswaldR";
-    font-size: 35px;
+    font-family: "PoppinsB";
+    font-size: 30px;
 }
 @font-face {
-    font-family: "OswaldL";
-    src: url("../../assets/fuentes/texto/static/Oswald-Light.ttf");
+    font-family: "PoppinsI";
+    src: url("../../assets/fuentes/texto/Poppins-Italic.ttf");
 }
 h3{
-    font-family: "OswaldL";
-    font-size: 30px;
+    font-family: "PoppinsI";
+    font-size: 25px;
 }
 /*texto*/
 @font-face {
-    font-family: "OswaldEL";
+    font-family: "PoppinsL";
     src: url("../../assets/fuentes/texto/Poppins-Light.ttf");
 }
 p{
-    font-family:"OswaldEL";
-    font-size: 30px;
+    font-family:"PoppinsL";
+    font-size: 20px;
 }
