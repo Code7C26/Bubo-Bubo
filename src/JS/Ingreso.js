@@ -2,13 +2,27 @@
 function ValUsua() 
 {
     const usuario= document.getElementById("usuario").value
-    if (usuario!=="")
+    const foto = document.getElementById("FtoP").files[0]
+    if (usuario !== "")
     {
         localStorage.setItem("usuario", usuario)
-        window.location.href = "Inicio.html"
+        if (foto) {
+            const lector = new FileReader()
+
+            lector.onload = function() {
+                localStorage.setItem("FtoP", lector.result)
+                window.location.href = "Inicio.html"
+            }
+
+            lector.readAsDataURL(foto)
+        }
+        else {
+            window.location.href = "Inicio.html"
+        }
     }
     else
     {
-        document.getElementById("sn").textContent= "Ingrese un nombre para poder continuar"
+        document.getElementById("sn").textContent =
+            "Ingrese un nombre para poder continuar"
     }
 }

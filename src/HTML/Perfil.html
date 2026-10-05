@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubo²</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+    <div class="BarraNav">
+        <a href="Basico.html" class="btBR">
+        <button>Aprendizaje</button></a>
+        <a href="Reco.html" class="btBR">
+        <button>Recomendaciónes</button></a>
+        <a href="Avanzado.html" class="btAv">
+        <button >Avanzado</button></a>
+    </div>
+    <h1>Tu perfil</h1>
+    <img id="ImgP">
+    <p id="usuario"></p>
+    <button id="BTEP">Editar perfil</button>
+
+    <div id="POPUPP" class="popup" style="display: none;">
+
+        <div class="overlay"></div>
+
+        <div class="popup-contenido">
+
+            <h2>Editar perfil</h2>
+
+            <label>Foto</label>
+            <img id="ImgPEActual">
+            <input type="file" id="ImgPE" accept="image/*">
+
+            <label>Nombre de usuario</label>
+            <input type="text" id="usuarioE">
+
+            <button id="BTAEP">Guardar</button>
+            <button onclick="CerrarPopupP('POPUPP')">x</button>
+
+        </div>
+
+    </div>
+    <script src="../JS/Perfil.js"></script>
+</body>
+</html>
