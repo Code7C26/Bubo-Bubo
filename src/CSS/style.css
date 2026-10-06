@@ -40,7 +40,7 @@ h1, h2, h3, p {
 }
 /*boton avanzado*/
 .btAv{
-    margin-left: 1050px;
+    margin-left: 1000px;
 }
 /*boton de*/
 .btBR{
@@ -110,4 +110,59 @@ h3{
 p{
     font-family:"PoppinsL";
     font-size: 20px;
+}
+
+/*TABLAS*/
+td{
+    padding: 10px;
+    font-family: "PoppinsL";
+}
+label{
+    font-family: "PoppinsL";
+}
+table, td, th {
+  border: 1px solid;
+}
+table{
+    margin-left: 30px;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid black;
+    border-radius: 15px;
+    overflow: hidden;
+}
+/* BOTONES DENTRO DE LAS TABLAS */
+
+#TI button,
+#TG button,
+#TO button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    background-color: aquamarine;
+    padding: 8px 15px;
+}
+
+/* Celda de Editar y Borrar */
+#TI td:last-child,
+#TG td:last-child,
+#TO td:last-child {
+    padding: 0;
+    background-color: aquamarine;
+}
+
+/* Celda del botón + */
+#FIB td,
+#FGB td,
+#FBO {
+    padding: 0;
+    background-color: aquamarine;
+}
+/* FONDO DE LOS DATOS DE LA TABLA */
+
+#TI td,
+#TG td,
+#TO td {
+    background-color: aquamarine;
 }
