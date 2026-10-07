@@ -14,6 +14,7 @@
         <button>Recomendaciónes</button></a>
         <a href="Avanzado.html" class="btAv">
         <button >Avanzado</button></a>
+        <a><button onclick="history.back()">Volver</button></a>
     </div>
     <h1>Tu perfil</h1>
     <img id="ImgP">
@@ -26,7 +27,7 @@
 
         <div class="popup-contenido">
 
-            <h2>Editar perfil</h2>
+            <h2 class="Titulo-Popup">Editar perfil</h2>
 
             <label>Foto</label>
             <img id="ImgPEActual">
@@ -36,7 +37,7 @@
             <input type="text" id="usuarioE">
 
             <button id="BTAEP">Guardar</button>
-            <button onclick="CerrarPopupP('POPUPP')">x</button>
+            <button class="cerrar-popup" onclick="CerrarPopupP('POPUPP')">x</button>
 
         </div>
 

@@ -18,7 +18,7 @@
         <a href="Avanzado.html" class="btAv">
         <button >Avanzado</button></a>
         <a href="Perfil.html" class="btPe">
-        <button>Perfil</button></a>
+        <img id="ImgPNav"></a>
     </div>
    
     <h1>¡Bienvenido a la administración basica de Bubo!</h1>
@@ -28,9 +28,9 @@
     <h2>Ingresos</h2>
     <table id="TI">
         <tr>
-            <td>Etiqueta</td>
-            <td>Monto</td>
-            <td>Frecuencia</td>
+            <td class="Eti">Etiqueta</td>
+            <td class="Mon">Monto</td>
+            <td class="Fre">Frecuencia</td>
         </tr>
         <tr id="FIB">
             <td>
@@ -54,7 +54,7 @@
 
         <div class="popup-contenido">
 
-            <h2>Agregar un ingreso</h2>
+            <h2 class="Titulo-Popup">Agregar un ingreso</h2>
 
             <label>Etiqueta</label>
             <input type="text" id="EI">
@@ -72,7 +72,7 @@
             </select>
 
             <button id="BTAgI">Agregar</button>
-            <button onclick="CerrarPopup('POPUPI')">x</button>
+            <button class="cerrar-popup" onclick="CerrarPopup('POPUPI')">x</button>
 
         </div>
 
@@ -85,7 +85,7 @@
 
         <div class="popup-contenido">
 
-            <h2>Editar fila de ingreso</h2>
+            <h2 class="Titulo-Popup">Editar fila de ingreso</h2>
 
             <label>Etiqueta</label>
             <input type="text" id="EIE">
@@ -103,7 +103,7 @@
                 <option value="Anual">Anual</option>
             </select>
             <button id="BAcI">Aceptar</button>
-            <button onclick="CerrarPopup('POPUPIE')">x</button>
+            <button class="cerrar-popup" onclick="CerrarPopup('POPUPIE')">x</button>
         </div>
     </div>
 
@@ -111,9 +111,9 @@
     <h2>Gastos</h2>
     <table id="TG">
         <tr>
-            <td>Etiqueta</td>
-            <td>Monto</td>
-            <td>Fijo/Variable</td>
+            <td class="Eti">Etiqueta</td>
+            <td class="Mon">Monto</td>
+            <td class="Fij">Fijo/Variable</td>
         </tr>
         <tr id="FGB">
             <td>
@@ -137,7 +137,7 @@
 
         <div class="popup-contenido">
 
-            <h2>Agregar un gasto</h2>
+            <h2 class="Titulo-Popup">Agregar un gasto</h2>
 
             <label>Etiqueta</label>
             <input type="text" id="EG">
@@ -154,7 +154,7 @@
             </select>
 
             <button id="BTAgG">Agregar</button>
-            <button onclick="CerrarPopup('POPUPG')">x</button>
+            <button class="cerrar-popup" onclick="CerrarPopup('POPUPG')">x</button>
 
         </div>
 
@@ -166,7 +166,7 @@
 
         <div class="popup-contenido">
 
-            <h2>Editar fila de gastos</h2>
+            <h2 class="Titulo-Popup">Editar fila de gastos</h2>
 
             <label>Etiqueta</label>
             <input type="text" id="EGE">
@@ -182,7 +182,7 @@
                 <option value="Variable">Variable</option>
             </select>
             <button id="BAcG">Aceptar</button>
-            <button onclick="CerrarPopup('POPUPGE')">x</button>
+            <button class="cerrar-popup" onclick="CerrarPopup('POPUPGE')">x</button>
         </div>
     </div>
 
@@ -196,19 +196,27 @@
             </td>
         </tr>
     </table>
+
+
     <h3>TODAS LOS RESULTADOS DE NUESTRA PAGINA SON APROXIMADOS</h3>
+
     <label>¿Cuanta cantidad de dinero restante desea destinar al
     ahorro?</label>
+
     <input type="number" id="DA" value="0" onkeydown="return event.key != 'e' && event.key != 'E'
     && event.key != ',' && event.key != '.' && event.key != '+'">
+
     <button id="BAcAD">Aceptar</button>
+
+
     <h2>Objetivos</h2>
+
     <table id="TO">
         <tr>
-            <td>Etiqueta</td>
-            <td>Valor</td>
-            <td>Ahorrado</td>
-            <td>Prioridad</td>
+            <td class="Eti">Etiqueta</td>
+            <td class="Val">Valor</td>
+            <td class="Aho">Ahorrado</td>
+            <td class="Pri">Prioridad</td>
         </tr>
         <tr>
             <td id="FBO">
@@ -222,7 +230,7 @@
 
         <div class="popup-contenido">
 
-            <h2>Agregar un Objetivo</h2>
+            <h2 class="Titulo-Popup">Agregar un Objetivo</h2>
 
             <label>Etiqueta</label>
             <input type="text" id="EO">
@@ -246,7 +254,7 @@
             </select>
 
             <button id="BTAgO">Agregar</button>
-            <button onclick="CerrarPopup('POPUPO')">x</button>
+            <button class="cerrar-popup" onclick="CerrarPopup('POPUPO')">x</button>
 
         </div>
 
@@ -257,7 +265,7 @@
 
         <div class="popup-contenido">
 
-            <h2>Editar un Objetivo</h2>
+            <h2 class="Titulo-Popup">Editar un Objetivo</h2>
 
             <label>Etiqueta</label>
             <input type="text" id="EOE">
@@ -281,7 +289,7 @@
             </select>
 
             <button id="BAcO">Aceptar</button>
-            <button onclick="CerrarPopup('POPUPOE')">x</button>
+            <button class="cerrar-popup" onclick="CerrarPopup('POPUPOE')">x</button>
 
         </div>
 
@@ -289,5 +297,6 @@
     <h3 id="resultado"></h3>
 
     <script src="../JS/BasAdmin.js"></script>
+    <script src="../JS/BarraNav.js"></script>
 </body>
 </html>

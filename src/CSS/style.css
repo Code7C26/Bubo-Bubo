@@ -12,14 +12,42 @@
     z-index: 1;
 }
 /*centrar el popupcontenido*/
+/* Popup donde se cargan los datos */
 .popup-contenido {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
     background-color: white;
     border: 2px solid black;
+    border-radius: 20px;
+
+    padding: 30px;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
     z-index: 2;
+}
+/*boton borrar*/
+.cerrar-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    width: 25px;
+    height: 25px;
+
+    padding: 0;
+    margin: 0;
+
+    border-radius: 50%;
+}
+/*titulo popup*/
+.Titulo-Popup{
+    margin:0px;
 }
 
 /*BARRA DE NAVEGACION*/
@@ -34,17 +62,17 @@
     display: flex;
 }
 /*textos*/
-h1, h2, h3, p {
-    margin-left: 20px;
-    margin-right: 20px;
+h1, h2, h3{
+    margin-left: 30px;
 }
+
 /*boton avanzado*/
 .btAv{
-    margin-left: 1000px;
+    margin-left: 950px;
 }
 /*boton de*/
 .btBR{
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 /*saco margenes del html*/
@@ -73,6 +101,7 @@ button{
     font-family:"PoppinsL";
     border-radius: 20px;
     padding: 8px 15px;
+    margin-left: 20px;
 }
 
 /*FUENTES*/
@@ -83,7 +112,7 @@ button{
 }
 h1 {
     font-family: "Bebas";
-    font-size: 40px;
+    font-size: 55px;
 }
 /*subtitulos*/
 @font-face {
@@ -110,6 +139,7 @@ h3{
 p{
     font-family:"PoppinsL";
     font-size: 20px;
+    margin-left: 45px;
 }
 
 /*TABLAS*/
@@ -124,7 +154,7 @@ table, td, th {
   border: 1px solid;
 }
 table{
-    margin-left: 30px;
+    margin-left: 40px;
     border-collapse: separate;
     border-spacing: 0;
     border: 1px solid black;
@@ -161,8 +191,17 @@ table{
 }
 /* FONDO DE LOS DATOS DE LA TABLA */
 
-#TI td,
-#TG td,
-#TO td {
-    background-color: aquamarine;
+.Eti, .Mon, .Fij, .Val, .Aho, .Pri{
+    background-color: aqua;
+}
+/*boton perfil*/
+#ImgPNav {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    margin-left: 10px;
+    position: relative;
+    top: -5px;
 }
