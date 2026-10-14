@@ -68,7 +68,7 @@ h1, h2, h3{
 
 /*boton avanzado*/
 .btAv{
-    margin-left: 950px;
+    margin-left: 900px;
 }
 /*boton de*/
 .btBR{
@@ -136,7 +136,7 @@ h3{
     font-family: "PoppinsL";
     src: url("../../assets/fuentes/texto/Poppins-Light.ttf");
 }
-p{
+p,a{
     font-family:"PoppinsL";
     font-size: 20px;
     margin-left: 45px;
