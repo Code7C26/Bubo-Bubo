@@ -63,6 +63,27 @@
 }
 
 
+/*boton avanzado*/
+.btAv{
+    margin-left: 900px;
+}
+/*boton de*/
+.btBR{
+    margin-left: 15px;
+}
+/*boton perfil*/
+#ImgPNav {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    margin-left: 10px;
+    position: relative;
+    top: -5px;
+}
+
+/*BARRA BAJA*/
 .BarraBaj {
     width: 100%;
     min-height: 100px;
@@ -95,19 +116,7 @@
     font-size: 13px;
 }
 
-/*textos*/
-h1, h2, h3{
-    margin-left: 30px;
-}
 
-/*boton avanzado*/
-.btAv{
-    margin-left: 900px;
-}
-/*boton de*/
-.btBR{
-    margin-left: 15px;
-}
 
 /*saco margenes del html*/
 body {
@@ -175,6 +184,10 @@ p,a{
     font-size: 20px;
     margin-left: 45px;
 }
+/*textos*/
+h1, h2, h3{
+    margin-left: 30px;
+}
 
 /*TABLAS*/
 td{
@@ -228,14 +241,13 @@ table{
 .Eti, .Mon, .Fij, .Val, .Aho, .Pri{
     background-color: aqua;
 }
-/*boton perfil*/
-#ImgPNav {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    object-fit: cover;
-    cursor: pointer;
-    margin-left: 10px;
-    position: relative;
-    top: -5px;
+
+/*MULTIPLE CHOISE*/
+.multi{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    margin-left: 70px;
 }
+
