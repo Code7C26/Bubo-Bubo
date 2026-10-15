@@ -251,3 +251,22 @@ table{
     margin-left: 70px;
 }
 
+/* Defines la animación */
+/*@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(1px);
+  }
+}
+
+/* Se la aplicas a tus textos */
+/*.h1,h2,h3,p {
+  animation: aparecer linear both;
+  animation-timeline: view(); /* Hace que la animación dependa del scroll */
+  /*animation-range: entry 10% cover 40%; /* Controla cuándo empieza y termina *//*
+}
+
