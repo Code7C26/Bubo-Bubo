@@ -2,14 +2,14 @@
 .popup {
     position: fixed;
     inset: 0;
-    z-index: 0;
+    z-index: 2;
 }
 /*evita que se toque lo de atras(capa)*/
 .overlay {
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
+    z-index: 3;
 }
 /*centrar el popupcontenido*/
 /* Popup donde se cargan los datos */
@@ -29,7 +29,7 @@
     flex-direction: column;
     gap: 12px;
 
-    z-index: 3;
+    z-index: 4;
 }
 /*boton borrar*/
 .cerrar-popup {
@@ -151,6 +151,34 @@ button{
     padding: 8px 15px;
     margin-left: 20px;
 }
+/* Transición suave para los botones */
+button:not(table button) {
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* Efecto al pasar el mouse */
+button:not(table button):hover {
+    background-color: #d6c2ff;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+/* Efecto al mantener apretado */
+button:not(table button):active {
+    transform: scale(0.95);
+}
+/* Botones de las tablas: solo cambian de color */
+table button {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+table button:hover {
+    background-color: #d6c2ff;
+    color: #ffffff;
+}
 
 /*FUENTES*/
 /*titulos*/
@@ -190,7 +218,7 @@ p,a{
     margin-left: 45px;
 }
 /*textos*/
-h1, h2, h3{
+h1, h2, h3,label{
     margin-left: 30px;
 }
 
@@ -253,27 +281,8 @@ table{
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
-    margin-left: 70px;
+    margin-left: 40px;
 }
-
-/* Defines la animación */
-/*@keyframes aparecer {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Se la aplicas a tus textos */
-/*body > *:not(.BarraNav):not(.BarraBaj) {
-  animation: aparecer linear both;
-  animation-timeline: view(); /* Hace que la animación dependa del scroll */
-  /*animation-range: entry 0% cover 25%; /* Controla cuándo empieza y termina *//*
-}*/
 
 .aparecer {
     opacity: 0;

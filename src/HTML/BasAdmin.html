@@ -60,8 +60,8 @@
             <input type="text" id="EI">
 
             <label>Monto</label>
-            <input type="number" id="MI" onkeydown="return event.key != 'e' && event.key != 'E' 
-            && event.key != ',' && event.key != '.' && event.key != '+'">
+            <input type="number" id="MI" min="0" onkeydown="return event.key != 'e' && event.key != 'E' 
+            && event.key != ',' && event.key != '.' && event.key != '+' && event.key != '-'">
             <label>Frecuencia</label>
             <select id="FI">
                 <option value="Seleccionar">Seleccionar</option>
@@ -91,8 +91,8 @@
             <input type="text" id="EIE">
 
             <label>Monto</label>
-            <input type="number" id="MIE" onkeydown="return event.key != 'e' && event.key != 'E'
-            && event.key != ',' && event.key != '.' && event.key != '+'">
+            <input type="number" id="MIE" min="0" onkeydown="return event.key != 'e' && event.key != 'E'
+            && event.key != ',' && event.key != '.' && event.key != '+'&& event.key != '-'">
 
             <label>Frecuencia</label>
             <select id="FIE">
@@ -143,8 +143,8 @@
             <input type="text" id="EG">
 
             <label>Monto</label>
-            <input type="number" id="MG" onkeydown="return event.key != 'e' && event.key != 'E'
-            && event.key != ',' && event.key != '.' && event.key != '+'">
+            <input type="number" id="MG" min="0" onkeydown="return event.key != 'e' && event.key != 'E'
+            && event.key != ',' && event.key != '.' && event.key != '+' && event.key != '-'">
 
             <label>Fijo/Variable</label>
             <select id="FVG">
@@ -172,8 +172,8 @@
             <input type="text" id="EGE">
 
             <label>Monto</label>
-            <input type="number" id="MGE" onkeydown="return event.key != 'e' && event.key != 'E'
-            && event.key != ',' && event.key != '.' && event.key != '+'">
+            <input type="number" id="MGE" min="0" onkeydown="return event.key != 'e' && event.key != 'E'
+            && event.key != ',' && event.key != '.' && event.key != '+' && event.key != '-'">
 
             <label>Fijo/Variable</label>
             <select id="FVE">
@@ -203,8 +203,8 @@
     <label>¿Cuanta cantidad de dinero restante desea destinar al
     ahorro?</label>
 
-    <input type="number" id="DA" value="0" onkeydown="return event.key != 'e' && event.key != 'E'
-    && event.key != ',' && event.key != '.' && event.key != '+'">
+    <input type="number" id="DA" value="0" min="0" onkeydown="return event.key != 'e' && event.key != 'E'
+    && event.key != ',' && event.key != '.' && event.key != '+' && event.key != '-'">
 
     <button id="BAcAD">Aceptar</button>
 
@@ -236,12 +236,12 @@
             <input type="text" id="EO">
 
             <label>Valor</label>
-            <input type="number" id="MO" onkeydown="return event.key != 'e' && event.key != 'E'
-            && event.key != ',' && event.key != '.' && event.key != '+'">
+            <input type="number" id="MO" min="0" onkeydown="return event.key != 'e' && event.key != 'E'
+            && event.key != ',' && event.key != '.' && event.key != '+' && event.key != '-'">
 
             <label>Ahorrado</label>
-            <input type="number" id="AO" onkeydown="return event.key != 'e' && event.key != 'E'
-            && event.key != ',' && event.key != '.' && event.key != '+'">
+            <input type="number" id="AO" min="0" onkeydown="return event.key != 'e' && event.key != 'E'
+            && event.key != ',' && event.key != '.' && event.key != '+' && event.key != '-'">
 
             <label>Prioridad</label>
             <select id="PO">
@@ -271,12 +271,12 @@
             <input type="text" id="EOE">
 
             <label>Valor</label>
-            <input type="number" id="MOE" onkeydown="return event.key != 'e' && event.key != 'E'
-            && event.key != ',' && event.key != '.' && event.key != '+'">
+            <input type="number" min="0" id="MOE" onkeydown="return event.key != 'e' && event.key != 'E'
+            && event.key != ',' && event.key != '.' && event.key != '+' && event.key != '-'">
 
             <label>Ahorrado</label>
             <input type="number" id="AOE" onkeydown="return event.key != 'e' && event.key != 'E'
-            && event.key != ',' && event.key != '.' && event.key != '+'">
+            && event.key != ',' && event.key != '.' && event.key != '+' && event.key != '-'">
 
                 <label>Prioridad</label>
             <select id="POE">
@@ -312,5 +312,6 @@
 
     <script src="../JS/BasAdmin.js"></script>
     <script src="../JS/BarraNav.js"></script>
+    <script src="../JS/Animaciones.js"></script>
 </body>
 </html>
