@@ -9,7 +9,7 @@
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+    z-index: 2;
 }
 /*centrar el popupcontenido*/
 /* Popup donde se cargan los datos */
@@ -29,7 +29,7 @@
     flex-direction: column;
     gap: 12px;
 
-    z-index: 2;
+    z-index: 3;
 }
 /*boton borrar*/
 .cerrar-popup {
@@ -60,6 +60,7 @@
     padding-top: 25px;
     padding-bottom: 1px;
     display: flex;
+    z-index: 1;
 }
 
 
@@ -94,7 +95,8 @@
     gap: 200px;
     padding: 25px 100px;
     box-sizing: border-box;
-    margin-top: 40px
+    margin-top: 40px;
+    z-index: 1;
 }
 
 .Redes,
@@ -121,6 +123,9 @@
 /*saco margenes del html*/
 body {
     margin: 0;
+}
+html{
+    overscroll-behavior-y: none;
 }
 
 /*configuracion foto de perfil*/
@@ -255,18 +260,33 @@ table{
 /*@keyframes aparecer {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
-    transform: translateY(1px);
+    transform: translateY(0);
   }
 }
 
 /* Se la aplicas a tus textos */
-/*.h1,h2,h3,p {
+/*body > *:not(.BarraNav):not(.BarraBaj) {
   animation: aparecer linear both;
   animation-timeline: view(); /* Hace que la animación dependa del scroll */
-  /*animation-range: entry 10% cover 40%; /* Controla cuándo empieza y termina *//*
+  /*animation-range: entry 0% cover 25%; /* Controla cuándo empieza y termina *//*
+}*/
+
+.aparecer {
+    opacity: 0;
+    transform: translateY(15px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+/* Estado final: el elemento ya apareció */
+.aparecer.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
