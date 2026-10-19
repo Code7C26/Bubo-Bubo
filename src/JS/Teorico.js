@@ -55,6 +55,7 @@ function B1(){
         BR.textContent="Rehacer";
         document.body.appendChild(BR);
         BR.addEventListener("click", reini);
+        Ter.disabled=true;
     }
 
 }
@@ -75,12 +76,12 @@ function B2(){
         let r3=R3.value;
         let r4=R4.value;
         if (r1=="a"){
-            cont++;
+            cont=cont+1;
             R1.parentElement.style.backgroundColor = "#47f175";
         }
         else{
             R1.parentElement.style.backgroundColor = "#de3445"
-            let RC = document.querySelector('input[name="pregunta1"][value="c"]');
+            let RC = document.querySelector('input[name="pregunta1"][value="a"]');
             RC.parentElement.style.backgroundColor="#47f175";
         }
         if (r2=="d"){
@@ -89,7 +90,7 @@ function B2(){
         }
         else{
             R2.parentElement.style.backgroundColor = "#de3445";
-            let RC2 = document.querySelector('input[name="pregunta2"][value="c"]');
+            let RC2 = document.querySelector('input[name="pregunta2"][value="d"]');
             RC2.parentElement.style.backgroundColor="#47f175";
         }
         if (r3=="a"){
@@ -115,6 +116,7 @@ function B2(){
         BR.textContent="Rehacer";
         document.body.appendChild(BR);
         BR.addEventListener("click", reini);
+        Ter.disabled=true;
     }
 
 }
@@ -138,7 +140,7 @@ function B3(){
         }
         else{
             R1.parentElement.style.backgroundColor = "#de3445"
-            let RC = document.querySelector('input[name="pregunta1"][value="c"]');
+            let RC = document.querySelector('input[name="pregunta1"][value="b"]');
             RC.parentElement.style.backgroundColor="#47f175";
         }
         if (r2=="b"){
@@ -147,7 +149,7 @@ function B3(){
         }
         else{
             R2.parentElement.style.backgroundColor = "#de3445";
-            let RC2 = document.querySelector('input[name="pregunta2"][value="c"]');
+            let RC2 = document.querySelector('input[name="pregunta2"][value="b"]');
             RC2.parentElement.style.backgroundColor="#47f175";
         }
         if (r3=="d"){
@@ -156,7 +158,7 @@ function B3(){
         }
         else{
             R3.parentElement.style.backgroundColor = "#de3445";
-            let RC3 = document.querySelector('input[name="pregunta3"][value="a"]');
+            let RC3 = document.querySelector('input[name="pregunta3"][value="d"]');
             RC3.parentElement.style.backgroundColor="#47f175";
         }
         if (r4=="c"){
@@ -165,7 +167,7 @@ function B3(){
         }
         else{
             R4.parentElement.style.backgroundColor = "#de3445"
-            let RC4 = document.querySelector('input[name="pregunta4"][value="d"]');
+            let RC4 = document.querySelector('input[name="pregunta4"][value="c"]');
             RC4.parentElement.style.backgroundColor="#47f175";
         }
         document.getElementById("RTA").innerHTML = cont + "/4";
@@ -173,11 +175,15 @@ function B3(){
         BR.textContent="Rehacer";
         document.body.appendChild(BR);
         BR.addEventListener("click", reini);
+        const Ter=document.getElementById('Ter');
+        Ter.disabled=true;
+
     }
 
 }
 
 //reiniciar la pag
 function reini(){
+    Ter.disabled=false;
     location.reload();
 }
