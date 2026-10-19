@@ -49,13 +49,15 @@
 .Titulo-Popup{
     margin:0px;
 }
-
+/**/
+/**/
+/**/
 /*BARRA DE NAVEGACION*/
 .BarraNav{
     position: sticky;
     top: 0;
     background-color: aquamarine;
-    width: 100%;
+    width: 100vw;
     height: 65px;
     padding-top: 25px;
     padding-bottom: 1px;
@@ -63,10 +65,9 @@
     z-index: 1;
 }
 
-
 /*boton avanzado*/
 .btAv{
-    margin-left: 900px;
+    margin-left: 860px;
 }
 /*boton de*/
 .btBR{
@@ -83,10 +84,12 @@
     position: relative;
     top: -5px;
 }
-
+/**/
+/**/
+/**/
 /*BARRA BAJA*/
 .BarraBaj {
-    width: 100%;
+    width: 100vw;
     min-height: 100px;
     background-color: aquamarine;
     display: flex;
@@ -119,7 +122,7 @@
 }
 
 
-
+/*MUCHAS COSAS*/
 /*saco margenes del html*/
 body {
     margin: 0;
@@ -141,15 +144,20 @@ html{
     border-radius: 50%;
     object-fit: cover;
 }
-
+/**/
+/**/
+/**/
 /*ESTILO DE TODOS LO BOTONES*/
 button{
     background-color: aquamarine;
     border: 1px solid black;
     font-family:"PoppinsL";
-    border-radius: 20px;
+    border-radius: 30px;
     padding: 8px 15px;
     margin-left: 20px;
+    width: fit-content;
+    height: auto;
+    font-size: 15px;
 }
 /* Transición suave para los botones */
 button:not(table button) {
@@ -179,7 +187,9 @@ table button:hover {
     background-color: #d6c2ff;
     color: #ffffff;
 }
-
+/**/
+/**/
+/**/
 /*FUENTES*/
 /*titulos*/
 @font-face {
@@ -221,7 +231,9 @@ p,a{
 h1, h2, h3,label{
     margin-left: 30px;
 }
-
+/**/
+/**/
+/**/
 /*TABLAS*/
 td{
     padding: 10px;
@@ -241,8 +253,7 @@ table{
     border-radius: 15px;
     overflow: hidden;
 }
-/* BOTONES DENTRO DE LAS TABLAS */
-
+/*botones dentro de las tablas */
 #TI button,
 #TG button,
 #TO button {
@@ -298,4 +309,45 @@ table{
     opacity: 1;
     transform: translateY(0);
 }
+/**/
+/**/
+/**/
+/*PAGINA DE PRESENTACIÓN*/
+.Ingreso{
+    background-image: url(../../assets/logo.png);
+    background-size: cover;          /* Escala la imagen para cubrir toda el área */
+    background-position: center;     /* Centra la imagen de fondo */
+    background-repeat: no-repeat;
+    
+    width: 100vw;                    /* 100% del ancho de la pantalla */
+    min-height: 550px;
+}
 
+.CAJA{
+    width: 600px;
+    height: 250px;
+    font-size: 20px;
+    padding-top: 50px;
+}
+
+.TITULO{
+    position: sticky;
+    top: 0;
+    background-color: aquamarine;
+    width: 100vw;
+    height: 65px;
+    display: flex;
+    z-index: 1;
+    padding: 0px;
+    
+}
+
+#Bien{
+    margin-left: 45px;
+    margin-top: 0;
+}
+
+/*PAGINA DE INGRESO*/
+.ING input {
+    margin-left: 50px;
+}
