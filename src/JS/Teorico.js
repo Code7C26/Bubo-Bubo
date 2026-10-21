@@ -53,7 +53,8 @@ function B1(){
         document.getElementById("RTA").innerHTML = cont + "/4";
         const BR=document.createElement("button");
         BR.textContent="Rehacer";
-        document.body.appendChild(BR);
+        BR.id = "BR";
+        document.getElementById("Ter").insertAdjacentElement("afterend", BR);
         BR.addEventListener("click", reini);
         Ter.disabled=true;
     }

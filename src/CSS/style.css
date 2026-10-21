@@ -56,7 +56,7 @@
 .BarraNav{
     position: sticky;
     top: 0;
-    background-color: aquamarine;
+    background-color: #022b43;
     width: 100vw;
     height: 65px;
     padding-top: 25px;
@@ -91,11 +91,11 @@
 .BarraBaj {
     width: 100vw;
     min-height: 100px;
-    background-color: aquamarine;
+    background-color: #022b43;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
     gap: 200px;
+    align-items: flex-start;
     padding: 25px 100px;
     box-sizing: border-box;
     margin-top: 40px;
@@ -113,12 +113,14 @@
 .BarraBaj h3 {
     margin: 0 0 5px 0;
     font-size: 16px;
+    color: #eff2e5;
 }
 
 .BarraBaj p,
 .BarraBaj a {
     margin: 0;
     font-size: 13px;
+    color: #eff2e5;
 }
 
 
@@ -126,6 +128,7 @@
 /*saco margenes del html*/
 body {
     margin: 0;
+    background-color: #eff2e5;
 }
 html{
     overscroll-behavior-y: none;
@@ -149,8 +152,8 @@ html{
 /**/
 /*ESTILO DE TODOS LO BOTONES*/
 button{
-    background-color: aquamarine;
-    border: 1px solid black;
+    background-color: #fac82e;
+    border: 0px solid #fac82e;
     font-family:"PoppinsL";
     border-radius: 30px;
     padding: 8px 15px;
@@ -169,7 +172,7 @@ button:not(table button) {
 
 /* Efecto al pasar el mouse */
 button:not(table button):hover {
-    background-color: #d6c2ff;
+    background-color: #fcd96e;
     color: #ffffff;
     transform: scale(1.05);
 }
@@ -200,6 +203,7 @@ h1 {
     font-family: "Bebas";
     font-size: 55px;
 }
+
 /*subtitulos*/
 @font-face {
     font-family: "PoppinsB";
@@ -226,10 +230,12 @@ p,a{
     font-family:"PoppinsL";
     font-size: 20px;
     margin-left: 45px;
+    color: #022b43;
 }
 /*textos*/
 h1, h2, h3,label{
     margin-left: 30px;
+    color: #022b43;
 }
 /**/
 /**/
@@ -241,15 +247,16 @@ td{
 }
 label{
     font-family: "PoppinsL";
+    color: #022b43;
 }
 table, td, th {
-  border: 1px solid;
+  border: 1px solid #043437;
 }
 table{
     margin-left: 40px;
     border-collapse: separate;
     border-spacing: 0;
-    border: 1px solid black;
+    border: 1px solid #043437;
     border-radius: 15px;
     overflow: hidden;
 }
@@ -261,7 +268,7 @@ table{
     height: 100%;
     border: none;
     border-radius: 0;
-    background-color: aquamarine;
+    background-color: #076a6f;
     padding: 8px 15px;
 }
 
@@ -270,7 +277,7 @@ table{
 #TG td:last-child,
 #TO td:last-child {
     padding: 0;
-    background-color: aquamarine;
+    background-color: #076a6f;
 }
 
 /* Celda del botón + */
@@ -278,15 +285,29 @@ table{
 #FGB td,
 #FBO {
     padding: 0;
-    background-color: aquamarine;
+    background-color: #076a6f;
 }
 /* FONDO DE LOS DATOS DE LA TABLA */
 
 .Eti, .Mon, .Fij, .Val, .Aho, .Pri{
-    background-color: aqua;
+    background-color: #076a6f;
 }
 
-/*MULTIPLE CHOISE*/
+/*Boton ocupa toda la celda*/
+#BTAI {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: 0;
+    padding: 8px 0;
+}
+
+/*pinto celda extra*/
+#TI tr:first-child td {
+    background-color: #076a6f;
+}
+
+/*MULTIPLE CHOICE*/
 .multi{
     display: flex;
     flex-direction: column;
@@ -333,21 +354,38 @@ table{
 .TITULO{
     position: sticky;
     top: 0;
-    background-color: aquamarine;
+    background-color: #022b43;
     width: 100vw;
     height: 65px;
     display: flex;
     z-index: 1;
-    padding: 0px;
-    
+    padding: 0px; 
+}
+.TITULO h1,h2,h3,p,a{
+color: #022b43;
 }
 
 #Bien{
     margin-left: 45px;
     margin-top: 0;
 }
+.iconos{
+    width: 50px;
+    height: 50px;
+}
+.IT {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 
+.IT p {
+    margin: 0;
+}
 /*PAGINA DE INGRESO*/
 .ING input {
     margin-left: 50px;
+}
+.ING h1,h2,h3,p,a{
+    color: #022b43;
 }
