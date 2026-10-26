@@ -334,23 +334,7 @@ table{
 /**/
 /**/
 /*PAGINA DE PRESENTACIÓN*/
-.Ingreso{
-    background-image: url(../../assets/logo.png);
-    background-size: cover;          /* Escala la imagen para cubrir toda el área */
-    background-position: center;     /* Centra la imagen de fondo */
-    background-repeat: no-repeat;
-    
-    width: 100vw;                    /* 100% del ancho de la pantalla */
-    min-height: 550px;
-}
-
-.CAJA{
-    width: 600px;
-    height: 250px;
-    font-size: 20px;
-    padding-top: 50px;
-}
-
+/*barra d arriba*/
 .TITULO{
     position: sticky;
     top: 0;
@@ -365,10 +349,73 @@ table{
 color: #022b43;
 }
 
+/*presentacion*/
+.Ingreso{
+    background-image: url(../../assets/portadainicio.png);
+    background-size: cover;          /* Escala la imagen para cubrir toda el área */
+    background-position: center;     /* Centra la imagen de fondo */
+    background-repeat: no-repeat;
+    
+    width: 100vw;                    /* 100% del ancho de la pantalla */
+    min-height: 700px;
+
+        /* Difuminado de la propia imagen */
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 55%,
+        transparent 100%
+    );
+
+    mask-image: linear-gradient(
+        to bottom,
+        black 80%,
+        transparent 100%
+    );
+
+}
+.CAJA{
+    width: 500px;
+    height: 250px;
+    font-size: 20px;
+    padding-top: 50px;
+}
+.CAJA h1{
+    color:#eff2e5
+}
+#xd{
+    color:#eff2e5
+}
 #Bien{
     margin-left: 45px;
     margin-top: 0;
 }
+
+/*que es bubo*/
+
+.somos {
+    position: relative;
+    min-height: 400px;
+    padding: 30px;
+    box-sizing: border-box;
+    isolation: isolate;
+}
+
+/* Imagen de fondo */
+.somos::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url("../../assets/prueba5.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 1;
+    z-index: -1;
+}
+
+
 .iconos{
     width: 50px;
     height: 50px;
