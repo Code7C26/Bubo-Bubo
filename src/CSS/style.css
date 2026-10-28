@@ -231,6 +231,7 @@ p,a{
     font-size: 20px;
     margin-left: 45px;
     color: #022b43;
+    
 }
 /*textos*/
 h1, h2, h3,label{
@@ -390,31 +391,73 @@ color: #022b43;
     margin-top: 0;
 }
 
-/*que es bubo*/
-
-.somos {
+.nosotras, .bubo, .personajes {
     position: relative;
     min-height: 400px;
     padding: 30px;
     box-sizing: border-box;
-    isolation: isolate;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    max-width: 1100px;
+    text-align: center;
+    margin: 0 auto 25px;
 }
 
-/* Imagen de fondo */
-.somos::before {
-    content: "";
-    position: absolute;
-    inset: 0;
+.somos{
+    position: relative;
+    min-height: 400px;
+    padding: 30px;
+    box-sizing: border-box;
 
-    background-image: url("../../assets/prueba5.jpg");
-    background-size: cover;
-    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    max-width: 1100px;
+    text-align: center;
+    margin: -100px auto 25px;
+} 
+
+/* FONDO CONTINUO DE TODAS LAS SECCIONES */
+
+.fondoimg {
+    background-image: linear-gradient(to top, rgba(239, 242, 229, 0) 80%, rgba(239, 242, 229, 1) 100%), url("../../assets/prueba6.png");
+    position: relative;
     background-repeat: no-repeat;
-
-    opacity: 1;
-    z-index: -1;
+    background-position: center top;
+    background-size: 100% auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 120px;
+    display: flow-root;
 }
 
+/* PRUEBA 8: Se ve bien arriba, se difumina abajo */
+.fondoimg2 {
+    background-image: linear-gradient(to bottom, rgba(239, 242, 229, 0) 80%, rgba(239, 242, 229, 1) 100%), url("../../assets/prueba8.png");
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
+    width: 100%;
+    margin-top: -60px;    /* Mantiene la unión con la imagen de arriba */
+    padding-top: 120px;   /* <--- Aumentamos esto para empujar el título "¿Cómo surge este proyecto?" más abajo */
+    padding-bottom: 80px;
+    padding: 0;
+    display: flow-root;
+}
+
+/* Limpieza de residuos */
+.fondoimg::after,
+.fondoimg2::before {
+    display: none;
+}
 
 .iconos{
     width: 50px;
