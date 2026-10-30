@@ -426,31 +426,56 @@ color: #022b43;
 /* FONDO CONTINUO DE TODAS LAS SECCIONES */
 
 .fondoimg {
-    background-image: linear-gradient(to top, rgba(239, 242, 229, 0) 80%, rgba(239, 242, 229, 1) 100%), url("../../assets/prueba6.png");
+    background-image: linear-gradient(to top, rgba(239, 242, 229, 0) 90%, rgba(239, 242, 229, 1) 100%), url("../../assets/prueba6.png");
     position: relative;
     background-repeat: no-repeat;
-    background-position: center top;
+    background-position: left top;
     background-size: 100% auto;
-    width: 100%;
+    width: 100vw;
     margin: 0;
     padding: 0;
-    padding-bottom: 120px;
+    padding-bottom: 0px;
     display: flow-root;
 }
 
 /* PRUEBA 8: Se ve bien arriba, se difumina abajo */
 .fondoimg2 {
-    background-image: linear-gradient(to bottom, rgba(239, 242, 229, 0) 80%, rgba(239, 242, 229, 1) 100%), url("../../assets/prueba8.png");
+    background-image: linear-gradient(to bottom, rgba(239, 242, 229, 0) 60%, rgba(239, 242, 229, 1) 90%), url("../../assets/prueba8.png");
     position: relative;
     background-repeat: no-repeat;
-    background-position: center top;
+    background-position: left top;
     background-size: 100% auto;
-    width: 100%;
+    width: 100vw;
     margin-top: -60px;    /* Mantiene la unión con la imagen de arriba */
     padding-top: 120px;   /* <--- Aumentamos esto para empujar el título "¿Cómo surge este proyecto?" más abajo */
-    padding-bottom: 80px;
+    padding-bottom: 0px;
     padding: 0;
     display: flow-root;
+}
+
+.fondoimg3 {
+    background-image: url("../../assets/personajes.png");
+        
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 100% auto; /* Mantiene la proporción de la imagen sin cortarla a la mitad */
+    
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    
+    margin-top: -60px;
+    margin-bottom: 0px;
+    padding-top: 120px;
+    padding-bottom: 50px; /* Dale espacio interno para que la imagen respire y baje sola */
+    height: auto;         /* Deja que el alto se adapte al contenido y a la imagen */
+    min-height: 600px;    /* Ajustá este valor si la imagen es muy alta para asegurar que se vea entera */
+    display: flow-root;
+
+    margin-bottom: -50px !important;
 }
 
 /* Limpieza de residuos */
@@ -478,4 +503,11 @@ color: #022b43;
 }
 .ING h1,h2,h3,p,a{
     color: #022b43;
+}
+.ING h1{
+    padding-left: 1.1%;
+}
+
+a:has(button) {
+    text-decoration: none;
 }
