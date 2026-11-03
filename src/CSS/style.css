@@ -1,18 +1,19 @@
-/*ESTILO DE LOS POPUP*/
+/*ESTILO DE LOS POPUP'S*/
 .popup {
     position: fixed;
     inset: 0;
     z-index: 2;
 }
-/*evita que se toque lo de atras(capa)*/
+
+/*EVITA QUE SE TOQUE LO DE DETRÁS (CAPA)*/
 .overlay {
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 3;
 }
-/*centrar el popupcontenido*/
-/* Popup donde se cargan los datos */
+
+/*POPUP CARGAR DATOS*/
 .popup-contenido {
     position: fixed;
     top: 50%;
@@ -31,7 +32,8 @@
 
     z-index: 4;
 }
-/*boton borrar*/
+
+/*BOTÓN BORRAR*/
 .cerrar-popup {
     position: absolute;
     top: 10px;
@@ -45,35 +47,46 @@
 
     border-radius: 50%;
 }
-/*titulo popup*/
+
+/*TÍTULO POPUP*/
 .Titulo-Popup{
     margin:0px;
 }
-/**/
-/**/
-/**/
+
 /*BARRA DE NAVEGACION*/
-.BarraNav{
+.BarraNav {
     position: sticky;
     top: 0;
     background-color: #022b43;
-    width: 100vw;
+    width: 100%;
     height: 65px;
-    padding-top: 25px;
-    padding-bottom: 1px;
+    padding: 0 20px;          /* Margen interno a ambos lados para que nada pegue contra el borde */
     display: flex;
+    align-items: center;            /* Centra verticalmente todos los elementos */
+    gap: 15px;                      /* Espacio uniforme entre los botones */
     z-index: 1;
+    box-sizing: border-box;
+    margin: 0;
+    left: 0;
+    right: 0;
 }
 
-/*boton avanzado*/
+/* Empuja el botón "Avanzado" (tercer elemento) y el perfil hacia la extrema derecha */
+.BarraNav > a:nth-child(3) {
+    margin-left: auto;
+}
+
+/*BOTÓN AVANZADO*/
 .btAv{
     margin-left: 860px;
 }
-/*boton de*/
+
+/*BOTÓN DE*/
 .btBR{
     margin-left: 15px;
 }
-/*boton perfil*/
+
+/*BOTÓN PERFÍL*/
 #ImgPNav {
     width: 45px;
     height: 45px;
@@ -84,9 +97,7 @@
     position: relative;
     top: -5px;
 }
-/**/
-/**/
-/**/
+
 /*BARRA BAJA*/
 .BarraBaj {
     width: 100vw;
@@ -96,7 +107,7 @@
     justify-content: flex-start;
     gap: 200px;
     align-items: flex-start;
-    padding: 25px 100px;
+    padding: 25px 50px;
     box-sizing: border-box;
     margin-top: 40px;
     z-index: 1;
@@ -123,18 +134,22 @@
     color: #eff2e5;
 }
 
-
 /*MUCHAS COSAS*/
-/*saco margenes del html*/
+/*MÁRGENES HTML*/
 body {
     margin: 0;
     background-color: #eff2e5;
-}
-html{
-    overscroll-behavior-y: none;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Evita cualquier desplazamiento lateral fantasma */
 }
 
-/*configuracion foto de perfil*/
+html{
+    overscroll-behavior-y: none;
+    scroll-behavior: smooth;
+}
+
+/*CONFIGURACIÓN DEL PERFÍL*/
 #ImgP{
     width: 150px;
     height: 150px;
@@ -147,10 +162,8 @@ html{
     border-radius: 50%;
     object-fit: cover;
 }
-/**/
-/**/
-/**/
-/*ESTILO DE TODOS LO BOTONES*/
+
+/*ESTILO DE TODOS LOS BOTONES*/
 button{
     background-color: #fac82e;
     border: 0px solid #fac82e;
@@ -162,7 +175,8 @@ button{
     height: auto;
     font-size: 15px;
 }
-/* Transición suave para los botones */
+
+/*TRANSICIÓN DE LOS BOTONES*/
 button:not(table button) {
     transition:
         background-color 0.2s ease,
@@ -170,18 +184,19 @@ button:not(table button) {
         transform 0.2s ease;
 }
 
-/* Efecto al pasar el mouse */
+/*EFECTO AL PASAR EL MOUSE*/
 button:not(table button):hover {
     background-color: #fcd96e;
     color: #ffffff;
     transform: scale(1.05);
 }
 
-/* Efecto al mantener apretado */
+/*EFECTO AL MANTENER APRETADO*/
 button:not(table button):active {
     transform: scale(0.95);
 }
-/* Botones de las tablas: solo cambian de color */
+
+/*CAMBIO DE COLOR EN LOS BOTONES DE LAS TABLAS*/
 table button {
     transition: background-color 0.2s ease, color 0.2s ease;
 }
@@ -190,11 +205,9 @@ table button:hover {
     background-color: #d6c2ff;
     color: #ffffff;
 }
-/**/
-/**/
-/**/
+
 /*FUENTES*/
-/*titulos*/
+/*TITULOS*/
 @font-face {
     font-family: "Bebas";
     src: url("../../assets/fuentes/titulos/BebasNeue-Regular.ttf");
@@ -204,28 +217,33 @@ h1 {
     font-size: 55px;
 }
 
-/*subtitulos*/
+/*SUBTITULOS*/
 @font-face {
     font-family: "PoppinsB";
     src: url("../../assets/fuentes/subtitulos/Poppins-Black.ttf");
 }
+
 h2{
     font-family: "PoppinsB";
     font-size: 30px;
 }
+
 @font-face {
     font-family: "PoppinsI";
     src: url("../../assets/fuentes/texto/Poppins-Italic.ttf");
 }
+
 h3{
     font-family: "PoppinsI";
     font-size: 25px;
 }
-/*texto*/
+
+/*TEXTO*/
 @font-face {
     font-family: "PoppinsL";
     src: url("../../assets/fuentes/texto/Poppins-Light.ttf");
 }
+
 p,a{
     font-family:"PoppinsL";
     font-size: 20px;
@@ -233,14 +251,13 @@ p,a{
     color: #022b43;
     
 }
-/*textos*/
+
+/*TEXTOS*/
 h1, h2, h3,label{
     margin-left: 30px;
     color: #022b43;
 }
-/**/
-/**/
-/**/
+
 /*TABLAS*/
 td{
     padding: 10px;
@@ -261,7 +278,8 @@ table{
     border-radius: 15px;
     overflow: hidden;
 }
-/*botones dentro de las tablas */
+
+/*BOTONES DENTRO DE LAS TABLAS*/
 #TI button,
 #TG button,
 #TO button {
@@ -273,7 +291,7 @@ table{
     padding: 8px 15px;
 }
 
-/* Celda de Editar y Borrar */
+/*CELDAS BORRAR Y EDITAR*/
 #TI td:last-child,
 #TG td:last-child,
 #TO td:last-child {
@@ -281,20 +299,20 @@ table{
     background-color: #076a6f;
 }
 
-/* Celda del botón + */
+/*CELDA BOTÓN + */
 #FIB td,
 #FGB td,
 #FBO {
     padding: 0;
     background-color: #076a6f;
 }
-/* FONDO DE LOS DATOS DE LA TABLA */
 
+/*FONDO DE LOS DATOS DE LA TABLA*/
 .Eti, .Mon, .Fij, .Val, .Aho, .Pri{
     background-color: #076a6f;
 }
 
-/*Boton ocupa toda la celda*/
+/*BOTÓN QUE OCUPA TODA LA CELDA*/
 #BTAI {
     width: 100%;
     height: 100%;
@@ -303,7 +321,7 @@ table{
     padding: 8px 0;
 }
 
-/*pinto celda extra*/
+/*PINTAR CELDAS EXTRA*/
 #TI tr:first-child td {
     background-color: #076a6f;
 }
@@ -326,16 +344,14 @@ table{
         transform 0.5s ease;
 }
 
-/* Estado final: el elemento ya apareció */
+/*ESTADO FINAL: ELEMENTO APARECE*/
 .aparecer.visible {
     opacity: 1;
     transform: translateY(0);
 }
-/**/
-/**/
-/**/
-/*PAGINA DE PRESENTACIÓN*/
-/*barra d arriba*/
+
+/*PÁGINA DE PRESENTACIÓN*/
+/*BARRA SUPERIOR*/
 .TITULO{
     position: sticky;
     top: 0;
@@ -345,12 +361,17 @@ table{
     display: flex;
     z-index: 1;
     padding: 0px; 
+
+    align-items: center; /* Esto centra los botones verticalmente */
+    gap: 15px;           /* Espacio opcional entre los botones */
+    padding-left: 0px;
 }
+
 .TITULO h1,h2,h3,p,a{
 color: #022b43;
 }
 
-/*presentacion*/
+/*PRESENTACIÓN*/
 .Ingreso{
     background-image: url(../../assets/portadainicio.png);
     background-size: cover;          /* Escala la imagen para cubrir toda el área */
@@ -374,18 +395,22 @@ color: #022b43;
     );
 
 }
+
 .CAJA{
     width: 500px;
     height: 250px;
     font-size: 20px;
     padding-top: 50px;
 }
+
 .CAJA h1{
     color:#eff2e5
 }
+
 #xd{
     color:#eff2e5
 }
+
 #Bien{
     margin-left: 45px;
     margin-top: 0;
@@ -423,8 +448,7 @@ color: #022b43;
     margin: -100px auto 25px;
 } 
 
-/* FONDO CONTINUO DE TODAS LAS SECCIONES */
-
+/*FONDO CONTINUO DE TODAS LAS SECCIONES*/
 .fondoimg {
     background-image: linear-gradient(to top, rgba(239, 242, 229, 0) 90%, rgba(239, 242, 229, 1) 100%), url("../../assets/prueba6.png");
     position: relative;
@@ -438,7 +462,6 @@ color: #022b43;
     display: flow-root;
 }
 
-/* PRUEBA 8: Se ve bien arriba, se difumina abajo */
 .fondoimg2 {
     background-image: linear-gradient(to bottom, rgba(239, 242, 229, 0) 60%, rgba(239, 242, 229, 1) 90%), url("../../assets/prueba8.png");
     position: relative;
@@ -478,7 +501,7 @@ color: #022b43;
     margin-bottom: -50px !important;
 }
 
-/* Limpieza de residuos */
+/*LIMPIEZA DE RESIDUOS*/
 .fondoimg::after,
 .fondoimg2::before {
     display: none;
@@ -488,6 +511,7 @@ color: #022b43;
     width: 50px;
     height: 50px;
 }
+
 .IT {
     display: flex;
     align-items: center;
@@ -497,17 +521,181 @@ color: #022b43;
 .IT p {
     margin: 0;
 }
-/*PAGINA DE INGRESO*/
+
+/*PÁGINA DE INGRESO*/
 .ING input {
     margin-left: 50px;
 }
+
+p#sn {
+    color: #d9534f !important;   /* Color rojo de alerta */
+    font-family: "PoppinsB";     /* Fuente en negrita */
+    font-size: 16px;             /* Tamaño más visible */
+    margin-top: 8px;
+    margin-left: 45px;
+}
+
+/*EMPUJA HACIA ABAJO LO QUE ESTE DEBAJO DEL CUADRO DEL USUARIO*/
+.ING input#usuario {
+    margin-bottom: 20px; 
+}
+
+/*CLASES PARA LOS FONDOS*/
+body.ingreso {
+    background-image: url("../../assets/prueba9.png");
+    background-size: cover;          /* Cubre toda la pantalla sin deformarse */
+    background-position: center;     /* Centra la imagen */
+    background-repeat: no-repeat;    /* Evita que se repita como mosaico */
+    background-attachment: fixed;    /* <-- ESTO es lo que hace que quede fijo y no se mueva al bajar */
+}
+
 .ING h1,h2,h3,p,a{
     color: #022b43;
 }
+
 .ING h1{
     padding-left: 1.1%;
 }
 
 a:has(button) {
     text-decoration: none;
+}
+
+/*TÍTULO VISIBLE DEBAJO DE LA BARRA DE NAVEGACIÓN*/
+.nosotras, .bubo, .personajes, .somos, h1, h2, h3 {
+    scroll-margin-top: 80px; 
+}
+
+.contenedor-archivo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+#FtoP {
+    display: none; /* Oculta el input feo nativo del navegador */
+}
+
+.btn-archivo {
+    background-color: #ffffff;
+    border: 1px solid #767676;
+    border-radius: 3px;
+    font-family: "PoppinsL";
+    font-size: 14px;
+    cursor: pointer;
+    color: #000;
+}
+
+.btn-archivo:hover {
+    background-color: #f0f0f0;
+}
+
+#texto-archivo {
+    font-family: "PoppinsL";
+    font-size: 14px;
+    color: #022b43;
+    margin-left: 30px;
+    gap: 5px;
+}
+
+/*CONTENEDOR DE SELECCIONAR ARCHIVO A LA IZQUIERDA*/
+.contenedor-archivo {
+    margin-left: 15px;
+}
+
+/*BOTÓN ACEPTAR MÁS ABAJO*/
+.btn-aceptar {
+    margin-top: 20px;
+    margin-bottom: 175px;
+}
+
+.contenedor-archivo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-left: 15px;
+}
+
+/*CONTENEDOR PARA EL BOTÓN Y LA IMAGEN MINI*/
+.fila-selector {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Espacio entre el botón y la foto circular */
+}
+
+#FtoP {
+    display: none; /* Oculta el input feo nativo */
+}
+
+.btn-archivo {
+    background-color: #ffffff;
+    border: 1px solid #767676;
+    border-radius: 3px;
+    font-family: "PoppinsL";
+    font-size: 14px;
+    cursor: pointer;
+    color: #000;
+    padding: 4px 8px;
+}
+
+.btn-archivo:hover {
+    background-color: #f0f0f0;
+}
+
+/*PERFIL CIRCULAR*/
+#preview-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;          /* Esto la vuelve perfectamente circular */
+    object-fit: cover;           /* Evita que la imagen se deforme */
+    border: 2px solid #022b43;   /* Opcional: un borde bonito alrededor */
+    display: none;               /* Empieza oculta hasta que elijas una foto */
+}
+
+#texto-archivo {
+    font-family: "PoppinsL";
+    font-size: 14px;
+    color: #022b43;
+}
+
+.btn-aceptar {
+    margin-top: 5px;
+}
+
+/* Estilo normal de la barra en las demás páginas (como 'present') para que quede intacta */
+.BarraBaj {
+    position: static; /* O el comportamiento original que tenía */
+    width: 100%;
+}
+
+/* Estructura general de la página de inicio */
+body.inicio {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Agrupa los botones en fila horizontal y los separa de la barra azul */
+.contenedor-botones {
+    display: flex;
+    flex-direction: row;  /* Mantiene los botones lado a lado */
+    gap: 15px;            /* Espacio horizontal entre ellos */
+    margin-bottom: 290px; /* Gran espacio inferior para alejarlos de la barra baja */
+    align-items: center;
+}
+
+.contenedor-botones a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Empuja la barra baja siempre al fondo de la pantalla */
+body.inicio .BarraBaj {
+    margin-top: auto;
+    position: static;
+    width: 100%;
 }
