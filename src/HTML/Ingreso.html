@@ -7,16 +7,32 @@
     <link rel="stylesheet" href="../CSS/style.css">
     <script src="../JS/Ingreso.js"></script>
 </head>
-<body>
+<body class="ingreso">
     <div class="ING">
         <h1>Iniciar sesión</h1>
         <p>Ingrese su nombre de usuario</p>
-        <input type="text" id="usuario">
         <p id="sn"></p>
+        <input type="text" id="usuario">
+        
         <p>Ingrese una foto de perfil (opcional)</p>
-        <input type="file" id="FtoP" accept="image/*">
-        <button onclick="ValUsua()">Aceptar</button>
+        
+        <div class="contenedor-archivo">
+            <!-- El contenedor fila-selector envuelve al botón y a la foto -->
+            <div class="fila-selector">
+                <label for="FtoP" class="btn-archivo">Seleccionar archivo</label>
+                <img id="preview-img" src="" alt="Vista previa">
+            </div>
+            
+            <!-- El input de archivo va oculto por CSS -->
+            <input type="file" id="FtoP" accept="image/*">
+            
+            <!-- El texto que muestra el nombre del archivo -->
+            <span id="texto-archivo">Ningún archivo seleccionado</span>
+            
+            <button onclick="ValUsua()" class="btn-aceptar">Aceptar</button>
+        </div>
     </div>
+</body>
     
     <div class="BarraBaj">
         <div class="Redes">
