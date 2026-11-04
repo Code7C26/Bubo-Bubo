@@ -7,14 +7,21 @@
     <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
-    <div class="TITULO">
-        <a href="#nosotras"><button>Sobre nosotras</button></a>
-        <a href="#bubo"><button>Sobre Bubo²</button></a>
-        <a href="#proyecto"><button>Origen del proyecto</button></a>
-        <a href="#personajes"><button>Personajes</button></a>
-</div>
+  <nav class="BarraNav">
 
+    <!-- Logo agregado a la izquierda -->
+   <img src="../../assets/logo.png" alt="Logo" class="logo-izquierda">
+   
+    <!-- Grupo central con los botones de presentación -->
+    <div class="menu-central">
+        <a href="#nosotras"><button type="button">Sobre nosotras</button></a>
+        <a href="#bubo"><button type="button">Sobre Bubo²</button></a>
+        <a href="#proyecto"><button type="button">Origen del proyecto</button></a>
+        <a href="#personajes"><button type="button">Personajes</button></a>
     </div>
+
+</nav>
+    
     <div class="Ingreso">
         <div class="CAJA">
         <h1 id="Bien">¡Bienvenido a Bubo²!</h1>
@@ -30,36 +37,65 @@
         </div>
     </div>
 
-    <div class="fondoimg">
+<div class="fondoimg">
     <div id="nosotras" class="nosotras">
-        <h1>¿Quiénes somos?</h1>
-            <p>
-                Detrás de cada proyecto siempre hay un equipo de producción,
-                esas somos nosotras, el equipo Bubo Bubo.
-            </p>
-    </div>
+        <h1 class="aparecer">¿Quiénes somos?</h1>
+        <p class="bubo-intro aparecer">
+            Detrás de cada proyecto siempre hay un equipo de producción,
+            esas somos nosotras, el equipo Bubo Bubo.
+        </p>
+        
+        <div class="contenedor-integrantes">
+            
+            <!-- Tarjeta 1: Mecha (SIN la clase aparecer aquí) -->
+            <div class="tarjeta-nosotras">
+                <img src="../../assets/mecha.png" alt="Foto de Mecha" class="img-nosotras">
+                <div class="texto-nosotras">
+                    <h2>Mecha</h2>
+                    <p>
+                        Integrante encargada del 'backend', su trabajo es programar y poner en marcha la página y sus funciones.
+                    </p>
+                </div>
+            </div>
 
-    <div id="bubo" class="som">
-        <div class="somos">
-            <h1>¿Qué es Bubo²?</h1>
-                <p>
-                    Bubo² guía a jóvenes y adultos en el dominio de sus finanzas 
-                    personales, partiendo desde los conceptos económicos más
-                    básicos hasta los más avanzados, para ayudarles a gestionar
-                    su dinero con confianza. La plataforma ofrece paneles
-                    interactivos para organizar ingresos, gastos y priorizar
-                    metas, además de información oficial sobre economía argentina,
-                    evaluaciones de múltiple opción y juegos educativos con los
-                    personajes de la empresa.
-                </p>
+            <!-- Tarjeta 2: Valen (SIN la clase aparecer aquí) -->
+            <div class="tarjeta-nosotras">
+                <img src="../../assets/valen.png" alt="Foto de Valen" class="img-nosotras">
+                <div class="texto-nosotras">
+                    <h2>Valen</h2>
+                    <p>
+                        Integrante encargada del 'frontend', su trabajo es diseñar, publicitar y darle personalidad a la página.
+                    </p>
+                </div>
+            </div>
+
         </div>
     </div>
+</div>
 
-    <div id="proyecto" class= "fondoimg2">
+<div class="fondoimg4">
+    <div id="bubo" class="som">
+        <div class="somos">
+            <h1 class="aparecer">¿Qué es Bubo²?</h1>
+            <p class="aparecer">
+                Bubo² guía a jóvenes y adultos en el dominio de sus finanzas 
+                personales, partiendo desde los conceptos económicos más
+                básicos hasta los más avanzados, para ayudarles a gestionar
+                su dinero con confianza. La plataforma ofrece paneles
+                interactivos para organizar ingresos, gastos y priorizar
+                metas, además de información oficial sobre economía argentina,
+                evaluaciones de múltiple opción y juegos educativos con los
+                personajes de la empresa.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div id="proyecto" class="fondoimg2">
     <div class="som">
-    <div class="bubo">
-        <h1>¿Cómo surge este proyecto?</h1>
-            <p>
+        <div class="bubo">
+            <h1 class="aparecer">¿Cómo surge este proyecto?</h1>
+            <p class="aparecer">
                 Bubo² nace de la necesidad de cerrar la brecha entre la
                 gestión del dinero y la educación financiera en el país.
                 
@@ -77,15 +113,15 @@
             </p>
         </div>
     </div>
-    </div>
+</div>
 
-    <div class="fondoimg3">
+<div class="fondoimg3">
     <div class="per">
         <div id="personajes" class="personajes">
-            <h1>¡Conocé a nuestros personajes!</h1>
+            <h1 class="aparecer">¡Conocé a nuestros personajes!</h1>
         </div>
     </div>
-    </div>
+</div>
     
     <div class="BarraBaj">
         <div class="Redes">

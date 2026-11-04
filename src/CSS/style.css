@@ -54,48 +54,103 @@
 }
 
 /*BARRA DE NAVEGACION*/
+/* BARRA DE NAVEGACION DE PUNTA A PUNTA */
 .BarraNav {
     position: sticky;
     top: 0;
-    background-color: #022b43;
-    width: 100%;
-    height: 65px;
-    padding: 0 20px;          /* Margen interno a ambos lados para que nada pegue contra el borde */
-    display: flex;
-    align-items: center;            /* Centra verticalmente todos los elementos */
-    gap: 15px;                      /* Espacio uniforme entre los botones */
-    z-index: 1;
-    box-sizing: border-box;
-    margin: 0;
     left: 0;
-    right: 0;
+    width: 100%;
+    background-color: #022b43 !important;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    box-sizing: border-box;
+    padding: 0 20px;
+    margin: 0;
 }
 
-/* Empuja el botón "Avanzado" (tercer elemento) y el perfil hacia la extrema derecha */
-.BarraNav > a:nth-child(3) {
-    margin-left: auto;
+.logo-izquierda {
+    position: absolute;
+    left: 20px; /* Distancia desde el borde izquierdo de la barra */
+    max-height: 65px; /* Ajustá el alto según el tamaño de tu logo */
+    width: auto;
 }
 
-/*BOTÓN AVANZADO*/
-.btAv{
-    margin-left: 860px;
+/* Contenedor central que une los botones */
+.menu-central {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
-/*BOTÓN DE*/
-.btBR{
-    margin-left: 15px;
+/* Estilo estricto para las pestañas */
+.menu-central a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 180px;
+    text-decoration: none;
+    background-color: transparent !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    margin: 0 !important;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease;
 }
 
-/*BOTÓN PERFÍL*/
+/* Borde izquierdo solo para la primera pestaña */
+.menu-central a:first-child {
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Texto interno de los botones */
+.menu-central button {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none;
+    color: #ffffff !important;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+}
+
+/* Efecto hover limpio al pasar el mouse */
+.menu-central a:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* FOTO DE PERFIL: Anclada a la extrema derecha de la barra */
+.BarraNav .btPe {
+    position: absolute;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-decoration: none;
+    margin: 0;
+}
+
 #ImgPNav {
-    width: 45px;
-    height: 45px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     object-fit: cover;
     cursor: pointer;
-    margin-left: 10px;
-    position: relative;
-    top: -5px;
+    margin: 0;
 }
 
 /*BARRA BAJA*/
@@ -141,7 +196,8 @@ body {
     background-color: #eff2e5;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden; /* Evita cualquier desplazamiento lateral fantasma */
+    width: 100%;
+    overflow-x: hidden;
 }
 
 html{
@@ -337,34 +393,67 @@ table{
 
 .aparecer {
     opacity: 0;
-    transform: translateY(15px);
-
-    transition:
-        opacity 0.5s ease,
-        transform 0.5s ease;
+    transition: opacity 0.8s ease; /* Transición suave de opacidad */
 }
 
-/*ESTADO FINAL: ELEMENTO APARECE*/
 .aparecer.visible {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; /* Al agregarse la clase 'visible' por JS, el texto aparece suavemente */
 }
 
 /*PÁGINA DE PRESENTACIÓN*/
 /*BARRA SUPERIOR*/
-.TITULO{
+/* Restablecemos márgenes y cajas globales en el menú */
+.TITULO, .TITULO * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Barra contenedora superior */
+.TITULO {
     position: sticky;
     top: 0;
     background-color: #022b43;
-    width: 100vw;
+    width: 100%;
     height: 65px;
+    z-index: 10;
+    
+    /* Centra exactamente el grupo de botones en el medio de la pantalla */
     display: flex;
-    z-index: 1;
-    padding: 0px; 
+    justify-content: center;
+    align-items: center;
+}
 
-    align-items: center; /* Esto centra los botones verticalmente */
-    gap: 15px;           /* Espacio opcional entre los botones */
-    padding-left: 0px;
+/* Enlaces individuales / Pestañas */
+.TITULO a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    
+    /* Le damos a todos los botones exactamente el mismo ancho fijo */
+    width: 180px; 
+    
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    text-align: center;
+    
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Quitamos el borde derecho del último botón */
+.TITULO a:last-child {
+    border-right: none;
+}
+
+/* Efecto al pasar el mouse */
+.TITULO a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .TITULO h1,h2,h3,p,a{
@@ -374,26 +463,17 @@ color: #022b43;
 /*PRESENTACIÓN*/
 .Ingreso{
     background-image: url(../../assets/portadainicio.png);
-    background-size: cover;          /* Escala la imagen para cubrir toda el área */
-    background-position: center;     /* Centra la imagen de fondo */
+    background-size: cover;          
+    background-position: center;     
     background-repeat: no-repeat;
-    
-    width: 100vw;                    /* 100% del ancho de la pantalla */
+    width: 100%;                    
     min-height: 700px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 
-        /* Difuminado de la propia imagen */
-    -webkit-mask-image: linear-gradient(
-        to bottom,
-        black 55%,
-        transparent 100%
-    );
-
-    mask-image: linear-gradient(
-        to bottom,
-        black 80%,
-        transparent 100%
-    );
-
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
 
 .CAJA{
@@ -435,7 +515,7 @@ color: #022b43;
 .somos{
     position: relative;
     min-height: 400px;
-    padding: 30px;
+    padding: 40px 30px 30px 30px; /* Un poco más de espacio arriba */
     box-sizing: border-box;
 
     display: flex;
@@ -445,8 +525,8 @@ color: #022b43;
     width: 100%;
     max-width: 1100px;
     text-align: center;
-    margin: -100px auto 25px;
-} 
+    margin: 20px auto 25px; /* Cambiamos el -100px por un margen positivo para que baje y no se superponga */
+}
 
 /*FONDO CONTINUO DE TODAS LAS SECCIONES*/
 .fondoimg {
@@ -478,27 +558,40 @@ color: #022b43;
 
 .fondoimg3 {
     background-image: url("../../assets/personajes.png");
-        
     position: relative;
     background-repeat: no-repeat;
-    background-position: left top;
-    background-size: 100% auto; /* Mantiene la proporción de la imagen sin cortarla a la mitad */
-    
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    
+    background-position: center top;
+    background-size: cover;
+    width: 100%;
     margin-top: -60px;
-    margin-bottom: 0px;
     padding-top: 120px;
-    padding-bottom: 50px; /* Dale espacio interno para que la imagen respire y baje sola */
-    height: auto;         /* Deja que el alto se adapte al contenido y a la imagen */
-    min-height: 600px;    /* Ajustá este valor si la imagen es muy alta para asegurar que se vea entera */
+    padding-bottom: 50px;
+    min-height: 600px;
     display: flow-root;
-
     margin-bottom: -50px !important;
+}
+
+.fondoimg4 {
+    background-image: url("../../assets/prueba10.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    position: relative;
+    padding: 60px 20px;
+}
+
+.fondoimg, .fondoimg2, .fondoimg3, .fondoimg4 {
+    position: relative;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% auto; /* Mantiene la proporción original de tus ilustraciones de los costados */
+    max-width: 100%;
+    overflow-x: hidden;
+    isolation: isolate; 
+    margin: 0;
+    padding: 0;
 }
 
 /*LIMPIEZA DE RESIDUOS*/
@@ -520,6 +613,82 @@ color: #022b43;
 
 .IT p {
     margin: 0;
+}
+
+/* Contenedor principal de la sección nosotras */
+.nosotras {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Separación vertical entre elementos */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.bubo-intro {
+    text-align: center;
+    max-width: 700px;
+}
+
+.contenedor-integrantes {
+    display: flex;
+    flex-direction: row; /* Uno al lado del otro */
+    justify-content: center;
+    gap: 40px; /* Separación horizontal entre Mecha y Valen */
+    width: 100%;
+    flex-wrap: wrap; /* Por si la pantalla es chica, bajan solas abajo */
+}
+
+/* Fila de cada integrante (Imagen + Texto al lado) */
+.tarjeta-nosotras {
+    display: flex;
+    flex-direction: row;
+   align-items: flex-start;
+    gap: 20px; 
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Tamaño y comportamiento de las imágenes */
+.img-nosotras {
+    width: 250px;  /* Ajustá el ancho según tus imágenes */
+    height: 280px; /* Mantiene la proporción o forma cuadrada */
+    object-fit: cover;
+    border-radius: 12px; /* Opcional: bordes redondeados */
+    flex-shrink: 0; /* Evita que la imagen se achique si el texto es largo */
+}
+
+/* Caja de texto lateral */
+.texto-nosotras {
+    flex: 1;
+    text-align: left;
+}
+
+.texto-nosotras h2 {
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+}
+
+.texto-nosotras p {
+    line-height: 1.5;
+}
+
+.BarraNav .menu-central button {
+    background: transparent;
+    border: none !important; /* <--- Esto elimina por completo el borde redondeado del botón */
+    outline: none;
+    color: white;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0 35px;
+    height: 65px;
+}
+
+.BarraNav .menu-central button:hover {
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 /*PÁGINA DE INGRESO*/

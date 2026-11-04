@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
-    <div class="BarraNav">
-       <a href="Basico.html">
-            <button>Regresar</button>
-        </a>
-    </div>
+    <nav class="BarraNav" style="justify-content: flex-start;">
+        <div class="menu-central" style="margin-left: 0;">
+            <a href="Basico.html"><button type="button">Regresar</button></a>
+        </div>
+    </nav>
  
     <h2>Examen teórico - Bloque 1</h2>
     <h3>Pregunta 1:</h3>
@@ -110,7 +110,19 @@
         </label>
     </div>
     <p id="RTA"></p>
-    <button id="Ter" onclick="B1()">Finalizado</button>
+
+<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-top: 30px;">
+    
+    <!-- Botón Izquierda ("Finalizar") movido hacia adentro -->
+    <button id="Ter" onclick="B2()" style="margin-left: 45px;">Finalizar</button>
+
+    <!-- Botón Derecha ("Siguiente bloque" ya alineado) -->
+    <a href="Bloque2T.html" style="text-decoration: none; margin-right: 80px;">
+        <button type="button">Siguiente bloque</button>
+    </a>
+
+</div>
+
         <div class="BarraBaj">
         <div class="Redes">
             <h3>¡Síguenos!</h3>
