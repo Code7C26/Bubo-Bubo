@@ -1,8 +1,8 @@
-
 document.addEventListener("DOMContentLoaded", () => {
 
+    // Seleccionamos únicamente los elementos internos que deben animarse, no los fondos
     const elementos = document.querySelectorAll(
-        "body > *:not(.BarraNav):not(.BarraBaj)"
+        ".nosotras h1, .nosotras p, .tarjeta-nosotras, .somos h1, .somos p, .bubo h1, .bubo p, .personajes h1"
     );
 
     const observador = new IntersectionObserver((entradas) => {
@@ -18,11 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     }, {
-        threshold: 0
+        threshold: 0.1
     });
 
     elementos.forEach((elemento) => {
-        elemento.classList.add("aparecer");
+        // Ya no le inyectamos la clase acá a la fuerza; 
+        // la idea es que las clases .aparecer estén solo donde vos querés en el HTML
         observador.observe(elemento);
     });
 

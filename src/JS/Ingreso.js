@@ -11,13 +11,13 @@ function ValUsua()
 
             lector.onload = function() {
                 localStorage.setItem("FtoP", lector.result)
-                window.location.href = "Inicio.html"
+                window.location.href = "basico.html" // Cambiado aquí
             }
 
             lector.readAsDataURL(foto)
         }
         else {
-            window.location.href = "Inicio.html"
+            window.location.href = "basico.html" // Y cambiado aquí también
         }
     }
     else
