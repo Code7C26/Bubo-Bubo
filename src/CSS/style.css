@@ -21,8 +21,7 @@
     transform: translate(-50%, -50%);
 
     background-color: white;
-    border: 2px solid black;
-    border-radius: 20px;
+    border-radius: 40px;
 
     padding: 30px;
     
@@ -36,8 +35,8 @@
 /*BOTÓN BORRAR*/
 .cerrar-popup {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 15px;
 
     width: 25px;
     height: 25px;
@@ -46,6 +45,11 @@
     margin: 0;
 
     border-radius: 50%;
+}
+
+.cerrar-popup p{
+    top: 15px;
+    right: 15px;
 }
 
 /*TÍTULO POPUP*/
@@ -65,7 +69,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
+    z-index: 2;
     box-sizing: border-box;
     padding: 0 20px;
     margin: 0;
@@ -200,6 +204,7 @@ body {
     overflow-x: hidden;
 }
 
+/*NO PERMITE SCROLLEAR DE MAS*/
 html{
     overscroll-behavior-y: none;
     scroll-behavior: smooth;
@@ -219,6 +224,7 @@ html{
     object-fit: cover;
 }
 
+/**/
 /*ESTILO DE TODOS LOS BOTONES*/
 button{
     background-color: #fac82e;
@@ -358,7 +364,7 @@ table{
 /*CELDA BOTÓN + */
 #FIB td,
 #FGB td,
-#FBO {
+#JE td{
     padding: 0;
     background-color: #076a6f;
 }
@@ -369,7 +375,7 @@ table{
 }
 
 /*BOTÓN QUE OCUPA TODA LA CELDA*/
-#BTAI {
+#BTAI, #BTAG, #BTAO {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -378,7 +384,9 @@ table{
 }
 
 /*PINTAR CELDAS EXTRA*/
-#TI tr:first-child td {
+#TI tr:first-child td,
+#TG tr:first-child td,
+#TO tr:first-child td {
     background-color: #076a6f;
 }
 
@@ -391,14 +399,29 @@ table{
     margin-left: 40px;
 }
 
-.aparecer {
+h1,h2,h3,a,p,#texto-archivo,label,input{
     opacity: 0;
     transition: opacity 0.8s ease; /* Transición suave de opacidad */
 }
 
-.aparecer.visible {
+h1.visible,h2.visible,h3.visible,a.visible,p.visible,
+#texto-archivo.visible, label.visible,input.visible{
     opacity: 1; /* Al agregarse la clase 'visible' por JS, el texto aparece suavemente */
 }
+
+/*SACA ANIMACION A BARRABAJ Y BARRANAV*/
+h1.sin-animacion,
+h2.sin-animacion,
+h3.sin-animacion,
+p.sin-animacion,
+a.sin-animacion {
+    opacity: 1;
+    transition: none;
+}
+
+
+
+
 
 /*PÁGINA DE PRESENTACIÓN*/
 /*BARRA SUPERIOR*/
