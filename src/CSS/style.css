@@ -594,6 +594,29 @@ color: #022b43;
     margin-bottom: -50px !important;
 }
 
+.fondoimg3 {
+    /* Mantiene tus espacios y alturas originales que ya tenías */
+    margin-top: -60px;
+    padding-top: 120px;
+    padding-bottom: 50px;
+    min-height: 600px;
+    display: flow-root;
+    margin-bottom: -50px !important;
+
+    /* Las dos imágenes de fondo (separadas por coma) */
+    background-image: url("../../assets/personajes.png"), url("../../assets/tu-segunda-imagen.png");
+    
+    /* La posición de cada una en orden: la primera arriba, la segunda abajo */
+    background-position: center top, center bottom;
+    
+    /* Ninguna se repite */
+    background-repeat: no-repeat, no-repeat;
+    
+    /* El tamaño para ambas */
+    background-size: 100% auto, 100% auto;
+}
+
+
 .fondoimg4 {
     background-image: url("../../assets/prueba10.png");
     background-repeat: no-repeat;
@@ -890,4 +913,109 @@ body.inicio .BarraBaj {
     margin-top: auto;
     position: static;
     width: 100%;
+}
+
+
+/*TABLA DE PERSONAJES*/
+.tabla-custom {
+  width: 700px;
+  max-width: 100%;
+  border-collapse: separate;
+  border-spacing: 10px 12px;
+  background-color: transparent;
+  border: none;
+  margin: 0 auto;
+}
+
+/* Estilo general para las celdas */
+.tabla-custom td {
+  background-color: #076a6f;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  vertical-align: middle;
+  border: none;
+}
+
+
+/* ==========================================
+   1. COLUMNA DE LA IMAGEN
+   ========================================== */
+.tabla-custom td:first-child {
+  width: 120px;
+  text-align: center;
+  position: relative;
+  height: 150px;
+}
+
+.tabla-custom td img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  transition: opacity 0.3s ease;
+}
+
+.tabla-custom td .img-hover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/* ==========================================
+   2. COLUMNA DEL TEXTO
+   ========================================== */
+.tabla-custom td:nth-child(2) {
+  position: relative;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  height: 60px;
+}
+
+.tabla-custom td span {
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.tabla-custom td .texto-hover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+}
+
+
+/* ==========================================
+   3. LÓGICA DE LOS EFECTOS HOVER
+   ========================================== */
+
+/* A. Por defecto, si pasas el mouse por la CELDA DE LA IMAGEN (o la fila completa desde la imagen): cambian AMBOS */
+.tabla-custom td:first-child:hover ~ td:nth-child(2) .texto-default,
+.tabla-custom td:first-child:hover .img-default {
+  opacity: 0;
+}
+
+.tabla-custom td:first-child:hover ~ td:nth-child(2) .texto-hover,
+.tabla-custom td:first-child:hover .img-hover {
+  opacity: 1;
+}
+
+/* B. Si pasas el mouse DIRECTAMENTE SOBRE EL TEXTO: cambia SOLO el texto (la imagen de la izquierda no se entera y se queda quieta) */
+.tabla-custom td:nth-child(2):hover .texto-default {
+  opacity: 0;
+}
+
+.tabla-custom td:nth-child(2):hover .texto-hover {
+  opacity: 1;
 }
