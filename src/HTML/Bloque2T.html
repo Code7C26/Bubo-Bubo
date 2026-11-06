@@ -108,25 +108,25 @@
     </div>
     <p id="RTA"></p>
     
-<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-top: 30px;">
+<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-top: 30px; box-sizing: border-box; padding: 0 45px;">
     
-    <!-- Botón Izquierda ("Finalizar") -->
-    <button id="Ter" onclick="B2()" style="margin-left: 60px;">Finalizar</button>
-
-    <!-- Contenedor derecho que junta "Bloque anterior" y "Siguiente bloque" -->
-    <div style="display: flex; gap: 10px; margin-right: 60px;">
-        
-        <!-- Botón Bloque Anterior -->
-        <a href="Bloque1T.html" style="text-decoration: none;">
-            <button type="button">Bloque anterior</button>
-        </a>
-
-        <!-- Botón Siguiente Bloque -->
-        <a href="Bloque3T.html" style="text-decoration: none;">
-            <button type="button">Siguiente bloque</button>
-        </a>
-
+    <!-- Contenedor izquierdo: Finalizar y Rehacer juntos -->
+    <div style="display: flex; align-items: center; gap: 15px; margin: 0;">
+        <button id="Ter" onclick="B2()" style="margin: 0;">Finalizar</button>
+        <button id="Rehacer" onclick="location.reload();" style="margin: 0;">Rehacer</button>
     </div>
+
+    <!-- Contenedor derecho: Bloque anterior y Siguiente bloque -->
+    <div style="display: flex; gap: 10px; margin: 0;">
+        <a href="Bloque1T.html" style="text-decoration: none; margin: 0;">
+            <button type="button" style="margin: 0;">Bloque anterior</button>
+        </a>
+        <a href="Bloque3T.html" style="text-decoration: none; margin: 0;">
+            <button type="button" style="margin: 0;">Siguiente bloque</button>
+        </a>
+    </div>
+
+</div>
 
     </div>
 

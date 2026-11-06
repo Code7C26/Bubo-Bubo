@@ -29,7 +29,8 @@ function MostrarPopupP(){
     document.getElementById("ImgPEActual").src = localStorage.getItem("FtoP");
     POPUPP.style.display="block";
 }
-function Guardado(){
+
+/*function Guardado(){
     const NUser = document.getElementById("usuarioE").value;
     if (NUser==""){
         alert("Escriba su nombre de usuario")
@@ -51,4 +52,44 @@ function Guardado(){
 }
 function CerrarPopupP(){
     POPUPP.style.display="none"
+}
+*/
+
+function Guardado(){
+    const NUser = document.getElementById("usuarioE").value.trim();
+    const minCaracteres = 3;
+    const maxCaracteres = 15;
+
+    // Validar si está vacío
+    if (NUser === ""){
+        alert("Escriba su nombre de usuario");
+        return;
+    }
+
+    // Validar longitud mínima
+    if (NUser.length < minCaracteres) {
+        alert(`El usuario debe tener al menos ${minCaracteres} caracteres.`);
+        return;
+    }
+
+    // Validar longitud máxima
+    if (NUser.length > maxCaracteres) {
+        alert(`El usuario no puede superar los ${maxCaracteres} caracteres.`);
+        return;
+    }
+
+    // Si pasa todas las validaciones, guarda los cambios correctamente
+    localStorage.setItem("usuario", NUser);
+    document.getElementById("usuario").textContent = NUser;
+    const nuevaFoto = document.getElementById("ImgPE").files[0];
+    
+    if (nuevaFoto) {
+        const lector = new FileReader();
+        lector.onload = function(){
+            localStorage.setItem("FtoP", lector.result);
+            document.getElementById("ImgP").src = lector.result;
+        };
+        lector.readAsDataURL(nuevaFoto);
+    }
+    POPUPP.style.display = "none";
 }

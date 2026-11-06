@@ -1,5 +1,5 @@
 //GUARDA USUARIO ESCRITO
-function ValUsua() 
+/*function ValUsua() 
 {
     const usuario= document.getElementById("usuario").value
     const foto = document.getElementById("FtoP").files[0]
@@ -49,3 +49,53 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+*/
+
+//GUARDA USUARIO ESCRITO
+function ValUsua() 
+{
+    const inputUsuario = document.getElementById("usuario");
+    const usuario = inputUsuario.value.trim();
+    const foto = document.getElementById("FtoP").files[0];
+    const mensajeError = document.getElementById("sn");
+
+    // Definimos el mínimo y máximo de caracteres
+    const minCaracteres = 3;
+    const maxCaracteres = 15;
+
+    // Validar si está vacío
+    if (usuario === "") {
+        mensajeError.textContent = "Ingrese un nombre para poder continuar";
+        return;
+    }
+
+    // Validar longitud mínima
+    if (usuario.length < minCaracteres) {
+        mensajeError.textContent = `El usuario debe tener al menos ${minCaracteres} caracteres.`;
+        return;
+    }
+
+    // Validar longitud máxima (por seguridad extra)
+    if (usuario.length > maxCaracteres) {
+        mensajeError.textContent = `El usuario no puede superar los ${maxCaracteres} caracteres.`;
+        return;
+    }
+
+    // Si pasa todas las validaciones, limpia el error y continúa con tu lógica
+    mensajeError.textContent = "";
+    localStorage.setItem("usuario", usuario);
+
+    if (foto) {
+        const lector = new FileReader();
+
+        lector.onload = function() {
+            localStorage.setItem("FtoP", lector.result);
+            window.location.href = "basico.html";
+        }
+
+        lector.readAsDataURL(foto);
+    }
+    else {
+        window.location.href = "basico.html";
+    }
+}

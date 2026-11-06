@@ -25,3 +25,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+// ==========================================
+// LÓGICA DE LA PESTAÑITA VOLVER ARRIBA
+// ==========================================
+
+const contenedorArriba = document.getElementById('contenedor-arriba');
+const btnArriba = document.getElementById('btn-volver-arriba');
+
+if (contenedorArriba && btnArriba) {
+    window.addEventListener('scroll', () => {
+        // Detecta si el usuario está a 30px o menos del final de la página
+        const alFinal = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 30);
+
+        if (alFinal) {
+            contenedorArriba.classList.add('mostrar');
+        } else {
+            contenedorArriba.classList.remove('mostrar');
+        }
+    });
+
+    // Acción para subir de inmediato al hacer clic
+    btnArriba.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Sube de golpe al principio
+        });
+    });
+}

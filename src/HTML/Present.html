@@ -10,7 +10,7 @@
 <nav class="BarraNav">
 
     <!-- Logo agregado a la izquierda -->
-   <img src="../../assets/logo.png" alt="Logo" class="logo-izquierda">
+   <img src="../../assets/bubo (2).png" alt="Logo" class="logo-izquierda">
    
     <!-- Grupo central con los botones de presentación -->
     <div class="menu-central">
@@ -24,16 +24,22 @@
     
     <div class="Ingreso">
         <div class="CAJA">
-        <h1 id="Bien">¡Bienvenido a Bubo²!</h1>
-        <p id="xd">
-            La plataforma web ideal para jóvenes y adultos que buscan ahorrar, administrar sus ingresos y comprender la economía argentina.
-        </p>
-        <a href="ingreso.html">
-            <button>Ingresar</button>
-        </a>
-         <a href="ingreso.html">
-            <button>Iniciar sesión</button>
-        </a>
+            <h1 id="Bien" style="margin-left: 45px;">¡Bienvenido a Bubo²!</h1>
+            <p id="xd" style="margin-left: 45px;">
+                La plataforma web ideal para jóvenes y adultos que buscan ahorrar, administrar sus ingresos y comprender la economía argentina.
+            </p>
+
+            <div id="botones-ingreso">
+                <div class="fila-botones-principales">
+                    <a href="ingreso.html">
+                        <button>Ingresar</button>
+                    </a>
+                    <a href="ingreso.html">
+                        <button>Iniciar sesión</button>
+                    </a>
+                </div>
+            </div>
+        
         </div>
     </div>
 
@@ -185,6 +191,11 @@
             <a class="IT"><img class="iconos" src="../../assets/gmail.png">
             <p>Bubobubo@gmail.com</p></a>
         </div>
+    </div>
+
+    <!-- Pestañita flotante para volver arriba -->
+    <div id="contenedor-arriba" class="contenedor-pestanita">
+        <button id="btn-volver-arriba" type="button" aria-label="Volver arriba">▲</button>
     </div>
  
     <script src="../JS/Animaciones.js"></script>
