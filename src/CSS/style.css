@@ -75,10 +75,14 @@
     margin: 0;
 }
 
+#nosotras, #bubo, #proyecto, #personajes {
+  scroll-margin-top: 65px; /* Ajusta este valor según la altura de tu navbar */
+}
+
 .logo-izquierda {
     position: absolute;
-    left: 20px; /* Distancia desde el borde izquierdo de la barra */
-    max-height: 65px; /* Ajustá el alto según el tamaño de tu logo */
+    left: 40px; /* Distancia desde el borde izquierdo de la barra */
+    max-height: 55px; /* Ajustá el alto según el tamaño de tu logo */
     width: auto;
 }
 
@@ -275,8 +279,9 @@ table button:hover {
     src: url("../../assets/fuentes/titulos/BebasNeue-Regular.ttf");
 }
 h1 {
-    font-family: "Bebas";
-    font-size: 55px;
+    /*font-family: "Bebas";*/
+    font-family: "PoppinsB";
+    font-size: 50px;
 }
 
 /*SUBTITULOS*/
@@ -306,10 +311,13 @@ h3{
     src: url("../../assets/fuentes/texto/Poppins-Light.ttf");
 }
 
+
+
 p,a{
     font-family:"PoppinsL";
     font-size: 20px;
-    margin-left: 45px;
+    margin-left: 80px;
+    margin-right: 80px;
     color: #022b43;
     
 }
@@ -317,6 +325,7 @@ p,a{
 /*TEXTOS*/
 h1, h2, h3,label{
     margin-left: 30px;
+    margin-right: 30px;
     color: #022b43;
 }
 
@@ -510,6 +519,7 @@ color: #022b43;
     color:#eff2e5
 }
 
+
 #xd{
     color:#eff2e5
 }
@@ -553,7 +563,7 @@ color: #022b43;
 
 /*FONDO CONTINUO DE TODAS LAS SECCIONES*/
 .fondoimg {
-    background-image: linear-gradient(to top, rgba(239, 242, 229, 0) 90%, rgba(239, 242, 229, 1) 100%), url("../../assets/prueba6.png");
+    background-image: linear-gradient(to top, rgba(239, 242, 229, 0) 90%, rgba(239, 242, 229, 1) 100%), url("../../assets/ff.png");
     position: relative;
     background-repeat: no-repeat;
     background-position: left top;
@@ -566,7 +576,7 @@ color: #022b43;
 }
 
 .fondoimg2 {
-    background-image: linear-gradient(to bottom, rgba(239, 242, 229, 0) 60%, rgba(239, 242, 229, 1) 90%), url("../../assets/prueba8.png");
+    background-image: linear-gradient(to bottom, rgba(239, 242, 229, 0) 60%, rgba(239, 242, 229, 1) 90%), url("../../assets/fff.png");
     position: relative;
     background-repeat: no-repeat;
     background-position: left top;
@@ -604,7 +614,7 @@ color: #022b43;
     margin-bottom: -50px !important;
 
     /* Las dos imágenes de fondo (separadas por coma) */
-    background-image: url("../../assets/personajes.png"), url("../../assets/tu-segunda-imagen.png");
+    background-image: url("../../assets/personajes2.png");
     
     /* La posición de cada una en orden: la primera arriba, la segunda abajo */
     background-position: center top, center bottom;
@@ -616,9 +626,9 @@ color: #022b43;
     background-size: 100% auto, 100% auto;
 }
 
-
+/*fondo bubo*/
 .fondoimg4 {
-    background-image: url("../../assets/prueba10.png");
+    background-image: url("../../assets/fondo2.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -665,12 +675,15 @@ color: #022b43;
 .nosotras {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 30px; /* Separación vertical entre elementos */
+    align-items: center; /* Separación vertical entre elementos */
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
+}
+
+.nosotras h1, .somos h1, .bubo h1, .per h1 {
+    margin-bottom: 0px !important;
 }
 
 .bubo-intro {
@@ -876,7 +889,8 @@ a:has(button) {
 }
 
 .btn-aceptar {
-    margin-top: 5px;
+    margin-left: 30px;
+    margin-top: 15px;
 }
 
 /* Estilo normal de la barra en las demás páginas (como 'present') para que quede intacta */
@@ -1018,4 +1032,99 @@ body.inicio .BarraBaj {
 
 .tabla-custom td:nth-child(2):hover .texto-hover {
   opacity: 1;
+}
+
+/* ==========================================
+   PESTAÑITA FLOTANTE PARA VOLVER ARRIBA
+   ========================================== */
+
+/* Contenedor fijo centrado sin deformación */
+.contenedor-pestanita {
+    position: fixed;
+    bottom: 177px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    pointer-events: none; /* Evita que bloquee clics cuando está invisible */
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Estado visible cuando llega al final */
+.contenedor-pestanita.mostrar {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Botón pestaña estable */
+.contenedor-pestanita button {
+    pointer-events: auto;
+    background-color: rgba(2, 43, 67, 0.85) !important; /* Azul corporativo de tu barra */
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: none;
+    border-radius: 12px 12px 0 0 !important;
+    padding: 6px 28px !important;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 !important;
+    transform: none !important; /* Anula conflictos con el zoom global de otros botones */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s ease !important;
+}
+
+/* Efecto hover suave sin saltos */
+.contenedor-pestanita button:hover {
+    background-color: #022b43 !important;
+    transform: none !important;
+}
+
+/* Reseteamos los márgenes de los párrafos dentro de las tarjetas de nosotras */
+.texto-nosotras p {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+    margin-top: 20px !important;
+}
+
+/* Contenedor de botones de la portada */
+#botones-ingreso {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* Fila para poner lado a lado "Ingresar" e "Iniciar sesión" */
+.fila-botones-principales {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.fila-botones-principales a {
+    text-decoration: none;
+    margin: 0 !important;
+}
+
+.fila-botones-principales button {
+    margin-left: 0 !important;
+}
+
+/* Mueve el bloque de botones más abajo y hacia la derecha */
+#botones-ingreso {
+    margin-top: 25px;   /* Ajustá este valor si querés que baje más o menos */
+    margin-left: 45px;  /* Ajustá este valor para moverlos hacia la derecha */
+}
+
+/* Trae los textos de la página de ingreso a la izquierda para emparejarlos con el input */
+.ING h2,
+.ING p,
+body.ingreso h2,
+body.ingreso p {
+    margin-left: 50px !important;
+    text-align: left !important;
 }

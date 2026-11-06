@@ -108,15 +108,20 @@
     </div>
     <p id="RTA"></p>
     
-    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-top: 30px;">
+<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-top: 30px; box-sizing: border-box; padding: 0 45px;">
     
-    <!-- Botón Izquierda ("Finalizar") movido hacia adentro -->
-    <button id="Ter" onclick="B3()" style="margin-left: 45px;">Finalizar</button>
+    <!-- Contenedor izquierdo: Finalizar y Rehacer juntos -->
+    <div style="display: flex; align-items: center; gap: 15px; margin: 0;">
+        <button id="Ter" onclick="B3()" style="margin: 0;">Finalizar</button>
+        <button id="Rehacer" onclick="location.reload();" style="margin: 0;">Rehacer</button>
+    </div>
 
-    <!-- Botón Derecha ("Siguiente bloque" ya alineado) -->
-    <a href="Bloque2T.html" style="text-decoration: none; margin-right: 80px;">
-        <button type="button">Bloque anterior</button>
-    </a>
+    <!-- Contenedor derecho: Bloque anterior -->
+    <div style="margin: 0;">
+        <a href="Bloque2T.html" style="text-decoration: none; margin: 0;">
+            <button type="button" style="margin: 0;">Bloque anterior</button>
+        </a>
+    </div>
 
 </div>
 
