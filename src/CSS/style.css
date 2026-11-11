@@ -952,9 +952,7 @@ body.inicio .BarraBaj {
 }
 
 
-/* ==========================================
-   1. COLUMNA DE LA IMAGEN
-   ========================================== */
+/*COLUMNA DE LA IMAGEN*/
 .tabla-custom td:first-child {
   width: 120px;
   text-align: center;
@@ -963,8 +961,8 @@ body.inicio .BarraBaj {
 }
 
 .tabla-custom td img {
-  width: 150px;
-  height: 150px;
+  width: 190x;
+  height: 190px;
   object-fit: cover;
   border-radius: 50%;
   display: block;
