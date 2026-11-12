@@ -13,23 +13,24 @@
    <nav class="BarraNav">
 
     <a href="Present.html" class="logo-izquierda">
-        <img src="../../assets/bubo (2).png" alt="Logo Bubo">
+        <img src="../../assets/bubo (2).png" alt="Logo Bubo" title="Inicio" >
     </a>
 
     <!-- Grupo central con los 3 botones -->
     <div class="menu-central">
 
+        <a href="Basico.html"><button type="button">Principal</button></a>
         <a href="BasAdmin.html"><button type="button">Administración</button></a>
         <a href="Bloque1T.html"><button type="button">Evaluación</button></a>
         <a href="Reco.html"><button type="button">Recomendaciones</button></a>
         <a href="Noticias.html"><button type="button">Noticias</button></a>
-        <a href="Avanzado.html"><button type="button">Avanzado</button></a>
+        
     </div>
     
     
     <!-- Foto de perfil a la derecha -->
     <a href="Perfil.html" class="btPe">
-        <img id="ImgPNav" src="" alt="Perfil">
+        <img id="ImgPNav" src="" alt="Perfil" title="Perfil" >
     </a>
     </nav>
  
@@ -44,134 +45,297 @@
         administran recursos limitados para satisfacer necesidades que tambien lo son.
         Analizar los procesos de producción, distribución y consumo de bienes y servicios es su trabajo.
     </p>
-    <h2>Bloque 1 - Fundamentos, gestión financiera y economía</h2>
+        
+        <section class="bloque-contenedor" id="bloque-1">
+        <h2>Bloque 1 - Fundamentos, gestión financiera y economía</h2>
+        </div>
 
-    <h3>Necesidades y recursos</h3>
-    <p>•	¿Qué es una necesidad?: sensación de falta o carencia de algo unida al deseo de buscar una solución para cubrirla.</p>
-    <p>•	¿Qué es un recurso?: son los medios, insumos o factores productivos que se usan para crear bienes y servicios.</p>
-    <p>•	Relación entre necesidad y recurso: el recurso es el medio disponible que se utiliza para satisfacer una necesidad.</p>
+        <div class="tarjeta-tema" id="tema-b1-1">
+            <h3 class="titulo-tema">Necesidades y recursos</h3>
+                <div class="lista-cajas-amarillas">
+                    <div class="caja-explicacion-amarilla">
+                        <p>•	¿Qué es una necesidad?: sensación de falta o carencia de algo unida al deseo de buscar una solución para cubrirla.</p>
+                    </div>
+                    <div class="caja-explicacion-amarilla">
+                    <p>•	¿Qué es un recurso?: son los medios, insumos o factores productivos que se usan para crear bienes y servicios.</p>
+                    </div>
+                    <div class="caja-explicacion-amarilla">
+                    <p>•	Relación entre necesidad y recurso: el recurso es el medio disponible que se utiliza para satisfacer una necesidad.</p>
+                    </div>
+                </div>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b1-1')" title="Añadir nota">+</button>
+        </div>
 
-    <h3>Escasez</h3>
-    <p>•	¿Qué es la escasez y por qué existe?: la escasez es un problema económico básico que ocurre cuando los recursos disponibles son limitados, pero los deseos y las necesidades de las personas no.</p>
-    <p>•	Diferencia entre escasez y necesidad: la necesidad es lo que queremos o requerimos, y la escasez es la falta de medios para lograr satisfacer esas necesidades.</p>
-    <p>Ejemplos de escasez: falta de agua potable, falta de alimentos, falta de viviendas.</p>
+        <div class="tarjeta-tema" id="tema-b1-2">
+            <h3 class="titulo-tema">Escasez</h3>
+                <div class="lista-cajas-amarillas">
+                    <div class="caja-explicacion-amarilla">
+                    <p>•	¿Qué es la escasez y por qué existe?: la escasez es un problema económico básico que ocurre cuando los recursos disponibles son limitados, pero los deseos y las necesidades de las personas no.</p>
+                    </div>
+                    <div class="caja-explicacion-amarilla">
+                    <p>•	Diferencia entre escasez y necesidad: la necesidad es lo que queremos o requerimos, y la escasez es la falta de medios para lograr satisfacer esas necesidades.</p>
+                    </div>
+                    <div class="caja-explicacion-amarilla">
+                    <p>Ejemplos de escasez: falta de agua potable, falta de alimentos, falta de viviendas.</p>
+                    </div>
+                </div>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b1-2')" title="Añadir nota">+</button>
+        </div>
 
-    <h3>Ingresos, gastos fijos y variables</h3>
-    <p>•	Ingresos: son toda entrada de recursos económicos o dinero que recibe una persona, una empresa o el Estado como resultado de su trabajo, sus ventas, inversiones o la recaudación de impuestos.</p>
-    <p>•	Gastos fijos: son aquellos pagos regulares y periódicos que se deben realizar de forma obligatoria, cuyo monto no depende del nivel de producción de una empresa ni del nivel de consumo en las finanzas personales, manteniéndose estables o previsibles mes a mes.</p>
-    <p>•	Gastos variables: son aquellos desembolsos de dinero que cambian de valor o de cantidad según el nivel de actividad, la producción o el consumo. Si la producción o las ventas suben, estos gastos suben; si bajan o se detienen, estos gastos también bajan o desaparecen.</p>
-    <p>•	Diferencia entre gastos fijos y variables: los costos fijos no cambian sin importar cuánto se produzca o se venda, mientras que los costos variables suben o bajan de forma directa según el nivel de producción o la actividad del negocio.</p>
-    
-    <h3>Interés</h3>
-    <p>•	Interés: es el precio que se paga por usar dinero ajeno o la ganancia que se recibe por prestarlo o invertirlo.</p>
-    <p>•	Interés simple: es el precio que se paga por pedir prestado dinero ajeno es siempre igual en cada periodo (se utiliza en préstamos o inversiones a corto plazo).</p>
-    <p>FÓRMULA INTERES SIMPLE I = C x i x t</p>
-    <p>(Interés = Capital inicial x Tasa de interés x Tiempo de duración del préstamo)</p>
-    <p>•	Interés compuesto: es el precio a pagar por pedir prestado dinero ajeno, cambia en cada periodo. Los nuevos intereses se acumulan sobre el monto del periodo anterior, creando el efecto de 'bola de nieve'.</p>
-    <p>FÓRMULA INTERES COMPUESTO M = C x (1+ r)^t</p>
-    <p>(Monto final  = Capital inicial x (1 + Tasa de interés) ^ Cantidad de períodos de tiempo)</p>
+        <div class="tarjeta-tema" id="tema-b1-3">
+            <h3 class="titulo-tema">Ingresos, gastos fijos y variables</h3>
+                <div class="lista-cajas-amarillas">   
+                    <div class="caja-explicacion-amarilla"> 
+                        <p>•	Ingresos: son toda entrada de recursos económicos o dinero que recibe una persona, una empresa o el Estado como resultado de su trabajo, sus ventas, inversiones o la recaudación de impuestos.</p>
+                    </div>
+                    <div class="caja-explicacion-amarilla">
+                        <p>•	Gastos fijos: son aquellos pagos regulares y periódicos que se deben realizar de forma obligatoria, cuyo monto no depende del nivel de producción de una empresa ni del nivel de consumo en las finanzas personales, manteniéndose estables o previsibles mes a mes.</p>
+                    </div>
+                    <div class="caja-explicacion-amarilla">
+                        <p>•	Gastos variables: son aquellos desembolsos de dinero que cambian de valor o de cantidad según el nivel de actividad, la producción o el consumo. Si la producción o las ventas suben, estos gastos suben; si bajan o se detienen, estos gastos también bajan o desaparecen.</p>
+                    </div>
+                    <div class="caja-explicacion-amarilla">
+                        <p>•	Diferencia entre gastos fijos y variables: los costos fijos no cambian sin importar cuánto se produzca o se venda, mientras que los costos variables suben o bajan de forma directa según el nivel de producción o la actividad del negocio.</p>
+                    </div> 
+                </div>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b1-3')" title="Añadir nota">+</button>
+        </div>
 
-    <h3>Deuda y crédito</h3>
-    <p>•	Deuda: es la obligación de pago que el deudor contrae con el acreedor. Esta obligación surge al recibir dinero, bienes o servicios con el compromiso de devolverlos en una fecha futura, por lo general, incluyendo un costo adicional en forma de intereses.</p>
-    <p>•	Crédito: es un acuerdo financiero en el que un prestamista entrega dinero o recursos a un prestatario. La persona que recibe el dinero promete devolverlo en el futuro, junto con un pago extra llamado interés, en un tiempo fijado.</p>
-    <p>•	Diferencia entre deuda y crédito: el crédito es el dinero que un banco o persona te deja usar, mientras que la deuda es la obligación de devolver ese dinero tras haberlo gastado. El crédito es el permiso o la herramienta disponible, y la deuda es el saldo negativo que debes pagar.</p>
-    
-    <h3>Presupuesto y administración de dinero</h3>
-    <p>•	Presupuesto: es un plan financiero que calcula por anticipado los ingresos y los gastos de una persona, empresa o gobierno durante un tiempo fijo. </p>
-    <p>•	¿Para qué sirve un presupuesto?: sirve como un plan anticipado, sirve para organizar el dinero, evitar deudas y tomar decisiones informadas para lograr metas de ahorro o inversion.</p>
-    <p>•	Administración del dinero: se enfoca en cómo las personas, las empresas y los gobiernos controlan, usan y planean sus recursos financieros para cubrir necesidades, enfrentar imprevistos y lograr metas a futuro sin gastar más de lo que ingresa.</p>
-    
-    <h3>Ahorro y fondo de emergencia</h3>
-    <p>•	Ahorro: es la parte del ingreso o de la renta que una persona, familia o empresa decide no gastar en el consumo presente. Su propósito principal es guardarlo y acumularlo para satisfacer necesidades, emergencias o proyectos futuros.</p>
-    <p>•	Importancia del ahorro: el ahorro otorga seguridad ante imprevistos, evita deudas y permite cumplir metas personales o familiares sin sobresaltos económicos.</p>
-    <p>•	Fondo de emergencia: es una reserva de dinero ahorrada exclusivamente para cubrir gastos imprevistos o situaciones de crisis (como la pérdida de empleo, emergencias médicas o reparaciones urgentes), lo que permite mantener la estabilidad financiera y evitar el endeudamiento.</p>
-    
-    <h3>Costo de oportunidad básico</h3>
-    <p>•	Costo de oportunidad: es el valor de la mejor opción a la que renuncias cuando tomas una decisión. </p>
-    <p style="margin-bottom: 20px;">Ejemplo: Si tienes $10.000 y eliges comprar ropa, el costo de oportunidad es lo que podrías haber hecho con ese dinero, como ahorrarlo o comprar comida.</p>
-    
-    <div id="momento-evaluacion">
-    <h3>Momento de evaluación</h3>
-    <a href="Bloque1T.html" class="BTTeo">
-        <button>Teórico</button>
-    </a>
-    <button>Práctico</button>
-    </div>
+        <div class="tarjeta-tema" id="tema-b1-4">
+            <h3 class="titulo-tema">Interés</h3>
+            <div class="lista-cajas-amarillas">
+                <div class="caja-explicacion-amarilla">
+                    <p>• Interés: es el precio que se paga por usar dinero ajeno o la ganancia que se recibe por prestarlo o invertirlo.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Interés simple: es el precio que se paga por pedir prestado dinero ajeno es siempre igual en cada periodo.</p>
+                    <p>FÓRMULA INTERES SIMPLE I = C x i x t</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Interés compuesto: es el precio a pagar por pedir prestado dinero ajeno, cambia en cada periodo creando el efecto de 'bola de nieve'.</p>
+                    <p>FÓRMULA INTERES COMPUESTO M = C x (1+ r)^t</p>
+                </div>
+            </div>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b1-4')" title="Añadir nota">+</button>
+        </div>
 
+        <div class="tarjeta-tema" id="tema-b1-5">
+            <h3 class="titulo-tema">Deuda y crédito</h3>
+            <div class="lista-cajas-amarillas">
+                <div class="caja-explicacion-amarilla">
+                    <p>• Deuda: es la obligación de pago que el deudor contrae con el acreedor al recibir dinero o bienes con el compromiso de devolverlos.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Crédito: es un acuerdo financiero en el que un prestamista entrega dinero o recursos a un prestatario que promete devolverlo con intereses.</p>
+                    <p>• Diferencia entre deuda y crédito: el crédito es la herramienta disponible, y la deuda es el saldo negativo que debes pagar.</p>
+                </div>
+            </div>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b1-5')" title="Añadir nota">+</button>
+        </div>
 
-    <h2 style="margin-top: 90px;">Bloque 2 - Mercado, precios y negocios</h2>
-    <h3>Ley de oferta y demanda</h3>
-    <p>•	Oferta: es la cantidad de bienes y servicios que los productores o vendedores están dispuestos a poner a la venta en el mercado a un precio específico y durante un período de tiempo determinado.</p>
-    <p>•	Demanda: es la cantidad total de un bien o servicio que los consumidores desean y pueden comprar a un precio determinado en un tiempo dado.</p>
-    <p>•	Ley de oferta y demanda: principio básico de la economía que explica cómo se fijan los precios de los productos según el deseo de compra de los consumidores, el precio sube o baja según lo que la gente quiere comprar (demanda) y lo que los negocios venden (oferta). Esto busca un punto de equilibrio donde nadie pierde y todo se vende.</p>
+        <div class="tarjeta-tema" id="tema-b1-6">
+            <h3 class="titulo-tema">Presupuesto y administración de dinero</h3>
+            <div class="lista-cajas-amarillas">
+                <div class="caja-explicacion-amarilla">
+                    <p>• Presupuesto: es un plan financiero que calcula por anticipado los ingresos y los gastos de una persona, empresa o gobierno durante un tiempo fijo.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Administración del dinero: se enfoca en cómo se controlan, usan y planean los recursos financieros para cubrir necesidades y lograr metas a futuro.</p>
+                </div>
+            </div>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b1-6')" title="Añadir nota">+</button>
+        </div>
+
+        <div class="tarjeta-tema" id="tema-b1-7">
+            <h3 class="titulo-tema">Ahorro y fondo de emergencia</h3>
+            <div class="lista-cajas-amarillas">
+                <div class="caja-explicacion-amarilla">
+                    <p>• Ahorro: es la parte del ingreso que se decide no gastar en el consumo presente para guardarlo ante emergencias o proyectos futuros.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Fondo de emergencia: reserva de dinero ahorrada exclusivamente para cubrir gastos imprevistos o situaciones de crisis.</p>
+                </div>
+            </div>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b1-7')" title="Añadir nota">+</button>
+        </div>
+
+        <div class="tarjeta-tema" id="tema-b1-8">
+            <h3 class="titulo-tema">Costo de oportunidad básico</h3>
+            <div class="lista-cajas-amarillas">
+                <div class="caja-explicacion-amarilla">
+                    <p>• Costo de oportunidad: es el valor de la mejor opción a la que renuncias cuando tomas una decisión.</p>
+                    <p>Ejemplo: Si tienes $10.000 y eliges comprar ropa, el costo de oportunidad es lo que podrías haber hecho con ese dinero.</p>
+                </div>
+            </div>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b1-8')" title="Añadir nota">+</button>
+        </div>
+
+        <div id="momento-evaluacion" class="evaluacion-bloque">
+            <h3>Momento de evaluación</h3>
+            <a href="Bloque1T.html" class="BTTeo"><button>Teórico</button></a>
+            <button>Práctico</button>
+        </div>
+    </section>
+
+    <!-- ================= BLOQUE 2 ================= -->
+    <section class="bloque-contenedor" id="bloque-2">
+        <h2>Bloque 2 - Mercado, precios y negocios</h2>
+
+        <div class="tarjeta-tema" id="tema-b2-1">
+            <h3 class="titulo-tema">Ley de oferta y demanda</h3>
+            <div class="lista-cajas-amarillas">
+                <div class="caja-explicacion-amarilla">
+                    <p>• Oferta: es la cantidad de bienes y servicios que los productores o vendedores están dispuestos a poner a la venta en el mercado a un precio específico y durante un período de tiempo determinado.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Demanda: es la cantidad total de un bien o servicio que los consumidores desean y pueden comprar a un precio determinado en un tiempo dado.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Ley de oferta y demanda: principio básico de la economía que explica cómo se fijan los precios de los productos según el deseo de compra de los consumidores, el precio sube o baja según lo que la gente quiere comprar (demanda) y lo que los negocios venden (oferta). Esto busca un punto de equilibrio donde nadie pierde y todo se vende.</p>
+                </div>
+            </div>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b2-1')" title="Añadir nota">+</button>
+        </div>
+
+        <div class="tarjeta-tema" id="tema-b2-2">
+            <h3 class="titulo-tema">Mercado y formación de precios</h3>
+            <div class="lista-cajas-amarillas">
+                <div class="caja-explicacion-amarilla">
+                    <p>• Mercado: entorno físico o virtual donde compradores (demandantes) y vendedores (oferentes) realizan intercambios voluntarios de bienes, servicios o factores de producción.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• ¿Cómo se determina un precio?: se determina principalmente por la interacción entre la oferta y la demanda en el mercado. El punto exacto donde la cantidad que los compradores quieren adquirir coincide con la cantidad que los vendedores desean ofrecer, esto se conoce como precio de equilibrio.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Relación entre compradores y vendedores: es un vínculo de intercambio comercial y de comunicación donde una parte busca adquirir un bien o servicio y la otra ofrece satisfacer esa necesidad a cambio de un pago.</p>
+                </div>
+            </div>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b2-2')" title="Añadir nota">+</button>
+        </div>
+
+        <div class="tarjeta-tema" id="tema-b2-3">
+            <h3 class="titulo-tema">Inflación y poder adquisitivo</h3>
+            <div class="lista-cajas-amarillas">
+                <div class="caja-explicacion-amarilla">
+                    <p>• Inflación: es el aumento general y constante de los precios de los bienes y servicios en un país durante un tiempo. Esto hace que el dinero pierda valor, por lo que con la misma cantidad de dinero se pueden comprar menos cosas que antes.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• ¿Por qué ocurre la inflación?: ocurre cuando hay mucho dinero en la calle y pocos productos para comprar, o porque a los negocios les cuesta más caro producir y suben los precios para no perder plata.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Poder adquisitivo: es la cantidad de bienes y servicios que una persona puede comprar con una cantidad fija de dinero. Depende de forma directa del precio de los productos en el mercado y de los ingresos disponibles.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Relación entre inflación y poder adquisitivo: la inflación reduce de forma directa el poder adquisitivo cuando los ingresos nominales (salarios o jubilaciones) no aumentan al mismo ritmo que la inflación, las personas sufren una pérdida real de su capacidad de compra y un empobrecimiento paulatino.</p>
+                    <p>Ejemplo cotidiano: Si el año pasado un café costaba $1.000 pesos y hoy cuesta $1.200 pesos, ese aumento del 20% es un ejemplo de inflación en un producto diario.</p>
+                </div>
+            </div>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b2-3')" title="Añadir nota">+</button>
+        </div>
+
+        <div class="tarjeta-tema" id="tema-b2-4">
+            <h3 class="titulo-tema">Margen de ganancia y rentabilidad</h3>
+            <div class="lista-cajas-amarillas">
+                <div class="caja-explicacion-amarilla">
+                    <p>• Margen de ganancia: es el porcentaje de dinero que te queda como beneficio limpio después de vender un producto o servicio y restar lo que te costó hacerlo o comprarlo.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Rentabilidad: es la medida del rendimiento financiero total que produce el dinero invertido en todo el negocio.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Relación entre margen de ganancia y rentabilidad: el margen es un indicador de la venta individual, y la rentabilidad muestra el rendimiento y éxito general de la empresa.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Ejemplo:</p>
+                    <p>Datos del negocio: Inversión inicial $10.000 | Costo por unidad $40 | Precio de venta $100.</p>
+                    <p>Cálculo del margen: Ganancia por unidad $60 -> Margen: $60 / $100 = 60%.</p>
+                    <p>Cálculo de la rentabilidad: Si vende 200 unidades en un año, ganancia total $12.000 -> Rentabilidad: $12.000 / $10.000 = 120%.</p>
+                </div>
+            </div>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b2-4')" title="Añadir nota">+</button>
+        </div>
+
+        <div class="evaluacion-bloque">
+            <h3>Momento de evaluación</h3>
+            <a href="Bloque2T.html" class="BTTeo"><button>Teórico</button></a>
+            <button>Práctico</button>
+        </div>
+    </section>
     
-    <h2>Mercado y formación de precios</h2>
-    <p>•	Mercado: entorno físico o virtual donde compradores (demandantes) y vendedores (oferentes) realizan intercambios voluntarios de bienes, servicios o factores de producción. </p>
-    <p>•	¿Cómo se determina un precio?: se determina principalmente por la interacción entre la oferta y la demanda en el mercado. El punto exacto donde la cantidad que los compradores quieren adquirir coincide con la cantidad que los vendedores desean ofrecer, esto se conoce como precio de equilibrio.</p>
-    <p>•	Relación entre compradores y vendedores: es un vínculo de intercambio comercial y de comunicación donde una parte busca adquirir un bien o servicio y la otra ofrece satisfacer esa necesidad a cambio de un pago.</p>
-    
-    <h3>Inflación y poder adquisitivo</h3>
-    <p>•	Inflación: es el aumento general y constante de los precios de los bienes y servicios en un país durante un tiempo. Esto hace que el dinero pierda valor, por lo que con la misma cantidad de dinero se pueden comprar menos cosas que antes.</p>
-    <p>•	¿Por qué ocurre la inflación?: ocurre cuando hay mucho dinero en la calle y pocos productos para comprar, o porque a los negocios les cuesta más caro producir y suben los precios para no perder plata.</p>
-    <p>•	Poder adquisitivo: es la cantidad de bienes y servicios que una persona puede comprar con una cantidad fija de dinero. Depende de forma directa del precio de los productos en el mercado y de los ingresos disponibles.</p>
-    <p>•	Relación entre inflación y poder adquisitivo: la inflación reduce de forma directa el poder adquisitivo cuando los ingresos nominales (salarios o jubilaciones) no aumentan al mismo ritmo que la inflación, las personas sufren una pérdida real de su capacidad de compra y un empobrecimiento paulatino.</p>
-    <p>Ejemplo cotidiano: Si el año pasado un café costaba $1.000 pesos y hoy cuesta $1.200 pesos, ese aumento del 20% es un ejemplo de inflación en un producto diario.</p>
-    
-    <h3>Margen de ganancia y rentabilidad</h3>
-    <p>•	Margen de ganancia: es el porcentaje de dinero que te queda como beneficio limpio después de vender un producto o servicio y restar lo que te costó hacerlo o comprarlo.</p>
-    <p>•	Rentabilidad: es la medida del rendimiento financiero total que produce el dinero invertido en todo el negocio.</p>
-    <p>•	Relación entre margen de ganacia y rentabilidad: el margen es un indicador de la venta individual, y la rentabilidad muestra el rendimiento y éxito general de la empresa.</p>
-    <p>•	Ejemplo:</p>
-    <p>Datos del negocio:</p>
-    <p>o	Inversión inicial o capital total: $10.000.</p>
-    <p>o	Costo de hacer un producto: $40.</p>
-    <p>o	Precio de venta del producto: $100.</p>
-    <p>Cálculo del margen de ganancia:</p>
-    <p>o	Ganancia por unidad: $100 - $40 = $60.</p>
-    <p>o	Margen por unidad: $60 / $100 = 60%.</p>
-    <p>Cálculo de la rentabilidad:</p>
-    <p>o	Si el negocio vende 200 productos en un año, la ganancia total es $12.000 ($60 x 200).</p>
-    <p  style="margin-bottom: 20px;">o	Rentabilidad sobre la inversión: Ganancia total ($12.000) / Inversión ($10.000) = 120%.</p>
-    
-    <h3>Momento de evaluación</h3>
-      <a href="Bloque2T.html" class="BTTeo">
-        <button>Teórico</button>
-    </a>
-    <button>Práctico</button>
-    
-    <h2 style="margin-top: 90px;">Bloque 3 - Supervivencia e inversión financiera en Argentina</h2>
-    <h3>Ecosistemas de pagos (CBU vs CVU) y bancos</h3>
-    <p>•	Ecosistemas de pagos: es una red integrada de infraestructura tecnológica, regulaciones y actores económicos (como bancos, fintechs, comercios y usuarios) que colaboran para procesar transferencias de dinero y transacciones comerciales de forma digital y segura. Su objetivo principal es mover fondos eficientemente entre partes sin requerir efectivo físico.</p>
-    <p>•	CBU: el CBU (Clave Bancaria Uniforme) es un código único de 22 dígitos que identifica a una cuenta en el sistema bancario de la Argentina. Funciona como el documento de identidad (DNI) de una caja de ahorro o cuenta corriente.</p>
-    <p>•	CVU: el CVU (Clave Virtual Uniforme) es un número de 22 dígitos que sirve para identificar de forma única una cuenta en una billetera virtual o proveedor de pago no bancario en Argentina. Permite enviar y recibir dinero de forma inmediata y gratuita entre diferentes cuentas y bancos.</p>
-    <p>•	CBU vs CVU: la diferencia principal entre CBU y CVU es el tipo de entidad que emite la cuenta. El CBU identifica cuentas en bancos tradicionales, mientras que el CVU identifica cuentas en Proveedores de Servicios de Pago (PSP) o billeteras virtuales. </p>
-    <p>•	Bancos: un banco es una empresa financiera que acepta dinero de la gente en forma de depósitos, lo cuida y lo presta a quienes necesitan fondos. Esta tarea de juntar a los que tienen plata ahorrada con los que necesitan gastar o invertir se llama intermediación financiera.</p>
-    
-    <h3>Manejo de Tarjetas (Débito vs Crédito, Cuota y CFT)</h3>
-    <p>•	Débito: la tarjeta de débito es una herramienta de pago vinculada a tu caja de ahorros o cuenta bancaria. Al usarla, el dinero se descuenta de forma automática de los fondos disponibles que ya tenés en tu cuenta, permitiéndote hacer compras, extraer efectivo y pagar servicios sin generar deudas.</p>
-    <p>•	Crédito: una tarjeta de crédito es una herramienta de pago emitida por un banco o entidad financiera que te permite comprar bienes y servicios usando dinero prestado. No usas tu propio dinero en el momento, sino que la entidad te presta una cantidad hasta un límite fijo para devolverlo más tarde.</p>
-    <p>•	Cuota: es una parte o porción fija de un pago total que se abona de manera periódica (por lo general mensual) para saldar una deuda, comprar un producto en partes o cumplir con una obligación económica.</p>
-    <p>•	CFT: el CFT (Costo Financiero Total) es el porcentaje que muestra el costo real y completo de un crédito, préstamo o compra en cuotas. Incluye la tasa de interés y todos los gastos extras.</p>
-    
-    <h3>Cuenta remunerada y FCI Money Market</h3>
-    <p>•	Cuenta remunerada: es un producto financiero que te paga un interés (rendimiento) por el dinero que mantienes depositado en ella. A diferencia de una cuenta común, tu dinero genera ganancias de forma automática todos los días y lo puedes usar o retirar en cualquier momento.</p>
-    <p>•	FCI Money Market: FCI Money Market es un Fondo Común de Inversión muy conservador que invierte tu dinero en activos de corto plazo y alta liquidez. Te permite obtener un rendimiento diario sobre tus ahorros y rescatar el dinero de forma inmediata.</p>
-    <p>•	Diferencia entre cuenta remunerada y FCI Money Market: una cuenta remunerada te da el dinero disponible al instante de forma automática, mientras que un Fondo Común de Inversión (FCI) Money Market invierte tu capital en activos de corto plazo para ofrecerte un rendimiento por lo general un poco mayor, pero requiere un plazo de rescate que puede demorar unas horas o un día hábil.</p>
-    
-    <h3>Instrumentos de inversión financiera y cobertura (Plazo fijo, Dólar, CEDEAR’s y ON´s)</h3>
-    <p>•	Inversión: es el uso de dinero, tiempo o recursos para comprar bienes o activos con la meta de recibir más ganancias o ingresos en el futuro. En lugar de gastar todo hoy, pones tus recursos a trabajar para que crezcan con el tiempo.</p>
-    <p>•	Cobertura: es una estrategia para proteger el dinero o los bienes contra el riesgo de que sus precios bajen o suban de mala forma. Funciona igual que un seguro: se hace otra operación en el mercado para compensar posibles pérdidas.</p>
-    <p>•	Instrumentos de inversión y cobertura: los instrumentos de inversión sirven para hacer crecer el dinero, mientras que los de cobertura buscan proteger el capital frente a pérdidas por cambios de precios, monedas o crisis.</p>
-    <p>•	Plazo fijo: es un producto financiero en el que se deposita una suma de dinero en un banco durante un tiempo definido. A cambio, la entidad te paga una ganancia en intereses previamente acordada, devolviéndote el capital inicial más las ganancias al cumplirse el plazo establecido.</p>
-    <p>•	Dólar: el dólar es la moneda oficial de Estados Unidos y la divisa más usada en el mundo para el comercio y el ahorro.</p>
-    <p>•	CEDEARs: los CEDEARs (Certificados de Depósito Argentinos) son instrumentos financieros locales que representan acciones de grandes empresas extranjeras. Permiten comprar fracciones de compañías globales como Apple, Amazon o Google desde Argentina, operando en pesos o en dólares a través de un bróker nacional, sin necesidad de tener una cuenta en el exterior.</p>
-    <p  style="margin-bottom: 20px;">•	Obligaciones Negociables (Ons): título de deuda privado de renta fija. Funciona como un bono corporativo donde una empresa le pide dinero prestado al público inversor a cambio de pagar intereses periódicos y devolver el capital original en una fecha de vencimiento pactada.</p>
-    
-    <h3>Momento de evaluación</h3>
-    <a href="Bloque3T.html" class="BTTeo">
-        <button>Teórico</button>
-    </a>
-    <button>Práctico</button>
+    <!-- ================= BLOQUE 3 ================= -->
+    <section class="bloque-contenedor" id="bloque-3">
+        <h2>Bloque 3 - Supervivencia e inversión financiera en Argentina</h2>
+
+        <div class="tarjeta-tema" id="tema-b3-1">
+            <h3 class="titulo-tema">Ecosistemas de pagos (CBU vs CVU) y bancos</h3>
+            <div class="lista-cajas-amarillas">
+                <div class="caja-explicacion-amarilla">
+                    <p>• Ecosistemas de pagos: es una red integrada de infraestructura tecnológica, regulaciones y actores económicos (como bancos, fintechs, comercios y usuarios) que colaboran para procesar transferencias de dinero y transacciones comerciales de forma digital y segura.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• CBU: el CBU (Clave Bancaria Uniforme) es un código único de 22 dígitos que identifica a una cuenta en el sistema bancario de la Argentina.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• CVU: el CVU (Clave Virtual Uniforme) es un número de 22 dígitos que sirve para identificar de forma única una cuenta en una billetera virtual o proveedor de pago no bancario en Argentina.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• CBU vs CVU: la diferencia principal es el tipo de entidad que emite la cuenta (bancos tradicionales vs Proveedores de Servicios de Pago).</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Bancos: un banco es una empresa financiera que acepta dinero de la gente en depósitos, lo cuida y lo presta a quienes necesitan fondos (intermediación financiera).</p>
+                </div>
+            </div>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b3-1')" title="Añadir nota">+</button>
+        </div>
+
+        <div class="tarjeta-tema" id="tema-b3-2">
+            <h3 class="titulo-tema">Manejo de Tarjetas (Débito vs Crédito, Cuota y CFT)</h3>
+            <div class="lista-cajas-amarillas">
+                <div class="caja-explicacion-amarilla">
+                    <p>• Débito: herramienta de pago vinculada a tu caja de ahorros donde el dinero se descuenta de forma automática de tus fondos disponibles.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Crédito: herramienta de pago emitida por un banco que te permite comprar bienes usando dinero prestado hasta un límite fijo.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Cuota y CFT: la cuota es la parte de un pago total periódico, y el CFT (Costo Financiero Total) muestra el costo real y completo de un crédito incluyendo intereses y gastos extras.</p>
+                </div>
+            </div>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b3-2')" title="Añadir nota">+</button>
+        </div>
+
+        <div class="tarjeta-tema" id="tema-b3-3">
+            <h3 class="titulo-tema">Cuenta remunerada y FCI Money Market</h3>
+            <div class="lista-cajas-amarillas">
+                <div class="caja-explicacion-amarilla">
+                    <p>• Cuenta remunerada: producto financiero que te paga un interés diario por el dinero que mantienes depositado, permitiéndote usarlo en cualquier momento.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• FCI Money Market: Fondo Común de Inversión conservador que invierte en activos de corto plazo y alta liquidez para obtener rendimiento diario con rescate inmediato.</p>
+                </div>
+            </div>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b3-3')" title="Añadir nota">+</button>
+        </div>
+
+        <div class="tarjeta-tema" id="tema-b3-4">
+            <h3 class="titulo-tema">Instrumentos de inversión financiera y cobertura</h3>
+            <div class="lista-cajas-amarillas">
+                <div class="caja-explicacion-amarilla">
+                    <p>• Inversión y Cobertura: la inversión busca recibir más ganancias a futuro, mientras que la cobertura protege el capital contra el riesgo de fluctuaciones de precios o crisis.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Plazo fijo, Dólar, CEDEARs y ONs: instrumentos locales e internacionales de renta fija o variable (como certificados de acciones extranjeras o bonos corporativos) para ahorrar y hacer crecer el capital frente a la inflación.</p>
+                </div>
+            </div>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b3-4')" title="Añadir nota">+</button>
+        </div>
+
+        <div class="evaluacion-bloque">
+            <h3>Momento de evaluación</h3>
+            <a href="Bloque3T.html" class="BTTeo"><button>Teórico</button></a>
+            <button>Práctico</button>
+        </div>
+    </section>
  
     <div class="BarraBaj">
         <div class="Redes">
@@ -191,5 +355,25 @@
     </div>
     <script src="../JS/BarraNav.js"></script>
     <script src="../JS/Animaciones.js"></script>
+    <script src="../JS/TarjetasBásico.js"></script>
+    
+    <!-- ================= POPUP PARA AGREGAR 1 TARJETITA (MÁX. 2 POR TEMA) ================= -->
+    <div id="modal-tarjeta" class="popup" style="display: none;">
+        <div class="overlay"></div>
+        <div class="popup-contenido">
+            <button type="button" class="cerrar-popup" onclick="cerrarModalTarjeta()">X</button>
+            <h2 class="Titulo-Popup">Agregar nota nueva</h2>
+            
+            <div class="grupo-campo-izq">
+                <label for="input-titulo">Título:</label>
+                <input type="text" id="input-titulo" maxlength="20">
+                
+                <label for="input-contenido">Contenido:</label>
+                <textarea id="input-contenido" rows="5" maxlength="250"></textarea>
+            </div>
+
+            <button type="button" onclick="guardarUnaTarjeta()">Guardar tarjeta</button>
+        </div>
+    </div>
 </body>
 </html>
