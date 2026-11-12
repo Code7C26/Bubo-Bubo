@@ -69,12 +69,6 @@ function ValUsua()
         return;
     }
 
-    // Validar longitud mínima
-    if (usuario.length < minCaracteres) {
-        mensajeError.textContent = `El usuario debe tener al menos ${minCaracteres} caracteres.`;
-        return;
-    }
-
     // Validar longitud máxima (por seguridad extra)
     if (usuario.length > maxCaracteres) {
         mensajeError.textContent = `El usuario no puede superar los ${maxCaracteres} caracteres.`;
