@@ -13,6 +13,11 @@ else
     document.getElementById("ImgP").src = "../../assets/logo.png";
 }
 
+const biografiaGuardada = localStorage.getItem("biografia");
+if (biografiaGuardada) {
+    document.getElementById("biografia").textContent = biografiaGuardada;
+}
+
 //MUESTRA POPUP Y GUARDA CAMBIOS
 const POPUPP = document.getElementById("POPUPP");
 //muestra popup
@@ -26,6 +31,7 @@ BTAEP.addEventListener("click", Guardado);
 //FUNCIONES
 function MostrarPopupP(){
     document.getElementById("usuarioE").value = localStorage.getItem("usuario");
+    document.getElementById("biografiaE").value = localStorage.getItem("biografia") || "";
     document.getElementById("ImgPEActual").src = localStorage.getItem("FtoP");
     POPUPP.style.display="block";
 }
@@ -55,9 +61,14 @@ function CerrarPopupP(){
 }
 */
 
+function CerrarPopupP(){
+    POPUPP.style.display="none"
+}
+
 function Guardado(){
     const NUser = document.getElementById("usuarioE").value.trim();
-    const minCaracteres = 3;
+    const NBio = document.getElementById("biografiaE").value.trim();
+    const minCaracteres = 2;
     const maxCaracteres = 15;
 
     // Validar si está vacío
@@ -81,6 +92,10 @@ function Guardado(){
     // Si pasa todas las validaciones, guarda los cambios correctamente
     localStorage.setItem("usuario", NUser);
     document.getElementById("usuario").textContent = NUser;
+
+    localStorage.setItem("biografia", NBio);
+    document.getElementById("biografia").textContent = NBio !== "" ? NBio : "Escribe tu biografía";
+
     const nuevaFoto = document.getElementById("ImgPE").files[0];
     
     if (nuevaFoto) {
@@ -93,3 +108,15 @@ function Guardado(){
     }
     POPUPP.style.display = "none";
 }
+// Previsualizar la foto instantáneamente en el popup al seleccionarla
+const inputFoto = document.getElementById("ImgPE");
+inputFoto.addEventListener("change", function(event) {
+    const archivo = event.target.files[0];
+    if (archivo) {
+        const lector = new FileReader();
+        lector.onload = function(e) {
+            document.getElementById("ImgPEActual").src = e.target.result;
+        };
+        lector.readAsDataURL(archivo);
+    }
+});
