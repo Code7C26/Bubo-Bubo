@@ -12,32 +12,66 @@
             <a href="Basico.html"><button type="button">Regresar</button></a>
         </div>
     </nav>
-      
-    <h1>Tu perfil</h1>
-    <img id="ImgP">
-    <p id="usuario"></p>
-    <button id="BTEP">Editar perfil</button>
+    
+<div class="tarjeta-perfil">
+        <h1>Tu perfil</h1>
+        
+        <!-- Fila superior: Foto a la izquierda, Nombre y Biografía a la derecha -->
+        <div class="perfil-cuerpo">
+            <img id="ImgP" alt="Foto de perfil">
+            
+            <div class="perfil-info">
+                <p id="usuario"></p>
+                <p id="biografia" class="biografia">Escribe tu biografía</p>
+            </div>
+        </div>
+
+        <!-- Botón posicionado en la esquina inferior derecha -->
+        <button id="BTEP">Editar perfil</button>
+    </div>
+
+    <div class="perfil-seccion-opciones">
+        <h2>Opciones de cuenta</h2>
+        <div class="perfil-opciones">
+            <a href="#" class="opcion-item">
+                <span class="opcion-texto">Configuración</span>
+                <span class="flecha">›</span>
+            </a>
+            <a href="#" class="opcion-item">
+                <span class="opcion-texto">Historial de actividades</span>
+                <span class="flecha">›</span>
+            </a>
+            <a href="Login.html" class="opcion-item opcion-salir">
+                <span class="opcion-texto">Cerrar sesión</span>
+                <span class="flecha">›</span>
+            </a>
+        </div>
+    </div>
 
     <div id="POPUPP" class="popup" style="display: none;">
-
         <div class="overlay"></div>
-
         <div class="popup-contenido">
-
             <h2 class="Titulo-Popup">Editar perfil</h2>
 
             <label>Foto</label>
-            <img id="ImgPEActual">
-            <input type="file" id="ImgPE" accept="image/*">
+            <div class="contenedor-foto-popup">
+                <img id="ImgPEActual" alt="Foto actual">
+                <!-- Usamos una etiqueta <label> estilizada como botón para ocultar el texto feo del navegador -->
+                <label for="ImgPE" class="btn-examinar">Elegir archivo</label>
+                <input type="file" id="ImgPE" accept="image/*" style="display: none;">
+            </div>
 
-            <label>Nombre de usuario</label>
-            <input type="text" id="usuarioE" maxlength="15" minlength="3">
+            <div class="grupo-campo-izq">
+                <label>Nombre de usuario</label>
+                <input type="text" id="usuarioE" maxlength="15" minlength="2">
+
+                <label>Biografía</label>
+                <textarea id="biografiaE" maxlength="80" rows="3"></textarea>
+            </div>
 
             <button id="BTAEP">Guardar</button>
             <button class="cerrar-popup" onclick="CerrarPopupP('POPUPP')">x</button>
-
         </div>
-
     </div>
     
     <div class="BarraBaj">

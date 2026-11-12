@@ -1130,3 +1130,409 @@ body.ingreso p {
     margin-left: 50px !important;
     text-align: left !important;
 }
+
+
+/* ==========================================
+   PÁGINA DEL PERFIL
+   ========================================== */
+/* Rectángulo principal alineado hacia el lateral izquierdo de la pantalla */
+.tarjeta-perfil {
+    background-color: #33b8a6;
+    width: 90%;
+    max-width: 500px;
+    margin: 40px 0 40px 20px;
+    padding: 30px 30px 85px 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+
+/* Título "Tu perfil" alineado a la izquierda */
+.tarjeta-perfil h1 {
+    margin-top: 0;
+    margin-left: 0;
+    margin-bottom: 35px;
+    align-self: flex-start;
+}
+
+/* Fila interna: foto a la izquierda, textos a la derecha, todo pegado al borde izquierdo del recuadro */
+.perfil-cuerpo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    text-align: left;
+    justify-content: flex-start;
+}
+
+/* Foto de perfil */
+.tarjeta-perfil #ImgP {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #076a6f;
+    flex-shrink: 0;
+}
+
+/* Columna para nombre y biografía */
+.perfil-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: left;
+}
+
+/* Nombre de usuario */
+.tarjeta-perfil #usuario {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+}
+
+/* Biografía debajo del nombre */
+.tarjeta-perfil .biografia {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin: 0;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+/* Botón de editar perfil fijado exactamente en la esquina inferior derecha del rectángulo */
+.tarjeta-perfil #BTEP {
+    position: absolute;
+    bottom: 20px;
+    right: 25px;
+}
+
+/* ==========================================
+   ESTILOS DEL POPUP DE EDICIÓN
+   ========================================== */
+
+/* Alineación general del contenido del popup al centro */
+.popup-contenido {
+    background-color: #f1f0ff; /* O el color de fondo que tenga tu popup */
+    width: 90%;
+    max-width: 450px; /* <--- Aumenta o disminuye este valor para cambiar el ancho del popup */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Título y elementos generales centrados */
+.popup-contenido .Titulo-Popup {
+    text-align: center;
+}
+
+/* Contenedor para la sección que debe ir alineada a la izquierda (Nombre y Biografía) */
+.grupo-campo-izq {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+    align-items: flex-start;
+
+}
+
+/* Etiquetas dentro del grupo izquierdo */
+.grupo-campo-izq label {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: 500;
+    align-items: flex-start;
+
+}
+
+/* UNIFICAR ESTILO: Tanto el input de texto como el textarea tienen exactamente el mismo diseño */
+.popup-contenido input[type="text"],
+.popup-contenido textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #878787;
+    background-color: #b1b2b1;
+    color: #ffffff;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+.popup-contenido textarea {
+    resize: none;
+}
+
+/* Ocultar el texto feo de "ningún archivo seleccionado" mediante un botón personalizado */
+.contenedor-foto-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0 15px 0;
+}
+
+.btn-examinar {
+    background-color: #076a6f;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.btn-examinar:hover {
+    background-color: #09888e;
+}
+
+/* Imagen actual dentro del popup */
+.popup-contenido #ImgPEActual {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #076a6f;
+}
+
+/* Contenedor de opciones de cuenta */
+.perfil-seccion-opciones {
+    width: 90%;
+    max-width: 500px;
+    margin: 20px auto;
+    background: #2c64cc;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.perfil-seccion-opciones h2 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.perfil-opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.opcion-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.opcion-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.opcion-salir {
+    color: #ff5555;
+}
+
+/* Asegura que la tarjeta de perfil y las opciones compartan la misma estructura y alineación */
+.tarjeta-perfil {
+    background-color: #33b8a6;
+    width: 90%;
+    max-width: 500px;
+    margin: 40px 0 40px 30px; /* <--- Controlas la distancia de este cuadro a la izquierda */
+    padding: 30px 30px 85px 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Estilos internos específicos para la sección de opciones */
+/* ==========================================
+   SECCIÓN DE OPCIONES DE CUENTA (CORREGIDA)
+   ========================================== */
+/* ==========================================
+   CORRECCIÓN DEFINITIVA DE OPCIONES DE CUENTA
+   ========================================== */
+
+.perfil-seccion-opciones {
+    width: 90%;
+    max-width: 500px;
+    margin: 20px 0 20px 30px;
+    background: #2c64cc;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Fuerza todo el contenido del cuadro azul a la izquierda */
+}
+
+.perfil-seccion-opciones h2 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    margin-left: 0;
+    text-align: left;
+    color: #ffffff;
+    width: 100%;
+}
+
+.perfil-opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%; /* Ocupa todo el ancho del cuadro azul */
+    align-items: stretch;
+}
+
+/* Forzamos los enlaces de las opciones a la izquierda */
+.opcion-item {
+    display: flex;
+    justify-content: flex-start !important; /* Anula cualquier otro centrado */
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: left !important;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.opcion-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* Como tu CSS global de p, a tiene un 'margin-left: 80px' que te está rompiendo todo acá dentro, se lo anulamos a la fuerza: */
+.perfil-seccion-opciones p, 
+.perfil-seccion-opciones a {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+}
+
+.opcion-salir {
+    color: #ff6b6b;
+}
+
+/*LOGO BARRA NAV BÁSICO/*
+/* El enlace del logo sin fondos, sin bordes y en su tamaño original */
+/* Logo como enlace interactivo limpio en la barra */
+a.logo-izquierda {
+    position: absolute !important;
+    left: 1px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+a.logo-izquierda:hover {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Tamaño grande original de la imagen dentro del enlace */
+a.logo-izquierda img {
+    max-height: 120px !important;
+    width: auto !important;
+    display: block !important;
+    border: none !important;
+}
+
+
+/* ==========================================
+   SECCIÓN DE NOTICIAS
+   ========================================== */
+.contenedor-noticias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+}
+
+.tarjeta-noticia {
+    background-color: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(2, 43, 67, 0.15);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(2, 43, 67, 0.1);
+}
+
+.tarjeta-noticia img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background-color: #022b43;
+}
+
+.contenido-noticia {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.fecha-noticia {
+    font-family: "PoppinsL";
+    font-size: 12px;
+    color: #076a6f;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* Anulamos los márgenes globales de 80px y la opacidad 0 de tu CSS general */
+.contenido-noticia h3,
+.contenido-noticia p,
+.contenido-noticia a {
+    opacity: 1 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.contenido-noticia h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.contenido-noticia p {
+    font-size: 14px;
+    flex-grow: 1;
+    margin-bottom: 15px;
+}
+
+.contenido-noticia button {
+    margin-left: 0 !important;
+}
