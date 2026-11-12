@@ -81,8 +81,8 @@
 
 .logo-izquierda {
     position: absolute;
-    left: 40px; /* Distancia desde el borde izquierdo de la barra */
-    max-height: 55px; /* Ajustá el alto según el tamaño de tu logo */
+    left: 1px; /* Distancia desde el borde izquierdo de la barra */
+    max-height: 120px; /* Ajustá el alto según el tamaño de tu logo */
     width: auto;
 }
 
@@ -945,7 +945,7 @@ body.inicio .BarraBaj {
 .tabla-custom td {
   background-color: #076a6f;
   color: #ffffff;
-  padding: 12px 20px;
+  padding: 20px 20px;
   border-radius: 12px;
   vertical-align: middle;
   border: none;
@@ -958,6 +958,10 @@ body.inicio .BarraBaj {
   text-align: center;
   position: relative;
   height: 150px;
+}
+
+.texto-hover{
+    font-size: 15px;
 }
 
 .tabla-custom td img {
