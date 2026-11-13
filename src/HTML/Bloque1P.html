@@ -19,10 +19,21 @@
     </nav>
  
     <h2>Examen Practico - Bloque 1</h2>
-    <div class="carrusel-css">
-    <img src="../../assets/Bela.png" alt="1">
-    <img src="../../assets/Gleen.png" alt="2">
-    <img src="../../assets/Benja.png" alt="3">
+   <div class="Carru">
+        <!-- Botón Izquierda -->
+        <button class="CarruBT prev" id="btnPrev">&#10094;</button>
+        
+        <!-- Pista donde se mueven las imágenes -->
+        <div class="CarruConte">
+            <div class="CarrIMG" id="carruImg">
+                <img src="../../assets/Bela.png" alt="1">
+                <img src="../../assets/Gleen.png" alt="2">
+                <img src="../../assets/Benja.png" alt="3">
+            </div>
+        </div>
+
+        <!-- Botón Derecha -->
+        <button class="CarruBT next" id="btnNext">&#10095;</button>
     </div>
 
     <div class="BarraBaj">
@@ -43,5 +54,6 @@
     </div>
     <script src="../JS/BarraNav.js"></script>
     <script src="../JS/Animaciones.js"></script>
+    <script src="../JS/Practico.js"></script>
 </body>
 </html>
