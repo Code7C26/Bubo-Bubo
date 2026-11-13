@@ -1740,9 +1740,9 @@ EXAMENES PRACTICOS PRESENTACION
 /* 1. Marco principal del carrusel con el estilo de la tarjeta */
 .Carru {
     position: relative;
-    width: 900px;  /* Podes ajustarlo más ancho o más chico según prefieras */
-    height: 500px; /* Altura de la tarjeta */
-    margin: 30px auto; /* Centrado en la página */
+    width: 1000px;  /* Podes ajustarlo más ancho o más chico según prefieras */
+    height: 600px; /* Altura de la tarjeta */
+    margin-left: 5%; /* Centrado en la página */
     border-radius: 20px; /* Bordes redondeados bien suaves como en la foto */
     overflow: hidden; /* Esto es clave para que la imagen respete los bordes redondeados */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Sombra elegante alrededor */
