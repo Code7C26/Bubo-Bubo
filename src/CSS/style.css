@@ -296,12 +296,12 @@ h2{
 }
 
 @font-face {
-    font-family: "PoppinsI";
+    font-family: "PoppinsL";
     src: url("../../assets/fuentes/texto/Poppins-Italic.ttf");
 }
 
 h3{
-    font-family: "PoppinsI";
+    font-family: "PoppinsL";
     font-size: 25px;
 }
 
@@ -614,7 +614,7 @@ color: #022b43;
     margin-bottom: -50px !important;
 
     /* Las dos imágenes de fondo (separadas por coma) */
-    background-image: url("../../assets/personajes2.png");
+    background-image: url("../../assets/personajes.png");
     
     /* La posición de cada una en orden: la primera arriba, la segunda abajo */
     background-position: center top, center bottom;
@@ -751,21 +751,41 @@ color: #022b43;
 }
 
 /*PÁGINA DE INGRESO*/
-.ING input {
-    margin-left: 50px;
+/* Contenedor principal de la caja para que no mueva el resto */
+.ING {
+    position: relative; /* Muy importante para que el aviso se posicione en relación a este cuadro */
 }
 
 p#sn {
-    color: #d9534f !important;   /* Color rojo de alerta */
-    font-family: "PoppinsB";     /* Fuente en negrita */
-    font-size: 16px;             /* Tamaño más visible */
-    margin-top: 8px;
-    margin-left: 45px;
+    color: #721c24 !important;         
+    font-family: "PoppinsB";           
+    font-size: 13px;             
+    margin: 0 !important;              
+    padding: 6px 12px;                
+    background-color: #f8d7da;         
+    border: 1px solid #f5c6cb;         
+    border-radius: 8px;                
+    width: fit-content;                
+    box-sizing: border-box;
+    
+    /* Lo fijamos con absolute para que flote sin empujar el fondo ni estirar nada */
+    position: absolute;
+    top: 185px;                        /* Justo debajo del input blanco */
+    left: 50px;                        /* Alineado perfectamente a la izquierda con el input */
+    z-index: 10;
+    
+    display: none;                     /* Oculto por defecto */
+}
+
+/* Se muestra únicamente cuando tiene texto de error */
+p#sn:not(:empty) {
+    display: block;
 }
 
 /*EMPUJA HACIA ABAJO LO QUE ESTE DEBAJO DEL CUADRO DEL USUARIO*/
 .ING input#usuario {
-    margin-bottom: 20px; 
+    margin-bottom: 30px; 
+    margin-left: 50px;
 }
 
 /*CLASES PARA LOS FONDOS*/
@@ -774,7 +794,7 @@ body.ingreso {
     background-size: cover;          /* Cubre toda la pantalla sin deformarse */
     background-position: center;     /* Centra la imagen */
     background-repeat: no-repeat;    /* Evita que se repita como mosaico */
-    background-attachment: fixed;    /* <-- ESTO es lo que hace que quede fijo y no se mueva al bajar */
+    min-height: 100vh;
 }
 
 .ING h1,h2,h3,p,a{
@@ -851,6 +871,7 @@ a:has(button) {
     display: flex;
     align-items: center;
     gap: 12px; /* Espacio entre el botón y la foto circular */
+    min-height: 45px; /* Evita que el contenedor salte de tamaño */
 }
 
 #FtoP {
@@ -880,6 +901,9 @@ a:has(button) {
     object-fit: cover;           /* Evita que la imagen se deforme */
     border: 2px solid #022b43;   /* Opcional: un borde bonito alrededor */
     display: none;               /* Empieza oculta hasta que elijas una foto */
+}
+#preview-img[src]:not([src=""]) {
+    display: inline-block;       /* Se muestra automáticamente si tiene una ruta de imagen cargada */
 }
 
 #texto-archivo {
@@ -1296,7 +1320,7 @@ body.ingreso p {
    ========================================== */
 /* Rectángulo principal alineado hacia el lateral izquierdo de la pantalla */
 .tarjeta-perfil {
-    background-color: #33b8a6;
+    background-color: #076a6f;
     width: 90%;
     max-width: 500px;
     margin: 40px 0 40px 20px;
@@ -1471,7 +1495,7 @@ body.ingreso p {
     width: 90%;
     max-width: 500px;
     margin: 20px auto;
-    background: #2c64cc;
+    background: #022b43;
     padding: 20px;
     border-radius: 12px;
 }
@@ -1510,7 +1534,7 @@ body.ingreso p {
 
 /* Asegura que la tarjeta de perfil y las opciones compartan la misma estructura y alineación */
 .tarjeta-perfil {
-    background-color: #33b8a6;
+    background-color: #076a6f;
     width: 90%;
     max-width: 500px;
     margin: 40px 0 40px 30px; /* <--- Controlas la distancia de este cuadro a la izquierda */
@@ -1521,8 +1545,11 @@ body.ingreso p {
     flex-direction: column;
     align-items: flex-start;
     position: relative;
+    
     box-sizing: border-box;
 }
+
+
 
 /* Estilos internos específicos para la sección de opciones */
 /* ==========================================
@@ -1536,7 +1563,7 @@ body.ingreso p {
     width: 90%;
     max-width: 500px;
     margin: 20px 0 20px 30px;
-    background: #2c64cc;
+    background: #022b43;
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
@@ -1593,6 +1620,15 @@ body.ingreso p {
 
 .opcion-salir {
     color: #ff6b6b;
+}
+
+/*Fondo perfil*/
+.fondoP{
+    background-image: url("../../assets/perfil2.png");
+    background-size: cover;          /* Cubre toda la pantalla sin deformarse */
+    background-position: center;     /* Centra la imagen */
+    background-repeat: no-repeat;    /* Evita que se repita como mosaico */    
+
 }
 
 /*LOGO BARRA NAV BÁSICO/*
@@ -1694,4 +1730,341 @@ a.logo-izquierda img {
 
 .contenido-noticia button {
     margin-left: 0 !important;
+}
+
+
+/*///////////////////////////////
+EXAMENES PRACTICOS PRESENTACION
+//////////////////////////////*/
+
+/* Ventana principal */
+.carrusel-auto {
+    width: 100%;
+    max-width: 600px; /* Ajusta el ancho que quieras */
+    height: 350px;    /* Ajusta el alto que quieras */
+    margin: auto;
+    overflow: hidden; /* Esconde las fotos que están afuera */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Pista que se mueve */
+.carrusel-pista {
+    display: flex;
+    width: 300%; /* 100% por cada imagen (si tienes 3 imágenes, es 300%) */
+    height: 100%;
+    animation: deslizar 9s infinite; /* Dura 9 segundos en total y se repite para siempre */
+}
+
+/* Cada imagen */
+.carrusel-pista img {
+    width: 33.3333%; /* Cada foto ocupa un tercio de la pista de 300% */
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Pausar cuando pasas el mouse por encima (¡detalle pro!) */
+.carrusel-auto:hover .carrusel-pista {
+    animation-play-state: paused;
+}
+
+/* La animación paso a paso para 3 imágenes */
+@keyframes deslizar {
+    0%, 25%   { transform: translateX(0); }          /* Muestra la 1ra imagen */
+    33%, 58%  { transform: translateX(-33.3333%); } /* Desliza a la 2da imagen */
+    66%, 91%  { transform: translateX(-66.6666%); } /* Desliza a la 3ra imagen */
+    100%      { transform: translateX(0); }          /* Vuelve al inicio */
+}
+
+
+/* =========================================================
+   DISEÑO TIPO CARRUSEL DE TARJETAS (SIN CONTENEDOR GRANDE)
+   ========================================================= */
+
+.seccion-carrusel-bubo {
+    width: 92%;
+    max-width: 1300px;
+    margin: 50px auto;
+    box-sizing: border-box;
+}
+
+/* Cabecera dividida: Título izquierda / Texto derecha */
+.cabecera-bloque {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.cabecera-bloque h2 {
+    margin: 0 !important;
+    font-size: 32px;
+    color: #022b43;
+    max-width: 550px;
+    opacity: 1 !important;
+}
+
+.cabecera-bloque p {
+    margin: 0 !important;
+    font-size: 16px;
+    color: #022b43;
+    max-width: 450px;
+    line-height: 1.4;
+    opacity: 0.85 !important;
+}
+
+/* Fila horizontal de tarjetas */
+.pista-tarjetas {
+    display: flex;
+    flex-direction: row;
+    gap: 22px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 15px;
+    scrollbar-width: none; /* Oculta la barra de scroll en Firefox */
+}
+.pista-tarjetas::-webkit-scrollbar {
+    display: none; /* Oculta la barra de scroll en Chrome/Safari */
+}
+
+/* Cada tarjeta vertical redondeada */
+.tarjeta-tema-card {
+    min-width: 280px;
+    max-width: 280px;
+    min-height: 360px;
+    background: #076a6f;
+    border-radius: 24px;
+    padding: 22px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(2, 43, 67, 0.18);
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+}
+
+.tarjeta-tema-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Píldora superior derecha */
+.etiqueta-tema {
+    align-self: flex-end;
+    background-color: rgba(239, 242, 229, 0.9);
+    color: #022b43;
+    font-family: "PoppinsB";
+    font-size: 12px;
+    padding: 5px 14px;
+    border-radius: 20px;
+}
+
+/* Textos abajo a la izquierda dentro de la tarjeta */
+.info-inferior-tarjeta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-top: auto;
+}
+
+.info-inferior-tarjeta .titulo-tema {
+    color: #ffffff !important;
+    font-family: "PoppinsB" !important;
+    font-style: normal !important;
+    font-size: 22px !important;
+    margin: 0 !important;
+    line-height: 1.2;
+    opacity: 1 !important;
+}
+
+.info-inferior-tarjeta .sub-tarjeta {
+    color: #fac82e !important;
+    font-size: 14px !important;
+    margin: 0 0 10px 0 !important;
+    opacity: 1 !important;
+}
+
+.btn-ver-notas {
+    margin: 0 !important;
+    background-color: #fac82e !important;
+    color: #022b43 !important;
+    font-family: "PoppinsB" !important;
+    font-size: 13px !important;
+    padding: 7px 16px !important;
+    border-radius: 20px !important;
+    cursor: pointer;
+}
+
+/* Pie del carrusel (Botones izquierda / Flechas derecha) */
+.pie-carrusel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.botones-eval-izq {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-eval-pill {
+    margin: 0 !important;
+    background-color: #022b43 !important;
+    color: #ffffff !important;
+    font-family: "PoppinsB" !important;
+    font-size: 14px !important;
+    padding: 10px 24px !important;
+    border-radius: 25px !important;
+    cursor: pointer;
+}
+
+.btn-eval-pill.secundario {
+    background-color: #076a6f !important;
+}
+
+/* Botones circulares con flechas < > */
+.controles-flechas {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-flecha {
+    margin: 0 !important;
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50% !important;
+    background-color: transparent !important;
+    border: 1.5px solid #022b43 !important;
+    color: #022b43 !important;
+    font-size: 16px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    cursor: pointer;
+}
+
+.btn-flecha:hover {
+    background-color: #022b43 !important;
+    color: #ffffff !important;
+    transform: none !important;
+}
+
+/* Corrección para que los textos largos no rompan ni se salgan de las cajas */
+.caja-explicacion-amarilla p {
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*PÁGINA EVALUACIÓN*/
+/* Estilos para la sección de evaluación estilo tarjeta dividida */
+.seccion-evaluacion-bloque {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(2, 43, 67, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.evaluacion-contenido {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.evaluacion-contenido h2 {
+    font-family: 'PoppinsB', sans-serif;
+    color: #022b43;
+    font-size: 28px;
+    margin: 0;
+}
+
+.evaluacion-contenido p {
+    color: #4a5568;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.evaluacion-items {
+    display: flex;
+    gap: 30px;
+    margin-top: 10px;
+}
+
+.eval-item h4 {
+    font-family: 'PoppinsB', sans-serif;
+    color: #022b43;
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+
+.eval-item p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.evaluacion-imagen {
+    width: 320px;
+    height: 280px;
+    background-color: #076a6f;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.evaluacion-imagen img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+/* Fuerza al botón a pegarse por completo al margen izquierdo */
+.btn-ir-bloque {
+    display: inline-block;
+    background-color: #076a6f;
+    color: white;
+    font-family: 'PoppinsB', sans-serif;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+    transition: background 0.2s;
+    margin-top: 15px;
+    align-self: flex-start !important; /* Anula cualquier centrado heredado */
+}
+
+.btn-ir-bloque:hover {
+    background-color: #022b43;
 }

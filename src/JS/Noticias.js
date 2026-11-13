@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <h3>${noticia.title}</h3>
                     <p>${textoLimpio.slice(0, 140)}...</p>
                     <a href="${noticia.link}" target="_blank" rel="noopener noreferrer">
-                        <button type="button">Leer nota completa</button>
+                        <button type="button">Leer más</button>
                     </a>
                 </div>
             `;

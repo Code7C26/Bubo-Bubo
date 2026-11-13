@@ -68,7 +68,7 @@ function CerrarPopupP(){
 function Guardado(){
     const NUser = document.getElementById("usuarioE").value.trim();
     const NBio = document.getElementById("biografiaE").value.trim();
-    const minCaracteres = 2;
+    const minCaracteres = 1;
     const maxCaracteres = 15;
 
     // Validar si está vacío
