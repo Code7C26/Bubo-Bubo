@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 */
-
+/*
 //GUARDA USUARIO ESCRITO
 function ValUsua() 
 {
@@ -92,4 +92,70 @@ function ValUsua()
     else {
         window.location.href = "basico.html";
     }
+}*/
+
+//GUARDA USUARIO ESCRITO
+function ValUsua() 
+{
+    const inputUsuario = document.getElementById("usuario");
+    const usuario = inputUsuario.value.trim();
+    const foto = document.getElementById("FtoP").files[0];
+    const mensajeError = document.getElementById("sn");
+
+    const maxCaracteres = 15;
+
+    if (usuario === "") {
+        mensajeError.textContent = "Ingrese un nombre para poder continuar";
+        return;
+    }
+
+    if (usuario.length > maxCaracteres) {
+        mensajeError.textContent = `El usuario no puede superar los ${maxCaracteres} caracteres.`;
+        return;
+    }
+
+    mensajeError.textContent = "";
+    localStorage.setItem("usuario", usuario);
+
+    if (foto) {
+        const lector = new FileReader();
+
+        lector.onload = function() {
+            localStorage.setItem("FtoP", lector.result);
+            window.location.href = "basico.html";
+        }
+
+        lector.readAsDataURL(foto);
+    }
+    else {
+        window.location.href = "basico.html";
+    }
 }
+
+// LÓGICA DE VISTA PREVIA DE LA FOTO
+document.addEventListener('DOMContentLoaded', () => {
+    const inputArchivo = document.getElementById('FtoP');
+    const previewImg = document.getElementById('preview-img');
+    const textoArchivo = document.getElementById('texto-archivo');
+
+    if (inputArchivo && previewImg) {
+        inputArchivo.addEventListener('change', function(e) {
+            const archivo = e.target.files[0];
+            
+            if (archivo) {
+                textoArchivo.textContent = archivo.name;
+                
+                const urlImagen = URL.createObjectURL(archivo);
+                previewImg.src = urlImagen;
+                
+                // Forzamos la visualización ignorando cualquier conflicto de CSS
+                previewImg.style.setProperty('display', 'block', 'important');
+            } else {
+                textoArchivo.textContent = 'Ningún archivo seleccionado';
+                previewImg.style.setProperty('display', 'none', 'important');
+            }
+        });
+    } else {
+        console.error("Error: No se encontró el input 'FtoP' o la imagen 'preview-img' en el HTML.");
+    }
+});

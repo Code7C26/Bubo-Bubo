@@ -18,15 +18,12 @@
 
     <!-- Grupo central con los 3 botones -->
     <div class="menu-central">
-
         <a href="Basico.html"><button type="button">Principal</button></a>
         <a href="BasAdmin.html"><button type="button">Administración</button></a>
-        <a href="Bloque1T.html"><button type="button">Evaluación</button></a>
+        <a href="Evaluación.html"><button type="button">Evaluación</button></a>
         <a href="Reco.html"><button type="button">Recomendaciones</button></a>
         <a href="Noticias.html"><button type="button">Noticias</button></a>
-        
     </div>
-    
     
     <!-- Foto de perfil a la derecha -->
     <a href="Perfil.html" class="btPe">
@@ -34,7 +31,7 @@
     </a>
     </nav>
  
-    <h1>¡Bienvenido al aprendizaje básico de Bubo!</h1>
+    <h1>¡Aprender y proteger es la clave!</h1>
     <h3>Sección informativa donde serás capáz de aprender lo más básico e indispensable sobre economía. 
         Además, podrás poner a prueba tus conocimientos, tanto de manera práctica, mediante juegos interactivos, como teórica, utilizando cuestionarios.
     </h3>
@@ -45,96 +42,168 @@
         administran recursos limitados para satisfacer necesidades que tambien lo son.
         Analizar los procesos de producción, distribución y consumo de bienes y servicios es su trabajo.
     </p>
-        
-        <section class="bloque-contenedor" id="bloque-1">
-        <h2>Bloque 1 - Fundamentos, gestión financiera y economía</h2>
+
+    <!-- ================= BLOQUE 1 ================= -->
+    <section class="seccion-carrusel-bubo">
+        <div class="cabecera-bloque">
+            <h2>Bloque 1 - Fundamentos, gestión financiera y economía</h2>
+            <p>Explora cada uno de los conceptos fundamentales para dominar la gestión financiera y las bases de la economía.</p>
         </div>
 
-        <div class="tarjeta-tema" id="tema-b1-1">
-            <h3 class="titulo-tema">Necesidades y recursos</h3>
-                <div class="lista-cajas-amarillas">
-                    <div class="caja-explicacion-amarilla">
-                        <p>•	¿Qué es una necesidad?: sensación de falta o carencia de algo unida al deseo de buscar una solución para cubrirla.</p>
-                    </div>
-                    <div class="caja-explicacion-amarilla">
-                    <p>•	¿Qué es un recurso?: son los medios, insumos o factores productivos que se usan para crear bienes y servicios.</p>
-                    </div>
-                    <div class="caja-explicacion-amarilla">
-                    <p>•	Relación entre necesidad y recurso: el recurso es el medio disponible que se utiliza para satisfacer una necesidad.</p>
-                    </div>
+        <div class="pista-tarjetas" id="pista-bloque-1">
+            <div class="tarjeta-tema-card" id="tema-b1-1">
+                <span class="etiqueta-tema">Tema 1.1</span>
+                <div class="info-inferior-tarjeta">
+                    <h3 class="titulo-tema">Necesidades y recursos</h3>
+                    <p class="sub-tarjeta">Definiciones básicas</p>
+                    <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b1-1')">Ver notas</button>
                 </div>
-            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b1-1')" title="Añadir nota">+</button>
+            </div>
+
+            <div class="tarjeta-tema-card" id="tema-b1-2">
+                <span class="etiqueta-tema">Tema 1.2</span>
+                <div class="info-inferior-tarjeta">
+                    <h3 class="titulo-tema">Escasez</h3>
+                    <p class="sub-tarjeta">Problema económico</p>
+                    <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b1-2')">Ver notas</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-tema-card" id="tema-b1-3">
+                <span class="etiqueta-tema">Tema 1.3</span>
+                <div class="info-inferior-tarjeta">
+                    <h3 class="titulo-tema">Ingresos, gastos fijos y variables</h3>
+                    <p class="sub-tarjeta">Control financiero</p>
+                    <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b1-3')">Ver notas</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-tema-card" id="tema-b1-4">
+                <span class="etiqueta-tema">Tema 1.4</span>
+                <div class="info-inferior-tarjeta">
+                    <h3 class="titulo-tema">Interés</h3>
+                    <p class="sub-tarjeta">Simple y compuesto</p>
+                    <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b1-4')">Ver notas</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-tema-card" id="tema-b1-5">
+                <span class="etiqueta-tema">Tema 1.5</span>
+                <div class="info-inferior-tarjeta">
+                    <h3 class="titulo-tema">Deuda y crédito</h3>
+                    <p class="sub-tarjeta">Herramientas y saldos</p>
+                    <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b1-5')">Ver notas</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-tema-card" id="tema-b1-6">
+                <span class="etiqueta-tema">Tema 1.6</span>
+                <div class="info-inferior-tarjeta">
+                    <h3 class="titulo-tema">Presupuesto y administración</h3>
+                    <p class="sub-tarjeta">Planificación de dinero</p>
+                    <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b1-6')">Ver notas</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-tema-card" id="tema-b1-7">
+                <span class="etiqueta-tema">Tema 1.7</span>
+                <div class="info-inferior-tarjeta">
+                    <h3 class="titulo-tema">Ahorro y fondo de emergencia</h3>
+                    <p class="sub-tarjeta">Reserva de crisis</p>
+                    <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b1-7')">Ver notas</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-tema-card" id="tema-b1-8">
+                <span class="etiqueta-tema">Tema 1.8</span>
+                <div class="info-inferior-tarjeta">
+                    <h3 class="titulo-tema">Costo de oportunidad básico</h3>
+                    <p class="sub-tarjeta">Valor de opción</p>
+                    <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b1-8')">Ver notas</button>
+                </div>
+            </div>
         </div>
 
-        <div class="tarjeta-tema" id="tema-b1-2">
-            <h3 class="titulo-tema">Escasez</h3>
-                <div class="lista-cajas-amarillas">
-                    <div class="caja-explicacion-amarilla">
-                    <p>•	¿Qué es la escasez y por qué existe?: la escasez es un problema económico básico que ocurre cuando los recursos disponibles son limitados, pero los deseos y las necesidades de las personas no.</p>
-                    </div>
-                    <div class="caja-explicacion-amarilla">
-                    <p>•	Diferencia entre escasez y necesidad: la necesidad es lo que queremos o requerimos, y la escasez es la falta de medios para lograr satisfacer esas necesidades.</p>
-                    </div>
-                    <div class="caja-explicacion-amarilla">
+        <!-- Contenedores desplegables con todos los textos originales completos -->
+        <div id="notas-b1-1" class="contenedor-notas-desplegable" style="display:none; margin-top:20px;">
+            <div class="lista-cajas-amarillas">
+                <div class="caja-explicacion-amarilla">
+                    <p>• ¿Qué es una necesidad?: sensación de falta o carencia de algo unida al deseo de buscar una solución para cubrirla.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• ¿Qué es un recurso?: son los medios, insumos o factores productivos que se usan para crear bienes y servicios.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Relación entre necesidad y recurso: el recurso es el medio disponible que se utiliza para satisfacer una necesidad.</p>
+                </div>
+            </div>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b1-1')" title="Añadir nota">+</button>
+        </div>
+
+        <div id="notas-b1-2" class="contenedor-notas-desplegable" style="display:none; margin-top:20px;">
+            <div class="lista-cajas-amarillas">
+                <div class="caja-explicacion-amarilla">
+                    <p>• ¿Qué es la escasez y por qué existe?: la escasez es un problema económico básico que ocurre cuando los recursos disponibles son limitados, pero los deseos y las necesidades de las personas no.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Diferencia entre escasez y necesidad: la necesidad es lo que queremos o requerimos, y la escasez es la falta de medios para lograr satisfacer esas necesidades.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
                     <p>Ejemplos de escasez: falta de agua potable, falta de alimentos, falta de viviendas.</p>
-                    </div>
                 </div>
-            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b1-2')" title="Añadir nota">+</button>
+            </div>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b1-2')" title="Añadir nota">+</button>
         </div>
 
-        <div class="tarjeta-tema" id="tema-b1-3">
-            <h3 class="titulo-tema">Ingresos, gastos fijos y variables</h3>
-                <div class="lista-cajas-amarillas">   
-                    <div class="caja-explicacion-amarilla"> 
-                        <p>•	Ingresos: son toda entrada de recursos económicos o dinero que recibe una persona, una empresa o el Estado como resultado de su trabajo, sus ventas, inversiones o la recaudación de impuestos.</p>
-                    </div>
-                    <div class="caja-explicacion-amarilla">
-                        <p>•	Gastos fijos: son aquellos pagos regulares y periódicos que se deben realizar de forma obligatoria, cuyo monto no depende del nivel de producción de una empresa ni del nivel de consumo en las finanzas personales, manteniéndose estables o previsibles mes a mes.</p>
-                    </div>
-                    <div class="caja-explicacion-amarilla">
-                        <p>•	Gastos variables: son aquellos desembolsos de dinero que cambian de valor o de cantidad según el nivel de actividad, la producción o el consumo. Si la producción o las ventas suben, estos gastos suben; si bajan o se detienen, estos gastos también bajan o desaparecen.</p>
-                    </div>
-                    <div class="caja-explicacion-amarilla">
-                        <p>•	Diferencia entre gastos fijos y variables: los costos fijos no cambian sin importar cuánto se produzca o se venda, mientras que los costos variables suben o bajan de forma directa según el nivel de producción o la actividad del negocio.</p>
-                    </div> 
+        <div id="notas-b1-3" class="contenedor-notas-desplegable" style="display:none; margin-top:20px;">
+            <div class="lista-cajas-amarillas">   
+                <div class="caja-explicacion-amarilla"> 
+                    <p>• Ingresos: son toda entrada de recursos económicos o dinero que recibe una persona, una empresa o el Estado como resultado de su trabajo, sus ventas, inversiones o la recaudación de impuestos.</p>
                 </div>
-            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b1-3')" title="Añadir nota">+</button>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Gastos fijos: son aquellos pagos regulares y periódicos que se deben realizar de forma obligatoria, cuyo monto no depende del nivel de producción de una empresa ni del nivel de consumo en las finanzas personales.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Gastos variables: son aquellos desembolsos de dinero que cambian de valor o de cantidad según el nivel de actividad, la producción o el consumo.</p>
+                </div>
+                <div class="caja-explicacion-amarilla">
+                    <p>• Diferencia entre gastos fijos y variables: los costos fijos no cambian sin importar cuánto se produzca o se venda, mientras que los costos variables suben o bajan según la actividad.</p>
+                </div> 
+            </div>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b1-3')" title="Añadir nota">+</button>
         </div>
 
-        <div class="tarjeta-tema" id="tema-b1-4">
-            <h3 class="titulo-tema">Interés</h3>
+        <div id="notas-b1-4" class="contenedor-notas-desplegable" style="display:none; margin-top:20px;">
             <div class="lista-cajas-amarillas">
                 <div class="caja-explicacion-amarilla">
                     <p>• Interés: es el precio que se paga por usar dinero ajeno o la ganancia que se recibe por prestarlo o invertirlo.</p>
                 </div>
                 <div class="caja-explicacion-amarilla">
                     <p>• Interés simple: es el precio que se paga por pedir prestado dinero ajeno es siempre igual en cada periodo.</p>
-                    <p>FÓRMULA INTERES SIMPLE I = C x i x t</p>
+                    <p style="margin-top: 6px;">FÓRMULA INTERES SIMPLE I = C x i x t</p>
                 </div>
                 <div class="caja-explicacion-amarilla">
                     <p>• Interés compuesto: es el precio a pagar por pedir prestado dinero ajeno, cambia en cada periodo creando el efecto de 'bola de nieve'.</p>
-                    <p>FÓRMULA INTERES COMPUESTO M = C x (1+ r)^t</p>
+                    <p style="margin-top: 6px;">FÓRMULA INTERES COMPUESTO M = C x (1+ r)^t</p>
                 </div>
             </div>
-            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b1-4')" title="Añadir nota">+</button>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b1-4')" title="Añadir nota">+</button>
         </div>
 
-        <div class="tarjeta-tema" id="tema-b1-5">
-            <h3 class="titulo-tema">Deuda y crédito</h3>
+        <div id="notas-b1-5" class="contenedor-notas-desplegable" style="display:none; margin-top:20px;">
             <div class="lista-cajas-amarillas">
                 <div class="caja-explicacion-amarilla">
                     <p>• Deuda: es la obligación de pago que el deudor contrae con el acreedor al recibir dinero o bienes con el compromiso de devolverlos.</p>
                 </div>
                 <div class="caja-explicacion-amarilla">
                     <p>• Crédito: es un acuerdo financiero en el que un prestamista entrega dinero o recursos a un prestatario que promete devolverlo con intereses.</p>
-                    <p>• Diferencia entre deuda y crédito: el crédito es la herramienta disponible, y la deuda es el saldo negativo que debes pagar.</p>
+                    <p style="margin-top: 6px;">• Diferencia entre deuda y crédito: el crédito es la herramienta disponible, y la deuda es el saldo negativo que debes pagar.</p>
                 </div>
             </div>
-            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b1-5')" title="Añadir nota">+</button>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b1-5')" title="Añadir nota">+</button>
         </div>
 
-        <div class="tarjeta-tema" id="tema-b1-6">
-            <h3 class="titulo-tema">Presupuesto y administración de dinero</h3>
+        <div id="notas-b1-6" class="contenedor-notas-desplegable" style="display:none; margin-top:20px;">
             <div class="lista-cajas-amarillas">
                 <div class="caja-explicacion-amarilla">
                     <p>• Presupuesto: es un plan financiero que calcula por anticipado los ingresos y los gastos de una persona, empresa o gobierno durante un tiempo fijo.</p>
@@ -143,11 +212,10 @@
                     <p>• Administración del dinero: se enfoca en cómo se controlan, usan y planean los recursos financieros para cubrir necesidades y lograr metas a futuro.</p>
                 </div>
             </div>
-            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b1-6')" title="Añadir nota">+</button>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b1-6')" title="Añadir nota">+</button>
         </div>
 
-        <div class="tarjeta-tema" id="tema-b1-7">
-            <h3 class="titulo-tema">Ahorro y fondo de emergencia</h3>
+        <div id="notas-b1-7" class="contenedor-notas-desplegable" style="display:none; margin-top:20px;">
             <div class="lista-cajas-amarillas">
                 <div class="caja-explicacion-amarilla">
                     <p>• Ahorro: es la parte del ingreso que se decide no gastar en el consumo presente para guardarlo ante emergencias o proyectos futuros.</p>
@@ -156,33 +224,86 @@
                     <p>• Fondo de emergencia: reserva de dinero ahorrada exclusivamente para cubrir gastos imprevistos o situaciones de crisis.</p>
                 </div>
             </div>
-            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b1-7')" title="Añadir nota">+</button>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b1-7')" title="Añadir nota">+</button>
         </div>
 
-        <div class="tarjeta-tema" id="tema-b1-8">
-            <h3 class="titulo-tema">Costo de oportunidad básico</h3>
+        <div id="notas-b1-8" class="contenedor-notas-desplegable" style="display:none; margin-top:20px;">
             <div class="lista-cajas-amarillas">
                 <div class="caja-explicacion-amarilla">
                     <p>• Costo de oportunidad: es el valor de la mejor opción a la que renuncias cuando tomas una decisión.</p>
-                    <p>Ejemplo: Si tienes $10.000 y eliges comprar ropa, el costo de oportunidad es lo que podrías haber hecho con ese dinero.</p>
+                    <p style="margin-top: 6px;">Ejemplo: Si tienes $10.000 y eliges comprar ropa, el costo de oportunidad es lo que podrías haber hecho con ese dinero.</p>
                 </div>
             </div>
-            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b1-8')" title="Añadir nota">+</button>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b1-8')" title="Añadir nota">+</button>
         </div>
 
-        <div id="momento-evaluacion" class="evaluacion-bloque">
-            <h3>Momento de evaluación</h3>
-            <a href="Bloque1T.html" class="BTTeo"><button>Teórico</button></a>
-            <button>Práctico</button>
+        <!-- Flechas de navegación a la derecha -->
+        <div class="pie-carrusel" style="display: flex; justify-content: flex-end; margin-top: 15px;">
+            <div class="controles-flechas" style="display: flex; gap: 10px;">
+                <button type="button" class="btn-flecha" onclick="moverCarrusel('pista-bloque-1', -1)">&#10094;</button>
+                <button type="button" class="btn-flecha" onclick="moverCarrusel('pista-bloque-1', 1)">&#10095;</button>
+            </div>
+        </div>
+
+        <!-- Tarjeta de evaluación Bloque 1 -->
+        <div class="caja-explicacion-amarilla evaluacion-tarjeta-estilo" style="margin-top: 15px; flex-direction: row; align-items: center; justify-content: space-between;">
+            <p style="margin: 0; font-family: 'PoppinsB'; font-size: 18px; color: #ffffff;">• Momento de evaluación</p>
+            <div class="botones-eval-izq" style="display: flex; gap: 10px;">
+                <a href="Bloque1T.html"><button type="button" class="btn-eval-pill" style="margin:0 !important;">Teórico</button></a>
+                <a href="Bloque1P.html"><button type="button" class="btn-eval-pill secundario" style="margin:0 !important;">Práctico</button></a>
+            </div>
         </div>
     </section>
 
-    <!-- ================= BLOQUE 2 ================= -->
-    <section class="bloque-contenedor" id="bloque-2">
-        <h2>Bloque 2 - Mercado, precios y negocios</h2>
+    <br><hr><br>
 
-        <div class="tarjeta-tema" id="tema-b2-1">
-            <h3 class="titulo-tema">Ley de oferta y demanda</h3>
+    <!-- ================= BLOQUE 2 ================= -->
+    <section class="seccion-carrusel-bubo">
+        <div class="cabecera-bloque">
+            <h2>Bloque 2 - Mercado, precios y negocios</h2>
+            <p>Comprende cómo interactúan la oferta y la demanda, la formación de precios y la rentabilidad comercial.</p>
+        </div>
+
+        <div class="pista-tarjetas" id="pista-bloque-2">
+            <div class="tarjeta-tema-card" id="tema-b2-1">
+                <span class="etiqueta-tema">Tema 2.1</span>
+                <div class="info-inferior-tarjeta">
+                    <h3 class="titulo-tema">Ley de oferta y demanda</h3>
+                    <p class="sub-tarjeta">Equilibrio de mercado</p>
+                    <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b2-1')">Ver notas</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-tema-card" id="tema-b2-2">
+                <span class="etiqueta-tema">Tema 2.2</span>
+                <div class="info-inferior-tarjeta">
+                    <h3 class="titulo-tema">Mercado y formación de precios</h3>
+                    <p class="sub-tarjeta">Formación de valor</p>
+                    <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b2-2')">Ver notas</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-tema-card" id="tema-b2-3">
+                <span class="etiqueta-tema">Tema 2.3</span>
+                <div class="info-inferior-tarjeta">
+                    <h3 class="titulo-tema">Inflación y poder adquisitivo</h3>
+                    <p class="sub-tarjeta">Pérdida de valor</p>
+                    <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b2-3')">Ver notas</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-tema-card" id="tema-b2-4">
+                <span class="etiqueta-tema">Tema 2.4</span>
+                <div class="info-inferior-tarjeta">
+                    <h3 class="titulo-tema">Margen de ganancia y rentabilidad</h3>
+                    <p class="sub-tarjeta">Rentabilidad comercial</p>
+                    <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b2-4')">Ver notas</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenedores desplegables Bloque 2 con textos completos -->
+        <div id="notas-b2-1" class="contenedor-notas-desplegable" style="display:none; margin-top:20px;">
             <div class="lista-cajas-amarillas">
                 <div class="caja-explicacion-amarilla">
                     <p>• Oferta: es la cantidad de bienes y servicios que los productores o vendedores están dispuestos a poner a la venta en el mercado a un precio específico y durante un período de tiempo determinado.</p>
@@ -194,11 +315,10 @@
                     <p>• Ley de oferta y demanda: principio básico de la economía que explica cómo se fijan los precios de los productos según el deseo de compra de los consumidores, el precio sube o baja según lo que la gente quiere comprar (demanda) y lo que los negocios venden (oferta). Esto busca un punto de equilibrio donde nadie pierde y todo se vende.</p>
                 </div>
             </div>
-            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b2-1')" title="Añadir nota">+</button>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b2-1')" title="Añadir nota">+</button>
         </div>
 
-        <div class="tarjeta-tema" id="tema-b2-2">
-            <h3 class="titulo-tema">Mercado y formación de precios</h3>
+        <div id="notas-b2-2" class="contenedor-notas-desplegable" style="display:none; margin-top:20px;">
             <div class="lista-cajas-amarillas">
                 <div class="caja-explicacion-amarilla">
                     <p>• Mercado: entorno físico o virtual donde compradores (demandantes) y vendedores (oferentes) realizan intercambios voluntarios de bienes, servicios o factores de producción.</p>
@@ -210,11 +330,10 @@
                     <p>• Relación entre compradores y vendedores: es un vínculo de intercambio comercial y de comunicación donde una parte busca adquirir un bien o servicio y la otra ofrece satisfacer esa necesidad a cambio de un pago.</p>
                 </div>
             </div>
-            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b2-2')" title="Añadir nota">+</button>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b2-2')" title="Añadir nota">+</button>
         </div>
 
-        <div class="tarjeta-tema" id="tema-b2-3">
-            <h3 class="titulo-tema">Inflación y poder adquisitivo</h3>
+        <div id="notas-b2-3" class="contenedor-notas-desplegable" style="display:none; margin-top:20px;">
             <div class="lista-cajas-amarillas">
                 <div class="caja-explicacion-amarilla">
                     <p>• Inflación: es el aumento general y constante de los precios de los bienes y servicios en un país durante un tiempo. Esto hace que el dinero pierda valor, por lo que con la misma cantidad de dinero se pueden comprar menos cosas que antes.</p>
@@ -227,14 +346,13 @@
                 </div>
                 <div class="caja-explicacion-amarilla">
                     <p>• Relación entre inflación y poder adquisitivo: la inflación reduce de forma directa el poder adquisitivo cuando los ingresos nominales (salarios o jubilaciones) no aumentan al mismo ritmo que la inflación, las personas sufren una pérdida real de su capacidad de compra y un empobrecimiento paulatino.</p>
-                    <p>Ejemplo cotidiano: Si el año pasado un café costaba $1.000 pesos y hoy cuesta $1.200 pesos, ese aumento del 20% es un ejemplo de inflación en un producto diario.</p>
+                    <p style="margin-top: 6px;">Ejemplo cotidiano: Si el año pasado un café costaba $1.000 pesos y hoy cuesta $1.200 pesos, ese aumento del 20% es un ejemplo de inflación en un producto diario.</p>
                 </div>
             </div>
-            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b2-3')" title="Añadir nota">+</button>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b2-3')" title="Añadir nota">+</button>
         </div>
 
-        <div class="tarjeta-tema" id="tema-b2-4">
-            <h3 class="titulo-tema">Margen de ganancia y rentabilidad</h3>
+        <div id="notas-b2-4" class="contenedor-notas-desplegable" style="display:none; margin-top:20px;">
             <div class="lista-cajas-amarillas">
                 <div class="caja-explicacion-amarilla">
                     <p>• Margen de ganancia: es el porcentaje de dinero que te queda como beneficio limpio después de vender un producto o servicio y restar lo que te costó hacerlo o comprarlo.</p>
@@ -247,27 +365,79 @@
                 </div>
                 <div class="caja-explicacion-amarilla">
                     <p>• Ejemplo:</p>
-                    <p>Datos del negocio: Inversión inicial $10.000 | Costo por unidad $40 | Precio de venta $100.</p>
-                    <p>Cálculo del margen: Ganancia por unidad $60 -> Margen: $60 / $100 = 60%.</p>
-                    <p>Cálculo de la rentabilidad: Si vende 200 unidades en un año, ganancia total $12.000 -> Rentabilidad: $12.000 / $10.000 = 120%.</p>
+                    <p style="margin-top: 4px;">Datos del negocio: Inversión inicial $10.000 | Costo por unidad $40 | Precio de venta $100.</p>
+                    <p style="margin-top: 4px;">Cálculo del margen: Ganancia por unidad $60 -> Margen: $60 / $100 = 60%.</p>
+                    <p style="margin-top: 4px;">Cálculo de la rentabilidad: Si vende 200 unidades en un año, ganancia total $12.000 -> Rentabilidad: $12.000 / $10.000 = 120%.</p>
                 </div>
             </div>
-            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b2-4')" title="Añadir nota">+</button>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b2-4')" title="Añadir nota">+</button>
         </div>
 
-        <div class="evaluacion-bloque">
-            <h3>Momento de evaluación</h3>
-            <a href="Bloque2T.html" class="BTTeo"><button>Teórico</button></a>
-            <button>Práctico</button>
+        <div class="pie-carrusel" style="display: flex; justify-content: flex-end; margin-top: 15px;">
+            <div class="controles-flechas" style="display: flex; gap: 10px;">
+                <button type="button" class="btn-flecha" onclick="moverCarrusel('pista-bloque-2', -1)">&#10094;</button>
+                <button type="button" class="btn-flecha" onclick="moverCarrusel('pista-bloque-2', 1)">&#10095;</button>
+            </div>
+        </div>
+
+        <div class="caja-explicacion-amarilla evaluacion-tarjeta-estilo" style="margin-top: 15px; flex-direction: row; align-items: center; justify-content: space-between;">
+            <p style="margin: 0; font-family: 'PoppinsB'; font-size: 18px; color: #ffffff;">• Momento de evaluación</p>
+            <div class="botones-eval-izq" style="display: flex; gap: 10px;">
+                <a href="Bloque2T.html"><button type="button" class="btn-eval-pill" style="margin:0 !important;">Teórico</button></a>
+                <button type="button" class="btn-eval-pill secundario" style="margin:0 !important;">Práctico</button>
+            </div>
         </div>
     </section>
-    
-    <!-- ================= BLOQUE 3 ================= -->
-    <section class="bloque-contenedor" id="bloque-3">
-        <h2>Bloque 3 - Supervivencia e inversión financiera en Argentina</h2>
 
-        <div class="tarjeta-tema" id="tema-b3-1">
-            <h3 class="titulo-tema">Ecosistemas de pagos (CBU vs CVU) y bancos</h3>
+    <br><hr><br>
+
+    <!-- ================= BLOQUE 3 ================= -->
+    <section class="seccion-carrusel-bubo">
+        <div class="cabecera-bloque">
+            <h2>Bloque 3 - Supervivencia e inversión financiera en Argentina</h2>
+            <p>Descubre el funcionamiento de ecosistemas de pagos, cuentas remuneradas y herramientas de cobertura financiera.</p>
+        </div>
+
+        <div class="pista-tarjetas" id="pista-bloque-3">
+            <div class="tarjeta-tema-card" id="tema-b3-1">
+                <span class="etiqueta-tema">Tema 3.1</span>
+                <div class="info-inferior-tarjeta">
+                    <h3 class="titulo-tema">Ecosistemas de pagos (CBU vs CVU) y bancos</h3>
+                    <p class="sub-tarjeta">Bancos y Fintechs</p>
+                    <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b3-1')">Ver notas</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-tema-card" id="tema-b3-2">
+                <span class="etiqueta-tema">Tema 3.2</span>
+                <div class="info-inferior-tarjeta">
+                    <h3 class="titulo-tema">Manejo de Tarjetas (Débito vs Crédito, Cuota y CFT)</h3>
+                    <p class="sub-tarjeta">Débito, crédito y CFT</p>
+                    <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b3-2')">Ver notas</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-tema-card" id="tema-b3-3">
+                <span class="etiqueta-tema">Tema 3.3</span>
+                <div class="info-inferior-tarjeta">
+                    <h3 class="titulo-tema">Cuenta remunerada y FCI Money Market</h3>
+                    <p class="sub-tarjeta">Money Market diario</p>
+                    <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b3-3')">Ver notas</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-tema-card" id="tema-b3-4">
+                <span class="etiqueta-tema">Tema 3.4</span>
+                <div class="info-inferior-tarjeta">
+                    <h3 class="titulo-tema">Instrumentos de inversión financiera y cobertura</h3>
+                    <p class="sub-tarjeta">Cobertura y CEDEARs</p>
+                    <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b3-4')">Ver notas</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenedores desplegables Bloque 3 con textos completos -->
+        <div id="notas-b3-1" class="contenedor-notas-desplegable" style="display:none; margin-top:20px;">
             <div class="lista-cajas-amarillas">
                 <div class="caja-explicacion-amarilla">
                     <p>• Ecosistemas de pagos: es una red integrada de infraestructura tecnológica, regulaciones y actores económicos (como bancos, fintechs, comercios y usuarios) que colaboran para procesar transferencias de dinero y transacciones comerciales de forma digital y segura.</p>
@@ -285,11 +455,10 @@
                     <p>• Bancos: un banco es una empresa financiera que acepta dinero de la gente en depósitos, lo cuida y lo presta a quienes necesitan fondos (intermediación financiera).</p>
                 </div>
             </div>
-            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b3-1')" title="Añadir nota">+</button>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b3-1')" title="Añadir nota">+</button>
         </div>
 
-        <div class="tarjeta-tema" id="tema-b3-2">
-            <h3 class="titulo-tema">Manejo de Tarjetas (Débito vs Crédito, Cuota y CFT)</h3>
+        <div id="notas-b3-2" class="contenedor-notas-desplegable" style="display:none; margin-top:20px;">
             <div class="lista-cajas-amarillas">
                 <div class="caja-explicacion-amarilla">
                     <p>• Débito: herramienta de pago vinculada a tu caja de ahorros donde el dinero se descuenta de forma automática de tus fondos disponibles.</p>
@@ -301,11 +470,10 @@
                     <p>• Cuota y CFT: la cuota es la parte de un pago total periódico, y el CFT (Costo Financiero Total) muestra el costo real y completo de un crédito incluyendo intereses y gastos extras.</p>
                 </div>
             </div>
-            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b3-2')" title="Añadir nota">+</button>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b3-2')" title="Añadir nota">+</button>
         </div>
 
-        <div class="tarjeta-tema" id="tema-b3-3">
-            <h3 class="titulo-tema">Cuenta remunerada y FCI Money Market</h3>
+        <div id="notas-b3-3" class="contenedor-notas-desplegable" style="display:none; margin-top:20px;">
             <div class="lista-cajas-amarillas">
                 <div class="caja-explicacion-amarilla">
                     <p>• Cuenta remunerada: producto financiero que te paga un interés diario por el dinero que mantienes depositado, permitiéndote usarlo en cualquier momento.</p>
@@ -314,11 +482,10 @@
                     <p>• FCI Money Market: Fondo Común de Inversión conservador que invierte en activos de corto plazo y alta liquidez para obtener rendimiento diario con rescate inmediato.</p>
                 </div>
             </div>
-            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b3-3')" title="Añadir nota">+</button>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b3-3')" title="Añadir nota">+</button>
         </div>
 
-        <div class="tarjeta-tema" id="tema-b3-4">
-            <h3 class="titulo-tema">Instrumentos de inversión financiera y cobertura</h3>
+        <div id="notas-b3-4" class="contenedor-notas-desplegable" style="display:none; margin-top:20px;">
             <div class="lista-cajas-amarillas">
                 <div class="caja-explicacion-amarilla">
                     <p>• Inversión y Cobertura: la inversión busca recibir más ganancias a futuro, mientras que la cobertura protege el capital contra el riesgo de fluctuaciones de precios o crisis.</p>
@@ -327,13 +494,22 @@
                     <p>• Plazo fijo, Dólar, CEDEARs y ONs: instrumentos locales e internacionales de renta fija o variable (como certificados de acciones extranjeras o bonos corporativos) para ahorrar y hacer crecer el capital frente a la inflación.</p>
                 </div>
             </div>
-            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('tema-b3-4')" title="Añadir nota">+</button>
+            <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b3-4')" title="Añadir nota">+</button>
         </div>
 
-        <div class="evaluacion-bloque">
-            <h3>Momento de evaluación</h3>
-            <a href="Bloque3T.html" class="BTTeo"><button>Teórico</button></a>
-            <button>Práctico</button>
+        <div class="pie-carrusel" style="display: flex; justify-content: flex-end; margin-top: 15px;">
+            <div class="controles-flechas" style="display: flex; gap: 10px;">
+                <button type="button" class="btn-flecha" onclick="moverCarrusel('pista-bloque-3', -1)">&#10094;</button>
+                <button type="button" class="btn-flecha" onclick="moverCarrusel('pista-bloque-3', 1)">&#10095;</button>
+            </div>
+        </div>
+
+        <div class="caja-explicacion-amarilla evaluacion-tarjeta-estilo" style="margin-top: 15px; flex-direction: row; align-items: center; justify-content: space-between;">
+            <p style="margin: 0; font-family: 'PoppinsB'; font-size: 18px; color: #ffffff;">• Momento de evaluación</p>
+            <div class="botones-eval-izq" style="display: flex; gap: 10px;">
+                <a href="Bloque3T.html"><button type="button" class="btn-eval-pill" style="margin:0 !important;">Teórico</button></a>
+                <button type="button" class="btn-eval-pill secundario" style="margin:0 !important;">Práctico</button>
+            </div>
         </div>
     </section>
  
@@ -353,11 +529,12 @@
             <p>Bubobubo@gmail.com</p></a>
         </div>
     </div>
+
     <script src="../JS/BarraNav.js"></script>
     <script src="../JS/Animaciones.js"></script>
     <script src="../JS/TarjetasBásico.js"></script>
     
-    <!-- ================= POPUP PARA AGREGAR 1 TARJETITA (MÁX. 2 POR TEMA) ================= -->
+    <!-- ================= POPUP PARA AGREGAR TARJETITA EXTRA ================= -->
     <div id="modal-tarjeta" class="popup" style="display: none;">
         <div class="overlay"></div>
         <div class="popup-contenido">
