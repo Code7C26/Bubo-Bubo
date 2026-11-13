@@ -1737,43 +1737,71 @@ a.logo-izquierda img {
 EXAMENES PRACTICOS PRESENTACION
 //////////////////////////////*/
 
-/* Ventana principal */
-.carrusel-auto {
+/* 1. Marco principal del carrusel con el estilo de la tarjeta */
+.Carru {
+    position: relative;
+    width: 900px;  /* Podes ajustarlo más ancho o más chico según prefieras */
+    height: 500px; /* Altura de la tarjeta */
+    margin: 30px auto; /* Centrado en la página */
+    border-radius: 20px; /* Bordes redondeados bien suaves como en la foto */
+    overflow: hidden; /* Esto es clave para que la imagen respete los bordes redondeados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Sombra elegante alrededor */
+}
+
+/* 2. La ventana visible */
+.CarruConte {
     width: 100%;
-    max-width: 600px; /* Ajusta el ancho que quieras */
-    height: 350px;    /* Ajusta el alto que quieras */
-    margin: auto;
-    overflow: hidden; /* Esconde las fotos que están afuera */
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    height: 100%;
 }
 
-/* Pista que se mueve */
-.carrusel-pista {
+/* 3. La tira de imágenes en fila horizontal */
+.CarrIMG {
     display: flex;
-    width: 300%; /* 100% por cada imagen (si tienes 3 imágenes, es 300%) */
+    width: 100%;
     height: 100%;
-    animation: deslizar 9s infinite; /* Dura 9 segundos en total y se repite para siempre */
+    transition: transform 0.5s ease-in-out; /* Deslizamiento suave */
 }
 
-/* Cada imagen */
-.carrusel-pista img {
-    width: 33.3333%; /* Cada foto ocupa un tercio de la pista de 300% */
+/* 4. Cada imagen limpia y sin texto encima */
+.CarrIMG img {
+    min-width: 100%; /* Cada foto ocupa el 100% de la tarjeta */
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Recorta la imagen prolijamente para que no se deforme */
+    display: block;
 }
 
-/* Pausar cuando pasas el mouse por encima (¡detalle pro!) */
-.carrusel-auto:hover .carrusel-pista {
-    animation-play-state: paused;
+/* 5. Estilos de las flechas (las dejamos flotando a los costados) */
+.CarruBT {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente discreto */
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    border-radius: 50%; /* Flechas circulares */
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-/* La animación paso a paso para 3 imágenes */
-@keyframes deslizar {
-    0%, 25%   { transform: translateX(0); }          /* Muestra la 1ra imagen */
-    33%, 58%  { transform: translateX(-33.3333%); } /* Desliza a la 2da imagen */
-    66%, 91%  { transform: translateX(-66.6666%); } /* Desliza a la 3ra imagen */
-    100%      { transform: translateX(0); }          /* Vuelve al inicio */
+.CarruBT:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: translateY(-50%) scale(1.1); /* Efecto de crecimiento sutil al pasar el mouse */
+}
+
+/* Posición de las flechas a los costados */
+.prev {
+    left: 5px;
+}
+
+.next {
+    right: 20px;
 }
 
 
