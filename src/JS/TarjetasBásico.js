@@ -119,8 +119,26 @@ function actualizarEstadoBotonesMas() {
 }
 */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let temaSeleccionado = "";
-const MAX_TARJETAS_POR_TEMA = 1; // Límite estricto de 2 tarjetitas extra por cada tema
+const MAX_TARJETAS_POR_TEMA = 1; // Límite de tarjetitas extra por cada tema
 
 document.addEventListener("DOMContentLoaded", () => {
     cargarNotasGuardadas();
@@ -138,22 +156,33 @@ function moverCarrusel(idPista, direccion) {
 }
 
 // Función para mostrar u ocultar las notas desplegables al hacer clic en "Ver notas"
-function toggleNotas(idNotas) {
-    const contenedor = document.getElementById(idNotas);
-    if (contenedor.style.display === "none" || contenedor.style.display === "") {
-        contenedor.style.display = "block";
+function toggleNotas(idContenedor) {
+    const contenedorActual = document.getElementById(idContenedor);
+    if (!contenedorActual) return;
+    
+    // Opcional: cierra los demás contenedores abiertos para que solo quede uno visible a la vez
+    const todosLosContenedores = document.querySelectorAll(".contenedor-notas-desplegable");
+    todosLosContenedores.forEach(cont => {
+        if (cont.id !== idContenedor) {
+            cont.style.display = "none";
+        }
+    });
+
+    // Alternamos el estado del contenedor actual
+    if (contenedorActual.style.display === "none" || contenedorActual.style.display === "") {
+        contenedorActual.style.display = "block";
     } else {
-        contenedor.style.display = "none";
+        contenedorActual.style.display = "none";
     }
 }
 
-// Abre el popup verificando antes que ese tema no haya llegado al límite de 2
+// Abre el popup verificando antes que ese tema no haya llegado al límite
 function abrirModalTarjeta(idNotas) {
     const guardadas = JSON.parse(localStorage.getItem("cajasAmarillasBubo")) || [];
     const cantidadEnEsteTema = guardadas.filter(c => c.tema === idNotas).length;
 
     if (cantidadEnEsteTema >= MAX_TARJETAS_POR_TEMA) {
-        alert("Ya agregaste el máximo de 2 tarjetitas extra en este tema.");
+        alert("Ya agregaste el máximo de tarjetitas extra en este tema.");
         return;
     }
 
@@ -167,7 +196,7 @@ function cerrarModalTarjeta() {
     document.getElementById("modal-tarjeta").style.display = "none";
 }
 
-// Guarda UNA sola tarjetita con su título y contenido
+// Guarda una tarjetita con su título y contenido
 function guardarUnaTarjeta() {
     const titulo = document.getElementById("input-titulo").value.trim();
     const contenido = document.getElementById("input-contenido").value.trim();
@@ -181,7 +210,7 @@ function guardarUnaTarjeta() {
     const cantidadEnEsteTema = guardadas.filter(c => c.tema === temaSeleccionado).length;
 
     if (cantidadEnEsteTema >= MAX_TARJETAS_POR_TEMA) {
-        alert("Solo podés agregar hasta 2 tarjetitas extra por tema.");
+        alert("Solo podés agregar hasta el límite de tarjetitas extra por tema.");
         cerrarModalTarjeta();
         return;
     }
@@ -227,8 +256,12 @@ function cargarNotasGuardadas() {
     guardadas.forEach(caja => renderizarCajaAmarilla(caja));
 }
 
-// Borra una tarjetita y vuelve a habilitar el botón "+" si corresponde
+// Borra una tarjetita tras confirmación y vuelve a habilitar el botón "+" si corresponde
 function eliminarCajaAmarilla(idCaja) {
+    if (!confirm("¿Quieres eliminar esta nota?")) {
+        return;
+    }
+
     let guardadas = JSON.parse(localStorage.getItem("cajasAmarillasBubo")) || [];
     guardadas = guardadas.filter(c => c.id !== idCaja);
     localStorage.setItem("cajasAmarillasBubo", JSON.stringify(guardadas));
@@ -241,7 +274,7 @@ function eliminarCajaAmarilla(idCaja) {
     actualizarEstadoBotonesMas();
 }
 
-// Oculta el botón "+" en los temas que ya tienen 2 tarjetitas extra y lo muestra si tienen menos
+// Oculta el botón "+" en los temas que ya alcanzaron el límite de tarjetitas extra
 function actualizarEstadoBotonesMas() {
     const guardadas = JSON.parse(localStorage.getItem("cajasAmarillasBubo")) || [];
     const contenedores = document.querySelectorAll(".contenedor-notas-desplegable");
@@ -255,41 +288,14 @@ function actualizarEstadoBotonesMas() {
         btnMas.style.display = cantidad >= MAX_TARJETAS_POR_TEMA ? "none" : "flex";
     });
 }
-// Borra una tarjetita tras confirmación y vuelve a habilitar el botón "+" si corresponde
-function eliminarCajaAmarilla(idCaja) {
-    if (!confirm("¿Quieres eliminar esta nota?")) {
-        return; // Si cancela, no hace nada
-    }
-
-    let guardadas = JSON.parse(localStorage.getItem("cajasAmarillasBubo")) || [];
-    guardadas = guardadas.filter(c => c.id !== idCaja);
-    localStorage.setItem("cajasAmarillasBubo", JSON.stringify(guardadas));
-
-    const elemento = document.querySelector(`.caja-explicacion-amarilla[data-id="${idCaja}"]`);
-    if (elemento) {
-        elemento.remove();
-    }
-
-    actualizarEstadoBotonesMas();
-}
-// Función para mostrar u ocultar las notas desplegables (cerrando las demás abiertas)
-function toggleNotas(idNotas) {
-    const contenedorActual = document.getElementById(idNotas);
-    
-    // Buscamos todos los contenedores desplegables de notas en la página
-    const todosLosContenedores = document.querySelectorAll(".contenedor-notas-desplegable");
-
-    // Recorremos todos: si hay alguno abierto que NO sea el actual, lo cerramos
-    todosLosContenedores.forEach(cont => {
-        if (cont.id !== idNotas) {
-            cont.style.display = "none";
+// Función para mostrar u ocultar las notas desplegables de la misma tarjeta
+function toggleNotas(idContenedor) {
+    const contenedor = document.getElementById(idContenedor);
+    if (contenedor) {
+        if (contenedor.style.display === "none" || contenedor.style.display === "") {
+            contenedor.style.display = "block";
+        } else {
+            contenedor.style.display = "none";
         }
-    });
-
-    // Alternamos el estado del contenedor actual (si está abierto lo cierra, si está cerrado lo abre)
-    if (contenedorActual.style.display === "none" || contenedorActual.style.display === "") {
-        contenedorActual.style.display = "block";
-    } else {
-        contenedorActual.style.display = "none";
     }
 }
