@@ -8,6 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bubo²</title>
     <link rel="stylesheet" href="../CSS/style.css">
+
+    <!-- Aplica el tema guardado instantáneamente al cargar -->
+    <script>
+        const tema = localStorage.getItem("bubo_tema") || "clasico";
+        document.documentElement.classList.add(`tema-${tema}`);
+    </script>
+
+
 </head>
 <body>
     <nav class="BarraNav">
@@ -27,15 +35,14 @@
         
     </div>
     
-    
     <!-- Foto de perfil a la derecha -->
     <a href="Perfil.html" class="btPe">
         <img id="ImgPNav" src="" alt="Perfil">
     </a>
     </nav>
    
-    <h1>Área de administración</h1>
-    <h3>En este apartado podrás calcular cuánto ahorro puedes obtener a partir de tus ganancias.</h3>
+    <h1>Área de administración personal</h1>
+    <h3>Sección donde podrás calcular cuánto ahorro puedes obtener a partir de tus ganancias y establcer objetivos.</h3>
     <hr>
     <br>
 
@@ -87,7 +94,7 @@
             </select>
 
             <button id="BTAgI">Agregar</button>
-            <button class="cerrar-popup" onclick="CerrarPopup('POPUPI')">x</button>
+            <button class="cerrar-popup" onclick="CerrarPopup('POPUPI')">X</button>
 
         </div>
 
@@ -118,7 +125,7 @@
                 <option value="Anual">Anual</option>
             </select>
             <button id="BAcI">Aceptar</button>
-            <button class="cerrar-popup" onclick="CerrarPopup('POPUPIE')">x</button>
+            <button class="cerrar-popup" onclick="CerrarPopup('POPUPIE')">X</button>
         </div>
     </div>
 
@@ -137,6 +144,14 @@
             </td>
         </tr> 
     </table>
+
+    <!-- Panel de Resumen (Punto 3): Distribución de Gastos Fijos vs Variables -->
+    <div id="resumen-gastos-container" style="margin: 20px 0 20px 40px; padding: 15px 20px; background-color: #076a6f; border-radius: 12px; width: fit-content; color: white; font-family: 'PoppinsL';">
+        <h3 style="margin: 0 0 8px 0; font-size: 16px; color: #fac82e;">Distribución de Gastos</h3>
+        <p style="margin: 4px 0; font-size: 14px; color: #ffffff; opacity: 1;" id="txt-gastos-fijos">Gastos Fijos: $0</p>
+        <p style="margin: 4px 0; font-size: 14px; color: #ffffff; opacity: 1;" id="txt-gastos-variables">Gastos Variables: $0</p>
+    </div>
+
     <table>
         <tr>
             <td>
@@ -170,7 +185,7 @@
             </select>
 
             <button id="BTAgG">Agregar</button>
-            <button class="cerrar-popup" onclick="CerrarPopup('POPUPG')">x</button>
+            <button class="cerrar-popup" onclick="CerrarPopup('POPUPG')">X</button>
 
         </div>
 
@@ -198,7 +213,7 @@
                 <option value="Variable">Variable</option>
             </select>
             <button id="BAcG">Aceptar</button>
-            <button class="cerrar-popup" onclick="CerrarPopup('POPUPGE')">x</button>
+            <button class="cerrar-popup" onclick="CerrarPopup('POPUPGE')">X</button>
         </div>
     </div>
 
@@ -212,7 +227,6 @@
             </td>
         </tr>
     </table>
-
 
     <label>¿Cuánto dinero restante desea destinar al
     ahorro?</label>
@@ -269,7 +283,7 @@
             </select>
 
             <button id="BTAgO">Agregar</button>
-            <button class="cerrar-popup" onclick="CerrarPopup('POPUPO')">x</button>
+            <button class="cerrar-popup" onclick="CerrarPopup('POPUPO')">X</button>
 
         </div>
 
@@ -304,14 +318,16 @@
             </select>
 
             <button id="BAcO">Aceptar</button>
-            <button class="cerrar-popup" onclick="CerrarPopup('POPUPOE')">x</button>
+            <button class="cerrar-popup" onclick="CerrarPopup('POPUPOE')">X</button>
 
         </div>
 
     </div>
     <h3 id="resultado"></h3>
 
-    <h3>Todos los resultados de nuestra web son aproximados</h3>
+    <div class="aviso-aproximado">
+        <p>Todos los resultados de nuestra web son aproximados</p>
+    </div>
    
     <div class="BarraBaj">
         <div class="Redes">

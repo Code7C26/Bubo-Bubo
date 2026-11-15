@@ -6,6 +6,13 @@
     <title>Bubo²</title>
     <link rel="stylesheet" href="../CSS/style.css">
     <script src="../JS/Ingreso.js"></script>
+
+    <!-- Aplica el tema guardado instantáneamente al cargar -->
+    <script>
+        const tema = localStorage.getItem("bubo_tema") || "clasico";
+        document.documentElement.classList.add(`tema-${tema}`);
+    </script>
+
 </head>
 <body class="ingreso">
     <div class="ING">

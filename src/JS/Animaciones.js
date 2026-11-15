@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const elementos = document.querySelectorAll("h1, h2, h3, p, a, #texto-archivo,label,input");
@@ -53,3 +54,45 @@ if (contenedorArriba && btnArriba) {
         });
     });
 }
+
+// --- TRADUCCIÓN MASIVA Y SEGURA POR CLAVES ---
+const traduccionesGlobales = {
+    en: {
+        "titulo-principal": "Welcome to Bubo²",
+        "parrafo-intro": "Financial education for the Argentine economy",
+        "btn-principal": "Home",
+        "btn-admin": "Administration",
+        "btn-eval": "Assessment",
+        "btn-rec": "Recommendations",
+        "btn-news": "News"
+    },
+    pt: {
+        "titulo-principal": "Bem-vindo ao Bubo²",
+        "parrafo-intro": "Educação financeira para a economia argentina",
+        "btn-principal": "Principal",
+        "btn-admin": "Administração",
+        "btn-eval": "Avaliação",
+        "btn-rec": "Recomendações",
+        "btn-news": "Notícias"
+    }
+};
+
+window.addEventListener("load", () => {
+    try {
+        const idioma = localStorage.getItem("bubo_idioma") || "es";
+        if (idioma === "es") return; // Si es español, no hace nada
+
+        const diccionario = traduccionesGlobales[idioma];
+        if (!diccionario) return;
+
+        // Busca todos los elementos que tengan el atributo de traducción
+        document.querySelectorAll("[data-traducir]").forEach(el => {
+            const clave = el.getAttribute("data-traducir");
+            if (diccionario[clave]) {
+                el.textContent = diccionario[clave];
+            }
+        });
+    } catch (e) {
+        console.error("Error en la traducción global:", e);
+    }
+});
