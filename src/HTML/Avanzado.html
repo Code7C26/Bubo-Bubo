@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bubo²</title>
     <link rel="stylesheet" href="../CSS/style.css">
+
+    <!-- Aplica el tema guardado instantáneamente al cargar -->
+    <script>
+        const tema = localStorage.getItem("bubo_tema") || "clasico";
+        document.documentElement.classList.add(`tema-${tema}`);
+    </script>    
+
 </head>
 <body>
     <nav class="BarraNav" style="justify-content: flex-start;">
@@ -18,12 +25,13 @@
         </a>
     </nav>
  
-    <h1>¡Nuestra version premium esta en desarrollo!</h1>
+    <h1>¡Nuestra versión premium está en desarrollo!</h1>
     <hr>
     <br>
-    <h2>PROXIMAMENTE</h2>
+    <h2>PRÓXIMAMENTE</h2>
 
-    <h3>Aprendizaje avanzado sobre economia</h3>
+    <h3>Contaremos con información más avanzada y completa sobre economía.</h3>
+    <h3>Aumento en la cantidad de espacios para agregar notas.</h3>
     <div class="Carru">
     <button class="CarruBT prev">&#10094;</button>
     <div class="CarruConte">
@@ -35,8 +43,11 @@
     </div>
     <button class="CarruBT next">&#10095;</button>
     </div>
+    
 
-    <h3>Más herramientas administrativas</h3>
+    <h3>Más herramientas administrativas.</h3>
+    <h3>Integración de gráficos y datos detallados.</h3>
+    <h3>Chat de IA</h3>
     <div class="Carru">
     <button class="CarruBT prev">&#10094;</button>
     <div class="CarruConte">
@@ -50,6 +61,7 @@
     </div>
 
     <h3>Instancias evaluativas mejoradas</h3>
+    <h3>Más capítulos en el juego interactivo y mayor dificultad en las evaluaciones teóricas.</h3>
     <div class="Carru">
     <button class="CarruBT prev">&#10094;</button>
     <div class="CarruConte">

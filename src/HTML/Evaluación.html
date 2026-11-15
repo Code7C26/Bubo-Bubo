@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bubo²</title>
     <link rel="stylesheet" href="../CSS/style.css">
+
+    <!-- Aplica el tema guardado instantáneamente al cargar -->
+    <script>
+        const tema = localStorage.getItem("bubo_tema") || "clasico";
+        document.documentElement.classList.add(`tema-${tema}`);
+    </script>
+
 </head>
 <body>
    <nav class="BarraNav">
@@ -23,7 +30,7 @@
         </a>
     </nav>
 
-    <h1>Evaluaciones de Bubo</h1>
+    <h1>¡Poné a prueba tus conocimientos!</h1>
     <h3>Sección destinada a poner a prueba tus conocimientos teóricos y prácticos mediante bloques interactivos.</h3>
     <hr>
     <br>

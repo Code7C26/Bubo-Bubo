@@ -9,6 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bubo²</title>
     <link rel="stylesheet" href="../CSS/style.css">
+
+    <!-- Aplica el tema guardado instantáneamente al cargar -->
+    <script>
+        const tema = localStorage.getItem("bubo_tema") || "clasico";
+        document.documentElement.classList.add(`tema-${tema}`);
+    </script>
+    
 </head>
 <body>
    <nav class="BarraNav">
@@ -63,7 +70,7 @@
                     </div>
                 </div>
                 <div class="panel-der-tarjeta">
-                    <img src="../../assets/n.jpg">
+                    <img src="../../assets/nyr.jpg">
                     <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b1-1')">Ver notas</button>
                 </div>
                 <div id="notas-b1-1" class="contenedor-notas-desplegable" style="display:none;">
@@ -92,7 +99,7 @@
                     </div>
                 </div>
                 <div class="panel-der-tarjeta">
-                    <img src="../../assets/tema1-2.png">
+                    <img src="../../assets/escasez.jpg">
                     <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b1-2')">Ver notas</button>
                 </div>
                 <div id="notas-b1-2" class="contenedor-notas-desplegable" style="display:none;">
@@ -121,7 +128,7 @@
                     </div>
                 </div>
                 <div class="panel-der-tarjeta">
-                    <img src="../../assets/tema1-3.png">
+                    <img src="../../assets/ingreso.jpg">
                     <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b1-3')">Ver notas</button>
                 </div>
                 <div id="notas-b1-3" class="contenedor-notas-desplegable" style="display:none;">
@@ -137,7 +144,11 @@
                         </div>
                         <div class="caja-explicacion-amarilla">
                             <p>• Diferencia entre gastos fijos y variables: los costos fijos no cambian sin importar cuánto se produzca o se venda, mientras que los costos variables suben o bajan según la actividad.</p>
-                        </div> 
+                        </div>
+                        <div class="caja-explicacion-amarilla">
+                            <p>Gastos Fijos y Variables: ¿Qué son? (Guía con Ejemplos Prácticos)</p>
+                            <a href="https://youtu.be/-3eZnkWyfMg?si=UKeicOk4S-hZJgke" target="_blank" rel="noopener noreferrer" class="btn-link-inline">Ver video</a>
+                        </div>
                     </div>
                     <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b1-3')" title="Añadir nota">+</button>
                 </div>
@@ -153,7 +164,7 @@
                     </div>
                 </div>
                 <div class="panel-der-tarjeta">
-                    <img src="../../assets/tema1-4.png">
+                    <img src="../../assets/interes.jpg">
                     <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b1-4')">Ver notas</button>
                 </div>
                 <div id="notas-b1-4" class="contenedor-notas-desplegable" style="display:none;">
@@ -163,11 +174,16 @@
                         </div>
                         <div class="caja-explicacion-amarilla">
                             <p>• Interés simple: es el precio que se paga por pedir prestado dinero ajeno es siempre igual en cada periodo.</p>
-                            <p style="margin-top: 6px;">FÓRMULA INTERES SIMPLE I = C x i x t</p>
+                            <img src="../../assets/formula.png">
+                            <img src="../../assets/formula2.png">
                         </div>
                         <div class="caja-explicacion-amarilla">
                             <p>• Interés compuesto: es el precio a pagar por pedir prestado dinero ajeno, cambia en cada periodo creando el efecto de 'bola de nieve'.</p>
-                            <p style="margin-top: 6px;">FÓRMULA INTERES COMPUESTO M = C x (1+ r)^t</p>
+                            <img src="../../assets/intcompuesto.png">
+                        </div>
+                        <div class="caja-explicacion-amarilla">
+                            <p>CLASE 2 – Tasas de interés, ingresos, e introducción al Mercado (BYMA educa)</p>
+                            <a href="https://www.youtube.com/watch?v=VdrupGAp8Vo" target="_blank" rel="noopener noreferrer" class="btn-link-inline">Ver video</a>
                         </div>
                     </div>
                     <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b1-4')" title="Añadir nota">+</button>
@@ -184,7 +200,7 @@
                     </div>
                 </div>
                 <div class="panel-der-tarjeta">
-                    <img src="../../assets/tema1-5.png">
+                    <img src="../../assets/deuda.jpg">
                     <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b1-5')">Ver notas</button>
                 </div>
                 <div id="notas-b1-5" class="contenedor-notas-desplegable" style="display:none;">
@@ -197,6 +213,10 @@
                         </div>
                         <div class="caja-explicacion-amarilla">
                             <p style="margin-top: 6px;">• Diferencia entre deuda y crédito: el crédito es la herramienta disponible, y la deuda es el saldo negativo que debes pagar.</p>
+                        </div>
+                        <div class="caja-explicacion-amarilla">
+                            <p>¿Qué es el CRÉDITO? - Explicado para principiantes!</p>
+                            <a href="https://youtu.be/xLY31EDQJjo?si=R2o3uhQ_pECzidWA" target="_blank" rel="noopener noreferrer" class="btn-link-inline">Ver video</a>
                         </div>
                     </div>
                     <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b1-5')" title="Añadir nota">+</button>
@@ -213,7 +233,7 @@
                     </div>
                 </div>
                 <div class="panel-der-tarjeta">
-                    <img src="../../assets/tema1-6.png">
+                    <img src="../../assets/presupuesto.jpg">
                     <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b1-6')">Ver notas</button>
                 </div>
                 <div id="notas-b1-6" class="contenedor-notas-desplegable" style="display:none;">
@@ -223,6 +243,10 @@
                         </div>
                         <div class="caja-explicacion-amarilla">
                             <p>• Administración del dinero: se enfoca en cómo se controlan, usan y planean los recursos financieros para cubrir necesidades y lograr metas a futuro.</p>
+                        </div>
+                        <div class="caja-explicacion-amarilla">
+                            <p>¿Qué es un presupuesto?</p>
+                            <a href="https://youtu.be/1dwO6y1MbMQ?si=iecglr2xPgIL5bhu" target="_blank" rel="noopener noreferrer" class="btn-link-inline">Ver video</a>
                         </div>
                     </div>
                     <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b1-6')" title="Añadir nota">+</button>
@@ -239,7 +263,7 @@
                     </div>
                 </div>
                 <div class="panel-der-tarjeta">
-                    <img src="../../assets/tema1-7.png">
+                    <img src="../../assets/ahorro.jpg">
                     <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b1-7')">Ver notas</button>
                 </div>
                 <div id="notas-b1-7" class="contenedor-notas-desplegable" style="display:none;">
@@ -249,6 +273,10 @@
                         </div>
                         <div class="caja-explicacion-amarilla">
                             <p>• Fondo de emergencia: reserva de dinero ahorrada exclusivamente para cubrir gastos imprevistos o situaciones de crisis.</p>
+                        </div>
+                        <div class="caja-explicacion-amarilla">
+                            <p>CLASE 1 - Conceptos básicos sobre ahorro e inversión (BYMA educa)</p>
+                            <a href="https://www.youtube.com/watch?v=mOnhcibusH8" target="_blank" rel="noopener noreferrer" class="btn-link-inline">Ver video</a>
                         </div>
                     </div>
                     <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b1-7')" title="Añadir nota">+</button>
@@ -265,7 +293,7 @@
                     </div>
                 </div>
                 <div class="panel-der-tarjeta">
-                    <img src="../../assets/tema1-8.png">
+                    <img src="../../assets/costo.jpg">
                     <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b1-8')">Ver notas</button>
                 </div>
                 <div id="notas-b1-8" class="contenedor-notas-desplegable" style="display:none;">
@@ -275,6 +303,10 @@
                         </div>
                         <div class="caja-explicacion-amarilla">
                             <p style="margin-top: 6px;">• Ejemplo: Si tienes $10.000 y eliges comprar ropa, el costo de oportunidad es lo que podrías haber hecho con ese dinero.</p>
+                        </div>
+                        <div class="caja-explicacion-amarilla">
+                            <p>Costo de Oportunidad y FPP - Explicado con ejemplos simples</p>
+                            <a href="https://youtu.be/bCqHVuCDt9w?si=Hw9BUo1iU-KPuetR" target="_blank" rel="noopener noreferrer" class="btn-link-inline">Ver video</a>
                         </div>
                     </div>
                     <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b1-8')" title="Añadir nota">+</button>
@@ -314,7 +346,7 @@
                     </div>
                 </div>
                 <div class="panel-der-tarjeta">
-                    <img src="../../assets/tema2-1.png">
+                    <img src="../../assets/oyd.jpg">
                     <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b2-1')">Ver notas</button>
                 </div>
                 <div id="notas-b2-1" class="contenedor-notas-desplegable" style="display:none;">
@@ -327,6 +359,10 @@
                         </div>
                         <div class="caja-explicacion-amarilla">
                             <p>• Ley de oferta y demanda: principio básico de la economía que explica cómo se fijan los precios de los productos según el deseo de compra de los consumidores, el precio sube o baja según lo que la gente quiere comprar (demanda) y lo que los negocios venden (oferta). Esto busca un punto de equilibrio donde nadie pierde y todo se vende.</p>
+                        </div>
+                        <div class="caja-explicacion-amarilla">
+                            <p>OFERTA y DEMANDA - Explicado para principiantes</p>
+                            <a href="https://youtu.be/PvViocJwYRI?si=nki5epNaRNk4GeoU" target="_blank" rel="noopener noreferrer" class="btn-link-inline">Ver video</a>
                         </div>
                     </div>
                     <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b2-1')" title="Añadir nota">+</button>
@@ -343,7 +379,7 @@
                     </div>
                 </div>
                 <div class="panel-der-tarjeta">
-                    <img src="../../assets/tema2-2.png">
+                    <img src="../../assets/precios.jpg">
                     <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b2-2')">Ver notas</button>
                 </div>
                 <div id="notas-b2-2" class="contenedor-notas-desplegable" style="display:none;">
@@ -372,7 +408,7 @@
                     </div>
                 </div>
                 <div class="panel-der-tarjeta">
-                    <img src="../../assets/tema2-3.png">
+                    <img src="../../assets/inflacion.jpg">
                     <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b2-3')">Ver notas</button>
                 </div>
                 <div id="notas-b2-3" class="contenedor-notas-desplegable" style="display:none;">
@@ -388,7 +424,18 @@
                         </div>
                         <div class="caja-explicacion-amarilla">
                             <p>• Relación entre inflación y poder adquisitivo: la inflación reduce de forma directa el poder adquisitivo cuando los ingresos nominales (salarios o jubilaciones) no aumentan al mismo ritmo que la inflación, las personas sufren una pérdida real de su capacidad de compra y un empobrecimiento paulatino.</p>
+                        
+                        </div>
+                        <div class="caja-explicacion-amarilla">
                             <p style="margin-top: 6px;">Ejemplo cotidiano: Si el año pasado un café costaba $1.000 pesos y hoy cuesta $1.200 pesos, ese aumento del 20% es un ejemplo de inflación en un producto diario.</p>
+                        </div>
+                        <div class="caja-explicacion-amarilla">
+                            <p>¿Qué es la INFLACIÓN? - Explicado para principiantes</p>
+                            <a href="https://youtu.be/bupEreSXaY0?si=FjlrRAY0ACrNU9ey" target="_blank" rel="noopener noreferrer" class="btn-link-inline">Ver video</a>
+                        </div>
+                        <div class="caja-explicacion-amarilla">
+                            <p>¿Qué es la inflación? Explicado con plátanos</p>
+                            <a href="https://youtu.be/8w_1GdNZvDw?si=K2npKVPwbn510u7w" target="_blank" rel="noopener noreferrer" class="btn-link-inline">Ver video</a>
                         </div>
                     </div>
                     <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b2-3')" title="Añadir nota">+</button>
@@ -405,7 +452,7 @@
                     </div>
                 </div>
                 <div class="panel-der-tarjeta">
-                    <img src="../../assets/tema2-4.png">
+                    <img src="../../assets/gyr.jpg">
                     <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b2-4')">Ver notas</button>
                 </div>
                 <div id="notas-b2-4" class="contenedor-notas-desplegable" style="display:none;">
@@ -420,10 +467,8 @@
                             <p>• Relación entre margen de ganancia y rentabilidad: el margen es un indicador de la venta individual, y la rentabilidad muestra el rendimiento y éxito general de la empresa.</p>
                         </div>
                         <div class="caja-explicacion-amarilla">
-                            <p>• Ejemplo:</p>
-                            <p style="margin-top: 4px;">Datos del negocio: Inversión inicial $10.000 | Costo por unidad $40 | Precio de venta $100.</p>
-                            <p style="margin-top: 4px;">Cálculo del margen: Ganancia por unidad $60 -> Margen: $60 / $100 = 60%.</p>
-                            <p style="margin-top: 4px;">Cálculo de la rentabilidad: Si vende 200 unidades en un año, ganancia total $12.000 -> Rentabilidad: $12.000 / $10.000 = 120%.</p>
+                            <p>MARGENES de RENTABILIDAD | Guía Definitiva + Ejemplos Visuales | Margen BRUTO, NETO y MÁS</p>
+                            <a href="https://youtu.be/X8URqq16A34?si=U6_--GqrqZ5VwZn1" target="_blank" rel="noopener noreferrer" class="btn-link-inline">Ver video</a>
                         </div>
                     </div>
                     <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b2-4')" title="Añadir nota">+</button>
@@ -462,7 +507,7 @@
                     </div>
                 </div>
                 <div class="panel-der-tarjeta">
-                    <img src="../../assets/tema3-1.png">
+                    <img src="../../assets/cbvu.png">
                     <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b3-1')">Ver notas</button>
                 </div>
                 <div id="notas-b3-1" class="contenedor-notas-desplegable" style="display:none;">
@@ -482,6 +527,10 @@
                         <div class="caja-explicacion-amarilla">
                             <p>• Bancos: un banco es una empresa financiera que acepta dinero de la gente en depósitos, lo cuida y lo presta a quienes necesitan fondos (intermediación financiera).</p>
                         </div>
+                        <div class="caja-explicacion-amarilla">
+                            <p>SABÉS LAS DIFERENCIAS? CBU y CVU, cuál hay que usar? |❓Cripto Preguntas #9</p>
+                            <a href="https://youtu.be/Cqy_ykRTPCM?si=II1Mkcl7kt8E8FZf" target="_blank" rel="noopener noreferrer" class="btn-link-inline">Ver video</a>
+                        </div>
                     </div>
                     <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b3-1')" title="Añadir nota">+</button>
                 </div>
@@ -497,7 +546,7 @@
                     </div>
                 </div>
                 <div class="panel-der-tarjeta">
-                    <img src="../../assets/tema3-2.png">
+                    <img src="../../assets/tarjetas.jpg">
                     <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b3-2')">Ver notas</button>
                 </div>
                 <div id="notas-b3-2" class="contenedor-notas-desplegable" style="display:none;">
@@ -510,6 +559,18 @@
                         </div>
                         <div class="caja-explicacion-amarilla">
                             <p>• Cuota y CFT: la cuota es la parte de un pago total periódico, y el CFT (Costo Financiero Total) muestra el costo real y completo de un crédito incluyendo intereses y gastos extras.</p>
+                        </div>
+                         <div class="caja-explicacion-amarilla">
+                            <p>Calculá tu préstamo: Intereses, TNA y CFT</p>
+                            <a href="https://youtu.be/V4LiQC5jKKY?si=08uXHomMPWWK4Db1" target="_blank" rel="noopener noreferrer" class="btn-link-inline">Ver video</a>
+                        </div>
+                        <div class="caja-explicacion-amarilla">
+                            <p>¿Tarjeta de crédito o débito? Aprende sus diferencias y elige la mejor opción para ti.</p>
+                            <a href="https://youtu.be/f8uG3goy9rY?si=nq_G3O55r2DVGkrM" target="_blank" rel="noopener noreferrer" class="btn-link-inline">Ver video</a>
+                        </div>
+                        <div class="caja-explicacion-amarilla">
+                            <p>Crédito vs. Débito: Que Tarjeta Conviene Usar en Argentina?</p>
+                            <a href="https://youtu.be/JE-SzA0PD7M?si=hL5jXlg_oN4MMHBl" target="_blank" rel="noopener noreferrer" class="btn-link-inline">Ver video</a>
                         </div>
                     </div>
                     <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b3-2')" title="Añadir nota">+</button>
@@ -526,7 +587,7 @@
                     </div>
                 </div>
                 <div class="panel-der-tarjeta">
-                    <img src="../../assets/tema3-3.png">
+                    <img src="../../assets/cuenta.jpg">
                     <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b3-3')">Ver notas</button>
                 </div>
                 <div id="notas-b3-3" class="contenedor-notas-desplegable" style="display:none;">
@@ -536,6 +597,14 @@
                         </div>
                         <div class="caja-explicacion-amarilla">
                             <p>• FCI Money Market: Fondo Común de Inversión conservador que invierte en activos de corto plazo y alta liquidez para obtener rendimiento diario con rescate inmediato.</p>
+                        </div>
+                        <div class="caja-explicacion-amarilla">
+                            <p>Cuenta remunerada: qué es y cómo funciona | ING</p>
+                            <a href="https://youtu.be/RYB0T8MaHgE?si=uikcIXZHMajEuATf" target="_blank" rel="noopener noreferrer" class="btn-link-inline">Ver video</a>
+                        </div>
+                        <div class="caja-explicacion-amarilla">
+                            <p>¿Qué son los Fondos Comunes de inversión Money Market?</p>
+                            <a href="https://youtu.be/UDcUGbECW7Q?si=gWtN_xAvoYogZmoY" target="_blank" rel="noopener noreferrer" class="btn-link-inline">Ver video</a>
                         </div>
                     </div>
                     <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b3-3')" title="Añadir nota">+</button>
@@ -552,7 +621,7 @@
                     </div>
                 </div>
                 <div class="panel-der-tarjeta">
-                    <img src="../../assets/tema3-4.png">
+                    <img src="../../assets/inversion.jpg">
                     <button type="button" class="btn-ver-notas" onclick="toggleNotas('notas-b3-4')">Ver notas</button>
                 </div>
                 <div id="notas-b3-4" class="contenedor-notas-desplegable" style="display:none;">
@@ -562,6 +631,14 @@
                         </div>
                         <div class="caja-explicacion-amarilla">
                             <p>• Plazo fijo, Dólar, CEDEARs y ONs: instrumentos locales e internacionales de renta fija o variable (como certificados de acciones extranjeras o bonos corporativos) para ahorrar y hacer crecer el capital frente a la inflación.</p>
+                        </div>
+                        <div class="caja-explicacion-amarilla">
+                            <p>¿QUÉ es una INVERSIÓN?</p>
+                            <a href="https://youtu.be/clJw_qu8ODI?si=IodGwJS2j4cHxpna" target="_blank" rel="noopener noreferrer" class="btn-link-inline">Ver video</a>
+                        </div>
+                        <div class="caja-explicacion-amarilla">
+                            <p>Mini Curso: Aprende a INVERTIR DESDE CERO | Lección 1</p>
+                            <a href="https://youtu.be/9xW0HK7IUo0?si=x5bZvFvm9hKeq6By" target="_blank" rel="noopener noreferrer" class="btn-link-inline">Ver video</a>
                         </div>
                     </div>
                     <button type="button" class="btn-mas-tarjeta" onclick="abrirModalTarjeta('notas-b3-4')" title="Añadir nota">+</button>
