@@ -275,6 +275,8 @@ h1, h2, h3,label{
     gap: 200px;
     align-items: flex-start;
     padding: 25px 50px;
+    padding-right: 5px;
+    padding-bottom: 0px;
     box-sizing: border-box;
     margin-top: 40px;
     z-index: 1;
@@ -287,17 +289,24 @@ h1, h2, h3,label{
     align-items: flex-start;
     gap: 4px;
 }
+.contacto{
+    width: 500px;
+}
+
+.Redes{
+    width: 100px;
+}
 
 .BarraBaj h3 {
     margin: 0 0 5px 0;
-    font-size: 16px;
+    font-size: 20px;
     color: #eff2e5;
 }
 
 .BarraBaj p,
 .BarraBaj a {
     margin: 0;
-    font-size: 13px;
+    font-size: 15px;
     color: #eff2e5;
 }
 
@@ -310,6 +319,17 @@ a.sin-animacion {
     opacity: 1;
     transition: none;
 }
+
+#imgbb2{
+    width: 45%;
+    height: 8%;
+}
+
+.iconos{
+    width: 60px;
+    height: 60px;
+}
+
 
 
 
@@ -811,10 +831,7 @@ color: #022b43;
     display: none;
 }
 
-.iconos{
-    width: 50px;
-    height: 50px;
-}
+
 
 .IT {
     display: flex;
@@ -1010,7 +1027,7 @@ color: #022b43;
 /* Contenedor fijo centrado sin deformación */
 .contenedor-pestanita {
     position: fixed;
-    bottom: 177px;
+    bottom: 265px;
     left: 0;
     width: 100%;
     display: flex;
@@ -2466,7 +2483,7 @@ a.logo-izquierda img {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    width: 100%;
+    width: 100%; 
 }
 
 /* Tarjeta horizontal dividida en dos paneles */
@@ -2475,6 +2492,7 @@ a.logo-izquierda img {
     width: 100%;
     min-height: 220px;
     border-radius: 26px;
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap; 
