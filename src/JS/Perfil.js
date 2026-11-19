@@ -235,3 +235,5 @@ document.addEventListener("DOMContentLoaded", () => {
 function CerrarPopupP(){
     POPUPP.style.display="none"
 };*/
+
+window.CerrarPopupP = CerrarPopupP;
