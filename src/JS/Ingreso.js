@@ -122,13 +122,13 @@ function ValUsua()
 
         lector.onload = function() {
             localStorage.setItem("FtoP", lector.result);
-            window.location.href = "basico.html";
+            window.location.href = "/basico.html";
         }
 
         lector.readAsDataURL(foto);
     }
     else {
-        window.location.href = "basico.html";
+        window.location.href = "/basico.html";
     }
 }
 
@@ -159,3 +159,5 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Error: No se encontró el input 'FtoP' o la imagen 'preview-img' en el HTML.");
     }
 });
+
+window.ValUsua = ValUsua;

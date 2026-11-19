@@ -539,3 +539,11 @@ function OrdenarTablaObjetivos() {
         tbody.insertBefore(filas[i], filaBoton);
     }
 }
+
+window.POPUPI = POPUPI;
+window.POPUPIE = POPUPIE;
+window.POPUPG = POPUPG;
+window.POPUPGE = POPUPGE;
+window.POPUPO = POPUPO;
+window.POPUPOE = POPUPOE;
+window.CerrarPopup = CerrarPopup;

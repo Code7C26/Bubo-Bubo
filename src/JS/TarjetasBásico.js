@@ -289,13 +289,20 @@ function actualizarEstadoBotonesMas() {
     });
 }
 // Función para mostrar u ocultar las notas desplegables de la misma tarjeta
-function toggleNotas(idContenedor) {
-    const contenedor = document.getElementById(idContenedor);
-    if (contenedor) {
-        if (contenedor.style.display === "none" || contenedor.style.display === "") {
-            contenedor.style.display = "block";
-        } else {
-            contenedor.style.display = "none";
-        }
-    }
-}
+//function toggleNotas(idContenedor) {
+    //const contenedor = document.getElementById(idContenedor);
+    //if (contenedor) {
+       // if (contenedor.style.display === "none" || contenedor.style.display === "") {
+         //   contenedor.style.display = "block";
+        //} else {
+         //   contenedor.style.display = "none";
+        //}
+    //}
+//}
+
+window.moverCarrusel = moverCarrusel;
+window.toggleNotas = toggleNotas;
+window.abrirModalTarjeta = abrirModalTarjeta;
+window.cerrarModalTarjeta = cerrarModalTarjeta;
+window.guardarUnaTarjeta = guardarUnaTarjeta;
+window.eliminarCajaAmarilla = eliminarCajaAmarilla;
