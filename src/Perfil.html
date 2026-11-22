@@ -4,23 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bubo²</title>
+    <!-- Hoja de estilos principal de la plataforma -->
     <link rel="stylesheet" href="./CSS/style.css">
 
-    <!-- Aplica el tema guardado instantáneamente al cargar -->
+    <!-- Aplica el tema guardado instantáneamente al cargar para evitar parpadeos -->
     <script>
         const tema = localStorage.getItem("bubo_tema") || "clasico";
         document.documentElement.classList.add(`tema-${tema}`);
     </script>
-
 </head>
 <body>
+    <!-- Barra de navegación superior con botón para volver -->
     <nav class="BarraNav" style="justify-content: flex-start;">
         <div class="menu-central" style="margin-left: 0;">
             <a href="/basico.html"><button type="button">← Regresar</button></a>
         </div>
     </nav>
 
+    <!-- Contenedor principal de la vista de perfil -->
     <div class="fondoP">
+        <!-- Tarjeta con los datos públicos del usuario -->
         <div class="tarjeta-perfil">
             <h1>Tu perfil</h1>
             
@@ -29,42 +32,48 @@
                 <img id="ImgP" alt="Foto de perfil">
                 
                 <div class="perfil-info">
-                    <p id="usuario"></p>
-                    <p id="biografia" class="biografia">Escribe tu biografía</p>
+                    <p id="usuario" translate="no"></p>
+                    <p id="biografia" class="biografia" translate="no">Escribe tu biografía</p>
                 </div>
             </div>
 
-            <!-- Botón posicionado en la esquina inferior derecha -->
-            <button id="BTEP">Editar perfil</button>
+            <!-- Botón que abre el popup para editar nombre, biografía y foto -->
+            <button id="BTEP" type="button">Editar perfil</button>
         </div>
 
-        <!-- Opciones de cuenta actualizadas -->
+        <!-- Sección de opciones y ajustes de la cuenta -->
         <div class="perfil-seccion-opciones">
-            <h2 data-trad="opciones_titulo">Opciones de cuenta</h2>
+            <h2>Opciones de cuenta</h2>
             <div class="perfil-opciones">
+                <!-- Abre el popup de configuración visual y sonidos -->
                 <a href="#" id="btnAbrirConfig" class="opcion-item">
-                    <span class="opcion-texto" data-trad="opcion_config">Configuración</span>
+                    <span class="opcion-texto">Configuración</span>
                     <span class="flecha">›</span>
                 </a>
+                <!-- Abre el popup para elegir el idioma -->
                 <a href="#" id="btnAbrirIdioma" class="opcion-item">
-                    <span class="opcion-texto" data-trad="opcion_idioma">Idioma</span>
+                    <span class="opcion-texto">Idioma</span>
                     <span class="flecha">›</span>
                 </a>
-                <a href="/login.html" id="btnCerrarSesion" class="opcion-item opcion-salir">
-                    <span class="opcion-texto" data-trad="opcion_salir">Cerrar sesión</span>
+                <!-- Cierra sesión y redirige al login -->
+                <a href="/index.html" id="btnCerrarSesion" class="opcion-item opcion-salir">
+                    <span class="opcion-texto">Cerrar sesión</span>
                     <span class="flecha">›</span>
                 </a>
             </div>
         </div>
     </div>
-    
 
-    <!-- POPUP 1: Editar Perfil -->
+    <!-- ==========================================
+         POPUP 1: EDITAR PERFIL
+         ========================================== -->
     <div id="POPUPP" class="popup" style="display: none;">
+        <!-- Fondo oscuro: al hacer clic cierra el popup -->
         <div class="overlay" onclick="CerrarPopupP('POPUPP')"></div>
         <div class="popup-contenido">
             <h2 class="Titulo-Popup">Editar perfil</h2>
 
+            <!-- Vista previa y carga de nueva foto de perfil -->
             <label>Foto</label>
             <div class="contenedor-foto-popup">
                 <img id="ImgPEActual" alt="Foto actual">
@@ -72,53 +81,62 @@
                 <input type="file" id="ImgPE" accept="image/*" style="display: none;">
             </div>
 
+            <!-- Campos editables de nombre de usuario y biografía -->
             <div class="grupo-campo-izq">
-                <label>Nombre de usuario</label>
+                <label for="usuarioE">Nombre de usuario</label>
                 <input type="text" id="usuarioE" maxlength="15" minlength="2">
 
-                <label>Biografía</label>
+                <label for="biografiaE">Biografía</label>
                 <textarea id="biografiaE" maxlength="80" rows="3"></textarea>
             </div>
 
-            <button id="BTAEP">Guardar</button>
-            <button class="cerrar-popup" onclick="CerrarPopupP('POPUPP')">X</button>
+            <!-- Botones de guardar y cerrar popup -->
+            <button id="BTAEP" type="button">Guardar</button>
+            <button type="button" class="cerrar-popup" onclick="CerrarPopupP('POPUPP')">X</button>
         </div>
     </div>
 
-    <!-- POPUP 2: Configuración (Actualizado con selector de temas visuales) -->
+    <!-- ==========================================
+         POPUP 2: CONFIGURACIÓN (TEMAS Y SONIDOS)
+         ========================================== -->
     <div id="POPUP_CONFIG" class="popup" style="display: none;">
         <div class="overlay" onclick="CerrarPopupP('POPUP_CONFIG')"></div>
         <div class="popup-contenido popup-izq">
             <button type="button" class="cerrar-popup" onclick="CerrarPopupP('POPUP_CONFIG')">X</button>
-            <h2 class="Titulo-Popup" data-trad="opcion_config">Configuración</h2>
+            <h2 class="Titulo-Popup">Configuración</h2>
             
             <div class="grupo-campo-izq">
-                <label data-trad="config_tema_label">Tema visual de la plataforma</label>
+                <!-- Selector del tema visual global -->
+                <label for="selectTema">Tema visual de la plataforma</label>
                 <select id="selectTema" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #878787; background-color: #b1b2b1; color: #ffffff; font-size: 0.95rem; margin-bottom: 15px;">
                     <option value="clasico">Clásico (Verde & Azul Bubo)</option>
                     <option value="crema">Crema / Cálido</option>
                     <option value="tierra">Tonos Tierra</option>
                 </select>
 
+                <!-- Interruptor para activar o desactivar sonidos en juegos -->
                 <label class="fila-check">
-                    <span data-trad="config_sonido">Sonidos y efectos en juegos</span>
+                    <span>Sonidos y efectos en juegos</span>
                     <input type="checkbox" id="checkSonidos" checked>
                 </label>
             </div>
 
-            <button type="button" id="btnGuardarConfig" class="btn-derecha" data-trad="btn_guardar">Guardar</button>
+            <button type="button" id="btnGuardarConfig" class="btn-derecha">Guardar</button>
         </div>
     </div>
 
-    <!-- POPUP 3: Idioma -->
+    <!-- ==========================================
+         POPUP 3: IDIOMA
+         ========================================== -->
     <div id="POPUP_IDIOMA" class="popup" style="display: none;">
         <div class="overlay" onclick="CerrarPopupP('POPUP_IDIOMA')"></div>
         <div class="popup-contenido popup-izq">
             <button type="button" class="cerrar-popup" onclick="CerrarPopupP('POPUP_IDIOMA')">X</button>
-            <h2 class="Titulo-Popup" data-trad="opcion_idioma">Idioma</h2>
+            <h2 class="Titulo-Popup">Idioma</h2>
             
             <div class="grupo-campo-izq">
-                <label data-trad="idioma_label">Seleccioná el idioma de la plataforma</label>
+                <!-- Selector de idioma conectado con Google Translate -->
+                <label for="selectIdioma">Seleccioná el idioma de la plataforma</label>
                 <select id="selectIdioma">
                     <option value="es">Español (Argentina)</option>
                     <option value="en">English</option>
@@ -126,34 +144,63 @@
                 </select>
             </div>
 
-            <button type="button" id="btnGuardarIdioma" class="btn-derecha" data-trad="btn_aplicar">Aplicar</button>
+            <button type="button" id="btnGuardarIdioma" class="btn-derecha">Aplicar</button>
         </div>
     </div>
     
-    <!-- Barra Inferior -->
+    <!-- ==========================================
+         BARRA INFERIOR / FOOTER
+         ========================================== -->
     <div class="BarraBaj">
+        <!-- Enlaces a redes sociales de Bubo² -->
         <div class="Redes">
             <h3>¡Síguenos!</h3>
             <a class="IT" href="https://www.instagram.com/bubo.arg?dlrf=dzI4aWg2MWhoZWd0">
-                <img class="iconos" src="../../assets/instagram.png">
+                <img class="iconos" src="../../assets/instagram.png" alt="Instagram">
                 <p>@bubo.arg</p>
             </a>
             
             <a class="IT">
-                <img class="iconos" src="../../assets/tiktok.png">
+                <img class="iconos" src="../../assets/tiktok.png" alt="TikTok">
                 <p>Bubo</p>
             </a>
         </div>
+
+        <!-- Datos de contacto -->
         <div class="contacto">
             <h3>Ante cualquier conflicto o consulta</h3>
             <a class="IT">
-                <img class="iconos" src="../../assets/gmail.png">
+                <img class="iconos" src="../../assets/gmail.png" alt="Correo electrónico">
                 <p>Bubobubo@gmail.com</p>
             </a>
         </div>
-        <img id="imgbb2" src="../../assets/barrabajap.png">
+
+        <!-- Imagen decorativa de la barra inferior -->
+        <img id="imgbb2" src="../../assets/barrabajap.png" alt="">
     </div>
 
+    <!-- Contenedor oculto donde Google Translate monta su widget -->
+    <div id="google_translate_element" style="display: none;"></div>
+
+    <!-- Función que inicializa Google Translate -->
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "es",            // Idioma original de la página
+                    includedLanguages: "es,en,pt", // Idiomas disponibles
+                    autoDisplay: false
+                },
+                "google_translate_element"
+            );
+        }
+    </script>
+
+    <!-- Script oficial de Google Translate -->
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Scripts de lógica del perfil, idioma y animaciones -->
+    <script type="module" src="/JS/Idioma.js"></script>
     <script type="module" src="/JS/Perfil.js"></script>
     <script type="module" src="/JS/Animaciones.js"></script>
 </body>

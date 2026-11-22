@@ -1148,7 +1148,41 @@ body.ingreso p {
     position: relative; /* Muy importante para que el aviso se posicione en relación a este cuadro */
 }
 
-p#sn {
+/* Se muestra únicamente cuando tiene texto de error */
+
+/* Mensajes de error debajo de cada campo (sin encimarse) */
+p#ee, p#eu, p#ec, p#ef, p#eei, p#eci {
+    color: #721c24 !important;
+    font-family: "PoppinsB";
+    font-size: 13px;
+    margin: 4px 0 12px 50px !important;
+    padding: 6px 12px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    width: fit-content;
+    max-width: calc(100% - 65px);
+    box-sizing: border-box;
+    display: none;
+}
+
+p#ee:not(:empty),
+p#eu:not(:empty),
+p#ec:not(:empty),
+p#ef:not(:empty),
+p#eei:not(:empty),
+p#eci:not(:empty) {
+    display: block;
+}
+
+/*p#ee:not(:empty), 
+p#eu:not(:empty), 
+p#ec:not(:empty),
+p#ef:not(:empty) {
+    display: block;
+}
+
+/*p#ee, p#eu, p#ec, p#ef {
     color: #721c24 !important;         
     font-family: "PoppinsB";           
     font-size: 13px;             
@@ -1161,22 +1195,24 @@ p#sn {
     box-sizing: border-box;
     
     /* Lo fijamos con absolute para que flote sin empujar el fondo ni estirar nada */
-    position: absolute;
+    /*position: absolute;
     top: 185px;                        /* Justo debajo del input blanco */
-    left: 50px;                        /* Alineado perfectamente a la izquierda con el input */
-    z-index: 10;
+    /*left: 50px;                        /* Alineado perfectamente a la izquierda con el input */
+    /*z-index: 10;
     
     display: none;                     /* Oculto por defecto */
-}
 
-/* Se muestra únicamente cuando tiene texto de error */
-p#sn:not(:empty) {
-    display: block;
-}
+    /*left: 15px;
+    max-width: calc(100% - 30px);*/
+/*}*/
 
-/*Empuja abajo todo lo que este debajo del label usuario*/
-.ING input#usuario {
-    margin-bottom: 30px; 
+/* Empuja abajo y alinea todos los inputs de registro e inicio de sesión */
+.ING input#usuario,
+.ING input#email,
+.ING input#contraseña,
+.ING input#emailis,
+.ING input#contrais {
+    margin-bottom: 30px;
     margin-left: 50px;
 }
 
@@ -3131,10 +3167,7 @@ a.logo-izquierda img {
         box-sizing: border-box;
     }
 
-    p#sn {
-        left: 15px;
-        max-width: calc(100% - 30px);
-    }
+   
 
     #botones-ingreso {
         margin-left: 15px;

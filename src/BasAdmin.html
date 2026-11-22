@@ -2,43 +2,41 @@
 <html lang="es">
 <head>
     <script>
-     localStorage.setItem("modo", "basico");
+        // Guarda que el usuario está navegando en el modo básico
+        localStorage.setItem("modo", "basico");
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bubo²</title>
     <link rel="stylesheet" href="./CSS/style.css">
 
-    <!-- Aplica el tema guardado instantáneamente al cargar -->
+    <!-- Aplica el tema guardado instantáneamente al cargar para evitar parpadeos -->
     <script>
         const tema = localStorage.getItem("bubo_tema") || "clasico";
         document.documentElement.classList.add(`tema-${tema}`);
     </script>
-
-
 </head>
 <body>
     <nav class="BarraNav">
+        <a href="/inicio.html" class="logo-izquierda">
+            <img src="../../assets/bubo (2).png" alt="Logo Bubo">
+        </a>
 
-    <a href="/inicio.html" class="logo-izquierda">
-        <img src="../../assets/bubo (2).png" alt="Logo Bubo">
-    </a>
+        <!-- Grupo central con los botones de navegación del modo básico -->
+        <div class="menu-central">
+            <a href="/basico.html"><button type="button">Principal</button></a>
+            <a href="/basadmin.html"><button type="button">Administración</button></a>
+            <a href="/evaluacion.html"><button type="button">Evaluación</button></a>
+            <a href="/reco.html"><button type="button">Recomendaciones</button></a>
+            <a href="/noticias.html"><button type="button">Noticias</button></a>
+        </div>
 
-    <!-- Grupo central con los 3 botones -->
-    <div class="menu-central">
-        <a href="/basico.html"><button type="button">Principal</button></a>
-        <a href="/basadmin.html"><button type="button">Administración</button></a>
-        <a href="/evaluacion.html"><button type="button">Evaluación</button></a>
-        <a href="/reco.html"><button type="button">Recomendaciones</button></a>
-        <a href="/noticias.html"><button type="button">Noticias</button></a>
-    </div>
-    
-    <!-- Foto de perfil a la derecha -->
-    <a href="/perfil.html" class="btPe">
-        <img id="ImgPNav" src="" alt="Perfil">
-    </a>
+        <!-- Foto de perfil a la derecha -->
+        <a href="/perfil.html" class="btPe">
+            <img id="ImgPNav" src="" alt="Perfil">
+        </a>
     </nav>
-   
+
     <h1>Área de administración personal</h1>
     <h3>Sección donde podrás calcular cuánto ahorro puedes obtener a partir de tus ganancias y establcer objetivos.</h3>
     <hr>
@@ -69,11 +67,9 @@
     </table>
 
     <div id="POPUPI" class="popup" style="display: none;">
-
         <div class="overlay"></div>
 
         <div class="popup-contenido">
-
             <h2 class="Titulo-Popup">Agregar un ingreso</h2>
 
             <label>Etiqueta</label>
@@ -82,6 +78,7 @@
             <label>Monto</label>
             <input type="number" id="MI" min="0" onkeydown="return event.key != 'e' && event.key != 'E' 
             && event.key != ',' && event.key != '.' && event.key != '+' && event.key != '-'">
+
             <label>Frecuencia</label>
             <select id="FI">
                 <option value="Seleccionar">Seleccionar</option>
@@ -93,18 +90,13 @@
 
             <button id="BTAgI">Agregar</button>
             <button class="cerrar-popup" onclick="CerrarPopup('POPUPI')">X</button>
-
         </div>
-
     </div>
 
-    
     <div id="POPUPIE" class="popup" style="display: none;">
-
         <div class="overlay"></div>
 
         <div class="popup-contenido">
-
             <h2 class="Titulo-Popup">Editar fila de ingreso</h2>
 
             <label>Etiqueta</label>
@@ -122,11 +114,11 @@
                 <option value="Quincenal">Quincenal</option>
                 <option value="Anual">Anual</option>
             </select>
+
             <button id="BAcI">Aceptar</button>
             <button class="cerrar-popup" onclick="CerrarPopup('POPUPIE')">X</button>
         </div>
     </div>
-
 
     <h2>Gastos</h2>
     <table id="TG">
@@ -140,10 +132,10 @@
             <td colspan="4">
                 <button id="BTAG">+</button>
             </td>
-        </tr> 
+        </tr>
     </table>
 
-    <!-- Panel de Resumen (Punto 3): Distribución de Gastos Fijos vs Variables -->
+    <!-- Panel de Resumen: Distribución de Gastos Fijos vs Variables -->
     <div id="resumen-gastos-container" style="margin: 20px 0 20px 40px; padding: 15px 20px; background-color: #076a6f; border-radius: 12px; width: fit-content; color: white; font-family: 'PoppinsL';">
         <h3 style="margin: 0 0 8px 0; font-size: 16px; color: #fac82e;">Distribución de Gastos</h3>
         <p style="margin: 4px 0; font-size: 14px; color: #ffffff; opacity: 1;" id="txt-gastos-fijos">Gastos Fijos: $0</p>
@@ -158,14 +150,12 @@
             <td id="ToG">
             </td>
         </tr>
-    </table> 
+    </table>
 
     <div id="POPUPG" class="popup" style="display: none;">
-
         <div class="overlay"></div>
 
         <div class="popup-contenido">
-
             <h2 class="Titulo-Popup">Agregar un gasto</h2>
 
             <label>Etiqueta</label>
@@ -184,17 +174,13 @@
 
             <button id="BTAgG">Agregar</button>
             <button class="cerrar-popup" onclick="CerrarPopup('POPUPG')">X</button>
-
         </div>
-
     </div>
 
     <div id="POPUPGE" class="popup" style="display: none;">
-
         <div class="overlay"></div>
 
         <div class="popup-contenido">
-
             <h2 class="Titulo-Popup">Editar fila de gastos</h2>
 
             <label>Etiqueta</label>
@@ -210,6 +196,7 @@
                 <option value="Fijo">Fijo</option>
                 <option value="Variable">Variable</option>
             </select>
+
             <button id="BAcG">Aceptar</button>
             <button class="cerrar-popup" onclick="CerrarPopup('POPUPGE')">X</button>
         </div>
@@ -226,14 +213,12 @@
         </tr>
     </table>
 
-    <label>¿Cuánto dinero restante desea destinar al
-    ahorro?</label>
+    <label>¿Cuánto dinero restante desea destinar al ahorro?</label>
 
     <input type="number" id="DA" value="0" min="0" onkeydown="return event.key != 'e' && event.key != 'E'
     && event.key != ',' && event.key != '.' && event.key != '+' && event.key != '-'">
 
     <button id="BAcAD">Aceptar</button>
-
 
     <h2>Objetivos</h2>
 
@@ -246,17 +231,16 @@
             <td></td>
         </tr>
         <tr id="JE">
-            <td id="FBO" colspan="5" >
+            <td id="FBO" colspan="5">
                 <button id="BTAO">+</button>
             </td>
-        </tr> 
+        </tr>
     </table>
-    <div id="POPUPO" class="popup" style="display: none;">
 
+    <div id="POPUPO" class="popup" style="display: none;">
         <div class="overlay"></div>
 
         <div class="popup-contenido">
-
             <h2 class="Titulo-Popup">Agregar un Objetivo</h2>
 
             <label>Etiqueta</label>
@@ -282,16 +266,13 @@
 
             <button id="BTAgO">Agregar</button>
             <button class="cerrar-popup" onclick="CerrarPopup('POPUPO')">X</button>
-
         </div>
-
     </div>
-       <div id="POPUPOE" class="popup" style="display: none;">
 
+    <div id="POPUPOE" class="popup" style="display: none;">
         <div class="overlay"></div>
 
         <div class="popup-contenido">
-
             <h2 class="Titulo-Popup">Editar un Objetivo</h2>
 
             <label>Etiqueta</label>
@@ -302,10 +283,11 @@
             && event.key != ',' && event.key != '.' && event.key != '+' && event.key != '-'">
 
             <label>Ahorrado</label>
-            <input type="number" id="AOE" onkeydown="return event.key != 'e' && event.key != 'E'
+            <!-- Se agregó min="0" para evitar montos ahorrados negativos al editar -->
+            <input type="number" min="0" id="AOE" onkeydown="return event.key != 'e' && event.key != 'E'
             && event.key != ',' && event.key != '.' && event.key != '+' && event.key != '-'">
 
-                <label>Prioridad</label>
+            <label>Prioridad</label>
             <select id="POE">
                 <option value="Seleccionar">Seleccionar</option>
                 <option value="1">1</option>
@@ -317,35 +299,60 @@
 
             <button id="BAcO">Aceptar</button>
             <button class="cerrar-popup" onclick="CerrarPopup('POPUPOE')">X</button>
-
         </div>
-
     </div>
+
     <h3 id="resultado"></h3>
 
     <div class="aviso-aproximado">
         <p>Todos los resultados de nuestra web son aproximados</p>
     </div>
-   
+
     <div class="BarraBaj">
         <div class="Redes">
             <h3>¡Síguenos!</h3>
             <a class="IT" href="https://www.instagram.com/bubo.arg?dlrf=dzI4aWg2MWhoZWd0">
                 <img class="iconos" src="../../assets/instagram.png">
-            <p>@bubo.arg</p></a>
-            
-            <a class="IT"><img class="iconos" src="../../assets/tiktok.png">
-            <p>Bubo</p></a>
+                <p>@bubo.arg</p>
+            </a>
+
+            <a class="IT">
+                <img class="iconos" src="../../assets/tiktok.png">
+                <p>Bubo</p>
+            </a>
         </div>
         <div class="contacto">
             <h3>Ante cualquier conflicto o consulta</h3>
-            <a class="IT"><img class="iconos" src="../../assets/gmail.png">
-            <p>Bubobubo@gmail.com</p></a>
+            <a class="IT">
+                <img class="iconos" src="../../assets/gmail.png">
+                <p>Bubobubo@gmail.com</p>
+            </a>
         </div>
         <img id="imgbb2" src="../../assets/barrabajap.png">
     </div>
-    
 
+    <!-- Contenedor oculto donde Google Translate monta su widget -->
+    <div id="google_translate_element" style="display: none;"></div>
+
+    <!-- Función que inicializa Google Translate -->
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "es",            // Idioma original de la página
+                    includedLanguages: "es,en,pt", // Idiomas disponibles
+                    autoDisplay: false
+                },
+                "google_translate_element"
+            );
+        }
+    </script>
+
+    <!-- Script oficial de Google Translate -->
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Scripts de lógica de administración, idioma, barra de navegación y animaciones -->
+    <script type="module" src="/JS/Idioma.js"></script>
     <script type="module" src="/JS/BasAdmin.js"></script>
     <script type="module" src="/JS/BarraNav.js"></script>
     <script type="module" src="/JS/Animaciones.js"></script>

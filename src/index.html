@@ -8,14 +8,13 @@
 
     <!-- Aplica el tema guardado instantáneamente al cargar -->
     <script>
-        const tema = localStorage.getItem("bubo_tema") || "clasico";
-        document.documentElement.classList.add(`tema-${tema}`);
+        document.documentElement.classList.add("tema-clasico");
     </script>
 
 </head>
 <body>
     <img src="assets/logo.png" style="display: none;" alt="Forzar logo">
-<nav class="BarraNav">
+    <nav class="BarraNav">
 
     <!-- Logo agregado a la izquierda -->
    <img src="../assets/bubo (2).png" alt="Logo" class="logo-izquierda">
@@ -28,7 +27,7 @@
         <a href="#personajes"><button type="button">Personajes</button></a>
     </div>
 
-</nav>
+    </nav>
     
     <div class="Ingreso">
         <div class="CAJA">
@@ -42,7 +41,7 @@
                     <a href="/ingreso.html">
                         <button>Ingresar</button>
                     </a>
-                    <a href="/ingreso.html">
+                    <a href="/iniciosesion.html">
                         <button>Iniciar sesión</button>
                     </a>
                 </div>
