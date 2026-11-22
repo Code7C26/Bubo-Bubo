@@ -1,6 +1,6 @@
 //VARIABLES
 //TablaIngresos
-const BTAI = document.getElementById("BTAI");
+/*const BTAI = document.getElementById("BTAI");
 const POPUPI = document.getElementById("POPUPI");
 const BTAgI = document.getElementById("BTAgI");
 const POPUPIE = document.getElementById("POPUPIE");
@@ -546,4 +546,618 @@ window.POPUPG = POPUPG;
 window.POPUPGE = POPUPGE;
 window.POPUPO = POPUPO;
 window.POPUPOE = POPUPOE;
+window.CerrarPopup = CerrarPopup;*/
+
+
+// Importaciones de Firestore y configuración de Firebase de Bubo²
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "./firebase.js";
+
+// --- VARIABLES DE POPUPS Y CONTROLES ---
+const BTAI = document.getElementById("BTAI");
+const POPUPI = document.getElementById("POPUPI");
+const BTAgI = document.getElementById("BTAgI");
+const POPUPIE = document.getElementById("POPUPIE");
+
+const BTAG = document.getElementById("BTAG");
+const POPUPG = document.getElementById("POPUPG");
+const BTAgG = document.getElementById("BTAgG");
+const POPUPGE = document.getElementById("POPUPGE");
+
+const BTAO = document.getElementById("BTAO");
+const POPUPO = document.getElementById("POPUPO");
+const BTAgO = document.getElementById("BTAgO");
+const POPUPOE = document.getElementById("POPUPOE");
+
+let MF = 0;
+let FilaEditar = null;
+
+// --- TABLAS Y TOTALES ---
+const TI = document.getElementById("TI");
+const TG = document.getElementById("TG");
+const TO = document.getElementById("TO");
+
+const ToI = document.getElementById("ToI");
+const ToG = document.getElementById("ToG");
+const TGI = document.getElementById("TGI");
+
+// --- IDENTIFICADOR DEL USUARIO ACTUAL ---
+function obtenerIdUsuario() {
+    return (
+        localStorage.getItem("usuarioActivo") ||
+        localStorage.getItem("emailUsuario") ||
+        ""
+    ).trim().toLowerCase();
+}
+
+// --- FUNCIONES DE POPUPS ---
+function MostrarPopupI() {
+    POPUPI.style.display = "block";
+}
+function MostrarPopupG() {
+    POPUPG.style.display = "block";
+}
+function MostrarPopupO() {
+    POPUPO.style.display = "block";
+}
+
+function CerrarPopup(Popup) {
+    document.getElementById(Popup).style.display = "none";
+
+    if (Popup == "POPUPI") {
+        document.getElementById("EI").value = "";
+        document.getElementById("MI").value = "";
+        document.getElementById("FI").value = "Seleccionar";
+    } else if (Popup == "POPUPIE") {
+        document.getElementById("EIE").value = "";
+        document.getElementById("MIE").value = "";
+        document.getElementById("FIE").value = "Seleccionar";
+    } else if (Popup == "POPUPG") {
+        document.getElementById("EG").value = "";
+        document.getElementById("MG").value = "";
+        document.getElementById("FVG").value = "Seleccionar";
+    } else if (Popup == "POPUPGE") {
+        document.getElementById("EGE").value = "";
+        document.getElementById("MGE").value = "";
+        document.getElementById("FVE").value = "Seleccionar";
+    } else if (Popup == "POPUPO") {
+        document.getElementById("EO").value = "";
+        document.getElementById("MO").value = "";
+        document.getElementById("AO").value = "";
+        document.getElementById("PO").value = "Seleccionar";
+    } else if (Popup == "POPUPOE") {
+        document.getElementById("EOE").value = "";
+        document.getElementById("MOE").value = "";
+        document.getElementById("AOE").value = "";
+        document.getElementById("POE").value = "Seleccionar";
+    }
+}
+
+window.POPUPI = POPUPI;
+window.POPUPIE = POPUPIE;
+window.POPUPG = POPUPG;
+window.POPUPGE = POPUPGE;
+window.POPUPO = POPUPO;
+window.POPUPOE = POPUPOE;
 window.CerrarPopup = CerrarPopup;
+
+// --- CONSTRUCTORES DE FILAS ---
+function RenderizarCeldaProgreso(celda, valor, ahorrado) {
+    const porcentaje = valor > 0 ? Math.min(100, Math.round((ahorrado / valor) * 100)) : 0;
+    celda.innerHTML = `
+        <span class="monto-ahorrado-texto">${ahorrado}</span>
+        <div class="barra-progreso-contenedor" title="${porcentaje}% completado">
+            <div class="barra-progreso-llenado" style="width: ${porcentaje}%;"></div>
+        </div>
+        <small style="font-size: 11px; opacity: 0.85;">${porcentaje}%</small>
+    `;
+}
+
+function crearFilaIngreso(etiqueta, monto, frecuencia) {
+    const Fila = document.createElement("tr");
+    const FIB = document.getElementById("FIB");
+    const Datos = [etiqueta, Number(monto), frecuencia];
+
+    for (let i = 0; i < Datos.length; i++) {
+        const Celda = document.createElement("td");
+        Celda.textContent = Datos[i];
+        Fila.appendChild(Celda);
+    }
+
+    const BEI = document.createElement("button");
+    BEI.textContent = "Editar";
+    BEI.addEventListener("click", BotonEditar);
+
+    const BBI = document.createElement("button");
+    BBI.textContent = "Borrar";
+    BBI.addEventListener("click", BotonBorrar);
+
+    const CBT = document.createElement("td");
+    CBT.appendChild(BEI);
+    CBT.appendChild(BBI);
+    Fila.appendChild(CBT);
+
+    TI.appendChild(Fila);
+    TI.appendChild(FIB);
+}
+
+function crearFilaGasto(etiqueta, monto, tipo) {
+    const Fila = document.createElement("tr");
+    const FGB = document.getElementById("FGB");
+    const Datos = [etiqueta, Number(monto), tipo];
+
+    for (let i = 0; i < Datos.length; i++) {
+        const Celda = document.createElement("td");
+        Celda.textContent = Datos[i];
+        Fila.appendChild(Celda);
+    }
+
+    const BEG = document.createElement("button");
+    BEG.textContent = "Editar";
+    BEG.addEventListener("click", BotonEditar);
+
+    const BBG = document.createElement("button");
+    BBG.textContent = "Borrar";
+    BBG.addEventListener("click", BotonBorrar);
+
+    const CBT = document.createElement("td");
+    CBT.appendChild(BEG);
+    CBT.appendChild(BBG);
+    Fila.appendChild(CBT);
+
+    TG.appendChild(Fila);
+    TG.appendChild(FGB);
+}
+
+function crearFilaObjetivo(etiqueta, valor, ahorrado, prioridad) {
+    const Fila = document.createElement("tr");
+    const filaBoton = document.getElementById("FBO").parentElement;
+    const Datos = [etiqueta, Number(valor), Number(ahorrado), String(prioridad)];
+
+    for (let i = 0; i < Datos.length; i++) {
+        const Celda = document.createElement("td");
+        if (i === 2) {
+            RenderizarCeldaProgreso(Celda, Number(valor), Number(ahorrado));
+        } else {
+            Celda.textContent = Datos[i];
+        }
+        Fila.appendChild(Celda);
+    }
+
+    const BEO = document.createElement("button");
+    BEO.textContent = "Editar";
+    BEO.addEventListener("click", BotonEditar);
+
+    const BBO = document.createElement("button");
+    BBO.textContent = "Borrar";
+    BBO.addEventListener("click", BotonBorrar);
+
+    const CBT = document.createElement("td");
+    CBT.appendChild(BEO);
+    CBT.appendChild(BBO);
+    Fila.appendChild(CBT);
+
+    filaBoton.parentNode.insertBefore(Fila, filaBoton);
+}
+
+// --- LECTURA Y PERSISTENCIA EN FIRESTORE ---
+function extraerDatosTablas() {
+    const ingresos = [];
+    for (let x = 1; x < TI.rows.length - 1; x++) {
+        const fila = TI.rows[x];
+        ingresos.push({
+            etiqueta: fila.children[0].textContent,
+            monto: Number(fila.children[1].textContent),
+            frecuencia: fila.children[2].textContent
+        });
+    }
+
+    const gastos = [];
+    for (let i = 1; i < TG.rows.length - 1; i++) {
+        const fila = TG.rows[i];
+        gastos.push({
+            etiqueta: fila.children[0].textContent,
+            monto: Number(fila.children[1].textContent),
+            tipo: fila.children[2].textContent
+        });
+    }
+
+    const objetivos = [];
+    for (let o = 1; o < TO.rows.length - 1; o++) {
+        const fila = TO.rows[o];
+        const spanA = fila.children[2].querySelector(".monto-ahorrado-texto");
+        objetivos.push({
+            etiqueta: fila.children[0].textContent,
+            valor: Number(fila.children[1].textContent),
+            ahorrado: Number(spanA ? spanA.textContent : fila.children[2].textContent),
+            prioridad: Number(fila.children[3].textContent)
+        });
+    }
+
+    const ahorroDestinado = Number(document.getElementById("DA").value) || 0;
+
+    return { ingresos, gastos, objetivos, ahorroDestinado };
+}
+
+async function guardarTablasEnFirestore() {
+    const idUsuario = obtenerIdUsuario();
+    if (!idUsuario) return;
+
+    const payload = extraerDatosTablas();
+
+    try {
+        await setDoc(
+            doc(db, "usuarios", idUsuario),
+            {
+                adminBasico: {
+                    ...payload,
+                    actualizadoEn: new Date().toISOString()
+                }
+            },
+            { merge: true }
+        );
+    } catch (error) {
+        console.error("Error al guardar las tablas en Firestore:", error);
+    }
+}
+
+function limpiarFilasDatos() {
+    while (TI.rows.length > 2) {
+        TI.deleteRow(1);
+    }
+    while (TG.rows.length > 2) {
+        TG.deleteRow(1);
+    }
+    while (TO.rows.length > 2) {
+        TO.deleteRow(1);
+    }
+}
+
+async function cargarTablasDesdeFirestore() {
+    const idUsuario = obtenerIdUsuario();
+    if (!idUsuario) {
+        MontoFinal();
+        return;
+    }
+
+    try {
+        const snap = await getDoc(doc(db, "usuarios", idUsuario));
+        if (!snap.exists()) {
+            MontoFinal();
+            return;
+        }
+
+        const adminData = snap.data().adminBasico;
+        if (!adminData) {
+            MontoFinal();
+            return;
+        }
+
+        limpiarFilasDatos();
+
+        (adminData.ingresos || []).forEach((item) => {
+            crearFilaIngreso(item.etiqueta, item.monto, item.frecuencia);
+        });
+
+        (adminData.gastos || []).forEach((item) => {
+            crearFilaGasto(item.etiqueta, item.monto, item.tipo);
+        });
+
+        (adminData.objetivos || []).slice(0, 5).forEach((item) => {
+            crearFilaObjetivo(item.etiqueta, item.valor, item.ahorrado, item.prioridad);
+        });
+
+        MontoFinal();
+
+        if (typeof adminData.ahorroDestinado === "number" && adminData.ahorroDestinado > 0) {
+            document.getElementById("DA").value = adminData.ahorroDestinado;
+        }
+    } catch (error) {
+        console.error("Error al cargar las tablas desde Firestore:", error);
+        MontoFinal();
+    }
+}
+
+// --- ACCIONES CRUD DE TABLAS ---
+function AgregarIngreso() {
+    const EI = document.getElementById("EI").value;
+    const MI = Number(document.getElementById("MI").value);
+    const FI = document.getElementById("FI").value;
+
+    if (FI == "" || EI == "" || MI <= 0 || FI == "Seleccionar") {
+        alert("Llene todos los campos para continuar");
+    } else {
+        POPUPI.style.display = "none";
+        crearFilaIngreso(EI, MI, FI);
+        document.getElementById("EI").value = "";
+        document.getElementById("MI").value = "";
+        document.getElementById("FI").value = "Seleccionar";
+        MontoFinal();
+        guardarTablasEnFirestore();
+    }
+}
+
+function AgregarGasto() {
+    const EG = document.getElementById("EG").value;
+    const MG = Number(document.getElementById("MG").value);
+    const FVG = document.getElementById("FVG").value;
+
+    if (FVG == "" || EG == "" || MG <= 0 || FVG == "Seleccionar") {
+        alert("Llene todos los campos para continuar");
+    } else {
+        POPUPG.style.display = "none";
+        crearFilaGasto(EG, MG, FVG);
+        document.getElementById("EG").value = "";
+        document.getElementById("MG").value = "";
+        document.getElementById("FVG").value = "Seleccionar";
+        MontoFinal();
+        guardarTablasEnFirestore();
+    }
+}
+
+function AgregarObjetivo() {
+    if (TO.rows.length - 2 >= 5) {
+        alert("Solo puedes agregar un máximo de 5 objetivos.");
+        POPUPO.style.display = "none";
+        return;
+    }
+
+    const EO = document.getElementById("EO").value;
+    const MO = Number(document.getElementById("MO").value);
+    const AO = Number(document.getElementById("AO").value);
+    const PO = document.getElementById("PO").value;
+
+    if (AO < 0 || EO == "" || MO <= 0 || PO == "Seleccionar") {
+        alert("Llene todos los campos para continuar");
+    } else {
+        POPUPO.style.display = "none";
+        crearFilaObjetivo(EO, MO, AO, PO);
+
+        document.getElementById("EO").value = "";
+        document.getElementById("MO").value = "";
+        document.getElementById("AO").value = "";
+        document.getElementById("PO").value = "Seleccionar";
+        guardarTablasEnFirestore();
+    }
+}
+
+function BotonEditar(event) {
+    const Tabla = event.target.parentElement.parentElement.parentElement;
+    if (Tabla == TI) {
+        const Fila = event.target.parentElement.parentElement;
+        FilaEditar = Fila;
+        document.getElementById("EIE").value = Fila.children[0].textContent;
+        document.getElementById("MIE").value = Fila.children[1].textContent;
+        document.getElementById("FIE").value = Fila.children[2].textContent;
+        POPUPIE.style.display = "block";
+    } else if (Tabla == TG) {
+        const Fila = event.target.parentElement.parentElement;
+        FilaEditar = Fila;
+        document.getElementById("EGE").value = Fila.children[0].textContent;
+        document.getElementById("MGE").value = Fila.children[1].textContent;
+        document.getElementById("FVE").value = Fila.children[2].textContent;
+        POPUPGE.style.display = "block";
+    } else {
+        const Fila = event.target.parentElement.parentElement;
+        FilaEditar = Fila;
+        const spanAhorrado = Fila.children[2].querySelector(".monto-ahorrado-texto");
+        document.getElementById("EOE").value = Fila.children[0].textContent;
+        document.getElementById("MOE").value = Fila.children[1].textContent;
+        document.getElementById("AOE").value = spanAhorrado ? spanAhorrado.textContent : Fila.children[2].textContent;
+        document.getElementById("POE").value = Fila.children[3].textContent;
+        POPUPOE.style.display = "block";
+    }
+}
+
+function AceptarEditar() {
+    const Tabla = FilaEditar.parentElement;
+    if (Tabla == TI) {
+        const EIE = document.getElementById("EIE").value;
+        const MIE = Number(document.getElementById("MIE").value);
+        const FIE = document.getElementById("FIE").value;
+        if (EIE == "" || MIE <= 0 || FIE == "Seleccionar") {
+            alert("Llene todos los campos para continuar");
+        } else {
+            FilaEditar.children[0].textContent = EIE;
+            FilaEditar.children[1].textContent = MIE;
+            FilaEditar.children[2].textContent = FIE;
+            POPUPIE.style.display = "none";
+            MontoFinal();
+            guardarTablasEnFirestore();
+        }
+    } else if (Tabla == TG) {
+        const EGE = document.getElementById("EGE").value;
+        const MGE = Number(document.getElementById("MGE").value);
+        const FVE = document.getElementById("FVE").value;
+        if (EGE == "" || MGE <= 0 || FVE == "Seleccionar") {
+            alert("Llene todos los campos para continuar");
+        } else {
+            FilaEditar.children[0].textContent = EGE;
+            FilaEditar.children[1].textContent = MGE;
+            FilaEditar.children[2].textContent = FVE;
+            POPUPGE.style.display = "none";
+            MontoFinal();
+            guardarTablasEnFirestore();
+        }
+    } else {
+        const EOE = document.getElementById("EOE").value;
+        const MOE = Number(document.getElementById("MOE").value);
+        const AOE = Number(document.getElementById("AOE").value);
+        const POE = document.getElementById("POE").value;
+        if (EOE == "" || MOE <= 0 || AOE < 0 || POE == "Seleccionar") {
+            alert("Llene todos los campos para continuar");
+        } else {
+            FilaEditar.children[0].textContent = EOE;
+            FilaEditar.children[1].textContent = MOE;
+            RenderizarCeldaProgreso(FilaEditar.children[2], MOE, AOE);
+            FilaEditar.children[3].textContent = POE;
+            POPUPOE.style.display = "none";
+            guardarTablasEnFirestore();
+        }
+    }
+}
+
+function BotonBorrar(event) {
+    if (confirm("¿Desea borrar este elemento?")) {
+        const Fila = event.target.parentElement.parentElement;
+        Fila.remove();
+        MontoFinal();
+        guardarTablasEnFirestore();
+    }
+}
+
+// --- CÁLCULOS Y DISTRIBUCIÓN DE AHORRO ---
+function MontoFinal() {
+    document.getElementById("DA").value = 0;
+    let cont = 0;
+    let cont1 = 0;
+    let gastosFijos = 0;
+    let gastosVariables = 0;
+
+    if (TI.rows.length == 2) {
+        ToI.textContent = "0";
+    } else {
+        for (let x = 1; x < TI.rows.length - 1; x++) {
+            const Fila = TI.rows[x];
+            const monto = Number(Fila.children[1].textContent);
+            const frecuencia = Fila.children[2].textContent;
+            cont += CalcularMensual(monto, frecuencia);
+        }
+        ToI.textContent = cont;
+    }
+
+    if (TG.rows.length == 2) {
+        ToG.textContent = "0";
+    } else {
+        for (let i = 1; i < TG.rows.length - 1; i++) {
+            const Fila1 = TG.rows[i];
+            const monto1 = Number(Fila1.children[1].textContent);
+            const tipoGasto = Fila1.children[2].textContent;
+
+            cont1 += monto1;
+
+            if (tipoGasto === "Fijo") {
+                gastosFijos += monto1;
+            } else if (tipoGasto === "Variable") {
+                gastosVariables += monto1;
+            }
+        }
+        ToG.textContent = cont1;
+    }
+
+    const elFijos = document.getElementById("txt-gastos-fijos");
+    const elVariables = document.getElementById("txt-gastos-variables");
+    if (elFijos && elVariables) {
+        elFijos.textContent = "Gastos Fijos: $" + gastosFijos;
+        elVariables.textContent = "Gastos Variables: $" + gastosVariables;
+    }
+
+    MF = cont - cont1;
+    TGI.textContent = MF;
+}
+
+function CalcularMensual(monto, frecuencia) {
+    if (frecuencia == "Mensual") return monto;
+    if (frecuencia == "Semanal") return monto * 4;
+    if (frecuencia == "Quincenal") return monto * 2;
+    if (frecuencia == "Anual") return monto / 12;
+    return 0;
+}
+
+function DistriAhorro() {
+    const DA = Number(document.getElementById("DA").value);
+
+    if (DA <= 0 || DA > MF) {
+        alert("Ingrese un monto valido para continuar");
+        return;
+    }
+
+    if (TO.rows.length == 2) {
+        alert("Ingrese un objetivo para continuar");
+        return;
+    }
+
+    let VF = [];
+    let EF = [];
+    let Pe = [];
+    let T = "";
+
+    for (let x = 1; x < TO.rows.length - 1; x++) {
+        let E = TO.rows[x].children[0].textContent;
+        let M = Number(TO.rows[x].children[1].textContent);
+        const spanA = TO.rows[x].children[2].querySelector(".monto-ahorrado-texto");
+        let A = Number(spanA ? spanA.textContent : TO.rows[x].children[2].textContent);
+        let P = Number(TO.rows[x].children[3].textContent);
+        let vf = M - A;
+
+        if (vf <= 0) {
+            T += "El objetivo " + E + " ya está cumplido.<br>";
+        } else {
+            EF.push(E);
+            VF.push(vf);
+
+            if (P == 1) Pe.push(5);
+            else if (P == 2) Pe.push(4);
+            else if (P == 3) Pe.push(3);
+            else if (P == 4) Pe.push(2);
+            else Pe.push(1);
+        }
+    }
+
+    if (VF.length === 0) {
+        document.getElementById("resultado").innerHTML = T + "<br>No hay objetivos pendientes para asignar dinero.";
+        guardarTablasEnFirestore();
+        return;
+    }
+
+    let PeT = 0;
+    for (let i = 0; i < Pe.length; i++) {
+        PeT += Pe[i];
+    }
+
+    let disponible = DA;
+
+    for (let t = 0; t < VF.length; t++) {
+        let proporcion = Pe[t] / PeT;
+        let asignacionTeorica = DA * proporcion;
+        let asignacionReal = Math.min(asignacionTeorica, VF[t]);
+
+        disponible -= asignacionReal;
+
+        if (asignacionReal >= VF[t]) {
+            T += "El objetivo <b>" + EF[t] + "</b> se completó con: $" + asignacionReal.toFixed(2) + "<br>";
+        } else {
+            T += "Al objetivo <b>" + EF[t] + "</b> se le asignó: $" + asignacionReal.toFixed(2) +
+                " (Faltan: $" + (VF[t] - asignacionReal).toFixed(2) + ")<br>";
+        }
+    }
+
+    if (disponible > 0) {
+        T += "<br>Quedaron <b>$" + disponible.toFixed(2) + "</b> sin asignar.";
+    } else {
+        T += "<br>Se distribuyó todo el dinero disponible entre los objetivos.";
+    }
+
+    document.getElementById("resultado").innerHTML = T;
+    guardarTablasEnFirestore();
+}
+
+// --- EVENTOS Y CARGA INICIAL ---
+document.getElementById("BAcI").addEventListener("click", AceptarEditar);
+document.getElementById("BAcG").addEventListener("click", AceptarEditar);
+document.getElementById("BAcO").addEventListener("click", AceptarEditar);
+
+BTAG.addEventListener("click", MostrarPopupG);
+BTAgG.addEventListener("click", AgregarGasto);
+
+BTAI.addEventListener("click", MostrarPopupI);
+BTAgI.addEventListener("click", AgregarIngreso);
+
+BTAO.addEventListener("click", MostrarPopupO);
+BTAgO.addEventListener("click", AgregarObjetivo);
+
+document.getElementById("BAcAD").addEventListener("click", DistriAhorro);
+
+document.addEventListener("DOMContentLoaded", () => {
+    cargarTablasDesdeFirestore();
+});

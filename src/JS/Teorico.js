@@ -1,190 +1,171 @@
-//FUNCIONES
-//bloque 1
-function B1(){
-    let cont = 0
-    let R1 = document.querySelector('input[name="pregunta1"]:checked');
-    let R2 = document.querySelector('input[name="pregunta2"]:checked');
-    let R3 = document.querySelector('input[name="pregunta3"]:checked');
-    let R4 = document.querySelector('input[name="pregunta4"]:checked');
-    if(R1==null || R2==null || R3==null || R4==null){
+// ==========================================
+// FUNCIONES DE EVALUACIÓN POR BLOQUE
+// ==========================================
+
+// Evalúa las 4 preguntas del Bloque 1
+function B1() {
+    let cont = 0; // Contador de respuestas correctas
+
+    // Obtiene el input radio seleccionado en cada pregunta (o null si no se marcó ninguno)
+    const R1 = document.querySelector('input[name="pregunta1"]:checked');
+    const R2 = document.querySelector('input[name="pregunta2"]:checked');
+    const R3 = document.querySelector('input[name="pregunta3"]:checked');
+    const R4 = document.querySelector('input[name="pregunta4"]:checked');
+
+    // Verifica que todas las preguntas tengan una opción marcada
+    if (!R1 || !R2 || !R3 || !R4) {
         alert("Complete todas las preguntas para continuar");
-    }
-    else{
-        let r1=R1.value;
-        let r2=R2.value;
-        let r3=R3.value;
-        let r4=R4.value;
-        if (r1=="c"){
-            cont++;
-            R1.parentElement.style.backgroundColor = "#47f175";
-        }
-        else{
-            R1.parentElement.style.backgroundColor = "#de3445"
-            let RC = document.querySelector('input[name="pregunta1"][value="c"]');
-            RC.parentElement.style.backgroundColor="#47f175";
-        }
-        if (r2=="c"){
-            cont++;
-            R2.parentElement.style.backgroundColor = "#47f175";
-        }
-        else{
-            R2.parentElement.style.backgroundColor = "#de3445";
-            let RC2 = document.querySelector('input[name="pregunta2"][value="c"]');
-            RC2.parentElement.style.backgroundColor="#47f175";
-        }
-        if (r3=="a"){
-            cont++;
-            R3.parentElement.style.backgroundColor = "#47f175";
-        }
-        else{
-            R3.parentElement.style.backgroundColor = "#de3445";
-            let RC3 = document.querySelector('input[name="pregunta3"][value="a"]');
-            RC3.parentElement.style.backgroundColor="#47f175";
-        }
-        if (r4=="d"){
-            cont++;
-            R4.parentElement.style.backgroundColor = "#47f175";
-        }
-        else{
-            R4.parentElement.style.backgroundColor = "#de3445"
-            let RC4 = document.querySelector('input[name="pregunta4"][value="d"]');
-            RC4.parentElement.style.backgroundColor="#47f175";
-        }
-        document.getElementById("RTA").innerHTML = cont + "/4";
-        const BR=document.createElement("button");
-        BR.textContent="Rehacer";
-        BR.id = "BR";
-        document.getElementById("Ter").insertAdjacentElement("afterend", BR);
-        BR.addEventListener("click", reini);
-        Ter.disabled=true;
+        return; // Corta la ejecución si falta responder alguna
     }
 
+    // Mapa con la opción elegida y la respuesta correcta de cada pregunta
+    const respuestas = {
+        pregunta1: { seleccionada: R1, correcta: "c" },
+        pregunta2: { seleccionada: R2, correcta: "a" }, // 50.000 * 0,05 * 3 = 7.500
+        pregunta3: { seleccionada: R3, correcta: "a" },
+        pregunta4: { seleccionada: R4, correcta: "d" }
+    };
+
+    // Recorre cada pregunta para corregir y pintar las opciones
+    Object.entries(respuestas).forEach(([nombre, { seleccionada, correcta }]) => {
+        if (seleccionada.value === correcta) {
+            cont++; // Suma un acierto
+            seleccionada.parentElement.style.backgroundColor = "#47f175"; // Verde para correcta
+        } else {
+            seleccionada.parentElement.style.backgroundColor = "#de3445"; // Rojo para incorrecta
+
+            // Busca y resalta en verde cuál era la opción correcta
+            const opcionCorrecta = document.querySelector(`input[name="${nombre}"][value="${correcta}"]`);
+            if (opcionCorrecta) {
+                opcionCorrecta.parentElement.style.backgroundColor = "#47f175";
+            }
+        }
+    });
+
+    // Muestra el puntaje final (ej: "3/4") en el párrafo con id="RTA"
+    document.getElementById("RTA").innerHTML = `${cont}/4`;
+
+    // Deshabilita el botón "Finalizar" para evitar que se reenvíe el examen ya corregido
+    const btnFinalizar = document.getElementById("Ter");
+    if (btnFinalizar) {
+        btnFinalizar.disabled = true;
+    }
 }
 
-//bloque 2
-function B2(){
-    let cont = 0
-    let R1 = document.querySelector('input[name="pregunta1"]:checked');
-    let R2 = document.querySelector('input[name="pregunta2"]:checked');
-    let R3 = document.querySelector('input[name="pregunta3"]:checked');
-    let R4 = document.querySelector('input[name="pregunta4"]:checked');
-    if(R1==null || R2==null || R3==null || R4==null){
+// Evalúa las 4 preguntas del Bloque 2
+function B2() {
+    let cont = 0;
+
+    const R1 = document.querySelector('input[name="pregunta1"]:checked');
+    const R2 = document.querySelector('input[name="pregunta2"]:checked');
+    const R3 = document.querySelector('input[name="pregunta3"]:checked');
+    const R4 = document.querySelector('input[name="pregunta4"]:checked');
+
+    if (!R1 || !R2 || !R3 || !R4) {
         alert("Complete todas las preguntas para continuar");
-    }
-    else{
-        let r1=R1.value;
-        let r2=R2.value;
-        let r3=R3.value;
-        let r4=R4.value;
-        if (r1=="a"){
-            cont=cont+1;
-            R1.parentElement.style.backgroundColor = "#47f175";
-        }
-        else{
-            R1.parentElement.style.backgroundColor = "#de3445"
-            let RC = document.querySelector('input[name="pregunta1"][value="a"]');
-            RC.parentElement.style.backgroundColor="#47f175";
-        }
-        if (r2=="d"){
-            cont++;
-            R2.parentElement.style.backgroundColor = "#47f175";
-        }
-        else{
-            R2.parentElement.style.backgroundColor = "#de3445";
-            let RC2 = document.querySelector('input[name="pregunta2"][value="d"]');
-            RC2.parentElement.style.backgroundColor="#47f175";
-        }
-        if (r3=="a"){
-            cont++;
-            R3.parentElement.style.backgroundColor = "#47f175";
-        }
-        else{
-            R3.parentElement.style.backgroundColor = "#de3445";
-            let RC3 = document.querySelector('input[name="pregunta3"][value="a"]');
-            RC3.parentElement.style.backgroundColor="#47f175";
-        }
-        if (r4=="d"){
-            cont++;
-            R4.parentElement.style.backgroundColor = "#47f175";
-        }
-        else{
-            R4.parentElement.style.backgroundColor = "#de3445"
-            let RC4 = document.querySelector('input[name="pregunta4"][value="d"]');
-            RC4.parentElement.style.backgroundColor="#47f175";
-        }
-        document.getElementById("RTA").innerHTML = cont + "/4";
-        const BR=document.createElement("button");
-        BR.textContent="Rehacer";
-        document.body.appendChild(BR);
-        BR.addEventListener("click", reini);
-        Ter.disabled=true;
+        return;
     }
 
-}
-function B3(){
-    let cont = 0
-    let R1 = document.querySelector('input[name="pregunta1"]:checked');
-    let R2 = document.querySelector('input[name="pregunta2"]:checked');
-    let R3 = document.querySelector('input[name="pregunta3"]:checked');
-    let R4 = document.querySelector('input[name="pregunta4"]:checked');
-    if(R1==null || R2==null || R3==null || R4==null){
-        alert("Complete todas las preguntas para continuar");
-    }
-    else{
-        let r1=R1.value;
-        let r2=R2.value;
-        let r3=R3.value;
-        let r4=R4.value;
-        if (r1=="b"){
-            cont++;
-            R1.parentElement.style.backgroundColor = "#47f175";
-        }
-        else{
-            R1.parentElement.style.backgroundColor = "#de3445"
-            let RC = document.querySelector('input[name="pregunta1"][value="b"]');
-            RC.parentElement.style.backgroundColor="#47f175";
-        }
-        if (r2=="b"){
-            cont++;
-            R2.parentElement.style.backgroundColor = "#47f175";
-        }
-        else{
-            R2.parentElement.style.backgroundColor = "#de3445";
-            let RC2 = document.querySelector('input[name="pregunta2"][value="b"]');
-            RC2.parentElement.style.backgroundColor="#47f175";
-        }
-        if (r3=="d"){
-            cont++;
-            R3.parentElement.style.backgroundColor = "#47f175";
-        }
-        else{
-            R3.parentElement.style.backgroundColor = "#de3445";
-            let RC3 = document.querySelector('input[name="pregunta3"][value="d"]');
-            RC3.parentElement.style.backgroundColor="#47f175";
-        }
-        if (r4=="c"){
-            cont++;
-            R4.parentElement.style.backgroundColor = "#47f175";
-        }
-        else{
-            R4.parentElement.style.backgroundColor = "#de3445"
-            let RC4 = document.querySelector('input[name="pregunta4"][value="c"]');
-            RC4.parentElement.style.backgroundColor="#47f175";
-        }
-        document.getElementById("RTA").innerHTML = cont + "/4";
-        const BR=document.createElement("button");
-        BR.textContent="Rehacer";
-        document.body.appendChild(BR);
-        BR.addEventListener("click", reini);
-        const Ter=document.getElementById('Ter');
-        Ter.disabled=true;
+    const respuestas = {
+        pregunta1: { seleccionada: R1, correcta: "a" },
+        pregunta2: { seleccionada: R2, correcta: "d" },
+        pregunta3: { seleccionada: R3, correcta: "a" },
+        pregunta4: { seleccionada: R4, correcta: "d" }
+    };
 
-    }
+    Object.entries(respuestas).forEach(([nombre, { seleccionada, correcta }]) => {
+        if (seleccionada.value === correcta) {
+            cont++;
+            seleccionada.parentElement.style.backgroundColor = "#47f175";
+        } else {
+            seleccionada.parentElement.style.backgroundColor = "#de3445";
+            const opcionCorrecta = document.querySelector(`input[name="${nombre}"][value="${correcta}"]`);
+            if (opcionCorrecta) {
+                opcionCorrecta.parentElement.style.backgroundColor = "#47f175";
+            }
+        }
+    });
 
+    document.getElementById("RTA").innerHTML = `${cont}/4`;
+
+    const btnFinalizar = document.getElementById("Ter");
+    if (btnFinalizar) {
+        btnFinalizar.disabled = true;
+    }
 }
 
-//reiniciar la pag
-function reini(){
-    Ter.disabled=false;
+// Evalúa las 4 preguntas del Bloque 3
+function B3() {
+    let cont = 0;
+
+    const R1 = document.querySelector('input[name="pregunta1"]:checked');
+    const R2 = document.querySelector('input[name="pregunta2"]:checked');
+    const R3 = document.querySelector('input[name="pregunta3"]:checked');
+    const R4 = document.querySelector('input[name="pregunta4"]:checked');
+
+    if (!R1 || !R2 || !R3 || !R4) {
+        alert("Complete todas las preguntas para continuar");
+        return;
+    }
+
+    const respuestas = {
+        pregunta1: { seleccionada: R1, correcta: "b" },
+        pregunta2: { seleccionada: R2, correcta: "b" },
+        pregunta3: { seleccionada: R3, correcta: "d" },
+        pregunta4: { seleccionada: R4, correcta: "c" }
+    };
+
+    Object.entries(respuestas).forEach(([nombre, { seleccionada, correcta }]) => {
+        if (seleccionada.value === correcta) {
+            cont++;
+            seleccionada.parentElement.style.backgroundColor = "#47f175";
+        } else {
+            seleccionada.parentElement.style.backgroundColor = "#de3445";
+            const opcionCorrecta = document.querySelector(`input[name="${nombre}"][value="${correcta}"]`);
+            if (opcionCorrecta) {
+                opcionCorrecta.parentElement.style.backgroundColor = "#47f175";
+            }
+        }
+    });
+
+    document.getElementById("RTA").innerHTML = `${cont}/4`;
+
+    const btnFinalizar = document.getElementById("Ter");
+    if (btnFinalizar) {
+        btnFinalizar.disabled = true;
+    }
+}
+
+// ==========================================
+// REINICIO Y ASIGNACIÓN DE EVENTOS
+// ==========================================
+
+// Recarga la página para reiniciar el examen y habilitar nuevamente los controles
+function reini() {
     location.reload();
 }
+
+// Detecta automáticamente qué bloque corresponde según la URL actual
+function obtenerEvaluadorPorRuta() {
+    const ruta = window.location.pathname.toLowerCase();
+
+    if (ruta.includes("bloque2")) return B2;
+    if (ruta.includes("bloque3")) return B3;
+    return B1; // Por defecto ejecuta B1 (ideal para bloque1t.html)
+}
+
+// Espera a que el DOM esté completamente cargado antes de vincular los botones
+document.addEventListener("DOMContentLoaded", () => {
+    const btnFinalizar = document.getElementById("Ter");
+    const btnRehacer = document.getElementById("Rehacer");
+
+    // Conecta el botón "Finalizar" con la función del bloque correspondiente
+    if (btnFinalizar) {
+        btnFinalizar.addEventListener("click", obtenerEvaluadorPorRuta());
+    }
+
+    // Conecta el botón "Rehacer" ya existente en el HTML con la función de reinicio
+    if (btnRehacer) {
+        btnRehacer.addEventListener("click", reini);
+    }
+});

@@ -78,6 +78,26 @@
         <img id="imgbb2" src="../../assets/barrabajap.png">
     </div>
 
+    <!-- Contenedor oculto donde Google Translate monta su widget -->
+    <div id="google_translate_element" style="display: none;"></div>
+
+    <!-- Función que inicializa Google Translate -->
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "es",            // Idioma original de la página
+                    includedLanguages: "es,en,pt", // Idiomas disponibles
+                    autoDisplay: false
+                },
+                "google_translate_element"
+            );
+        }
+    </script>
+
+    <!-- Script oficial de Google Translate -->
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <script type="module" src="/JS/BarraNav.js"></script>
     <script type="module" src="/JS/Animaciones.js"></script>
 </body>

@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>ExamenPractico — Bubo²</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json" crossorigin="use-credentials" />
+  <link rel="icon" href="icons/icon-72x72.png" sizes="72x72" type="image/png" />
+  <link rel="icon" href="icons/icon-96x96.png" sizes="96x96" type="image/png" />
+  <link rel="icon" href="icons/icon-128x128.png" sizes="128x128" type="image/png" />
+  <link rel="icon" href="icons/icon-144x144.png" sizes="144x144" type="image/png" />
+  <link rel="icon" href="icons/icon-152x152.png" sizes="152x152" type="image/png" />
+  <link rel="icon" href="icons/icon-192x192.png" sizes="192x192" type="image/png" />
+  <link rel="icon" href="icons/icon-384x384.png" sizes="384x384" type="image/png" />
+  <link rel="icon" href="icons/icon-512x512.png" sizes="512x512" type="image/png" />
+  <!-- ios support -->
+  <link rel="apple-touch-icon" href="icons/icon-72x72.png" sizes="72x72" type="image/png" />
+  <link rel="apple-touch-icon" href="icons/icon-96x96.png" sizes="96x96" type="image/png" />
+  <link rel="apple-touch-icon" href="icons/icon-128x128.png" sizes="128x128" type="image/png" />
+  <link rel="apple-touch-icon" href="icons/icon-144x144.png" sizes="144x144" type="image/png" />
+  <link rel="apple-touch-icon" href="icons/icon-152x152.png" sizes="152x152" type="image/png" />
+  <link rel="apple-touch-icon" href="icons/icon-192x192.png" sizes="192x192" type="image/png" />
+  <link rel="apple-touch-icon" href="icons/icon-384x384.png" sizes="384x384" type="image/png" />
+  <link rel="apple-touch-icon" href="icons/icon-512x512.png" sizes="512x512" type="image/png" />
+
+  <meta name="theme-color" content="#022b43" />
+
+  <style>
+    :root {
+      --alto-barra: 65px;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #eff2e5;
+      color: #022b43;
+      font-family: system-ui, -apple-system, sans-serif;
+      overscroll-behavior: none;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    /* ESTILO DE .BarraNav SEGÚN TU CSS */
+    .BarraNav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #022b43 !important;
+      height: var(--alto-barra);
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      z-index: 1000;
+      box-sizing: border-box;
+      padding: 0 20px;
+      margin: 0;
+    }
+
+    .BarraNav .menu-central {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .BarraNav .menu-central a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      min-width: 180px;
+      text-decoration: none;
+      background-color: transparent !important;
+      border-left: 1px solid rgba(255, 255, 255, 0.15);
+      border-right: 1px solid rgba(255, 255, 255, 0.15);
+      margin: 0 !important;
+      padding: 0;
+      box-sizing: border-box;
+      transition: background-color 0.2s ease;
+      opacity: 1 !important;
+    }
+
+    .BarraNav .menu-central a:hover {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .BarraNav .menu-central button {
+      background: transparent !important;
+      background-color: transparent !important;
+      border: none !important;
+      outline: none;
+      color: #ffffff !important;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      width: 100%;
+      height: var(--alto-barra);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      margin: 0;
+      padding: 0 35px;
+      opacity: 1 !important;
+    }
+
+    .BarraNav .menu-central button:hover {
+      background-color: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    .BarraNav .btPe {
+      position: absolute;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-decoration: none;
+      margin: 0;
+      opacity: 1 !important;
+    }
+
+    #ImgPNav {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    /* JUEGO DEBAJO DE LA BARRA */
+    #canvas, #overlayDiv, #presplash {
+      position: fixed;
+      top: var(--alto-barra);
+      left: 0px;
+      width: 100%;
+      height: calc(100% - var(--alto-barra));
+      border: 0 none;
+      box-sizing: border-box;
+    }
+
+    #canvas {
+      background: #022b43;
+      z-index: 1;
+    }
+
+    #overlayDiv {
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    #presplash {
+      display: block;
+      margin: auto;
+      object-fit: contain;
+      background: #eff2e5;
+      z-index: 5;
+    }
+
+    .visible {
+      visibility: visible;
+      opacity: 1.0;
+      transition: opacity .1s linear;
+    }
+
+    .hidden {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s .25s, opacity .25s linear;
+      pointer-events: none;
+    }
+
+    #statusDiv, #inputDiv {
+      background: rgba(2, 43, 67, 0.92);
+      width: 50%;
+      margin: auto;
+      min-width: 320px;
+      max-width: 90vw;
+      padding: 12px 16px;
+      position: fixed;
+      top: calc(var(--alto-barra) + 10px);
+      left: 0;
+      right: 0;
+      border-radius: 12px;
+      border: 1px solid rgba(239, 242, 229, 0.2);
+      box-sizing: border-box;
+      z-index: 30;
+    }
+
+    #statusTextDiv {
+      overflow: auto;
+      max-height: 40vh;
+      color: #eff2e5;
+      font-size: 14px;
+    }
+
+    #statusProgress {
+      display: none;
+      width: 100%;
+      accent-color: #fac82e;
+      margin-top: 8px;
+    }
+
+    #inputDiv {
+      width: 65%;
+      padding-left: 14px;
+      padding-right: 20px;
+    }
+
+    #inputPrompt {
+      color: #eff2e5;
+      font-weight: 700;
+      font-size: 140%;
+      margin-bottom: 1em;
+      margin-top: 1em;
+    }
+
+    #inputText {
+      width: 100%;
+      font-size: 150%;
+      padding: 8px 10px;
+      background: #eff2e5;
+      color: #022b43;
+      border: 2px solid #076a6f;
+      border-radius: 10px;
+      box-sizing: border-box;
+    }
+
+    #inputText:focus {
+      outline: none;
+      border-color: #fac82e;
+      color: #022b43;
+    }
+
+    #ContextContainer {
+      position: fixed;
+      left: 0px;
+      top: var(--alto-barra);
+      color: #eff2e5;
+      z-index: 20;
+    }
+
+    #ContextContainer.shown {
+      background: rgba(2, 43, 67, 0.92);
+      border-radius: 0px 0px 14px 0px;
+      padding-bottom: 8px;
+      padding-right: 6px;
+    }
+
+    #ContextButton {
+      text-decoration: none;
+      color: #eff2e5;
+      font-size: xx-large;
+      cursor: pointer;
+      user-select: none;
+      -moz-user-select: none;
+      padding: 8px 12px;
+      display: inline-block;
+      opacity: 0.9;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    #ContextButton:hover,
+    #ContextButton:focus {
+      outline: none;
+      color: #fac82e;
+      opacity: 1.0;
+    }
+
+    #ContextMenu a {
+      text-decoration: none;
+      color: #022b43;
+      background: #fac82e;
+      font-weight: 700;
+      font-size: 14px;
+      height: 46px;
+      width: 240px;
+      border-radius: 30px;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 6px 10px;
+      opacity: 1.0;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    #ContextMenu a:hover {
+      text-decoration: none;
+      background: #fcd96e;
+      color: #022b43;
+      transform: scale(1.03);
+    }
+
+    @media (max-width: 600px) {
+      .BarraNav .menu-central a {
+        min-width: auto;
+      }
+
+      .BarraNav .menu-central button {
+        padding: 0 16px;
+        font-size: 14px;
+      }
+
+      #ContextMenu a {
+        width: 200px;
+        height: 42px;
+        font-size: 13px;
+      }
+
+      #statusDiv, #inputDiv {
+        width: 90%;
+        min-width: unset;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="BarraNav">
+    <div class="menu-central">
+      <a href="/basico.html"><button type="button">← Regresar</button></a>
+    </div>
+  </nav>
+
+  <canvas id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas>
+  <div id="overlayDiv"></div>
+
+  <img id="presplash" src="web-presplash.jpg" alt="Cargando Examen Práctico">
+
+  <div id="ContextContainer">
+    <a id="ContextButton">&#8801;</a><br />
+    <div id="ContextMenu" style="display: none;">
+      <input id="ID_SavegamesImport" type="file" onchange="onSavegamesImport(this)" accept="application/zip"
+        style="display:none"></input>
+      <a href="https://www.renpy.org/" target="_blank" rel="noopener noreferrer">
+        Powered by Ren'Py
+      </a>
+    </div>
+  </div>
+
+  <div id="statusDiv" class="hidden">
+    <div id="statusTextDiv"></div>
+    <progress id="statusProgress" value="0" max="100"></progress>
+  </div>
+
+  <div id="inputDiv" class="hidden">
+    <form id="inputForm">
+      <div id="inputPrompt"></div>
+      <input id="inputText" type="text">
+    </form>
+  </div>
+
+  <script>
+    window.gameZipURL = 'game.zip';
+
+    if (navigator.serviceWorker) {
+      if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register('./service-worker.js', { updateViaCache: 'all' });
+      }
+    }
+  </script>
+  <script src="renpy-pre.js"></script>
+  <script async type="text/javascript" src="renpy.js"></script>
+</body>
+
+</html>

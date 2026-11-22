@@ -25,12 +25,12 @@
         </a>
     </nav>
  
-    <h1>Examen Practico - Bloque 1</h1>
+    <h1>Examen Práctico - Bloque 1</h1>
     <hr>
     <br>
-    <h2>PROXIMAMENTE</h2>
+    <h2>PRÓXIMAMENTE</h2>
     <h3>Jugar DEMO</h3>
-    <a href="/bloque1p.html">
+    <a href="/Practico/index.html">
         <button>DEMO</button>
     </a> 
 
@@ -46,7 +46,7 @@
     <button class="CarruBT next">&#10095;</button>
     </div>
 
-    <h3>Juego de simulacion sobre vida cotidiana aplicando los conceptos de:
+    <h3>Juego de simulaciónn sobre vida cotidiana aplicando los conceptos de:
     </h3>
     <p>• Necesidades y recursos</p>
     <p>• Escasez</p>
@@ -81,6 +81,26 @@
         </div>
         <img id="imgbb2" src="../../assets/barrabajap.png">
     </div>
+
+    <!-- Contenedor oculto donde Google Translate monta su widget -->
+    <div id="google_translate_element" style="display: none;"></div>
+
+    <!-- Función que inicializa Google Translate -->
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "es",            // Idioma original de la página
+                    includedLanguages: "es,en,pt", // Idiomas disponibles
+                    autoDisplay: false
+                },
+                "google_translate_element"
+            );
+        }
+    </script>
+
+    <!-- Script oficial de Google Translate -->
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script type="module" src="/JS/BarraNav.js"></script>
     <script type="module" src="/JS/Animaciones.js"></script>
     <script type="module" src="/JS/Practico.js"></script>
