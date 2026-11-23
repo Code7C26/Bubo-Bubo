@@ -2846,7 +2846,7 @@ a.logo-izquierda img {
 /* 1. Marco principal del carrusel con el estilo de la tarjeta */
 .Carru {
     position: relative;
-    width: 1000px;  /* Podes ajustarlo más ancho o más chico según prefieras */
+    width: 1300px;  /* Podes ajustarlo más ancho o más chico según prefieras */
     height: 600px; /* Altura de la tarjeta */
     margin-left: 5%; /* Centrado en la página */
     border-radius: 20px; /* Bordes redondeados bien suaves como en la foto */
@@ -2861,11 +2861,50 @@ a.logo-izquierda img {
 }
 
 /* 3. La tira de imágenes en fila horizontal */
+/*.CarrIMG {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 2.5s ease-in-out; /* Deslizamiento suave */
+/*}*/
+
+/* 3. La tira de imágenes en fila horizontal con pausas en cada foto */
 .CarrIMG {
     display: flex;
     width: 100%;
     height: 100%;
-    transition: transform 0.5s ease-in-out; /* Deslizamiento suave */
+    animation: pausaCarrusel3 15s infinite ease-in-out;
+}
+
+@keyframes pausaCarrusel3 {
+    0%, 24% {
+        transform: translateX(0%);      /* Quieta en foto 1 */
+    }
+    33%, 57% {
+        transform: translateX(-100%);   /* Pasa y se queda quieta en foto 2 */
+    }
+    66%, 90% {
+        transform: translateX(-200%);   /* Pasa y se queda quieta en foto 3 */
+    }
+    100% {
+        transform: translateX(0%);      /* Vuelve al inicio */
+    }
+}
+
+.CarrIMG.carrusel-dos {
+    animation: pausaCarrusel2 10s infinite ease-in-out;
+}
+
+@keyframes pausaCarrusel2 {
+    0%, 40% {
+        transform: translateX(0%);      /* Quieta en foto 1 */
+    }
+    50%, 90% {
+        transform: translateX(-100%);   /* Pasa y se queda quieta en foto 2 */
+    }
+    100% {
+        transform: translateX(0%);      /* Vuelve al inicio */
+    }
 }
 
 /* 4. Cada imagen limpia y sin texto encima */
@@ -2922,9 +2961,9 @@ a.logo-izquierda img {
 }
 
 .fila-avanzado .Carru {
-    flex: 0 0 560px;
+    flex: 0 0 650px;
     max-width: 100%;
-    width: 560px;
+    width: 650px;
     height: 360px;
     margin-left: 0;
 }
