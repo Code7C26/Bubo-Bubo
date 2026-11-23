@@ -55,6 +55,11 @@
                     <span class="opcion-texto">Idioma</span>
                     <span class="flecha">›</span>
                 </a>
+                <!-- Abre el popup de ayuda -->
+                <a href="#" id="btn-ayuda-perfil" class="opcion-item">
+                    <span class="opcion-texto">Ayuda</span>
+                    <span class="flecha">›</span>
+                </a>
                 <!-- Cierra sesión y redirige al login -->
                 <a href="/index.html" id="btnCerrarSesion" class="opcion-item opcion-salir">
                     <span class="opcion-texto">Cerrar sesión</span>
@@ -145,6 +150,22 @@
             </div>
 
             <button type="button" id="btnGuardarIdioma" class="btn-derecha">Aplicar</button>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         POPUP 4: AYUDA
+         ========================================== -->
+    <div id="POPUP_AYUDA" class="popup" style="display: none;">
+        <div class="overlay" onclick="CerrarPopupAyuda()"></div>
+        <div class="popup-contenido popup-izq">
+            <h2 class="Titulo-Popup">Ayuda</h2>
+            <button type="button" class="cerrar-popup" onclick="CerrarPopupAyuda()">X</button>
+            <div class="grupo-campo-izq">
+                <p>¿Necesitás orientarte en Bubo²? Acá podés revisar cómo usar la administración, los módulos o contactar soporte.</p>
+                <p><strong>Contacto:</strong> Bubobubo@gmail.com</p>
+            </div>
+            <button type="button" class="btn-derecha" onclick="CerrarPopupAyuda()">Entendido</button>
         </div>
     </div>
     

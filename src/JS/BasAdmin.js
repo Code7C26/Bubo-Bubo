@@ -1161,3 +1161,203 @@ document.getElementById("BAcAD").addEventListener("click", DistriAhorro);
 document.addEventListener("DOMContentLoaded", () => {
     cargarTablasDesdeFirestore();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Agregado tarjetas administracion*/
+let acumuladoAsignadoObjetivos = 0;
+let acumuladoSobranteDeDA = 0;
+let ultimoTextoResultadoProcesado = "";
+
+function parsearMonto(texto) {
+    if (!texto) return 0;
+    const limpio = String(texto).replace(/[^0-9.-]/g, "");
+    const numero = Number(limpio);
+    return Number.isFinite(numero) ? numero : 0;
+}
+
+function formatearPesos(valor) {
+    const num = Math.max(0, Math.round(Number(valor) || 0));
+    return `$${num.toLocaleString("es-AR")}`;
+}
+
+function convertirIngresoMensual(monto, frecuencia) {
+    const freq = String(frecuencia || "").trim().toLowerCase();
+    if (freq === "semanal") return monto * 4;
+    if (freq === "quincenal") return monto * 2;
+    if (freq === "anual") return monto / 12;
+    return monto;
+}
+
+function procesarDistribucionDesdeResultado() {
+    const elResultado = document.getElementById("resultado");
+    if (!elResultado) return;
+
+    const textoHTML = elResultado.innerHTML.trim();
+    if (!textoHTML || textoHTML === ultimoTextoResultadoProcesado) return;
+
+    const textoPlano = elResultado.innerText || elResultado.textContent || "";
+    if (!textoPlano.trim()) return;
+
+    let asignadoEstaVez = 0;
+    let sobranteEstaVez = 0;
+
+    const lineas = textoPlano.split("\n");
+    lineas.forEach((linea) => {
+        const l = linea.trim();
+        if (!l) return;
+
+        const matchAsignado = l.match(/se le asign[óo]:\s*\$?\s*([0-9.,]+)/i);
+        const matchCompletado = l.match(/se complet[óo] con:\s*\$?\s*([0-9.,]+)/i);
+        const matchSobrante = l.match(/Quedaron\s*\$?\s*([0-9.,]+)\s*sin asignar/i);
+
+        if (matchAsignado) {
+            asignadoEstaVez += parsearMonto(matchAsignado[1].replace(",", "."));
+        } else if (matchCompletado) {
+            asignadoEstaVez += parsearMonto(matchCompletado[1].replace(",", "."));
+        }
+
+        if (matchSobrante) {
+            sobranteEstaVez += parsearMonto(matchSobrante[1].replace(",", "."));
+        }
+    });
+
+    if (asignadoEstaVez > 0 || sobranteEstaVez > 0) {
+        acumuladoAsignadoObjetivos += asignadoEstaVez;
+        acumuladoSobranteDeDA += sobranteEstaVez;
+        ultimoTextoResultadoProcesado = textoHTML;
+    }
+}
+
+function actualizarTarjetasSuperioresAdmin() {
+    procesarDistribucionDesdeResultado();
+
+    // 1. Ingresos desde #TI
+    const filasIngresos = document.querySelectorAll("#TI tr:not(#FIB)");
+    let totalIngresos = 0;
+
+    filasIngresos.forEach((fila, index) => {
+        if (index === 0) return;
+        const celdas = fila.querySelectorAll("td");
+        if (celdas.length >= 2) {
+            const monto = parsearMonto(celdas[1].textContent);
+            const frecuencia = celdas.length >= 3 ? celdas[2].textContent : "Mensual";
+            totalIngresos += convertirIngresoMensual(monto, frecuencia);
+        }
+    });
+
+    const toI = document.getElementById("ToI");
+    if (toI && parsearMonto(toI.textContent) > 0 && totalIngresos === 0) {
+        totalIngresos = parsearMonto(toI.textContent);
+    }
+
+    // 2. Gastos fijos, variables y total desde #TG
+    const filasGastos = document.querySelectorAll("#TG tr:not(#FGB)");
+    let gastosFijos = 0;
+    let gastosVariables = 0;
+
+    filasGastos.forEach((fila, index) => {
+        if (index === 0) return;
+        const celdas = fila.querySelectorAll("td");
+        if (celdas.length >= 3) {
+            const monto = parsearMonto(celdas[1].textContent);
+            const tipo = celdas[2].textContent.trim().toLowerCase();
+            if (tipo.includes("fijo")) {
+                gastosFijos += monto;
+            } else if (tipo.includes("variable")) {
+                gastosVariables += monto;
+            }
+        }
+    });
+
+    const totalGastos = gastosFijos + gastosVariables;
+
+    // 3. Restante (#TGI) y monto destinado al ahorro (#DA)
+    const elTGI = document.getElementById("TGI");
+    const inputDA = document.getElementById("DA");
+    const restante = elTGI ? parsearMonto(elTGI.textContent) : Math.max(0, totalIngresos - totalGastos);
+    const destinadoAhorro = inputDA ? parsearMonto(inputDA.value) : 0;
+
+    // 4. Ahorrado en objetivos desde #TO + lo asignado a objetivos
+    const filasObjetivos = document.querySelectorAll("#TO tr:not(#JE)");
+    let ahorradoEnObjetivos = 0;
+
+    filasObjetivos.forEach((fila, index) => {
+        if (index === 0) return;
+        const celdas = fila.querySelectorAll("td");
+        if (celdas.length >= 3) {
+            const spanAhorrado = celdas[2].querySelector(".monto-ahorrado-texto");
+            const textoAhorrado = spanAhorrado ? spanAhorrado.textContent : celdas[2].textContent;
+            ahorradoEnObjetivos += parsearMonto(textoAhorrado);
+        }
+    });
+
+    const totalObjetivos = ahorradoEnObjetivos + acumuladoAsignadoObjetivos;
+
+    // Dinero que queda del restante al no destinarlo todo a #DA (ej: 176.000 - 100.000 = 76.000)
+    // más cualquier sobrante sin asignar de #DA
+    const noDestinadoDeRestante = Math.max(0, restante - destinadoAhorro);
+    const ahorroSinObjetivo = Math.max(0, noDestinadoDeRestante + acumuladoSobranteDeDA);
+
+    // Actualizar DOM de las tarjetas superiores
+    const elIngresos = document.getElementById("sup-total-ingresos");
+    const elTotalGastos = document.getElementById("sup-total-gastos");
+    const elGastosFijos = document.getElementById("sup-gastos-fijos");
+    const elGastosVariables = document.getElementById("sup-gastos-variables");
+    const elTotalAhorros = document.getElementById("sup-total-ahorros");
+    const elSinObjetivo = document.getElementById("sup-ahorro-sin-objetivo");
+
+    if (elIngresos) elIngresos.textContent = formatearPesos(totalIngresos);
+    if (elTotalGastos) elTotalGastos.textContent = formatearPesos(totalGastos);
+    if (elGastosFijos) elGastosFijos.textContent = `Fijos: ${formatearPesos(gastosFijos)}`;
+    if (elGastosVariables) elGastosVariables.textContent = `Variables: ${formatearPesos(gastosVariables)}`;
+    if (elTotalAhorros) elTotalAhorros.textContent = formatearPesos(totalObjetivos);
+    if (elSinObjetivo) elSinObjetivo.textContent = formatearPesos(ahorroSinObjetivo);
+}
+
+// Observa cambios en las tablas, en #resultado y en #DA para refrescar las tarjetas en vivo
+document.addEventListener("DOMContentLoaded", () => {
+    actualizarTarjetasSuperioresAdmin();
+
+    ["TI", "TG", "TO", "ToI", "ToG", "TGI", "resultado"].forEach((id) => {
+        const nodo = document.getElementById(id);
+        if (nodo) {
+            const observer = new MutationObserver(() => actualizarTarjetasSuperioresAdmin());
+            observer.observe(nodo, { childList: true, subtree: true, characterData: true });
+        }
+    });
+
+    const da = document.getElementById("DA");
+    const bAcAD = document.getElementById("BAcAD");
+    if (da) {
+        da.addEventListener("input", actualizarTarjetasSuperioresAdmin);
+        da.addEventListener("change", actualizarTarjetasSuperioresAdmin);
+    }
+    if (bAcAD) {
+        bAcAD.addEventListener("click", () => {
+            setTimeout(actualizarTarjetasSuperioresAdmin, 0);
+        });
+    }
+});
