@@ -552,9 +552,99 @@ div[class*="modal"] input, div[class*="modal"] select {
     margin-right: 0 !important;
 }
 
+.panel-resumen-superior {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: center;
+    margin: 10px 20px 24px 20px;
+}
 
+.rectangulo-resumen-sup {
+    flex: 1 1 230px;
+    max-width: 280px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 18px 22px;
+    box-shadow: 0 6px 18px rgba(2, 43, 67, 0.08);
+    border-top: 5px solid #022b43;
+}
 
+.rectangulo-resumen-sup:nth-child(1) {
+    border-top-color: #076a6f;
+}
 
+.rectangulo-resumen-sup:nth-child(2) {
+    border-top-color: #fac82e;
+}
+
+.rectangulo-resumen-sup:nth-child(3) {
+    border-top-color: #022b43;
+}
+
+.rectangulo-resumen-sup:nth-child(4) {
+    border-top-color: #2b8a78;
+}
+
+.rectangulo-resumen-sup span {
+    display: block;
+    font-family: 'PoppinsB';
+    font-size: 15px;
+    color: #022b43;
+}
+
+.rectangulo-resumen-sup strong {
+    display: block;
+    font-family: 'PoppinsB';
+    font-size: 24px;
+    color: #022b43;
+    margin: 6px 0;
+}
+
+.rectangulo-resumen-sup:nth-child(1) strong {
+    color: #076a6f;
+}
+
+.rectangulo-resumen-sup:nth-child(4) strong {
+    color: #2b8a78;
+}
+
+.rectangulo-resumen-sup small {
+    display: block;
+    font-family: 'PoppinsL';
+    font-size: 13px;
+    color: #3a5464;
+}
+
+.fila-ingresos-gastos {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 28px;
+    flex-wrap: wrap;
+    margin: 0 20px;
+}
+
+.columna-ingresos,
+.columna-gastos {
+    flex: 1 1 460px;
+    min-width: 300px;
+}
+
+/* Alinea la tabla de Restante con la de Total */
+table:has(#TGI) {
+    margin-left: 60px !important;
+    margin-right: auto !important;
+}
+
+table:has(#TGI) td:first-child {
+    min-width: 90px;
+}
+
+/* Alinea la pregunta*/
+label:has(+ #DA) {
+    margin-left: 60px !important;
+}
 
 
 
@@ -1027,7 +1117,7 @@ color: #022b43;
 /* Contenedor fijo centrado sin deformación */
 .contenedor-pestanita {
     position: fixed;
-    bottom: 265px;
+    bottom: 241px;
     left: 0;
     width: 100%;
     display: flex;
@@ -1218,11 +1308,11 @@ p#ef:not(:empty) {
 
 /*Clases para fondos*/
 body.ingreso {
+    background-color: #eff2e5;
     background-image: url("../../assets/prueba9.png");
-    background-size: cover;          /* Cubre toda la pantalla sin deformarse */
-    background-position: center;     /* Centra la imagen */
-    background-repeat: no-repeat;    /* Evita que se repita como mosaico */
-    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 120vw auto;
 }
 
 .ING h1,h2,h3,p,a{
@@ -1381,14 +1471,75 @@ body.inicio .BarraBaj {
     width: 100%;
 }
 
+/* Alineación y espaciado parejo de textos, etiquetas y campos en ingreso.html */
+body.ingreso .ING p:not(#eu):not(#ee):not(#ec):not(#ef) {
+    margin: 14px 0 6px 50px !important;
+    text-align: left !important;
+    line-height: 1.3;
+}
+
+body.ingreso .ING input:not([type="file"]) {
+    margin: 0 0 10px 50px !important;
+    box-sizing: border-box;
+}
+
+body.ingreso .contenedor-archivo {
+    margin-left: 50px !important;
+    padding-left: 0;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+body.ingreso .fila-selector {
+    min-height: auto;
+    margin-bottom: 4px;
+}
+
+body.ingreso .btn-archivo {
+    margin: 0 0 6px 0 !important;
+}
+
+body.ingreso #texto-archivo {
+    margin: 0 0 8px 0 !important;
+    padding: 0;
+    text-align: left;
+    line-height: 1.3;
+}
+
+body.ingreso .ING p#eu,
+body.ingreso .ING p#ee,
+body.ingreso .ING p#ec,
+body.ingreso .ING p#ef {
+    margin: 4px 0 10px 50px !important;
+}
+
+/* Alinea únicamente el botón Aceptar con el resto */
+body.ingreso .contenedor-archivo .btn-aceptar {
+    margin-left: 0 !important;
+}
 
 
 
 
+.BarraBaj a,
+.BarraBaj .item-contacto,
+.BarraBaj .fila-red {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+}
 
+.BarraBaj img {
+    margin: 0 !important;
+}
 
-
-
+.BarraBaj a span,
+.BarraBaj a p,
+.BarraBaj .item-contacto p,
+.BarraBaj .fila-red p {
+    margin-left: 0 !important;
+}
 
 
 
@@ -2413,73 +2564,6 @@ a.logo-izquierda img {
     margin-right: 0 !important;
 }
 
-/* 1. Marco principal del carrusel con el estilo de la tarjeta */
-.Carru {
-    position: relative;
-    width: 1000px;  /* Podes ajustarlo más ancho o más chico según prefieras */
-    height: 600px; /* Altura de la tarjeta */
-    margin-left: 5%; /* Centrado en la página */
-    border-radius: 20px; /* Bordes redondeados bien suaves como en la foto */
-    overflow: hidden; /* Esto es clave para que la imagen respete los bordes redondeados */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Sombra elegante alrededor */
-}
-
-/* 2. La ventana visible */
-.CarruConte {
-    width: 100%;
-    height: 100%;
-}
-
-/* 3. La tira de imágenes en fila horizontal */
-.CarrIMG {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s ease-in-out; /* Deslizamiento suave */
-}
-
-/* 4. Cada imagen limpia y sin texto encima */
-.CarrIMG img {
-    min-width: 100%; /* Cada foto ocupa el 100% de la tarjeta */
-    height: 100%;
-    object-fit: cover; /* Recorta la imagen prolijamente para que no se deforme */
-    display: block;
-}
-
-/* 5. Estilos de las flechas (las dejamos flotando a los costados) */
-.CarruBT {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente discreto */
-    color: white;
-    border: none;
-    width: 45px;
-    height: 45px;
-    cursor: pointer;
-    border-radius: 50%; /* Flechas circulares */
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.CarruBT:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-    transform: translateY(-50%) scale(1.1); /* Efecto de crecimiento sutil al pasar el mouse */
-}
-
-/* Posición de las flechas a los costados */
-.prev {
-    left: 5px;
-}
-
-.next {
-    right: 20px;
-}
-
 /*Tarjetas de los temas*/
 .seccion-carrusel-bubo {
     width: 92%;
@@ -2690,6 +2774,205 @@ a.logo-izquierda img {
         min-height: 180px;
     }
 }
+
+/* Encuadre de la foto dentro de la tarjeta*/
+.panel-der-tarjeta img {
+    object-position: 40% 35% !important; /* Horizontal% Vertical% */
+    transform: scale(1) !important;      /* Opcional: 1.15 para acercar un poco */
+    transform-origin: 50% 35% !important;
+}
+
+.caja-explicacion-amarilla.caja-con-video {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 20px;
+}
+
+.info-video-izq {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mini-video-der {
+    width: 220px;
+    height: 124px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-left: auto;
+    background-color: #022b43;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*PÁGINA AVANZADO*/
+/* 1. Marco principal del carrusel con el estilo de la tarjeta */
+.Carru {
+    position: relative;
+    width: 1000px;  /* Podes ajustarlo más ancho o más chico según prefieras */
+    height: 600px; /* Altura de la tarjeta */
+    margin-left: 5%; /* Centrado en la página */
+    border-radius: 20px; /* Bordes redondeados bien suaves como en la foto */
+    overflow: hidden; /* Esto es clave para que la imagen respete los bordes redondeados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Sombra elegante alrededor */
+}
+
+/* 2. La ventana visible */
+.CarruConte {
+    width: 100%;
+    height: 100%;
+}
+
+/* 3. La tira de imágenes en fila horizontal */
+.CarrIMG {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out; /* Deslizamiento suave */
+}
+
+/* 4. Cada imagen limpia y sin texto encima */
+.CarrIMG img {
+    min-width: 100%; /* Cada foto ocupa el 100% de la tarjeta */
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen prolijamente para que no se deforme */
+    display: block;
+}
+
+/* 5. Estilos de las flechas (las dejamos flotando a los costados) */
+.CarruBT {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente discreto */
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    border-radius: 50%; /* Flechas circulares */
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.CarruBT:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: translateY(-50%) scale(1.1); /* Efecto de crecimiento sutil al pasar el mouse */
+}
+
+/* Posición de las flechas a los costados */
+.prev {
+    left: 5px;
+}
+
+.next {
+    right: 20px;
+}
+
+/* Filas de Avanzado: carrusel a la izquierda, textos a la derecha */
+.fila-avanzado {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    max-width: 1350px;
+    margin: 30px auto;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+.fila-avanzado .Carru {
+    flex: 0 0 560px;
+    max-width: 100%;
+    width: 560px;
+    height: 360px;
+    margin-left: 0;
+}
+
+.fila-avanzado .texto-avanzado {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fila-avanzado .texto-avanzado h3 {
+    margin: 0;
+    opacity: 1;
+}
+
+@media (max-width: 900px) {
+    .fila-avanzado {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 15px;
+    }
+
+    .fila-avanzado .Carru {
+        flex: none;
+        width: 100%;
+        height: 260px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2942,7 +3225,170 @@ a.logo-izquierda img {
 
 
 
+/*PÁGINA INICIO SESIÓN*/
+/* Reglas exclusivas para iniciosesion.html sin tocar ingreso.html ni el HTML */
+body.ingreso:has(#emailis) {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
 
+/* Deja .ING ya con el alto final desde que cargás iniciosesion.html */
+body.ingreso:has(#emailis) .ING {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: calc(100vh - 65px - 160px);
+    padding-bottom: 90px;
+    box-sizing: border-box;
+}
+
+
+body.ingreso:has(#emailis) .ING input:not([type="file"]) {
+    display: block !important;
+    margin: 0 0 10px 50px !important;
+    box-sizing: border-box;
+}
+
+body.ingreso:has(#emailis) .ING p#eei,
+body.ingreso:has(#emailis) .ING p#eci {
+    margin: 4px 0 12px 50px !important;
+}
+
+body.ingreso:has(#emailis) .btn-aceptar {
+    display: block !important;
+    margin-left: 50px !important;
+    margin-top: 18px !important;
+    margin-bottom: 40px !important;
+}
+
+body.ingreso:has(#emailis) .BarraBaj {
+    margin-top: auto !important;
+    position: static;
+    width: 100%;
+}
+
+/* Mantiene el margen normal del botón sin sumarle de más */
+body.ingreso:has(#emailis) .btn-aceptar {
+    margin-bottom: 20px !important;
+}
+
+body.ingreso:has(#emailis) {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+body.ingreso:has(#emailis) .ING {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: calc(100vh - 65px);
+    box-sizing: border-box;
+}
+
+body.ingreso:has(#emailis) .btn-aceptar {
+    display: block !important;
+    margin-left: 50px !important;
+    margin-top: 18px !important;
+    margin-bottom: 90px !important;
+}
+
+body.ingreso:has(#emailis) .BarraBaj {
+    margin-top: auto !important;
+    position: static;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*PÁGINAS BLOQUESP*/
+.fila-avanzado .texto-avanzado p {
+    margin: 0;
+    opacity: 1;
+}
+
+.fila-avanzado .texto-avanzado a {
+    margin: 0;
+    opacity: 1;
+    width: fit-content;
+}
+
+.fila-avanzado .texto-avanzado button {
+    margin-left: 0;
+}
+
+/* Fila de "Jugar DEMO" + botón DEMO a la izquierda */
+.fila-demo-izq {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.fila-demo-izq h3 {
+    margin: 0 !important;
+    opacity: 1 !important;
+}
+
+.fila-demo-izq a,
+.fila-demo-izq button {
+    margin: 0 !important;
+    opacity: 1 !important;
+}
+
+/* Botón "Siguiente bloque" debajo del carrusel, a la izquierda */
+.btn-siguiente-bajo-carru {
+    max-width: 1350px;
+    margin: 14px auto 30px auto;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+.btn-siguiente-bajo-carru a,
+.btn-siguiente-bajo-carru button {
+    margin-left: 0 !important;
+    opacity: 1 !important;
+}
+
+@media (max-width: 768px) {
+    .fila-demo-izq {
+        margin-left: 15px;
+        flex-wrap: wrap;
+    }
+
+    .btn-siguiente-bajo-carru {
+        padding: 0 15px;
+    }
+}
+
+.btn-siguiente-bajo-carru {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
 
 
 

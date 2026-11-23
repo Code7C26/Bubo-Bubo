@@ -287,5 +287,26 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
 
+
+
+/*agregado ayuda*/
 // Expone CerrarPopupP en window para que funcione desde atributos onclick en el HTML
 window.CerrarPopupP = CerrarPopupP;
+
+const btnAyuda = document.getElementById("btn-ayuda-perfil");
+const popupAyuda = document.getElementById("POPUP_AYUDA");
+
+if (btnAyuda && popupAyuda) {
+    btnAyuda.addEventListener("click", (e) => {
+        e.preventDefault();
+        popupAyuda.style.display = "block";
+    });
+}
+
+function CerrarPopupAyuda() {
+    if (popupAyuda) {
+        popupAyuda.style.display = "none";
+    }
+}
+
+window.CerrarPopupAyuda = CerrarPopupAyuda;

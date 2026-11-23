@@ -42,29 +42,89 @@
     <hr>
     <br>
 
-    <h2>Ingresos</h2>
-    <table id="TI">
-        <tr>
-            <td class="Eti">Etiqueta</td>
-            <td class="Mon">Monto</td>
-            <td class="Fre">Frecuencia</td>
-            <td></td>
-        </tr>
-        <tr id="FIB">
-            <td colspan="4">
-                <button id="BTAI">+</button>
-            </td>
-        </tr>
-    </table>
-    <table>
-        <tr>
-            <td>
-                Total:
-            </td>
-            <td id="ToI">
-            </td>
-        </tr>
-    </table>
+    <!-- Rectángulos superiores arriba de Ingresos -->
+    <div class="panel-resumen-superior">
+        <div class="rectangulo-resumen-sup">
+            <span>Ingresos</span>
+            <strong id="sup-total-ingresos">$0</strong>
+            <small id="sup-detalle-ingresos">Total de ingresos registrados</small>
+        </div>
+
+        <div class="rectangulo-resumen-sup">
+            <span>Gastos (fijos y variables)</span>
+            <strong id="sup-total-gastos">$0</strong>
+            <small id="sup-gastos-fijos">Fijos: $0</small>
+            <small id="sup-gastos-variables">Variables: $0</small>
+        </div>
+
+        <div class="rectangulo-resumen-sup">
+            <span>Objetivos</span>
+            <strong id="sup-total-ahorros">$0</strong>
+            <small id="sup-detalle-objetivos">Ahorro destinado a objetivos o metas</small>
+        </div>
+
+        <div class="rectangulo-resumen-sup">
+            <span>Ahorros</span>
+            <strong id="sup-ahorro-sin-objetivo">$0</strong>
+            <small id="sup-detalle-sin-objetivo">Dinero no destinado a ningún objetivo</small>
+        </div>
+    </div>
+
+    <!-- Contenedor lado a lado: Ingresos y Gastos -->
+    <div class="fila-ingresos-gastos">
+        <div class="columna-ingresos">
+            <h2>Ingresos</h2>
+            <table id="TI">
+                <tr>
+                    <td class="Eti">Etiqueta</td>
+                    <td class="Mon">Monto</td>
+                    <td class="Fre">Frecuencia</td>
+                    <td></td>
+                </tr>
+                <tr id="FIB">
+                    <td colspan="4">
+                        <button id="BTAI">+</button>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        Total:
+                    </td>
+                    <td id="ToI">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="columna-gastos">
+            <h2>Gastos</h2>
+            <table id="TG">
+                <tr>
+                    <td class="Eti">Etiqueta</td>
+                    <td class="Mon">Monto</td>
+                    <td class="Fij">Fijo/Variable</td>
+                    <td></td>
+                </tr>
+                <tr id="FGB">
+                    <td colspan="4">
+                        <button id="BTAG">+</button>
+                    </td>
+                </tr>
+            </table>
+
+            <table>
+                <tr>
+                    <td>
+                        Total:
+                    </td>
+                    <td id="ToG">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
     <div id="POPUPI" class="popup" style="display: none;">
         <div class="overlay"></div>
@@ -119,38 +179,6 @@
             <button class="cerrar-popup" onclick="CerrarPopup('POPUPIE')">X</button>
         </div>
     </div>
-
-    <h2>Gastos</h2>
-    <table id="TG">
-        <tr>
-            <td class="Eti">Etiqueta</td>
-            <td class="Mon">Monto</td>
-            <td class="Fij">Fijo/Variable</td>
-            <td></td>
-        </tr>
-        <tr id="FGB">
-            <td colspan="4">
-                <button id="BTAG">+</button>
-            </td>
-        </tr>
-    </table>
-
-    <!-- Panel de Resumen: Distribución de Gastos Fijos vs Variables -->
-    <div id="resumen-gastos-container" style="margin: 20px 0 20px 40px; padding: 15px 20px; background-color: #076a6f; border-radius: 12px; width: fit-content; color: white; font-family: 'PoppinsL';">
-        <h3 style="margin: 0 0 8px 0; font-size: 16px; color: #fac82e;">Distribución de Gastos</h3>
-        <p style="margin: 4px 0; font-size: 14px; color: #ffffff; opacity: 1;" id="txt-gastos-fijos">Gastos Fijos: $0</p>
-        <p style="margin: 4px 0; font-size: 14px; color: #ffffff; opacity: 1;" id="txt-gastos-variables">Gastos Variables: $0</p>
-    </div>
-
-    <table>
-        <tr>
-            <td>
-                Total:
-            </td>
-            <td id="ToG">
-            </td>
-        </tr>
-    </table>
 
     <div id="POPUPG" class="popup" style="display: none;">
         <div class="overlay"></div>
