@@ -1473,7 +1473,6 @@ body.inicio .BarraBaj {
 
 /* Alineación y espaciado parejo de textos, etiquetas y campos en ingreso.html */
 body.ingreso .ING p:not(#eu):not(#ee):not(#ec):not(#ef) {
-    margin: 14px 0 6px 50px !important;
     text-align: left !important;
     line-height: 1.3;
 }
@@ -2331,7 +2330,37 @@ html.tema-tierra {
     margin-left: 0 !important;
 }
 
+.manual-descarga-box {
+  margin: 16px 0 20px;
+  text-align: left;
+  align-self: flex-start;
+  width: 100%;
+}
 
+.btn-manual-pdf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-left: 0;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background-color: #f4f7fa;
+  color: #092136;
+  border: 1.5px solid #092136;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-manual-pdf:hover {
+  background-color: #fff6d6;
+  border-color: #f5c52b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(9, 33, 54, 0.1);
+}
 
 
 
@@ -3439,494 +3468,1436 @@ body.ingreso:has(#emailis) .BarraBaj {
 
 
 
-/* ========================================= */
-/*      ADAPTACIÓN RESPONSIVE celulares      */
-/* ========================================= */
 
-/* TABLETS Y CELULARES */
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================================= */
+/*   ADAPTACIÓN UNIFICADA PARA CELULARES (max-width: 768px)  */
+/*   Desde línea 3454 hasta el final de style_5.css          */
+/*   Sin duplicados, sin reglas rotas y con todo lo pedido   */
+/* ========================================================= */
+
 @media (max-width: 768px) {
+    /* Margen lateral común para alinear títulos, textos y bloques */
+    :root {
+        --gutter: 20px;
+    }
 
-    /* CONFIGURACIÓN GENERAL */
+    /* 0. Contenedores generales y prevención de desborde horizontal */
+    html,
     body {
-        width: 100%;
-        overflow-x: hidden;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
     }
 
-    h1 {
-        font-size: 34px;
-        margin-left: 15px;
-        margin-right: 15px;
+    body {
+        padding-top: 60px !important;
     }
 
-    h2 {
-        font-size: 25px;
-        margin-left: 15px;
-        margin-right: 15px;
+    /* En páginas con foto de perfil, 24px de aire entre la barra (60px) y el primer título */
+    body:has(.BarraNav .btPe) {
+        padding-top: 84px !important;
     }
 
-    h3 {
-        font-size: 20px;
-        margin-left: 15px;
-        margin-right: 15px;
+    .Ingreso,
+    .CAJA,
+    .nosotras,
+    .bubo,
+    .personajes,
+    .somos,
+    .fondoimg,
+    .fondoimg2,
+    .fondoimg3,
+    .fondoimg4,
+    .fondoP,
+    .contenedor-integrantes,
+    .tarjeta-nosotras,
+    .texto-nosotras,
+    .bubo-intro {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
     }
 
-    p, a {
-        font-size: 16px;
-        margin-left: 15px;
-        margin-right: 15px;
-    }
-
-    img {
-        max-width: 100%;
-    }
-
-    /* BARRA DE NAVEGACIÓN */
-    .BarraNav {
-        height: 60px;
-        justify-content: flex-start;
-        padding: 0 55px 0 5px;
-    }
-
-    .logo-izquierda {
-        display: none;
-    }
-
-    .menu-central {
-        width: 100%;
-        overflow-x: auto;
-        overflow-y: hidden;
-        justify-content: flex-start;
-        scrollbar-width: none;
-    }
-
-    .menu-central::-webkit-scrollbar {
-        display: none;
-    }
-
-    .menu-central a {
-        min-width: 110px;
-        width: auto;
-        flex-shrink: 0;
-    }
-
-    .BarraNav .menu-central button {
-        padding: 0 12px;
-        font-size: 13px;
-        height: 60px;
-    }
-
-    .BarraNav .btPe {
-        right: 8px;
-    }
-
-    #ImgPNav {
-        width: 38px;
-        height: 38px;
-    }
-
-    /* BARRA INFERIOR */
-    .BarraBaj {
-        flex-wrap: wrap;
-        gap: 25px;
-        padding: 25px 20px;
-        width: 100%;
-        min-height: auto;
-    }
-
-    .Redes,
-    .contacto {
-        width: 100%;
-    }
-
-    /* POPUPS */
-    .popup-contenido {
-        width: 92%;
-        max-width: 450px;
-        max-height: 90vh;
-        overflow-y: auto;
-        padding: 25px 20px;
-        border-radius: 22px;
-    }
-
-    /* BOTONES */
-    button {
-        max-width: 100%;
-        margin-left: 10px;
-    }
-
-    /* TABLAS */
-    table {
-        display: block;
-        max-width: calc(100% - 20px);
-        overflow-x: auto;
-        margin: 15px 10px;
-        white-space: nowrap;
-    }
-
-    td {
-        padding: 8px;
-        font-size: 14px;
-    }
-
-    /* PERFIL */
+    /* Perfil (perfil.html): centrar cuadros de perfil, opciones y foto del popup */
+    .fondoP .tarjeta-perfil,
+    .fondoP .perfil-seccion-opciones,
     .tarjeta-perfil,
     .perfil-seccion-opciones {
-        width: calc(100% - 30px);
-        max-width: none;
-        margin: 20px 15px;
-        padding: 20px;
-        box-sizing: border-box;
+        width: calc(100% - (2 * var(--gutter))) !important;
+        max-width: calc(100% - (2 * var(--gutter))) !important;
+        min-width: 0 !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box !important;
     }
 
-    .tarjeta-perfil {
-        padding-bottom: 75px;
+    .tarjeta-perfil h1,
+    .perfil-seccion-opciones h2,
+    .perfil-info p {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        text-align: left !important;
     }
 
     .perfil-cuerpo {
-        gap: 12px;
+        display: flex !important;
+        align-items: center !important;
+        gap: 14px !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
     }
 
-    .tarjeta-perfil #ImgP {
-        width: 70px;
-        height: 70px;
+    .perfil-info {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
     }
 
-    /* PÁGINA DE PRESENTACIÓN */
-    .Ingreso {
-        min-height: 550px;
-        background-position: center;
+    .popup .popup-contenido {
+        width: calc(100% - (2 * var(--gutter))) !important;
+        max-width: calc(100% - (2 * var(--gutter))) !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box !important;
+    }
+
+    .contenedor-foto-popup {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        width: 100% !important;
+        margin: 8px auto 14px auto !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+    }
+
+    .contenedor-foto-popup #ImgPEActual,
+    #ImgPEActual {
+        display: block !important;
+        margin: 0 auto !important;
+    }
+
+    .contenedor-foto-popup .btn-examinar,
+    .btn-examinar {
+        display: inline-block !important;
+        width: auto !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Recomendaciones (reco.html): recuadros centrados, imagen arriba y texto abajo */
+    .dos-columnas-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: calc(100% - (2 * var(--gutter))) !important;
+        max-width: calc(100% - (2 * var(--gutter))) !important;
+        min-width: 0 !important;
+        height: auto !important;
+        margin: 0 auto 24px auto !important;
+        padding: 16px !important;
+        gap: 16px !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+
+    .dos-columnas-container .columna-imagen,
+    .dos-columnas-container .columna-texto {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        height: auto !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+
+    .dos-columnas-container .columna-imagen img {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 200px !important;
+        object-fit: cover !important;
+        border-radius: 12px !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+    }
+
+    .dos-columnas-container .columna-texto h2,
+    .dos-columnas-container .columna-texto p {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Tarjetas de organismos oficiales: una sola fila deslizable horizontalmente */
+    .contenedor-recomendaciones {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: var(--gutter) !important;
+        padding-right: var(--gutter) !important;
+        gap: 14px !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        scroll-snap-type: x proximity !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        box-sizing: border-box !important;
+    }
+
+    .contenedor-recomendaciones::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .contenedor-recomendaciones .tarjeta-noticia {
+        flex: 0 0 72vw !important;
+        width: 72vw !important;
+        max-width: 280px !important;
+        min-width: 220px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        margin: 0 !important;
+        scroll-snap-align: start !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+
+    .contenedor-recomendaciones .tarjeta-noticia img {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 120px !important;
+        object-fit: cover !important;
+        box-sizing: border-box !important;
+    }
+
+    .contenedor-recomendaciones .tarjeta-noticia .contenido-noticia {
+        display: flex !important;
+        flex-direction: column !important;
+        flex: 1 1 auto !important;
+        padding: 12px !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .contenedor-recomendaciones .tarjeta-noticia .contenido-noticia a {
+        margin-top: auto !important;
+    }
+
+    .contenedor-recomendaciones .tarjeta-noticia .contenido-noticia button {
+        font-size: 12.5px !important;
+        padding: 7px 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Eliminar fondos ilustrados en celular */
+    .fondoimg,
+    .fondoimg2,
+    .fondoimg3,
+    .fondoimg4,
+    .fondoP {
+        background-image: none !important;
+        background-color: #eff2e5 !important;
     }
 
     .CAJA {
-        width: 90%;
-        height: auto;
-        padding-top: 25px;
+        height: auto !important;
+        padding-top: 25px !important;
     }
 
+    /* Info de "¿Quiénes somos?" / integrantes centrada */
+    .somos,
+    .nosotras,
     .contenedor-integrantes {
-        gap: 25px;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
     }
 
     .tarjeta-nosotras {
-        flex-direction: column;
-        align-items: center;
-        max-width: 100%;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        margin: 0 auto !important;
     }
 
     .img-nosotras {
-        width: 200px;
-        height: 220px;
+        width: 200px !important;
+        max-width: 100% !important;
+        height: 220px !important;
+        margin: 0 auto !important;
     }
 
     .texto-nosotras {
-        width: 100%;
-        text-align: center;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        margin: 0 auto !important;
     }
 
-    .texto-nosotras p {
-        margin: 10px !important;
+    body .texto-nosotras h1,
+    body .texto-nosotras h2,
+    body .texto-nosotras h3,
+    body .texto-nosotras p {
+        text-align: center !important;
+        margin: 8px auto !important;
     }
 
-    .tabla-custom {
-        width: 100%;
-        border-spacing: 5px;
+    /* Distribución de textos y títulos parejos en secciones */
+    .bubo h1,
+    .bubo h2,
+    .bubo h3,
+    .bubo p,
+    .somos h1,
+    .somos h2,
+    .somos h3,
+    .somos p,
+    .nosotras h1,
+    .nosotras h2,
+    .nosotras h3,
+    .nosotras p,
+    .personajes h1,
+    .personajes h2,
+    .personajes h3,
+    .personajes p {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        box-sizing: border-box !important;
+        line-height: 1.45 !important;
+        word-break: normal !important;
+        overflow-wrap: break-word !important;
     }
 
-    .tabla-custom td img {
-        width: 110px;
-        height: 110px;
+    .bubo h1,
+    .somos h1,
+    .nosotras h1,
+    .personajes h1 {
+        font-size: 22px !important;
+        line-height: 1.2 !important;
     }
 
-    /* INGRESO Y REGISTRO */
-    .ING h2,
-    .ING p,
-    body.ingreso h2,
-    body.ingreso p {
+    .bubo h2,
+    .somos h2,
+    .nosotras h2,
+    .personajes h2 {
+        font-size: 17px !important;
+        line-height: 1.25 !important;
+    }
+
+    .bubo p,
+    .somos p,
+    .nosotras p,
+    .personajes p {
+        font-size: 14px !important;
+        line-height: 1.55 !important;
+    }
+
+    /* 1. Barra superior fija, logo a la izquierda y menú desplazable
+       (una sola fila, idéntica a la de la portada) */
+    .BarraNav {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 60px !important;
+        padding-left: 0 !important;
+        padding-right: 48px !important;
+        justify-content: flex-start !important;
+        overflow: hidden !important;
+        z-index: 200 !important;
+    }
+
+    a.logo-izquierda,
+    .logo-izquierda,
+    img.logo-izquierda {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        flex-shrink: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        background-color: #022b43 !important;
+        padding: 0 8px 0 6px !important;
+        max-height: 44px !important;
+        width: auto !important;
+        z-index: 105 !important;
+    }
+
+    /* Cuando el logo es un enlace con una imagen adentro (basico.html y demás páginas),
+       la imagen toma el mismo tamaño que el logo de la portada: 44px de alto máximo */
+    .BarraNav a.logo-izquierda img {
+        display: block !important;
+        position: static !important;
+        transform: none !important;
+        height: auto !important;
+        max-height: 44px !important;
+        width: auto !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .menu-central {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        justify-content: flex-start !important;
+    }
+
+    /* Foto de perfil dentro de la franja de 48px reservada a la derecha */
+    .BarraNav .btPe {
+        position: absolute !important;
+        top: 50% !important;
+        right: 6px !important;
+        left: auto !important;
+        transform: translateY(-50%) !important;
+        width: 36px !important;
+        height: 36px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        z-index: 110 !important;
+    }
+
+    .BarraNav .btPe img,
+    #ImgPNav {
+        width: 36px !important;
+        height: 36px !important;
+        object-fit: cover !important;
+        border-radius: 50% !important;
+    }
+
+    .TITULO {
+        justify-content: flex-start !important;
+        overflow-x: auto !important;
+        padding-left: 12px !important;
+        scrollbar-width: none;
+    }
+
+    .TITULO::-webkit-scrollbar {
+        display: none;
+    }
+
+    .TITULO a {
+        width: auto !important;
+        min-width: 115px !important;
+        padding: 0 12px !important;
+        flex-shrink: 0 !important;
+        touch-action: manipulation;
+    }
+
+    #nosotras,
+    #bubo,
+    #proyecto,
+    #personajes,
+    .nosotras,
+    .bubo,
+    .personajes,
+    .somos,
+    h1,
+    h2,
+    h3 {
+        scroll-margin-top: 70px !important;
+    }
+
+    /* 2. Portada y botones alineados a la izquierda por encima del difuminado */
+    .Ingreso {
+        position: relative !important;
+        min-height: 480px !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        padding-top: 25px !important;
+        padding-bottom: 120px !important;
+    }
+
+    .Ingreso::before,
+    .Ingreso::after,
+    .CAJA::before,
+    .CAJA::after {
+        z-index: 1 !important;
+        pointer-events: none !important;
+    }
+
+    .CAJA #Bien,
+    .CAJA #xd,
+    .Ingreso #Bien,
+    .Ingreso #xd {
+        position: relative !important;
+        z-index: 20 !important;
+        margin-left: 15px !important;
+        margin-right: 15px !important;
+        padding-left: 0 !important;
+        text-align: left !important;
+    }
+
+    #botones-ingreso {
+        position: relative !important;
+        z-index: 50 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        margin-top: 20px !important;
+        margin-bottom: 30px !important;
         margin-left: 15px !important;
         margin-right: 15px !important;
     }
 
-    .ING input#usuario {
-        margin-left: 15px;
-        max-width: calc(100% - 30px);
-        box-sizing: border-box;
-    }
-
-   
-
-    #botones-ingreso {
-        margin-left: 15px;
-    }
-
     .fila-botones-principales {
-        flex-wrap: wrap;
+        position: relative !important;
+        z-index: 50 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 12px !important;
+        margin-left: 0 !important;
     }
 
-    .contenedor-botones {
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: 100px;
+    .fila-botones-principales a,
+    .fila-botones-principales button {
+        position: relative !important;
+        z-index: 50 !important;
+        opacity: 1 !important;
+        margin-left: 0 !important;
+        touch-action: manipulation;
     }
 
-    /* NOTICIAS */
-    .contenedor-noticias {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        padding: 0 15px;
-        gap: 15px;
-    }
-
-    /* EVALUACIONES */
-    .seccion-evaluacion-bloque {
-        padding: 20px;
-        margin: 20px 15px;
-        gap: 20px;
-    }
-
-    .evaluacion-imagen {
-        max-width: 100%;
-    }
-
-    .evaluacion-items {
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-
-    /* RECOMENDACIONES */
-    .contenedor-recomendaciones {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        padding: 0 15px;
-    }
-
-    .dos-columnas-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        margin: 20px 15px;
-        padding: 20px;
-    }
-
-    .columna-imagen {
-        height: 220px;
-    }
-
-}
-
-
-/* CELULARES PEQUEÑOS */
-@media (max-width: 480px) {
-
-    /* TEXTOS */
-    h1 {
-        font-size: 29px;
-    }
-
-    h2 {
-        font-size: 22px;
-    }
-
-    h3 {
-        font-size: 18px;
-    }
-
-    p, a {
-        font-size: 15px;
-    }
-
-    /* NAVEGACIÓN */
-    .menu-central a {
-        min-width: 95px;
-    }
-
-    .BarraNav .menu-central button {
-        font-size: 12px;
-        padding: 0 7px;
-    }
-
-    /* PIE DE PÁGINA */
+    /* 3. Barra baja sin cortarse y pestañita en el borde superior de BarraBaj */
     .BarraBaj {
-        gap: 15px;
-        padding: 20px 15px;
+        position: relative !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 20px !important;
+        padding: 36px var(--gutter) 28px var(--gutter) !important;
+        margin-top: 36px !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
     }
 
-    /* NOTICIAS */
-    .contenedor-noticias {
-        grid-template-columns: 1fr;
+    /* CAMBIO: si la barra tiene la imagen de personajes, sin espacio abajo
+       para que la imagen quede pegada al borde inferior */
+    .BarraBaj:has(> img) {
+        padding-bottom: 0 !important;
+        overflow: hidden !important;
     }
 
-    /* RECOMENDACIONES */
-    .contenedor-recomendaciones {
-        grid-template-columns: 1fr;
+    .BarraBaj .Redes,
+    .BarraBaj .contacto {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 4px !important;
     }
 
-    .dos-columnas-container {
-        padding: 15px;
+    /* Línea sutil que separa "Síguenos" del contacto */
+    .BarraBaj .contacto {
+        border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+        padding-top: 18px !important;
     }
 
-    /* PERFIL */
-    .perfil-cuerpo {
-        flex-direction: column;
-        align-items: flex-start;
+    .BarraBaj p,
+    .BarraBaj a,
+    .BarraBaj h3 {
+        max-width: 100% !important;
+        word-break: normal !important;
+        overflow-wrap: break-word !important;
     }
 
-    .tarjeta-perfil #ImgP {
-        width: 85px;
-        height: 85px;
+    /* Títulos del pie con el mismo tamaño */
+    .BarraBaj h3 {
+        font-size: 17px !important;
+        line-height: 1.3 !important;
+        margin: 0 0 8px 0 !important;
+        padding: 0 !important;
+        text-align: left !important;
     }
 
-    /* PRESENTACIÓN */
-    .contenedor-integrantes {
-        flex-direction: column;
+    /* Filas de enlaces alineadas con el título, sin subrayado y cómodas de tocar */
+    .BarraBaj .IT {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 14px !important;
+        min-height: 44px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-decoration: none !important;
+        touch-action: manipulation;
     }
 
-    .tabla-custom td img {
-        width: 85px;
-        height: 85px;
+    .BarraBaj .IT img.iconos {
+        width: 30px !important;
+        height: 30px !important;
+        flex-shrink: 0 !important;
+        margin: 0 !important;
     }
 
-    /* BOTONES */
-    .fila-botones-principales {
-        flex-direction: column;
-        align-items: flex-start;
+    .BarraBaj .IT p {
+        margin: 0 !important;
+        font-size: 14.5px !important;
+        line-height: 1.3 !important;
+        text-decoration: none !important;
+        overflow-wrap: anywhere !important;
     }
 
-    /* POPUPS */
-    .popup-contenido {
-        padding: 25px 15px;
-        width: 94%;
+    /* CAMBIO: imagen de personajes de borde a borde de la barra y pegada al borde inferior.
+       Vale para #imgbb2 y para cualquier imagen hija directa de .BarraBaj, en todas las páginas.
+       Para achicarla un poco, cambiá el 100% del width por un valor menor (por ejemplo 85%). */
+    .BarraBaj #imgbb2,
+    .BarraBaj > img {
+        position: static !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        display: block !important;
+        align-self: flex-start !important;
+        width: calc(100% + (2 * var(--gutter))) !important;
+        max-width: none !important;
+        height: auto !important;
+        margin: 8px calc(-1 * var(--gutter)) 0 calc(-1 * var(--gutter)) !important;
+        padding: 0 !important;
     }
 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ================================= */
-/*       ADAPTACIÓN PARA TABLETS     */
-/* ================================= */
-
-@media (min-width: 769px) and (max-width: 1024px) {
-
-    /* BARRA DE NAVEGACIÓN */
-    .BarraNav {
-        padding: 0 10px;
+    .BarraBaj .contenedor-pestanita,
+    .contenedor-pestanita {
+        position: absolute !important;
+        top: 0 !important;
+        bottom: auto !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translate(-50%, -100%) !important;
+        width: auto !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        z-index: 30 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transition: opacity 0.3s ease, visibility 0.3s ease !important;
     }
 
-    .logo-izquierda {
-        max-height: 90px;
+    .BarraBaj .contenedor-pestanita.mostrar,
+    .contenedor-pestanita.mostrar {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: translate(-50%, -100%) !important;
     }
 
-    .menu-central a {
-        width: 135px;
+    .contenedor-pestanita button {
+        position: static !important;
+        transform: none !important;
+        margin: 0 !important;
+        padding: 6px 22px !important;
+        line-height: 1 !important;
+        cursor: pointer !important;
+        border-radius: 12px 12px 0 0 !important;
+        border-bottom: none !important;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15) !important;
+        touch-action: manipulation;
     }
 
-    .BarraNav .btPe {
-        right: 10px;
-    }
-
-    /* BARRA INFERIOR */
-    .BarraBaj {
-        gap: 60px;
-        padding: 25px 30px;
-    }
-
-    .contacto {
-        width: 350px;
-    }
-
-    /* TEXTOS GENERALES */
-    h1 {
-        font-size: 42px;
-    }
-
-    h2 {
-        font-size: 27px;
-    }
-
-    h3 {
-        font-size: 22px;
-    }
-
-    p, a {
-        font-size: 18px;
-    }
-
-    /* POPUPS */
-    .popup-contenido {
-        max-width: 85%;
-        max-height: 85vh;
-        overflow-y: auto;
-        box-sizing: border-box;
-    }
-
-    /* TABLAS */
+    /* 4. Personajes: filas apiladas, separadas entre sí y nombres centrados en el rectángulo */
     .tabla-custom {
-        width: 90%;
+        width: 95% !important;
+        margin: 0 auto !important;
+        border-spacing: 0 24px !important;
     }
 
-    /* EVALUACIONES */
-    .contenedor-evaluaciones-grid {
-        gap: 18px;
-        padding: 0 20px;
+    .tabla-custom tr {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
-    .seccion-evaluacion-bloque {
-        padding: 22px;
-        gap: 20px;
+    .tabla-custom tr:not(:last-child) {
+        margin-bottom: 24px !important;
     }
 
-    .evaluacion-imagen {
-        max-width: 100%;
+    .tabla-custom td {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        border-radius: 14px !important;
     }
 
-    /* RECOMENDACIONES */
-    .contenedor-recomendaciones {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        padding: 0 20px;
+    .tabla-custom td:first-child {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 120px !important;
+        padding: 16px !important;
+        border-radius: 14px 14px 4px 4px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
     }
 
-    .dos-columnas-container {
-        grid-template-columns: 300px 1fr;
-        gap: 25px;
-        margin: 20px;
-        padding: 22px;
+    .tabla-custom td:nth-child(2) {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 160px !important;
+        padding: 18px 16px !important;
+        border-radius: 4px 4px 14px 14px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        font-size: 18px !important;
+        font-weight: bold !important;
+        letter-spacing: 0.5px !important;
     }
 
-    .columna-imagen {
-        height: 240px;
+    .tabla-custom td .texto-default {
+        width: 100% !important;
+        text-align: center !important;
+        margin: 0 auto !important;
     }
 
+    .tabla-custom td .texto-hover {
+        position: static !important;
+        transform: none !important;
+        width: 100% !important;
+        font-size: 14px !important;
+        font-weight: normal !important;
+        letter-spacing: 0 !important;
+        line-height: 1.5 !important;
+        text-align: left !important;
+        white-space: normal !important;
+        overflow-wrap: break-word !important;
+    }
+
+    /* 5. Ingreso e Inicio de Sesión: alineación y errores */
+    body.ingreso {
+        background-color: #eff2e5 !important;
+        background-image: none !important;
+    }
+
+    body.ingreso .ING > * {
+        position: relative !important;
+        z-index: 2 !important;
+    }
+
+    body.ingreso .ING h1,
+    body.ingreso .ING h2,
+    body.ingreso .ING h3,
+    body.ingreso .ING p:not(#eu):not(#ee):not(#ec):not(#ef):not(#eei):not(#eci),
+    body.ingreso:has(#emailis) .ING p,
+    body.ingreso:has(#emailis) .ING div:not(.fila-selector):not(.contenedor-archivo),
+    body.ingreso:has(#emailis) .ING span:not(#texto-archivo) {
+        margin-left: 15px !important;
+        margin-right: 15px !important;
+        padding-left: 0 !important;
+        text-align: left !important;
+        align-self: flex-start !important;
+        left: 0 !important;
+        right: auto !important;
+        transform: none !important;
+    }
+
+    body.ingreso .ING input:not([type="file"]):not([type="checkbox"]),
+    body.ingreso:has(#emailis) .ING input:not([type="file"]):not([type="checkbox"]) {
+        margin-left: 15px !important;
+        margin-right: 15px !important;
+        width: calc(100% - 30px) !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    body.ingreso .ING .contenedor-archivo {
+        margin-left: 15px !important;
+        margin-right: 15px !important;
+        padding-left: 0 !important;
+        align-items: flex-start !important;
+    }
+
+    body.ingreso .ING #texto-archivo {
+        margin-left: 0 !important;
+    }
+
+    body.ingreso .ING .btn-aceptar,
+    body.ingreso .ING button,
+    body.ingreso:has(#emailis) .ING button,
+    body.ingreso:has(#emailis) .ING .btn-aceptar,
+    body.ingreso:has(#emailis) .btn-aceptar {
+        margin-left: 15px !important;
+        margin-right: 15px !important;
+        align-self: flex-start !important;
+        touch-action: manipulation;
+    }
+
+    body.ingreso .ING p#eu,
+    body.ingreso .ING p#ee,
+    body.ingreso .ING p#ec,
+    body.ingreso .ING p#ef,
+    body.ingreso:has(#emailis) .ING p#eei,
+    body.ingreso:has(#emailis) .ING p#eei.visible,
+    body.ingreso:has(#emailis) .ING p#eci,
+    body.ingreso:has(#emailis) .ING p#eci.visible {
+        margin: 4px 15px 12px 15px !important;
+        max-width: calc(100% - 30px) !important;
+        text-align: left !important;
+    }
+
+    /* 6. Evaluación: título arriba y botones abajo, todo centrado */
+    div:has(> .botones-eval-izq),
+    .evaluacion-bloque:has(.botones-eval-izq) {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        gap: 14px !important;
+    }
+
+    div:has(> .botones-eval-izq) > h2,
+    div:has(> .botones-eval-izq) > h3,
+    div:has(> .botones-eval-izq) > p,
+    .evaluacion-bloque:has(.botones-eval-izq) h2,
+    .evaluacion-bloque:has(.botones-eval-izq) h3 {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        word-break: normal !important;
+        overflow-wrap: normal !important;
+        white-space: normal !important;
+        text-align: center !important;
+    }
+
+    .botones-eval-izq {
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 10px !important;
+    }
+
+    .botones-eval-izq button,
+    .botones-eval-izq a {
+        touch-action: manipulation;
+    }
+
+    /* 7. Administración: tablas compactas sin scroll y botón Aceptar al lado del input */
+    .columna-ingresos,
+    .columna-gastos {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
+
+    .columna-ingresos table,
+    .columna-gastos table {
+        display: table !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        table-layout: fixed !important;
+        box-sizing: border-box !important;
+    }
+
+    .columna-ingresos th,
+    .columna-ingresos td,
+    .columna-gastos th,
+    .columna-gastos td {
+        padding: 5px 4px !important;
+        font-size: 11px !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        overflow-wrap: anywhere !important;
+    }
+
+    #TI td:last-child,
+    #TG td:last-child,
+    #TO td:last-child {
+        width: auto !important;
+        padding: 4px 3px !important;
+    }
+
+    #TI td:last-child button,
+    #TG td:last-child button,
+    #TO td:last-child button {
+        display: inline-block !important;
+        width: auto !important;
+        padding: 4px 6px !important;
+        margin: 1px !important;
+        font-size: 10.5px !important;
+        border-radius: 10px !important;
+        touch-action: manipulation;
+    }
+
+    /* Tabla de Objetivos (#TO): que entre completa sin deslizar horizontalmente */
+    .columna-gastos table:has(#TO),
+    table#TO {
+        display: table !important;
+        width: calc(100% - (2 * var(--gutter))) !important;
+        max-width: calc(100% - (2 * var(--gutter))) !important;
+        min-width: 0 !important;
+        margin-left: var(--gutter) !important;
+        margin-right: var(--gutter) !important;
+        overflow-x: hidden !important;
+        table-layout: fixed !important;
+        box-sizing: border-box !important;
+    }
+
+    #TO th,
+    #TO td {
+        padding: 6px 4px !important;
+        font-size: 11px !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        overflow-wrap: anywhere !important;
+    }
+
+    #TO td:last-child {
+        padding: 3px 2px !important;
+        background-color: #076a6f !important;
+        text-align: center !important;
+    }
+
+    #TO td:last-child button {
+        display: inline-block !important;
+        width: auto !important;
+        max-width: 100% !important;
+        height: auto !important;
+        margin: 1px 0 !important;
+        padding: 4px 6px !important;
+        font-size: 10.5px !important;
+        border: none !important;
+        border-radius: 8px !important;
+        background-color: #076a6f !important;
+    }
+
+    #TO .barra-progreso-contenedor {
+        min-width: 0 !important;
+        width: 100% !important;
+    }
+
+    /* Tabla Restante (#TGI) alineada al mismo margen */
+    .columna-gastos table:has(#TGI),
+    table:has(#TGI) {
+        display: table !important;
+        width: calc(100% - (2 * var(--gutter))) !important;
+        max-width: calc(100% - (2 * var(--gutter))) !important;
+        min-width: 0 !important;
+        margin-left: var(--gutter) !important;
+        margin-right: var(--gutter) !important;
+        table-layout: auto !important;
+        box-sizing: border-box !important;
+    }
+
+    .columna-gastos table:has(#TGI) td,
+    table:has(#TGI) td {
+        min-width: 0 !important;
+        width: auto !important;
+        padding: 8px 10px !important;
+        font-size: 14px !important;
+        white-space: normal !important;
+        word-break: normal !important;
+        overflow-wrap: normal !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Label arriba, e input #DA + botón Aceptar al lado en la misma fila */
+    .columna-gastos label:has(+ #DA),
+    label:has(+ #DA) {
+        display: block !important;
+        width: calc(100% - (2 * var(--gutter))) !important;
+        max-width: calc(100% - (2 * var(--gutter))) !important;
+        margin: 12px var(--gutter) 8px var(--gutter) !important;
+        padding: 0 !important;
+        text-align: left !important;
+        box-sizing: border-box !important;
+    }
+
+    .columna-gastos #DA,
+    #DA {
+        display: inline-block !important;
+        width: auto !important;
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        max-width: calc(100% - 115px) !important;
+        margin-left: var(--gutter) !important;
+        margin-right: 8px !important;
+        margin-bottom: 12px !important;
+        vertical-align: middle !important;
+        box-sizing: border-box !important;
+    }
+
+    .columna-gastos #DA + button,
+    #DA + button,
+    #BAcAD {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-left: 0 !important;
+        margin-right: var(--gutter) !important;
+        margin-bottom: 12px !important;
+        vertical-align: middle !important;
+        flex-shrink: 0 !important;
+        touch-action: manipulation;
+    }
+    /* Panel de resumen superior en grilla de 2x2 (dos tarjetas por fila) */
+    .panel-resumen-superior {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+        width: calc(100% - (2 * var(--gutter))) !important;
+        max-width: calc(100% - (2 * var(--gutter))) !important;
+        margin-left: var(--gutter) !important;
+        margin-right: var(--gutter) !important;
+        margin-bottom: 16px !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .panel-resumen-superior .rectangulo-resumen-sup {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 12px 10px !important;
+        box-sizing: border-box !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+    }
+
+    .panel-resumen-superior .rectangulo-resumen-sup span {
+        font-size: 12px !important;
+        line-height: 1.2 !important;
+    }
+
+    .panel-resumen-superior .rectangulo-resumen-sup strong {
+        font-size: 17px !important;
+        line-height: 1.2 !important;
+        margin: 4px 0 !important;
+    }
+
+    .panel-resumen-superior .rectangulo-resumen-sup small {
+        font-size: 10.5px !important;
+        line-height: 1.25 !important;
+    }
+
+    /* 8. Otros controles móviles */
+    body .fila-demo-izq {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 12px !important;
+        width: calc(100% - (2 * var(--gutter))) !important;
+        margin-left: var(--gutter) !important;
+        margin-right: var(--gutter) !important;
+        margin-top: 8px !important;
+        margin-bottom: 16px !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    body .fila-demo-izq h3,
+    body .fila-demo-izq a,
+    body .fila-demo-izq button {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: auto !important;
+        flex-shrink: 0 !important;
+        align-self: center !important;
+    }
+
+    body .fila-demo-izq h3 {
+        display: flex !important;
+        align-items: center !important;
+        line-height: 1.2 !important;
+    }
+
+    body .fila-demo-izq a {
+        display: inline-flex !important;
+        align-items: center !important;
+        text-decoration: none !important;
+    }
+
+    body .fila-demo-izq button {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 12.5px !important;
+        line-height: 1 !important;
+        padding: 6px 14px !important;
+        touch-action: manipulation;
+    }
+
+    /* Botones de exámenes teóricos (Finalizar, Rehacer, Bloque anterior, Siguiente bloque) */
+    body > div:has(#Ter):has(#Rehacer),
+    body > div:has(#Ter):has(#Rehacer) > div {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        gap: 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    body > div:has(#Ter):has(#Rehacer) {
+        justify-content: space-between !important;
+        width: 100% !important;
+        margin-top: 24px !important;
+        padding: 0 16px !important;
+    }
+
+    body > div:has(#Ter):has(#Rehacer) a {
+        display: inline-flex !important;
+        align-items: center !important;
+        text-decoration: none !important;
+        margin: 0 !important;
+    }
+
+    body > div:has(#Ter):has(#Rehacer) button {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 12.5px !important;
+        line-height: 1.1 !important;
+        padding: 7px 12px !important;
+        margin: 0 !important;
+        white-space: nowrap !important;
+        box-sizing: border-box !important;
+        touch-action: manipulation;
+    }
+
+    /* Solo bloque2t: botones más chiquitos para que entren los 4 en una sola fila */
+    body > div:has(#Ter):has(#Rehacer):has(a[href="/bloque1t.html"]):has(a[href="/bloque3t.html"]) {
+        flex-wrap: nowrap !important;
+        gap: 4px !important;
+        padding: 0 10px !important;
+    }
+
+    body > div:has(#Ter):has(#Rehacer):has(a[href="/bloque1t.html"]):has(a[href="/bloque3t.html"]) > div {
+        flex-wrap: nowrap !important;
+        gap: 4px !important;
+    }
+
+    body > div:has(#Ter):has(#Rehacer):has(a[href="/bloque1t.html"]):has(a[href="/bloque3t.html"]) button {
+        font-size: 10.5px !important;
+        padding: 5px 7px !important;
+    }
+
+    /* Botones debajo del carrusel */
+    body .btn-siguiente-bajo-carru {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 10px !important;
+        width: calc(100% - 24px) !important;
+        margin-top: 16px !important;
+        margin-bottom: 8px !important;
+        margin-left: 12px !important;
+        margin-right: 12px !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        touch-action: manipulation;
+    }
+
+    body .btn-siguiente-bajo-carru a {
+        display: inline-flex !important;
+        align-items: center !important;
+        text-decoration: none !important;
+    }
+
+    body .btn-siguiente-bajo-carru a[href="/bloque1p.html"] {
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
+
+    body .btn-siguiente-bajo-carru a[href="/bloque3p.html"] {
+        margin-left: auto !important;
+        margin-right: 0 !important;
+    }
+
+    body:not(:has(.btn-siguiente-bajo-carru a[href="/bloque3p.html"])) .btn-siguiente-bajo-carru a[href="/bloque2p.html"] {
+        margin-left: auto !important;
+        margin-right: 0 !important;
+    }
+
+    body .btn-siguiente-bajo-carru a[href="/bloque2p.html"],
+    body .btn-siguiente-bajo-carru a[href="/bloque2p.html"] button {
+        margin-left: 0 !important;
+        margin-right: auto !important;
+        float: none !important;
+        position: static !important;
+    }
+
+    body .btn-siguiente-bajo-carru button {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 12.5px !important;
+        line-height: 1.1 !important;
+        height: 30px !important;
+        min-width: 118px !important;
+        padding: 7px 14px !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        touch-action: manipulation;
+    }
+
+    /* 9. Tamaño de texto uniforme para TODAS las páginas (menos .BarraNav y .BarraBaj) */
+    body:not(.ingreso) h1:not(.BarraNav *):not(.BarraBaj *) {
+        font-size: 22px !important;
+        line-height: 1.2 !important;
+        margin-top: 0 !important;
+        margin-bottom: 12px !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+        hyphens: none !important;
+        text-wrap: balance;
+    }
+
+    body:not(.ingreso) h2:not(.BarraNav *):not(.BarraBaj *) {
+        font-size: 17px !important;
+        line-height: 1.25 !important;
+        margin-bottom: 10px !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+        hyphens: none !important;
+        text-wrap: balance;
+    }
+
+    body:not(.ingreso) h3:not(.BarraNav *):not(.BarraBaj *) {
+        font-size: 15px !important;
+        line-height: 1.35 !important;
+        margin-bottom: 10px !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+        hyphens: none !important;
+        text-wrap: balance;
+    }
+
+    body:not(.ingreso) p:not(.BarraNav *):not(.BarraBaj *) {
+        font-size: 14px !important;
+        line-height: 1.55 !important;
+        margin-top: 0 !important;
+        margin-bottom: 12px !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+        hyphens: none !important;
+        text-wrap: pretty;
+    }
+
+    /* 10. Alineación pareja del contenido (basico.html y páginas similares).
+       Todo arranca y termina en el mismo margen lateral (--gutter). */
+    body > h1,
+    body > h2,
+    body > h3,
+    body > p,
+    body > hr,
+    body .multi {
+        width: auto !important;
+        margin-left: var(--gutter) !important;
+        margin-right: var(--gutter) !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        text-align: left !important;
+        box-sizing: border-box !important;
+    }
+
+    body .multi label {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        text-align: left !important;
+    }
+
+    /* Separación equilibrada entre <hr> y PRÓXIMAMENTE en bloque1p, bloque2p y bloque3p */
+    body > hr {
+        margin-top: 6px !important;
+        margin-bottom: 10px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    body > hr + br {
+        display: none !important;
+    }
+
+    body > hr + h2,
+    body > hr + br + h2 {
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+        padding-top: 0 !important;
+    }
+
+    /* botón "Avanzado" alineado con el texto (pisa el margin-left: 30px en línea) */
+    body > a[href="/avanzado.html"] {
+        margin-left: var(--gutter) !important;
+    }
+
+    /* el bloque ocupa todo el ancho y su cabecera usa el mismo margen que el texto de arriba */
+    .seccion-carrusel-bubo {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-top: 24px !important;
+        box-sizing: border-box !important;
+    }
+
+    .seccion-carrusel-bubo .cabecera-bloque {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 0 16px 0 !important;
+        padding: 0 var(--gutter) !important;
+        box-sizing: border-box !important;
+    }
+
+    .seccion-carrusel-bubo .cabecera-bloque h2,
+    .seccion-carrusel-bubo .cabecera-bloque p {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        text-align: left !important;
+    }
+
+    /* las tarjetas arrancan alineadas con el texto */
+    .seccion-carrusel-bubo .pista-tarjetas {
+        padding-left: var(--gutter) !important;
+        padding-right: var(--gutter) !important;
+        scroll-padding-left: var(--gutter) !important;
+        box-sizing: border-box !important;
+    }
+
+    /* cuadro "Momento de evaluación" con el mismo margen lateral */
+    .seccion-carrusel-bubo > .evaluacion-tarjeta-estilo {
+        margin-left: var(--gutter) !important;
+        margin-right: var(--gutter) !important;
+        width: calc(100% - (2 * var(--gutter))) !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 11. Página avanzado: títulos y viñetas alineados a la izquierda sin espacio extra */
+    body .fila-avanzado {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        width: 100% !important;
+        padding-left: var(--gutter) !important;
+        padding-right: var(--gutter) !important;
+        box-sizing: border-box !important;
+    }
+
+    body .texto-avanzado {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        gap: 0 !important;
+        row-gap: 0 !important;
+        text-align: left !important;
+        box-sizing: border-box !important;
+    }
+
+    body .texto-avanzado h2 {
+        margin: 0 0 6px 0 !important;
+        padding: 0 !important;
+        text-align: left !important;
+    }
+
+    body .texto-avanzado h3 {
+        margin: 0 0 2px 0 !important;
+        padding: 0 !important;
+        line-height: 1.2 !important;
+        text-align: left !important;
+    }
+
+    body .texto-avanzado p {
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1.05 !important;
+        text-align: left !important;
+    }
 }
+@media (max-width: 768px) {
+  .manual-descarga-box {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
 
-/* TABLETS MÁS ANGOSTAS */
-@media (min-width: 769px) and (max-width: 900px) {
-
-    .menu-central a {
-        width: 115px;
-    }
-
-    .dos-columnas-container {
-        grid-template-columns: 1fr;
-    }
-
-    .columna-imagen {
-        height: 260px;
-    }
-
+  .btn-manual-pdf {
+    margin: 0 auto !important;
+  }
 }
