@@ -4901,3 +4901,377 @@ body.ingreso:has(#emailis) .BarraBaj {
     margin: 0 auto !important;
   }
 }
+
+@media (max-width: 768px) {
+    .caja-explicacion-amarilla.caja-con-video {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 14px !important;
+    }
+
+    .caja-explicacion-amarilla.caja-con-video .info-video-izq {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        flex: none !important;
+    }
+
+    .caja-explicacion-amarilla.caja-con-video .info-video-izq p {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        font-size: 14px !important;
+        line-height: 1.45 !important;
+        white-space: normal !important;
+        word-break: normal !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .caja-explicacion-amarilla.caja-con-video .btn-link-inline {
+        display: inline-block !important;
+        width: fit-content !important;
+        margin-top: 4px !important;
+        font-size: 14px !important;
+    }
+
+    .caja-explicacion-amarilla.caja-con-video .mini-video-der {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 9 !important;
+        margin-left: 0 !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        flex-shrink: 0 !important;
+    }
+
+    .caja-explicacion-amarilla.caja-con-video .mini-video-der iframe {
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
+        border: 0 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Evita que el recorte del pie tape la pestañita que sube por encima del borde superior */
+    .BarraBaj:has(> img) {
+        overflow: visible !important;
+    }
+
+    .BarraBaj .contenedor-pestanita,
+    #contenedor-arriba.contenedor-pestanita {
+        position: fixed !important;
+        bottom: 16px !important;
+        top: auto !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) !important;
+        width: auto !important;
+        height: auto !important;
+        z-index: 9999 !important;
+    }
+
+    #contenedor-arriba.contenedor-pestanita.mostrar,
+    .BarraBaj .contenedor-pestanita.mostrar {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    #contenedor-arriba #btn-volver-arriba,
+    .contenedor-pestanita button {
+        position: static !important;
+        transform: none !important;
+        margin: 0 !important;
+        padding: 8px 20px !important;
+        font-size: 15px !important;
+        line-height: 1 !important;
+        border-radius: 999px !important;
+        background-color: #022b43 !important;
+        color: #ffffff !important;
+        border: 1px solid rgba(255, 255, 255, 0.25) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28) !important;
+        touch-action: manipulation;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Barra superior y perfil en pantallas de tablet */
+    .BarraNav {
+        padding: 10px 18px;
+        gap: 10px;
+    }
+
+    .BarraNav .menu-central {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .BarraNav .menu-central button {
+        font-size: 13px;
+        padding: 7px 12px;
+    }
+
+    .BarraNav .btPe img,
+    #ImgPNav {
+        width: 38px;
+        height: 38px;
+    }
+
+    /* Grilla superior y tablas de administración (basadmin.html) */
+    .panel-resumen-superior {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .fila-ingresos-gastos {
+        gap: 18px;
+        flex-wrap: wrap;
+    }
+
+    .columna-ingresos,
+    .columna-gastos {
+        flex: 1 1 320px;
+        min-width: 0;
+    }
+
+    .fila-ingresos-gastos table,
+    #TO {
+        width: 100%;
+    }
+
+    /* Tarjetas de temas y bloques en basico.html */
+    .cabecera-bloque {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .pista-tarjetas {
+        gap: 16px;
+    }
+
+    .tarjeta-tema-card {
+        min-width: 290px;
+    }
+
+    .evaluacion-tarjeta-estilo {
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    /* Carruseles y texto lateral en avanzado.html y exámenes prácticos */
+    .fila-avanzado {
+        gap: 22px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .fila-avanzado .Carru {
+        flex: 0 0 46%;
+        max-width: 46%;
+    }
+
+    .fila-avanzado .texto-avanzado {
+        flex: 1 1 48%;
+        min-width: 0;
+    }
+
+    /* Grilla de evaluación teórica y práctica (evaluacion.html) */
+    .contenedor-evaluaciones-grid {
+        gap: 18px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .seccion-evaluacion-bloque {
+        padding: 20px;
+        gap: 14px;
+    }
+
+    /* Opciones de múltiple opción en exámenes teóricos */
+    .multi label {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Barra superior y avatar en pantallas de tablet */
+    .BarraNav {
+        padding: 10px 18px;
+        gap: 10px;
+    }
+
+    .BarraNav .menu-central {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .BarraNav .menu-central button {
+        font-size: 13px;
+        padding: 7px 12px;
+    }
+
+    .BarraNav .btPe img,
+    #ImgPNav {
+        width: 38px;
+        height: 38px;
+    }
+
+    /* Portada y secciones principales (index_2.html e inicio_2.html) */
+    .Ingreso .CAJA {
+        width: min(90%, 680px);
+        padding: 28px;
+    }
+
+    .somos,
+    .bubo,
+    .nosotras {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    .contenedor-integrantes {
+        gap: 20px;
+    }
+
+    .tarjeta-nosotras {
+        width: min(46%, 360px);
+    }
+
+    .tabla-custom {
+        width: 92%;
+    }
+
+    /* Formularios de ingreso e inicio de sesión (ingreso.html e iniciosesion.html) */
+    .ING {
+        width: min(88%, 540px);
+        padding: 26px 28px;
+    }
+
+    .ING .input-ingreso,
+    .ING input[type="text"],
+    .ING input[type="email"],
+    .ING input[type="password"] {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Perfil y popups de cuenta (Perfil.html) */
+    .fondoP {
+        padding: 24px 28px;
+        gap: 22px;
+    }
+
+    .tarjeta-perfil,
+    .perfil-seccion-opciones {
+        width: min(100%, 720px);
+    }
+
+    .perfil-cuerpo {
+        gap: 20px;
+    }
+
+    .popup-contenido {
+        width: min(90%, 520px);
+        padding: 24px;
+    }
+
+    /* Grilla superior y tablas de administración (basadmin.html) */
+    .panel-resumen-superior {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .fila-ingresos-gastos {
+        gap: 18px;
+        flex-wrap: wrap;
+    }
+
+    .columna-ingresos,
+    .columna-gastos {
+        flex: 1 1 320px;
+        min-width: 0;
+    }
+
+    .fila-ingresos-gastos table,
+    #TO {
+        width: 100%;
+    }
+
+    /* Tarjetas de temas y bloques en basico.html */
+    .cabecera-bloque {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .pista-tarjetas {
+        gap: 16px;
+    }
+
+    .tarjeta-tema-card {
+        min-width: 290px;
+    }
+
+    .evaluacion-tarjeta-estilo {
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    /* Carruseles y texto lateral en avanzado.html y exámenes prácticos */
+    .fila-avanzado {
+        gap: 22px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .fila-avanzado .Carru {
+        flex: 0 0 46%;
+        max-width: 46%;
+    }
+
+    .fila-avanzado .texto-avanzado {
+        flex: 1 1 48%;
+        min-width: 0;
+    }
+
+    /* Grilla de evaluación teórica y práctica (evaluacion.html y evaluacion_2.html) */
+    .contenedor-evaluaciones-grid {
+        gap: 18px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .seccion-evaluacion-bloque {
+        padding: 20px;
+        gap: 14px;
+    }
+
+    /* Opciones de múltiple opción en exámenes teóricos */
+    .multi label {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    /* Recomendaciones y tarjetas de organismos (reco.html) */
+    .dos-columnas-container {
+        gap: 20px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .contenedor-recomendaciones {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    /* Contenedor de noticias (noticias.html) */
+    .contenedor-noticias {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
